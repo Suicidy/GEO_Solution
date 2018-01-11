@@ -6,6 +6,51 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
 	<link href="css/self_booking.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Kanit:400,500,600,700,800,900" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		$( "#demo" ).html( "<b>Single:</b> ทุกวัน" );
+		$("#button1").click(function(){
+	    	var singleValues = $( "#exampleFormControlSelect1" ).val();
+	  		$( "#demo" ).html( "<b>Single:</b> " + singleValues );
+		  	var obj = {};
+		  	obj['day'] = singleValues;
+		  	$.ajax({
+				url: 'showCourse.php',
+				type: 'post',
+				data: obj,
+				dataType: 'json',
+				success: function(response){
+					$("#world").html(response.data1);
+				}
+			});
+
+/*		  	$.post("demo_test_post.asp",
+	        {
+	          name: "Donald Duck",
+	          city: "Duckburg"
+	        },
+	        function(data,status){
+	            alert("Data: " + data + "\nStatus: " + status);
+	        });
+
+		    $.post("showCourse.php", singleValues, function(data, status){
+	    		console.log("Data: " + data + "\nStatus: " + status);
+			});*/
+			$( "#demo" ).html( "<b>Single:</b>555 ");
+	    });
+	});
+
+
+
+	function submitDay() {
+	  
+
+	  // When using jQuery 3:
+	  // var multipleValues = $( "#multiple" ).val();
+
+	}
+	</script>
 </head>
 <body>
 	
@@ -28,16 +73,19 @@
 				<div class="tab-content" id="nav-tabContent">
 				  <div class="tab-pane fade show active" id="nav-MTH_102" role="tabpanel" aria-labelledby="nav-MTH_102-tab">
 				  	<div class="form-group">
-					    <select class="form-control col-2" style="float:left;" id="exampleFormControlSelect1">
-					      <option>เลือกวัน</option>
-					      <option>วันจันทร์</option>
-					      <option>วันอังคาร</option>
-					      <option>วันพุธ</option>
-					      <option>วันพฤหัสบดี</option>
-					      <option>วันศุกร์</option>
-					    </select>
-					    <button type="submit" class="btn btn-success">ยืนยัน</button>
-					</div>
+				  			<select class="form-control col-2" style="float:left;" id="exampleFormControlSelect1">
+						      <option>เลือกวัน</option>
+						      <option>วันจันทร์</option>
+						      <option>วันอังคาร</option>
+						      <option>วันพุธ</option>
+						      <option>วันพฤหัสบดี</option>
+						      <option>วันศุกร์</option>
+						    </select>
+						    <button type="submit" class="btn btn-success" id="button1">ยืนยัน</button>
+				  		<p id="demo">
+				  			
+				  		</p>
+				  	</div>
 					<div class="col-12">
 						<h4>วันจันทร์</h4>
 						<hr>
