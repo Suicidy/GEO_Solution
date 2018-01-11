@@ -96,7 +96,7 @@
 						      <th scope="row"></th>
 						      <td style="width: 25%">
 						      	<div class="square">
-									<img src="./images/team-member-2.jpg">
+									<img src="./team-member-2.jpg">
 									<p class="nickname">พี่.....</p>
 									<p>ใส่ดาวววววววววว</p>
 								</div>
@@ -234,7 +234,7 @@
 						      <th scope="row"></th>
 						      <td style="width: 25%">
 						      	<div class="square">
-									<img src="./images/team-member-1.jpg">
+									<img src="./team-member-1.jpg">
 									<p class="nickname">พี่.....</p>
 									<p>ใส่ดาวววววววววว</p>
 								</div>
@@ -400,7 +400,7 @@
 						    	<th scope="row"></th>
 						      <td style="width: 25%">
 						      	<div class="square">
-									<img src="./images/team-member-4.jpg">
+									<img src="./team-member-4.jpg">
 									<p class="nickname">พี่.....</p>
 									<p>ใส่ดาวววววววววว</p>
 								</div>
