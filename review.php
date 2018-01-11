@@ -34,6 +34,7 @@
 				      <th scope="col"></th>
 				      <th scope="col">Course</th>
 				      <th scope="col">TA</th>
+				      <th scope="col"></th>
 				      <th scope="col">สถานะ</th>
 				    </tr>
 				  </thead>
@@ -45,17 +46,13 @@
 				      	<p>17/1/18</p>
 				  	  </td>
 				      <td>
-				      	<div class="row">
-					      	<div class="col-3">
-								<div class="square">
-									<img src="./images/team-member-2.jpg">
-									<p class="nickname">พี่lalala</p>
-								</div>
-							</div>
-							<div class="col-sm">
-								<p>ชื่อ ieiieieieieieieie</p>
-							</div>
+						<div class="square">
+							<img src="./images/team-member-2.jpg">
+							<p class="nickname">พี่lalala</p>
 						</div>
+				      </td>
+				      <td>
+						<p>ชื่อ ieiieieieieieieie</p>
 				      </td>
 				      <td>
 						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -115,21 +112,18 @@
 				      	<p>Block Diagram2222</p>
 				      	<p>11/1/18</p>
 				  	  </td>
-				      <td>
-				      	<div class="row">
-					      	<div class="col-3">
-								<div class="square">
-									<img src="./images/team-member-2.jpg">
-									<p class="nickname">พี่lala</p>
-								</div>
-							</div>
-							<div class="col-sm">
-								<p>ชื่อ eieieieieieieieiieei</p>
-							</div>
+				      <td>				      	
+						<div class="square">
+							<img src="./images/team-member-2.jpg">
+							<p class="nickname">พี่lala</p>
 						</div>
 				      </td>
 				      <td>
-				      	<button type="button" class="btn btn-secondary">Review</button>					 			      </td>
+						<p>ชื่อ ieiieieieieieieie</p>
+				      </td>
+				      <td>
+				      	<button type="button" class="btn btn-secondary">Review</button>
+				      </td>					 			   
 				    </tr>
 				    <tr>
 				      <th scope="row">3</th>
