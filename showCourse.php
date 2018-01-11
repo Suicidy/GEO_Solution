@@ -22,28 +22,28 @@
             if($_POST['day']==$setdayTH[$l])$input=$setday[$l];
         }
         if($input==date("l")){
-            echo 'It is the same day';
+            //echo 'It is the same day';
         }
         for($k=0 ; $k<7;$k++){
             if($input==$setday[$k]) $i=$k;
             if($thisDay==$setday[$k]) $j=$k;
         }
-        echo "i = ".$i." j = ".$j."<br>";
+        //echo "i = ".$i." j = ".$j."<br>";
         
         $diffday = $i-$j;
         // echo "diffdate = ".$diffday."<br>";
         $nday=7;
        
         if($diffday>0) {
-            echo "diffday > 0 <br>";
+            //echo "diffday > 0 <br>";
              $searchDate = $diffday;
             }
         elseif($diffday==0){ 
-            echo "diffday = 0 <br>";
+            //echo "diffday = 0 <br>";
             $searchDate = $nday;
         }
         else{ 
-            echo "diffday < 0 <br>";
+            //echo "diffday < 0 <br>";
             $searchDate = $nday+$diffday;
         }
         // echo "The time is " . date("h:i:sa <br>");
@@ -60,8 +60,8 @@
         $nowDate= date("Y-m-d");
         //$sumdate = date("Y-m-d", strtotime("+1 day"$nowDate ));
         $date = date("Y-m-d" , strtotime("+$searchDate days" , strtotime($nowDate)));
-        echo $nowDate."<br>";
-        echo $date."<br>" ;
+        //echo $nowDate."<br>";
+        //echo $date."<br>" ;
         
         $con = new mysqli("localhost", "root", "", "geo_db");
         if ($con->connect_errno) {
@@ -74,7 +74,8 @@
         {   
             $outp[] = $rs;
         }
-        echo json_encode($outp,JSON_UNESCAPED_UNICODE);
+       // $outp = $outp[0]
+        echo json_encode($outp);
         mysqli_close($con);
        
         
