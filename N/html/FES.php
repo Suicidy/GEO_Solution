@@ -4,7 +4,8 @@ define("username", "root");
 define("password", "");
 
 $subject = $_POST["subject"];
-$ta_name = $_POST["name"];
+$teacher_id = $_POST["id"];
+$array_result = array();
 
 function query($sql_statement){
     $conn = mysqli_connect(servername, username, password);
@@ -19,16 +20,20 @@ function query($sql_statement){
 
 // Create connection
 
-
-$now = date("Y-m-d H:i:s");
-
 $sql = "SELECT  student.student_id, student.title, student.firstname, student.lastname 
-FROM student, course, assign_course 
+FROM student, course, assign_course, teacher 
 WHERE student.student_id = assign_course.student_id 
 AND assign_course.course_id = course.course_id 
 AND assign_course.attending_status = 0 
-AND now() BETWEEN course.start_time AND DATE_ADD(course.end_time, INTERVAL 1 HOUR);";
+AND now() BETWEEN DATE_ADD(course.start_time , INTERVAL 1 HOUR) AND DATE_ADD(course.end_time, INTERVAL 1 HOUR)
+AND" . $teacher_id . "= teacher.teacher_id" .
+"AND `" . $subject . "%`" ."LIKE course.subject;";
 
-$result = query($sql);
+$results = query($sql);
 
+while($result = mysqli_fetch_assoc($results)) {
+    $array_result[] = $result;
+}
+
+mysqli_free_result($resuls);
 ?>
