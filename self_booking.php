@@ -12,7 +12,7 @@
 	<nav class="navbar navbar-light bg-light">
 	  <a class="navbar-brand" href="#">Navbar</a>
 	</nav>
-	<div class="container font-family: 'Kanit' ">
+	<div class="container">
 		<div class="row">
 			<div class="col">
 				<h2>GEO Solution</h2>
