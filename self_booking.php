@@ -3,28 +3,38 @@
 <head>
 	<meta charset="UTF-8">
 	<title>GEO Solution</title>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
-	<link href="css/self_booking.css" rel="stylesheet">
+	<link href="self_booking.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Kanit:400,500,600,700,800,900" rel="stylesheet">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="js/jquery-3.2.1.js"></script>
+
 	<script>
+(function($){
 	$(document).ready(function(){
 		$( "#demo" ).html( "<b>Single:</b> ทุกวัน" );
 		$("#button1").click(function(){
 	    	var singleValues = $( "#exampleFormControlSelect1" ).val();
-	  		$( "#demo" ).html( "<b>Single:</b> " + singleValues );
+	  		$( "#demo" ).html( "<b>Single:aa</b> " + singleValues );
+	  		//$( "#demo2" ).html( 'aa' );
 		  	var obj = {};
 		  	obj['day'] = singleValues;
+
 		  	$.ajax({
 				url: 'showCourse.php',
 				type: 'post',
 				data: obj,
 				dataType: 'json',
-				success: function(response){
-					$("#world").html(response.data1);
+				success: function(data){
+					var response = data[0];
+					//$("#demo").html(status);
+					$("#demo2").html(response.course_id + '<br>' + '<b>Fsss<b>');
 				}
 			});
 
+			//$( "#demo" ).html( "<b>Single:</b> " + singleValues );
 /*		  	$.post("demo_test_post.asp",
 	        {
 	          name: "Donald Duck",
@@ -37,23 +47,15 @@
 		    $.post("showCourse.php", singleValues, function(data, status){
 	    		console.log("Data: " + data + "\nStatus: " + status);
 			});*/
-			$( "#demo" ).html( "<b>Single:</b>555 ");
 	    });
 	});
 
+})(jQuery);
 
-
-	function submitDay() {
-	  
-
-	  // When using jQuery 3:
-	  // var multipleValues = $( "#multiple" ).val();
-
-	}
 	</script>
 </head>
 <body>
-	
+
 	<nav class="navbar navbar-light bg-light">
 	  <a class="navbar-brand" href="#">Navbar</a>
 	</nav>
@@ -82,9 +84,8 @@
 						      <option>วันศุกร์</option>
 						    </select>
 						    <button type="submit" class="btn btn-success" id="button1">ยืนยัน</button>
-				  		<p id="demo">
-				  			
-				  		</p>
+				  		<p id="demo"></p>
+				  		<p id="demo2">aaaaaaaaaaaaaaaaa</p>
 				  	</div>
 					<div class="col-12">
 						<h4>วันจันทร์</h4>
@@ -420,8 +421,6 @@
 		</div>
 	</div>
 
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+
 </body>
 </html>
