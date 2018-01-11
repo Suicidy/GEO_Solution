@@ -1,0 +1,55 @@
+body {
+	font-family: 'Kanit', sans-serif;
+}
+
+.nav-tabs .nav-link {
+	color: gray;
+}
+
+.nav-tabs .nav-link .active {
+	background-color: #ff7454;
+	color: white;
+}
+
+.form-control {
+	margin: 10px;
+}
+
+.btn-success {
+	margin-top: 10px;
+}
+
+hr {
+	background-color: #ff7454;
+	height: 2px;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.square {
+    height: 150px;
+    width: 150px;
+    margin-left: 30px;
+    margin-bottom: 150px;
+}
+
+.nickname {
+	text-align: center;
+}
+
+.bookingtime button {
+	width: 105px;
+}
+
+.modal-body .col-12 {
+	border: solid 1px;
+	border-color: #ff7454;
+	border-radius: 5px;
+	padding: 15px;
+}
+
+
+
