@@ -3,7 +3,7 @@ if(isset($_POST['submit_username']) && $_POST['username'])
 {
   $username = $_POST['username'];
   $conn = mysqli_connect('localhost','root','','geo_db');
-  $select=mysqli_query($conn,"select student_id,email,password from student ");
+  $select=mysqli_query($conn,"select student_id,email,password from student where student_id = '$username'");
   if(mysqli_num_rows($select)>=1)
   {
     echo "START<br>";
