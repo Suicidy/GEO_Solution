@@ -91,6 +91,7 @@
 						<h4>วันจันทร์</h4>
 						<hr>
 						<div class="row">
+							<div class="col-1"></div>
 							<div class="col-3">
 								<div class="square">
 									<img src="./images/team-member-1.jpg">
@@ -233,6 +234,7 @@
 							</div>
 						</div>
 						<div class="row">
+							<div class="col-1"></div>
 							<div class="col-3">
 								<div class="square">
 									<img src="./images/team-member-2.jpg">
