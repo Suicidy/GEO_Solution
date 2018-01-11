@@ -90,28 +90,29 @@
 					<div class="col-12">
 						<h4>วันจันทร์</h4>
 						<hr>
-						<div class="row">
-							<div class="col-1"></div>
-							<div class="col-3">
-								<div class="square">
-									<img src="./images/team-member-1.jpg">
+						<table class="table borderless">
+						  <tbody>
+						    <tr>
+						      <th scope="row"></th>
+						      <td style="width: 25%">
+						      	<div class="square">
+									<img src="./team-member-2.jpg">
 									<p class="nickname">พี่.....</p>
 									<p>ใส่ดาวววววววววว</p>
 								</div>
-							</div>
-							<div class="col-sm">
-								<p>ชื่อ xxxxxxxxxxxxxxxxxxxxx</p>
+						      </td>
+						      <td colspan="2">
+						      	<p>ชื่อ xxxxxxxxxxxxxxxxxxxxx</p>
 								<p>เรื่องที่สอน</p>
-								<div class="row subject">
-									<div class="col-4">
-										<p>diff</p>
-									</div>
-									<div class="col-2 bookingtime">
-									<!-- Button trigger modal -->
-										<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+								<table class="table borderless">
+								  <tbody>
+								    <tr>
+								      <td style="width: 35%">Block Diagram</td>
+								      <td style="width: 15%">ห้อง CB2204</td>
+								      <td style="width: 18%" class="bookingtime">
+								      	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
 										  9.30-11.30
 										</button>
-										<!-- Modal -->
 										<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 										  <div class="modal-dialog" role="document">
 										    <div class="modal-content">
@@ -130,22 +131,16 @@
 										    </div>
 										  </div>
 										</div>
-									</div>
-									<div class="col-4">
-										<p>จำนวนที่นั่งคงเหลือ 10 ที่นั่ง</p>
-									</div>
-								</div>
-								<div class="row subject">
-									<div class="col-4">
-										<p>BLA BLA BLA</p>
-									</div>
-									<div class="col-2 bookingtime">
-									<!-- Button trigger modal -->
-										<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+								      </td>
+								      <td>จำนวนที่นั่งคงเหลือ 10 ที่นั่ง</td>
+								    </tr>
+								    <tr>
+								      <td>Block Diagram22222222222</td>
+								      <td>ห้อง CB1406</td>
+								      <td class="bookingtime">
+								      	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
 										  14.30-16.30
 										</button>
-
-										<!-- Modal -->
 										<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 										  <div class="modal-dialog" role="document">
 										    <div class="modal-content">
@@ -164,97 +159,98 @@
 										    </div>
 										  </div>
 										</div>
-									</div>
-									<div class="col-4">
-										<p>จำนวนที่นั่งคงเหลือ 2 ที่นั่ง</p>
-									</div>
-								</div>
-								<!-- Button trigger modal -->
-								<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModalLong">
-								  review
-								</button>
-								<!-- Modal -->
-								<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-								  <div class="modal-dialog" role="document">
-								    <div class="modal-content">
-								      <div class="modal-header">
-								        <h5 class="modal-title" id="exampleModalLongTitle">Review</h5>
-								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								          <span aria-hidden="true">&times;</span>
-								        </button>
-								      </div>
-								      <div class="modal-body">
-								      	<div class="col-12" style="word-wrap: break-word;">
-								        	<p>Goooooooooooooooooodอิอิอิ</p>
-								        </div>
-								        <div class="row">
-											<div class="col-3">
-								        		<p>คะแนนพี่TA</p>
-								        	</div>
-								        	<div class="col-5">
-								        		<p> ใส่ดาวววววววววววววว </p>
-								        	</div>
-								        	<div class="col-4">
-								        		<p>17/01/2018 16.45 น.</p>
-								        	</div>	
-								        </div>
-								        <div class="col-12" style="word-wrap: break-word;">
-								        	<p>GoooooooooooooooooodอิอิอิksdjjvisojsovkGoooooooooooooooooodGoooooooooooooooooodGoooooooooooooooooodGooooooooooooooooood</p>
-								        </div>
-								        <div class="row">
-											<div class="col-3">
-								        		<p>คะแนนพี่TA</p>
-								        	</div>
-								        	<div class="col-5">
-								        		<p> ใส่ดาวววววววววววววว </p>
-								        	</div>
-								        	<div class="col-4">
-								        		<p>17/01/2018 16.45 น.</p>
-								        	</div>	
-								        </div>				        									    	
-								      </div>
-								      <div class="modal-footer">
-								        <nav aria-label="Page navigation example">
-										  <ul class="pagination justify-content-center">
-										    <li class="page-item disabled">
-										      <a class="page-link" href="#" tabindex="-1">Previous</a>
-										    </li>
-										    <li class="page-item"><a class="page-link" href="#">1</a></li>
-										    <li class="page-item"><a class="page-link" href="#">2</a></li>
-										    <li class="page-item"><a class="page-link" href="#">3</a></li>
-										    <li class="page-item">
-										      <a class="page-link" href="#">Next</a>
-										    </li>
-										  </ul>
-										</nav>
-								      </div>
-								    </div>
-								  </div>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-1"></div>
-							<div class="col-3">
-								<div class="square">
-									<img src="./images/team-member-2.jpg">
+								      </td>
+								      <td>จำนวนที่นั่งคงเหลือ 2 ที่นั่ง</td>
+								    </tr>
+								    <tr>
+								      <td>
+								      	<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModalLong">
+										  review
+										</button>
+										<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+										  <div class="modal-dialog" role="document">
+										    <div class="modal-content">
+										      <div class="modal-header">
+										        <h5 class="modal-title" id="exampleModalLongTitle">Review</h5>
+										        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										          <span aria-hidden="true">&times;</span>
+										        </button>
+										      </div>
+										      <div class="modal-body">
+										      	<div class="col-12" style="word-wrap: break-word;">
+										        	<p>Goooooooooooooooooodอิอิอิ</p>
+										        </div>
+										        <div class="row">
+													<div class="col-3">
+										        		<p>คะแนนพี่TA</p>
+										        	</div>
+										        	<div class="col-5">
+										        		<p> ใส่ดาวววววววววววววว </p>
+										        	</div>
+										        	<div class="col-4">
+										        		<p>17/01/2018 16.45 น.</p>
+										        	</div>	
+										        </div>
+										        <div class="col-12" style="word-wrap: break-word;">
+										        	<p>GoooooooooooooooooodอิอิอิksdjjvisojsovkGoooooooooooooooooodGoooooooooooooooooodGoooooooooooooooooodGooooooooooooooooood</p>
+										        </div>
+										        <div class="row">
+													<div class="col-3">
+										        		<p>คะแนนพี่TA</p>
+										        	</div>
+										        	<div class="col-5">
+										        		<p> ใส่ดาวววววววววววววว </p>
+										        	</div>
+										        	<div class="col-4">
+										        		<p>17/01/2018 16.45 น.</p>
+										        	</div>	
+										        </div>				        									    	
+										      </div>
+										      <div class="modal-footer">
+										        <nav aria-label="Page navigation example">
+												  <ul class="pagination justify-content-center">
+												    <li class="page-item disabled">
+												      <a class="page-link" href="#" tabindex="-1">Previous</a>
+												    </li>
+												    <li class="page-item"><a class="page-link" href="#">1</a></li>
+												    <li class="page-item"><a class="page-link" href="#">2</a></li>
+												    <li class="page-item"><a class="page-link" href="#">3</a></li>
+												    <li class="page-item">
+												      <a class="page-link" href="#">Next</a>
+												    </li>
+												  </ul>
+												</nav>
+										      </div>
+										    </div>
+										  </div>
+										</div>
+								      </td>
+								    </tr>
+								  </tbody>
+								</table>
+						      </td>
+						    </tr>
+						    <tr>
+						      <th scope="row"></th>
+						      <td style="width: 25%">
+						      	<div class="square">
+									<img src="./team-member-1.jpg">
 									<p class="nickname">พี่.....</p>
 									<p>ใส่ดาวววววววววว</p>
 								</div>
-							</div>
-							<div class="col-sm">
-								<p>ชื่อ xxxxxxxxxxxxxxxxxxxxx</p>
+						      </td>
+						      <td colspan="2">
+						      	<p>ชื่อ xxxxxxxxxxxxxxxxxxxxx</p>
 								<p>เรื่องที่สอน</p>
-								<div class="row subject">
-									<div class="col-4">
-										<p>diff</p>
-									</div>
-									<div class="col-2 bookingtime">
-									<!-- Button trigger modal -->
-										<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+								<table class="table borderless">
+								  <tbody>
+								    <tr>
+								      <td style="width: 35%">Block Diagram</td>
+								      <td style="width: 15%">ห้อง CB2204</td>
+								      <td style="width: 18%" class="bookingtime">
+								      	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
 										  9.30-11.30
 										</button>
-										<!-- Modal -->
 										<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 										  <div class="modal-dialog" role="document">
 										    <div class="modal-content">
@@ -265,7 +261,7 @@
 										        </button>
 										      </div>
 										      <div class="modal-body">
-										        จำนวนที่นั่งคงเหลือ 7 ที่นั่ง
+										        จำนวนที่นั่งคงเหลือ 10 ที่นั่ง
 										      </div>
 										      <div class="modal-footer">
 										        <button type="button" class="btn btn-success">ยืนยัน</button>
@@ -273,22 +269,16 @@
 										    </div>
 										  </div>
 										</div>
-									</div>
-									<div class="col-4">
-										<p>จำนวนที่นั่งคงเหลือ 7 ที่นั่ง</p>
-									</div>
-								</div>
-								<div class="row subject">
-									<div class="col-4">
-										<p>BLA BLA BLA</p>
-									</div>
-									<div class="col-2 bookingtime">
-									<!-- Button trigger modal -->
-										<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-										  9.30-16.30
+								      </td>
+								      <td>จำนวนที่นั่งคงเหลือ 10 ที่นั่ง</td>
+								    </tr>
+								    <tr>
+								      <td>Block Diagram22222222222</td>
+								      <td>ห้อง CB1406</td>
+								      <td class="bookingtime">
+								      	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+										  14.30-16.30
 										</button>
-
-										<!-- Modal -->
 										<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 										  <div class="modal-dialog" role="document">
 										    <div class="modal-content">
@@ -307,22 +297,16 @@
 										    </div>
 										  </div>
 										</div>
-									</div>
-									<div class="col-4">
-										<p>จำนวนที่นั่งคงเหลือ 2 ที่นั่ง</p>
-									</div>
-								</div>
-								<div class="row subject">
-									<div class="col-4">
-										<p>BLA BLA BLA</p>
-									</div>
-									<div class="col-2 bookingtime">
-									<!-- Button trigger modal -->
-										<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-										  9.30-16.30
+								      </td>
+								      <td>จำนวนที่นั่งคงเหลือ 2 ที่นั่ง</td>
+								    </tr>
+								    <tr>
+								      <td>Block Diagram22222222222</td>
+								      <td>ห้อง CB1406</td>
+								      <td class="bookingtime">
+								      	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+										  14.30-16.30
 										</button>
-
-										<!-- Modal -->
 										<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 										  <div class="modal-dialog" role="document">
 										    <div class="modal-content">
@@ -333,7 +317,7 @@
 										        </button>
 										      </div>
 										      <div class="modal-body">
-										        จำนวนที่นั่งคงเหลือ 5 ที่นั่ง
+										        จำนวนที่นั่งคงเหลือ 2 ที่นั่ง
 										      </div>
 										      <div class="modal-footer">
 										        <button type="button" class="btn btn-success">ยืนยัน</button>
@@ -341,76 +325,189 @@
 										    </div>
 										  </div>
 										</div>
-									</div>
-									<div class="col-4">
-										<p>จำนวนที่นั่งคงเหลือ 5 ที่นั่ง</p>
-									</div>
+								      </td>
+								      <td>จำนวนที่นั่งคงเหลือ 2 ที่นั่ง</td>
+								    </tr>
+								    <tr>
+								      <td>
+								      	<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModalLong">
+										  review
+										</button>
+										<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+										  <div class="modal-dialog" role="document">
+										    <div class="modal-content">
+										      <div class="modal-header">
+										        <h5 class="modal-title" id="exampleModalLongTitle">Review</h5>
+										        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										          <span aria-hidden="true">&times;</span>
+										        </button>
+										      </div>
+										      <div class="modal-body">
+										      	<div class="col-12" style="word-wrap: break-word;">
+										        	<p>Goooooooooooooooooodอิอิอิ</p>
+										        </div>
+										        <div class="row">
+													<div class="col-3">
+										        		<p>คะแนนพี่TA</p>
+										        	</div>
+										        	<div class="col-5">
+										        		<p> ใส่ดาวววววววววววววว </p>
+										        	</div>
+										        	<div class="col-4">
+										        		<p>17/01/2018 16.45 น.</p>
+										        	</div>	
+										        </div>
+										        <div class="col-12" style="word-wrap: break-word;">
+										        	<p>GoooooooooooooooooodอิอิอิksdjjvisojsovkGoooooooooooooooooodGoooooooooooooooooodGoooooooooooooooooodGooooooooooooooooood</p>
+										        </div>
+										        <div class="row">
+													<div class="col-3">
+										        		<p>คะแนนพี่TA</p>
+										        	</div>
+										        	<div class="col-5">
+										        		<p> ใส่ดาวววววววววววววว </p>
+										        	</div>
+										        	<div class="col-4">
+										        		<p>17/01/2018 16.45 น.</p>
+										        	</div>	
+										        </div>				        									    	
+										      </div>
+										      <div class="modal-footer">
+										        <nav aria-label="Page navigation example">
+												  <ul class="pagination justify-content-center">
+												    <li class="page-item disabled">
+												      <a class="page-link" href="#" tabindex="-1">Previous</a>
+												    </li>
+												    <li class="page-item"><a class="page-link" href="#">1</a></li>
+												    <li class="page-item"><a class="page-link" href="#">2</a></li>
+												    <li class="page-item"><a class="page-link" href="#">3</a></li>
+												    <li class="page-item">
+												      <a class="page-link" href="#">Next</a>
+												    </li>
+												  </ul>
+												</nav>
+										      </div>
+										    </div>
+										  </div>
+										</div>
+								      </td>
+								    </tr>
+								  </tbody>
+								</table>
+						      </td>
+						    </tr>
+						    <tr>
+						    	<th scope="row"></th>
+						      <td style="width: 25%">
+						      	<div class="square">
+									<img src="./team-member-4.jpg">
+									<p class="nickname">พี่.....</p>
+									<p>ใส่ดาวววววววววว</p>
 								</div>
-
-								<!-- Button trigger modal -->
-								<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModalLong">
-								  review
-								</button>
-								<!-- Modal -->
-								<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-								  <div class="modal-dialog" role="document">
-								    <div class="modal-content">
-								      <div class="modal-header">
-								        <h5 class="modal-title" id="exampleModalLongTitle">Review</h5>
-								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								          <span aria-hidden="true">&times;</span>
-								        </button>
-								      </div>
-								      <div class="modal-body">
-								      	<div class="col-12" style="word-wrap: break-word;">
-								        	<p>Goooooooooooooooooodอิอิอิ</p>
-								        </div>
-								        <div class="row">
-											<div class="col-3">
-								        		<p>คะแนนพี่TA</p>
-								        	</div>
-								        	<div class="col-5">
-								        		<p> ใส่ดาวววววววววววววว </p>
-								        	</div>
-								        	<div class="col-4">
-								        		<p>17/01/2018 16.45 น.</p>
-								        	</div>	
-								        </div>
-								        <div class="col-12" style="word-wrap: break-word;">
-								        	<p>GoooooooooooooooooodอิอิอิksdjjvisojsovkGoooooooooooooooooodGoooooooooooooooooodGoooooooooooooooooodGooooooooooooooooood</p>
-								        </div>
-								        <div class="row">
-											<div class="col-3">
-								        		<p>คะแนนพี่TA</p>
-								        	</div>
-								        	<div class="col-5">
-								        		<p> ใส่ดาวววววววววววววว </p>
-								        	</div>
-								        	<div class="col-4">
-								        		<p>17/01/2018 16.45 น.</p>
-								        	</div>	
-								        </div>				        									    	
-								      </div>
-								      <div class="modal-footer">
-								        <nav aria-label="Page navigation example">
-										  <ul class="pagination justify-content-center">
-										    <li class="page-item disabled">
-										      <a class="page-link" href="#" tabindex="-1">Previous</a>
-										    </li>
-										    <li class="page-item"><a class="page-link" href="#">1</a></li>
-										    <li class="page-item"><a class="page-link" href="#">2</a></li>
-										    <li class="page-item"><a class="page-link" href="#">3</a></li>
-										    <li class="page-item">
-										      <a class="page-link" href="#">Next</a>
-										    </li>
-										  </ul>
-										</nav>
-								      </div>
-								    </div>
-								  </div>
-								</div>
-							</div>
-						</div>
+						      </td>
+						      <td colspan="2">
+						      	<p>ชื่อ xxxxxxxxxxxxxxxxxxxxx</p>
+								<p>เรื่องที่สอน</p>
+								<table class="table borderless">
+								  <tbody>
+								    <tr>
+								      <td style="width: 35%">Block Diagram</td>
+								      <td style="width: 15%">ห้อง CB2204</td>
+								      <td style="width: 18%" class="bookingtime">
+								      	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+										  9.30-11.30
+										</button>
+										<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+										  <div class="modal-dialog" role="document">
+										    <div class="modal-content">
+										      <div class="modal-header">
+										        <h5 class="modal-title" id="exampleModalLabel">ยืนยันการจอง</h5>
+										        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										          <span aria-hidden="true">&times;</span>
+										        </button>
+										      </div>
+										      <div class="modal-body">
+										        จำนวนที่นั่งคงเหลือ 10 ที่นั่ง
+										      </div>
+										      <div class="modal-footer">
+										        <button type="button" class="btn btn-success">ยืนยัน</button>
+										      </div>
+										    </div>
+										  </div>
+										</div>
+								      </td>
+								      <td>จำนวนที่นั่งคงเหลือ 10 ที่นั่ง</td>
+								    </tr>
+								    <tr>
+								      <td>
+								      	<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModalLong">
+										  review
+										</button>
+										<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+										  <div class="modal-dialog" role="document">
+										    <div class="modal-content">
+										      <div class="modal-header">
+										        <h5 class="modal-title" id="exampleModalLongTitle">Review</h5>
+										        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										          <span aria-hidden="true">&times;</span>
+										        </button>
+										      </div>
+										      <div class="modal-body">
+										      	<div class="col-12" style="word-wrap: break-word;">
+										        	<p>Goooooooooooooooooodอิอิอิ</p>
+										        </div>
+										        <div class="row">
+													<div class="col-3">
+										        		<p>คะแนนพี่TA</p>
+										        	</div>
+										        	<div class="col-5">
+										        		<p> ใส่ดาวววววววววววววว </p>
+										        	</div>
+										        	<div class="col-4">
+										        		<p>17/01/2018 16.45 น.</p>
+										        	</div>	
+										        </div>
+										        <div class="col-12" style="word-wrap: break-word;">
+										        	<p>GoooooooooooooooooodอิอิอิksdjjvisojsovkGoooooooooooooooooodGoooooooooooooooooodGoooooooooooooooooodGooooooooooooooooood</p>
+										        </div>
+										        <div class="row">
+													<div class="col-3">
+										        		<p>คะแนนพี่TA</p>
+										        	</div>
+										        	<div class="col-5">
+										        		<p> ใส่ดาวววววววววววววว </p>
+										        	</div>
+										        	<div class="col-4">
+										        		<p>17/01/2018 16.45 น.</p>
+										        	</div>	
+										        </div>				        									    	
+										      </div>
+										      <div class="modal-footer">
+										        <nav aria-label="Page navigation example">
+												  <ul class="pagination justify-content-center">
+												    <li class="page-item disabled">
+												      <a class="page-link" href="#" tabindex="-1">Previous</a>
+												    </li>
+												    <li class="page-item"><a class="page-link" href="#">1</a></li>
+												    <li class="page-item"><a class="page-link" href="#">2</a></li>
+												    <li class="page-item"><a class="page-link" href="#">3</a></li>
+												    <li class="page-item">
+												      <a class="page-link" href="#">Next</a>
+												    </li>
+												  </ul>
+												</nav>
+										      </div>
+										    </div>
+										  </div>
+										</div>
+								      </td>
+								    </tr>
+								  </tbody>
+								</table>
+						      </td>
+						    </tr>
+						  </tbody>
+						</table>
 					</div>
 
 				  </div>
