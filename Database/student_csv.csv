@@ -1,0 +1,5 @@
+﻿student_id,name_title,first_name,last_name,faculty,department_id,tel,facebook,line,password,email,login_count,type
+58070501090,นาย,ธนาธิป,สุเนตร,วิศวกรรมศาสตร์,วิศวกรรมคอมพิวเตอร์,0909796893,Yorsh Thanathip,yorsh44,,thanathip.sunate@gmail.com,,student
+58070501045,นาย,พิชญุตม์,ศิริพิศ,วิศวกรรมศาสตร์,วิศวกรรมคอมพิวเตอร์,0860644292,Phichayut Siripis,pangyasff,,pangyassf@gmail.com,,student
+-,-,TA,GEO,-,-,-,-,-,,pangyafff@gmail.com,,teacher
+58074001023,นางสาว,ไม่,นะ,ครุศาสตร์และเทคโนโลยี,เทคโนโลยีอุตสาหกรรม,0973249234,,B,,yorsh44@gmail.com,,student
