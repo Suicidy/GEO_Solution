@@ -82,7 +82,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand mx-auto" href="https://www.facebook.com/GEO.Solution.KMUTT/">
-      <img src="geo_logo.png" width="40" height="40" class="d-inline-block align-top" alt="">
+      <img src="./image/geo_logo.png" width="40" height="40" class="d-inline-block align-top" alt="">
         <font color="#ff7454">GEO Solution</font>
       </a>
     <div class="collapse navbar-collapse justify-content-between" id="navbar">
