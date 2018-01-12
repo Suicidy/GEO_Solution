@@ -29,11 +29,16 @@
 			}
 		});
 		
-		// var i;
-		// var stringForPrintHtml;
-		// for(i=0;i<data['MTH'].length;i++){
-		// 	stringForPrintHtml.concat("");
-		// }
+		var i,j;
+		var stringForPrintHtml;
+		for(i=0;i<data['MTH'].length;i++){
+			stringForPrintHtml = '<tr><th scope="row"></th><td style="width: 25%"><div class="square"><img src="'.concat(data.imgSource);
+			stringForPrintHtml = stringForPrintHtml.concat('.jpg"><p class="nickname", id="nicknameMTH102">', data.nickname);
+			stringForPrintHtml = stringForPrintHtml.concat('</p><p>', data.star, '</p></div></td><td colspan="2"><p>ชื่อ ', data.firstname, '  ', data.lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
+			for(j=0;j<data['MTH']['course'].length;j++){
+				stringForPrintHtml = stringForPrintHtml.concat('<tr><td style="width: 35%">', data.courseName, '</td><td style="width: 15%">', data.courseRoom, '</td><td style="width: 18%" class="bookingtime"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">', data.courseTime, '</button><div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">ยืนยันการจอง</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body">จำนวนที่นั่งคงเหลือ ', )
+			}
+		}
 
 		$("#buttonMTH102").click(function(){
 	    	var singleValues = $( "#exampleFormControlSelect1" ).val();
@@ -57,20 +62,6 @@
 					$("#day").html(response.course_id);
 				}
 			});
-
-			//$( "#demo" ).html( "<b>Single:</b> " + singleValues );
-/*		  	$.post("demo_test_post.asp",
-	        {
-	          name: "Donald Duck",
-	          city: "Duckburg"
-	        },
-	        function(data,status){
-	            alert("Data: " + data + "\nStatus: " + status);
-	        });
-
-		    $.post("showCourse.php", singleValues, function(data, status){
-	    		console.log("Data: " + data + "\nStatus: " + status);
-			});*/
 	    });
 	});
 
@@ -120,7 +111,7 @@
 						      	<div class="square">
 									<img src="./image/team-member-2.jpg">
 									<p class="nickname" id="nicknameMTH102">พี่.....</p>
-									<p id="">ใส่ดาวววววววววว</p>
+									<p >ใส่ดาวววววววววว</p>
 								</div>
 						      </td>
 						      <td colspan="2">
