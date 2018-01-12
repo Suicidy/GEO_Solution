@@ -22,7 +22,15 @@
 		  <div class="card-body">
 		  	<h5 class="card-title">ส่งเรียบร้อย</h5>
 		    <p class="card-text">กรุณาตรวจสอบรหัสผ่านที่อีเมล์</p>
-		    <p class="card-text">BLABLABLABLA@gmail.com</p>
+				<p class="card-text"><?php 
+				 if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+					
+								header("location: request_pass.php");
+					
+								exit;
+					
+							}
+				?></p>
 		    <button type="button" class="btn btn-primary">Home</button>
 		</div>
 	</center>
