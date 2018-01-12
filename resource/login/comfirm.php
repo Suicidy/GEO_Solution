@@ -25,7 +25,7 @@
 				<p class="card-text"><?php 
 				 if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 					
-								header("location: request_pass.php");
+								header("location: ../request_pass.php");
 					
 								exit;
 					
