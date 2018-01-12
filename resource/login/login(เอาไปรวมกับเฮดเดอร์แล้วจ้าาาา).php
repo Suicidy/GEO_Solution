@@ -7,7 +7,7 @@
     // Define variables and initialize with empty values
 
     $username = $password = "";
-    $username_err = $password_err = "";
+    $username_err = $passwordvkgck_err = "";
 
      
     // Processing form data when form is submitted
