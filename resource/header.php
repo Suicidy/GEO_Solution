@@ -41,7 +41,7 @@
                                 /* Password is correct, so start a new session and save the username to the session */
                                 $_SESSION['username'] = $username; 
                                 $_SESSION['userview'] = $type;     
-                                header("location: index.php");
+                                header("location: header.php");
                             } else{
                                 // Display an error message if password is not valid
                                 $password_err = 'รหัสผ่านไม่ถูกต้อง';
