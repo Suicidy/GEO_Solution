@@ -6,6 +6,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<!-- <link rel="stylesheet" href="header.css" echo filemtime('header.css'); ?> -->
 	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
@@ -16,12 +17,12 @@
 	?>
 </head>
 <body>
-  	<nav class="navbar navbar-toggleable-sm navbar-inverse bg-inverse fixed-top">
+   	<nav class="navbar navbar-toggleable-sm navbar-inverse bg-inverse sticky-top">
 		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-		<a class="navbar-brand mx-auto" href="#">
-			<img src="favicon.ico" width="30" height="30" class="d-inline-block align-top" alt="">
+ 		<a class="navbar-brand mx-auto" href="#">
+			<img src="geo_logo.png" width="40" height="40" class="d-inline-block align-top" alt="">
 	    	<font color="#ff7454">GEO Solution</font>
 	    </a>
 		<div class="collapse navbar-collapse justify-content-between" id="navbar">
@@ -46,7 +47,7 @@
 				<?php
 					if($_SESSION['user_id'] == '') echo
 						'<li class="nav-item">
-	            			<a class="nav-link" href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>  ลงชื่อเข้าใช้</a>
+	            			<button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in" aria-hidden="true"></i>  ลงชื่อเข้าใช้</button></a>
 	  					</li>';
 	  				elseif (($_SESSION['userview'] == 'student')&&(isset( $_SESSION['user_id']))) {echo
 	  					'<li class="nav-item dropdown">
@@ -75,3 +76,32 @@
 			</div>
 		</div>
 	</nav>
+	<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header" style="background-color: #ff7454">
+					<h5 class="modal-title" style="color: white">ลงชื่อเข้าใช้</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+							<label class="form-control-label">รหัสนักศึกษา</label>
+							<input type="text" class="form-control">
+						</div>
+						<div class="form-group">
+							<label class="form-control-label">รหัสผ่าน</label>
+							<input type="text" class="form-control">
+						</div>
+					</form>
+					<p><a href="#" class="tooltip-test">ลืมรหัสผ่าน</a> หรือ <a href="#" class="tooltip-test">ขอรหัสผ่านครั้งแรก</a></p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+					<button type="button" class="btn btn-warning" style="background-color: #ff7454">เข้าสู่ระบบ</button>
+				</div>
+			</div>
+		</div>
+	</div>
