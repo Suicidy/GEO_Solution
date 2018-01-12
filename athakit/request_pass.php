@@ -70,7 +70,7 @@
                               $sql = "UPDATE student SET password='$pass' WHERE student_id = '$student_id' ";
                               $link->query($sql);
                               
-                              $link="<a href='www.samplewebsite.com/reset.php?key=".$email."&reset=".$pass."'>Click To Reset password</a>";
+                              $link="<a href='127.0.0.1/Geo_Solution/athakit/reset.php?key=".$email."&reset=".$pass."'>Click To Reset password</a>";
                              
                                   $subject = 'GEO@KMUTT RESET PASSWORD';
                                   $from = 'tanakrit.k18373@gmail.com';
