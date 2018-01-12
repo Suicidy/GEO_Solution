@@ -3,7 +3,7 @@
       <div class="container">
         <div class="row">
           <div class="col" align="right">
-            <img src="geo_logo2.png" style="align-content: right" class="d-inline-block align-top" alt="">
+            <img src="./image/geo_logo2.png" style="align-content: right" class="d-inline-block align-top" alt="">
           </div>
           <div class="col">
             <p class="navbar-text">
