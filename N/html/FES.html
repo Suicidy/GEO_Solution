@@ -19,30 +19,32 @@
  <body>
         
 
-   
-  <h1> Check Absenc อิอิอิอิe</h1>
+  <br><div class="container">
+    <center><p><big><big><h1> Check Absence </h1></big></center></p></big>
   <div class="form-row align-items-center">
     <div class="col-auto my-1">
       <label class="mr-sm-2" for="inlineFormCustomSelect">Teacher Assistant</label>
-      <select name = "name" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
         <option selected>Choose...</option>
         <option value="1">Nine</option>
         <option value="2">Yorsh</option>
         <option value="3">Tae</option>
       </select>
     </div>
-    <div class="col-auto my-1">
-      <label class="mr-sm-2" for="inlineFormCustomSelect">Course</label>
-      <select name = "subject" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-        <option selected>Choose...</option>
-        <option value="MTH">Math</option>
-        <option value="PHY">Physic</option>
-        <option value="CHM">Chemistry</option>
-      </select>
-    </div>
+        <div class="col-auto my-1">
+          <label class="mr-sm-2" for="inlineFormCustomSelect">Course</label>
+          <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+            <option selected>Choose...</option>
+            <option value="1">Math</option>
+            <option value="2">Physic</option>
+            <option value="3">English</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary search" style ="background-color : #ff7454; border-color : #ff7454; margin-top: 30px; "> SEARCH </button>
   <table class="table table-striped">
     <thead>
-      <tr>
+      <tr>  
 
         <th scope="col">Student-ID</th>
         <th scope="col">Name</th>
@@ -76,7 +78,7 @@
       </tr>
       <tr>
         <td>58070501052</td>
-        <td>Purit Suwanpattana อิอิ</td>
+        <td>Purit Suwanpattana </td>
         <td>  
             <form class="was-validated">
                 <div class="custom-control custom-checkbox mb-3">
@@ -88,9 +90,10 @@
       </tr>
     </tbody>
   </table>
-  </div>  
-  <div class="d-inline p-2 text-white"style ="background-color : #ff7454;  ">SAVE</div>
+  </div> 
+  <center><button type="submit" class="btn btn-primary " style ="background-color : #ff7454; border-color : #ff7454"; ">SAVE</button></center>
 
+  </div> 
    
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
