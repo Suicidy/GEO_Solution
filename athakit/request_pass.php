@@ -61,8 +61,9 @@
                               {
                                 $to = $row['email'];
                                 $password = generatePassword(10);
-                                echo $password.'<br>';
-                                echo $row['email'].'<br>';
+                               // echo $password.'<br>';
+                                //echo $row['email'].'<br>';
+                                $emailreal=$row['email'];
                                 $email=md5($row['email']);
                                 $pass=md5($password);
                                 $student_id=$row['student_id'];
@@ -72,8 +73,8 @@
                               
                               $link="<a href='www.samplewebsite.com/reset.php?key=".$email."&reset=".$pass."'>Click To Reset password</a>";
                              
-                                  $subject = 'GEO@KMUTT RESET PASSWORD';
-                                  $from = 'tanakrit.k18373@gmail.com';
+                                  $subject = '[GEO Soultion] RESET PASSWORD';
+                                  $from = 'GEO KMUTT';
                               
                                   // To send HTML mail, the Content-type header must be set
                               
@@ -87,9 +88,10 @@
                                       'X-Mailer: PHP/' . phpversion();
                               
                                   // Compose a simple HTML email message
-                              
-                                  $message = $password;
-                                  $message .= $link.'<br>';
+                                  $message ='<H2>Hello '.$emailreal.'</H2><br>Here is the password you need to login your GEO Solution :<br>';
+                                  $message .= '<H3>'.$password.'</H3><br><br>';
+                                  $message .= 'if you want to reset password <br>';
+                                  $message .= '<H3>'.$link.'</H3>';
                                    
                                   // Sending email
                               
@@ -139,8 +141,6 @@
     ?>
 
     <!DOCTYPE html>
-
-   
     <head>
         <meta charset="UTF-8">
         <title>Login</title>
