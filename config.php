@@ -22,12 +22,27 @@
     
     /* Database credentials. Assuming you are running MySQL
     server with default setting (user 'root' with no password) */
+    
+    /*
+        config for real server
+    */
+
+    // define('DB_SERVER', 'localhost');
+    // define('DB_USERNAME', 'geo');
+    // define('DB_PASSWORD', '2e2SDQa8BdukcU0FviQPJ6thDcv1uAb');
+    // define('DB_NAME', 'geo_db');
+    // define("DB_CHARSET","utf8");
+
+    /*
+        config for running from localhost
+    */
 
     define('DB_SERVER', '202.44.11.2');
     define('DB_USERNAME', 'geo');
     define('DB_PASSWORD', '2e2SDQa8BdukcU0FviQPJ6thDcv1uAb');
     define('DB_NAME', 'geo_db');
     define("DB_CHARSET","utf8");
+
 
     /* Attempt to connect to MySQL database */
 

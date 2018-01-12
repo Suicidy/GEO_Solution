@@ -1,5 +1,5 @@
 <?php
-require "connection.php";
+require "../../config.php";
 
 //$subject = $_POST["subject"];
 //$teacher_id = $_POST["id"];
