@@ -1,5 +1,6 @@
 body {
 	font-family: 'Kanit', sans-serif;
+	width: 100%;
 }
 
 .nav-tabs .nav-link {
@@ -51,5 +52,21 @@ img {
 	padding: 15px;
 }
 
+.modal-header {
+	background-color: #ff7454;
+	color: white;
+}
+
+.modal-header span {
+	color: white;
+}
+
+.borderless td, .borderless th, .borderless thead {
+    border: none;
+}
+
+.table td {
+	padding: 1px;
+}
 
 

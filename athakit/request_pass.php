@@ -98,6 +98,7 @@
                                   } else{
                                       echo 'Unable to send email. Please try again.';
                                   }
+                                  header("location: login.php");
                                 }
                             }	
                             else
@@ -139,11 +140,11 @@
 
     <!DOCTYPE html>
 
-    <html lang="en">
+   
     <head>
         <meta charset="UTF-8">
         <title>Login</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
         <style type="text/css">
             body{ font: 14px sans-serif; }
             .wrapper{ width: 350px; padding: 20px; }
@@ -164,7 +165,7 @@
                     <input type="submit" class="btn btn-primary" value="Submit">
                 </div>
             </form>
-        </div>    
+        </div>  
     </body>
     </html>
 
