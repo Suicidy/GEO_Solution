@@ -1,7 +1,7 @@
 <?php
 
     // Include config file
-    require_once 'config.php';
+    require_once '../config.php';
 
 
     // Define variables and initialize with empty values
@@ -102,7 +102,7 @@
                                   }
                                   session_start();
                                   $_SESSION['eamil'] = $emailreal; 
-                                  header("location: ../comfirm.php");
+                                  header("location: login/comfirm.php");
                                 }
                             }	
                             else
