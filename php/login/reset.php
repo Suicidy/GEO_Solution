@@ -65,6 +65,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $sql = "UPDATE student SET password= '$param_password' WHERE student_id = '$param_username' ";
         // Attempt to execute the statement
         if(mysqli_query($link,$sql)){
+            session_unset();
+            session_destroy();
             // Redirect to login page
             header("location: login.php");
         } else{

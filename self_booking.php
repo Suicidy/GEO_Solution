@@ -7,7 +7,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
-	<link href="self_booking.css" rel="stylesheet">
+	<link href="css/self_booking.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Kanit:400,500,600,700,800,900" rel="stylesheet">
 	<script src="js/jquery-3.2.1.js"></script>
 
@@ -96,7 +96,7 @@
 						      <th scope="row"></th>
 						      <td style="width: 25%">
 						      	<div class="square">
-									<img src="./team-member-2.jpg">
+									<img src="./image/team-member-2.jpg">
 									<p class="nickname">พี่.....</p>
 									<p>ใส่ดาวววววววววว</p>
 								</div>
@@ -234,7 +234,7 @@
 						      <th scope="row"></th>
 						      <td style="width: 25%">
 						      	<div class="square">
-									<img src="./team-member-1.jpg">
+									<img src="./image/team-member-1.jpg">
 									<p class="nickname">พี่.....</p>
 									<p>ใส่ดาวววววววววว</p>
 								</div>
@@ -400,7 +400,7 @@
 						    	<th scope="row"></th>
 						      <td style="width: 25%">
 						      	<div class="square">
-									<img src="./team-member-4.jpg">
+									<img src="./image/team-member-4.jpg">
 									<p class="nickname">พี่.....</p>
 									<p>ใส่ดาวววววววววว</p>
 								</div>
