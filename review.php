@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Review</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
-	<link href="review.css" rel="stylesheet">
+	<link href="css/review.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Kanit:400,500,600,700,800,900" rel="stylesheet">
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -48,7 +48,7 @@
 				  	  </td>
 				      <td>
 						<div class="square">
-							<img src="./images/team-member-2.jpg">
+							<img src="./image/team-member-2.jpg">
 							<p class="nickname">พี่lalala</p>
 						</div>
 				      </td>
@@ -73,7 +73,7 @@
 						        	<div class="col-1"></div>
 							      	<div class="col-3">
 										<div class="square">
-											<img src="./images/team-member-3.jpg">
+											<img src="./image/team-member-3.jpg">
 											<p class="nickname">พี่lalala</p>
 										</div>
 									</div>
@@ -115,7 +115,7 @@
 				  	  </td>
 				      <td>				      	
 						<div class="square">
-							<img src="./images/team-member-2.jpg">
+							<img src="./image/team-member-2.jpg">
 							<p class="nickname">พี่lala</p>
 						</div>
 				      </td>
