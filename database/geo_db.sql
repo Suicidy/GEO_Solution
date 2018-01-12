@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.6
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 12, 2018 at 07:44 AM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.10
+-- Generation Time: Jan 12, 2018 at 02:29 PM
+-- Server version: 10.1.29-MariaDB
+-- PHP Version: 7.0.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,7 +21,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `geo_db`
 --
-CREATE DATABASE IF NOT EXISTS `geo_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE DATABASE IF NOT EXISTS `geo_db` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 USE `geo_db`;
 
 -- --------------------------------------------------------
@@ -44,9 +44,10 @@ CREATE TABLE `assign_course` (
 --
 
 INSERT INTO `assign_course` (`comment_id`, `course_id`, `student_id`, `attending_status`, `star`, `time_stamp`) VALUES
-(1, 1, '58070501045', 0, 0, '0000-00-00 00:00:00'),
+(1, 1, '58070501045', 0, NULL, '0000-00-00 00:00:00'),
 (2, 3, '58074001023', 1, 3, '0000-00-00 00:00:00'),
-(3, 3, '58070501090', 1, 5, '0000-00-00 00:00:00');
+(3, 4, '58070501090', 1, 5, '0000-00-00 00:00:00'),
+(4, 3, '58074001023', 1, 3, '2018-01-12 07:54:34');
 
 -- --------------------------------------------------------
 
@@ -70,10 +71,11 @@ CREATE TABLE `course` (
 --
 
 INSERT INTO `course` (`course_id`, `teacher_id`, `subject`, `topic`, `start_time`, `end_time`, `room`, `max_seat`) VALUES
-(1, '58070501020', 'MTH112', 'เปิดโลกมหัศจรรย์กับยอร์ช', '2018-01-12 12:00:00', '2018-01-12 14:00:00', '1115', 30),
-(2, '58070501020', '2', 'ยอร์ชกับขนมปังที่หายไป', '2018-01-16 16:00:00', '2018-01-16 18:00:00', '1114', 40),
-(3, '58070501021', '3', 'เรียกเขาว่ายอร์ช', '2017-08-15 16:00:00', '2017-08-15 18:00:00', '1118', 35),
-(4, '58070501021', '4', 'ยอร์ชตะลุยตราด', '2017-08-17 16:00:00', '2017-08-17 18:00:00', '1212', 50);
+(1, '58070501020', 'MTH102', 'เปิดโลกมหัศจรรย์กับยอร์ช', '2018-01-15 16:00:00', '2018-08-01 18:00:00', '1115', 30),
+(2, '58070501020', 'MTH112', 'ยอร์ชกับขนมปังที่หายไป', '2018-01-15 16:00:00', '2018-01-15 18:00:00', '1114', 40),
+(3, '58070501021', 'PHY104', 'เรียกเขาว่ายอร์ช', '2018-01-15 16:00:00', '2018-01-15 18:00:00', '1118', 35),
+(4, '58070501021', 'PHY102', 'ยอร์ชตะลุยตราด', '2018-01-15 16:00:00', '2018-01-15 18:00:00', '1212', 50),
+(5, '58070501020', 'MTH102', 'ยอร์ช/', '2018-01-15 18:00:00', '2018-01-15 20:00:00', '1115', 30);
 
 -- --------------------------------------------------------
 
@@ -138,7 +140,7 @@ INSERT INTO `student` (`student_id`, `title`, `firstname`, `lastname`, `faculty`
 
 CREATE TABLE `teacher` (
   `teacher_id` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `title` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `firstname` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
   `lastname` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nickname` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -204,13 +206,13 @@ ALTER TABLE `teacher`
 -- AUTO_INCREMENT for table `assign_course`
 --
 ALTER TABLE `assign_course`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `course`
 --
 ALTER TABLE `course`
-  MODIFY `course_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `course_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
