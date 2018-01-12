@@ -1,5 +1,25 @@
  <?php
+    // GEO_Server
 
+    // Server IP Address: 202.44.11.2
+    // Linux user: geoweb
+    // password: VtaDrvsGZdXEiK7PNdO5fU
+    
+    // Linux user: kanokphan
+    // Password:26623men
+    
+    // Database name: geo_db
+    // MySQL username: geo
+    // MySQL password: 2e2SDQa8BdukcU0FviQPJ6thDcv1uAb
+    
+    
+    // ====
+    // วิธี login:
+    // ssh -lgeoweb 202.44.11.2
+    
+    // วิธีเปิด MySQL console: 
+    // mysql -ugeo -p
+    
     /* Database credentials. Assuming you are running MySQL
     server with default setting (user 'root' with no password) */
 
