@@ -14,23 +14,47 @@
 	<script>
 (function($){
 	$(document).ready(function(){
-		$( "#demo" ).html( "<b>Single:</b> ทุกวัน" );
-		$("#button1").click(function(){
+		$("#dayMTH102").html( "ทุกวัน" );
+		$.ajax({
+			url: 'resource/home/showCourse.php',
+			type: 'post',
+			data: {
+				'day':"ทุกวัน"
+			},
+			dataType: 'json',
+			success: function(data){
+				var response = data[0];
+				//$("#demo").html(status);
+				$("#day").html(response.course_id);
+			}
+		});
+		
+		// var i;
+		// var stringForPrintHtml;
+		// for(i=0;i<data['MTH'].length;i++){
+		// 	stringForPrintHtml.concat("");
+		// }
+
+		$("#buttonMTH102").click(function(){
 	    	var singleValues = $( "#exampleFormControlSelect1" ).val();
-	  		$( "#demo" ).html( "<b>Single:aa</b> " + singleValues );
-	  		//$( "#demo2" ).html( 'aa' );
+
+	    	if (!singleValues.localeCompare("เลือกวัน")) {
+	    		singleValues = "ทุกวัน";
+	    	}
+
+	  		$("#dayMTH102").html(singleValues);
 		  	var obj = {};
 		  	obj['day'] = singleValues;
 
 		  	$.ajax({
-				url: 'showCourse.php',
+				url: 'resource/home/showCourse.php',
 				type: 'post',
 				data: obj,
 				dataType: 'json',
 				success: function(data){
 					var response = data[0];
 					//$("#demo").html(status);
-					$("#demo2").html(response.course_id + '<br>' + '<b>Fsss<b>');
+					$("#day").html(response.course_id);
 				}
 			});
 
@@ -83,12 +107,10 @@
 						      <option>วันพฤหัสบดี</option>
 						      <option>วันศุกร์</option>
 						    </select>
-						    <button type="submit" class="btn btn-success" id="button1">ยืนยัน</button>
-				  		<p id="demo"></p>
-				  		<p id="demo2">aaaaaaaaaaaaaaaaa</p>
+						    <button type="submit" class="btn btn-success" id="buttonMTH102">ยืนยัน</button>
 				  	</div>
 					<div class="col-12">
-						<h4>วันจันทร์</h4>
+						<h4 id="dayMTH102">วันจันทร์</h4>
 						<hr>
 						<table class="table borderless">
 						  <tbody>
@@ -97,8 +119,8 @@
 						      <td style="width: 25%">
 						      	<div class="square">
 									<img src="./image/team-member-2.jpg">
-									<p class="nickname">พี่.....</p>
-									<p>ใส่ดาวววววววววว</p>
+									<p class="nickname" id="nicknameMTH102">พี่.....</p>
+									<p id="">ใส่ดาวววววววววว</p>
 								</div>
 						      </td>
 						      <td colspan="2">
