@@ -11,11 +11,6 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 </head>
 <body>
-	
-	<nav class="navbar navbar-light bg-light">
-	  <a class="navbar-brand" href="#">Navbar</a>
-	</nav>
-	<br>
 	<center>
 		<div class="card text-white bg-dark mb-3" style="max-width: 35rem;">
 		  <center><img src="/image/check-mark-button.png"></center>
@@ -23,18 +18,21 @@
 		  	<h5 class="card-title">ส่งเรียบร้อย</h5>
 		    <p class="card-text">กรุณาตรวจสอบรหัสผ่านที่อีเมล์</p>
 				<p class="card-text"><?php 
-				 if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+				session_start();
+				 if(!isset($_SESSION['email']) || empty($_SESSION['email'])){
 					
 								header("location: ../request_pass.php");
 					
 								exit;
 					
 							}
+				echo $_SESSION['email'];
+				session_destroy();
 				?></p>
 		    <button type="button" class="btn btn-primary">Home</button>
 		</div>
-	</center>
 </div>
+</center>
 
 </body>
 </html>

@@ -53,7 +53,7 @@
 
                          mysqli_stmt_bind_result($stmt, $username,$email);
                          if(mysqli_stmt_fetch($stmt)){
-                            $select=mysqli_query($link,"select student_id,email,password from student where student_id = '$username'");
+                            $select=mysqli_query($link,"select student_id,email,password from student where student_id = '$username' and password =' '");
                             if(mysqli_num_rows($select)>=1)
                             {
                               echo "START<br>";
@@ -101,13 +101,13 @@
                                       echo 'Unable to send email. Please try again.';
                                   }
                                   session_start();
-                                  $_SESSION['eamil'] = $emailreal; 
+                                  $_SESSION['email'] = $emailreal; 
                                   header("location: login/comfirm.php");
                                 }
                             }	
                             else
                             {
-                              echo "ERROR";
+                              $username_err =  "This account is already request password.";
                             }
                          }
 
