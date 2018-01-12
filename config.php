@@ -61,7 +61,6 @@
         if (!$conn) {
             die("Connection failed: " . mysqli_connect_error()) . "<br>";
         }
-        echo "Connected successfully" . "<br>";
         $result = mysqli_query($conn, $sql_statement);
         mysqli_close($conn);
         return $result;
