@@ -2,11 +2,11 @@
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
     
-    require 'phpmailer/phpmailer/src/Exception.php';
-    require 'phpmailer/phpmailer/src/PHPMailer.php';
-    require 'phpmailer/phpmailer/src/SMTP.php';
+    require 'phpmailer/src/Exception.php';
+    require 'phpmailer/src/PHPMailer.php';
+    require 'phpmailer/src/SMTP.php';
     // Include config file
-    require_once '../config.php';
+    require_once '../../config.php';
     //require_once 'autoload.php';
 
 
@@ -80,7 +80,7 @@
                               $link="<a href='127.0.0.1/Geo_Solution/athakit/reset.php?key=".$email."&reset=".$pass."'>Click To Reset password</a>";
                                  $mail = new PHPMailer();
                                  $mail->CharSet =  "utf-8";
-                                 $mail->IsSMTP();
+                                // $mail->IsSMTP();
                                     // enable SMTP authentication
     $mail->SMTPAuth = true;                  
     // GMAIL username
