@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 10, 2018 at 11:24 AM
+-- Generation Time: Jan 12, 2018 at 06:57 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `geo_db`
 --
+CREATE DATABASE IF NOT EXISTS `geo_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE `geo_db`;
 
 -- --------------------------------------------------------
 
@@ -31,11 +33,11 @@ SET time_zone = "+00:00";
 CREATE TABLE `assign_course` (
   `comment_id` int(11) NOT NULL,
   `course_id` int(11) NOT NULL,
-  `student_id` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
+  `student_id` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
   `attending_status` tinyint(1) NOT NULL DEFAULT '0',
   `star` tinyint(1) DEFAULT NULL,
   `time_stamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `assign_course`
@@ -54,26 +56,24 @@ INSERT INTO `assign_course` (`comment_id`, `course_id`, `student_id`, `attending
 
 CREATE TABLE `course` (
   `course_id` int(11) NOT NULL,
-  `teacher_id` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
-  `subject` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `topic` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
+  `teacher_id` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subject` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `topic` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
   `start_time` datetime NOT NULL,
   `end_time` datetime NOT NULL,
-  `week` int(2) NOT NULL,
-  `semester` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  `room` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `room` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `max_seat` int(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `course`
 --
 
-INSERT INTO `course` (`course_id`, `teacher_id`, `subject`, `topic`, `start_time`, `end_time`, `week`, `semester`, `room`, `max_seat`) VALUES
-(1, '58070501020', '1', 'เปิดโลกมหัศจรรย์กับยอร์ช', '2017-08-15 16:00:00', '2017-08-15 18:00:00', 1, '1', '1115', 30),
-(2, '58070501020', '2', 'ยอร์ชกับขนมปังที่หายไป', '2018-01-16 16:00:00', '2018-01-16 18:00:00', 1, '1', '1114', 40),
-(3, '58070501021', '3', 'เรียกเขาว่ายอร์ช', '2017-08-15 16:00:00', '2017-08-15 18:00:00', 1, '1', '1118', 35),
-(4, '58070501021', '4', 'ยอร์ชตะลุยตราด', '2017-08-17 16:00:00', '2017-08-17 18:00:00', 1, '1', '1212', 50);
+INSERT INTO `course` (`course_id`, `teacher_id`, `subject`, `topic`, `start_time`, `end_time`, `room`, `max_seat`) VALUES
+(1, '58070501020', '1', 'เปิดโลกมหัศจรรย์กับยอร์ช', '2017-08-15 16:00:00', '2017-08-15 18:00:00', '1115', 30),
+(2, '58070501020', '2', 'ยอร์ชกับขนมปังที่หายไป', '2018-01-16 16:00:00', '2018-01-16 18:00:00', '1114', 40),
+(3, '58070501021', '3', 'เรียกเขาว่ายอร์ช', '2017-08-15 16:00:00', '2017-08-15 18:00:00', '1118', 35),
+(4, '58070501021', '4', 'ยอร์ชตะลุยตราด', '2017-08-17 16:00:00', '2017-08-17 18:00:00', '1212', 50);
 
 -- --------------------------------------------------------
 
@@ -83,10 +83,10 @@ INSERT INTO `course` (`course_id`, `teacher_id`, `subject`, `topic`, `start_time
 
 CREATE TABLE `review` (
   `comment_id` int(11) NOT NULL,
-  `type` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
-  `review_txt` text COLLATE utf8_unicode_ci,
+  `type` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `review_txt` text COLLATE utf8mb4_unicode_ci,
   `show_status` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `review`
@@ -104,30 +104,31 @@ INSERT INTO `review` (`comment_id`, `type`, `review_txt`, `show_status`) VALUES
 --
 
 CREATE TABLE `student` (
-  `student_id` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
-  `name_title` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `first_name` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
-  `last_name` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
-  `faculty` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `department` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `tel` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `facebook` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `line` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `password` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `email` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
+  `student_id` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `firstname` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lastname` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `faculty` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `department` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tel` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `facebook` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `line` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
   `login_count` int(4) NOT NULL DEFAULT '0',
-  `type` varchar(10) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'student'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `type` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'student'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `student`
 --
 
-INSERT INTO `student` (`student_id`, `name_title`, `first_name`, `last_name`, `faculty`, `department`, `tel`, `facebook`, `line`, `password`, `email`, `login_count`, `type`) VALUES
-('-', '-', 'TA', 'GEO', '-', '-', '-', '-', '-', '', 'pangyafff@gmail.com', 0, 'teacher'),
+INSERT INTO `student` (`student_id`, `title`, `firstname`, `lastname`, `faculty`, `department`, `tel`, `facebook`, `line`, `password`, `email`, `login_count`, `type`) VALUES
 ('58070501045', 'นาย', 'พิชญุตม์', 'ศิริพิศ', 'วิศวกรรมศาสตร์', 'วิศวกรรมคอมพิวเตอร์', '0860644292', 'Phichayut Siripis', 'pangyasff', '', 'pangyassf@gmail.com', 0, 'student'),
 ('58070501090', 'นาย', 'ธนาธิป', 'สุเนตร', 'วิศวกรรมศาสตร์', 'วิศวกรรมคอมพิวเตอร์', '0909796893', 'Yorsh Thanathip', 'yorsh44', '', 'thanathip.sunate@gmail.com', 0, 'student'),
-('58074001023', 'นางสาว', 'ไม่', 'นะ', 'ครุศาสตร์และเทคโนโลยี', 'เทคโนโลยีอุตสาหกรรม', '0973249234', '', 'B', '', 'yorsh44@gmail.com', 0, 'student');
+('58074001023', 'นางสาว', 'ไม่', 'นะ', 'ครุศาสตร์และเทคโนโลยี', 'เทคโนโลยีอุตสาหกรรม', '0973249234', '', 'B', '', 'yorsh44@gmail.com', 0, 'student'),
+('admin', '-', 'GEO', 'ADMIN', '-', '-', '-', '-', '-', '', 'goofily.student@gmail.com', 0, 'admin'),
+('ta', '-', 'TA', 'GEO', '-', '-', '-', '-', '-', '', 'pangyafff@gmail.com', 0, 'teacher');
 
 -- --------------------------------------------------------
 
@@ -136,25 +137,27 @@ INSERT INTO `student` (`student_id`, `name_title`, `first_name`, `last_name`, `f
 --
 
 CREATE TABLE `teacher` (
-  `teacher_id` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
-  `name_title` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `first_name` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
-  `last_name` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
-  `faculty` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `department` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `image` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `tel` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `facebook` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `line` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `teacher_id` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nametitle` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `firstname` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lastname` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nickname` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `faculty` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `department` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tel` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `facebook` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `line` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `star` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `teacher`
 --
 
-INSERT INTO `teacher` (`teacher_id`, `name_title`, `first_name`, `last_name`, `faculty`, `department`, `image`, `tel`, `facebook`, `line`) VALUES
-('58070501020', 'นาย', 'ธนกฤต', 'คล้ายแก้ว', 'วิศวกรรมศาสตร์', 'วิศวกรรมคอมพิวเตอร์', '', '0827096238', 'Ae thanakrit', 'AeEIEI'),
-('58070501021', 'นาย', 'ธนกฤต', 'ผังวิวัฒน์', 'วิทยาศาสตร์', 'เคมี', '', '0894539349', '', 'Punchnajaa');
+INSERT INTO `teacher` (`teacher_id`, `nametitle`, `firstname`, `lastname`, `nickname`, `faculty`, `department`, `image`, `tel`, `facebook`, `line`, `star`) VALUES
+('58070501020', 'นาย', 'ธนกฤต', 'คล้ายแก้ว', 'เอ้', 'วิศวกรรมศาสตร์', 'วิศวกรรมคอมพิวเตอร์', '', '0827096238', 'Ae thanakrit', 'AeEIEI', 0),
+('58070501021', 'นาย', 'ธนกฤต', 'ผังวิวัฒน์', 'พันช์', 'วิทยาศาสตร์', 'เคมี', '', '0894539349', '', 'Punchnajaa', 0);
 
 --
 -- Indexes for dumped tables

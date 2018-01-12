@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Review</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
-	<link href="css/review.css" rel="stylesheet">
+	<link href="review.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Kanit:400,500,600,700,800,900" rel="stylesheet">
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -25,6 +25,7 @@
 					    <option>ยังไม่ได้ทำการรีวิว</option>
 					    <option>ทำการรีวิวแล้ว</option>					    
 					</select>
+					<button type="submit" class="btn btn-success" id="button1">ยืนยัน</button>
 				</div>
 				<br>
 				<br>
@@ -34,6 +35,7 @@
 				      <th scope="col"></th>
 				      <th scope="col">Course</th>
 				      <th scope="col">TA</th>
+				      <th scope="col"></th>
 				      <th scope="col">สถานะ</th>
 				    </tr>
 				  </thead>
@@ -45,17 +47,13 @@
 				      	<p>17/1/18</p>
 				  	  </td>
 				      <td>
-				      	<div class="row">
-					      	<div class="col-3">
-								<div class="square">
-									<img src="./images/team-member-2.jpg">
-									<p class="nickname">พี่lalala</p>
-								</div>
-							</div>
-							<div class="col-sm">
-								<p>ชื่อ ieiieieieieieieie</p>
-							</div>
+						<div class="square">
+							<img src="./images/team-member-2.jpg">
+							<p class="nickname">พี่lalala</p>
 						</div>
+				      </td>
+				      <td>
+						<p>ชื่อ ieiieieieieieieie</p>
 				      </td>
 				      <td>
 						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -115,21 +113,18 @@
 				      	<p>Block Diagram2222</p>
 				      	<p>11/1/18</p>
 				  	  </td>
-				      <td>
-				      	<div class="row">
-					      	<div class="col-3">
-								<div class="square">
-									<img src="./images/team-member-2.jpg">
-									<p class="nickname">พี่lala</p>
-								</div>
-							</div>
-							<div class="col-sm">
-								<p>ชื่อ eieieieieieieieiieei</p>
-							</div>
+				      <td>				      	
+						<div class="square">
+							<img src="./images/team-member-2.jpg">
+							<p class="nickname">พี่lala</p>
 						</div>
 				      </td>
 				      <td>
-				      	<button type="button" class="btn btn-secondary">Review</button>					 			      </td>
+						<p>ชื่อ ieiieieieieieieie</p>
+				      </td>
+				      <td>
+				      	<button type="button" class="btn btn-secondary">Review</button>
+				      </td>					 			   
 				    </tr>
 				    <tr>
 				      <th scope="row">3</th>
