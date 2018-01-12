@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 12, 2018 at 06:57 AM
+-- Generation Time: Jan 12, 2018 at 07:44 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
 
@@ -70,7 +70,7 @@ CREATE TABLE `course` (
 --
 
 INSERT INTO `course` (`course_id`, `teacher_id`, `subject`, `topic`, `start_time`, `end_time`, `room`, `max_seat`) VALUES
-(1, '58070501020', '1', 'เปิดโลกมหัศจรรย์กับยอร์ช', '2017-08-15 16:00:00', '2017-08-15 18:00:00', '1115', 30),
+(1, '58070501020', 'MTH112', 'เปิดโลกมหัศจรรย์กับยอร์ช', '2018-01-12 12:00:00', '2018-01-12 14:00:00', '1115', 30),
 (2, '58070501020', '2', 'ยอร์ชกับขนมปังที่หายไป', '2018-01-16 16:00:00', '2018-01-16 18:00:00', '1114', 40),
 (3, '58070501021', '3', 'เรียกเขาว่ายอร์ช', '2017-08-15 16:00:00', '2017-08-15 18:00:00', '1118', 35),
 (4, '58070501021', '4', 'ยอร์ชตะลุยตราด', '2017-08-17 16:00:00', '2017-08-17 18:00:00', '1212', 50);
@@ -138,7 +138,7 @@ INSERT INTO `student` (`student_id`, `title`, `firstname`, `lastname`, `faculty`
 
 CREATE TABLE `teacher` (
   `teacher_id` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nametitle` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `firstname` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
   `lastname` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nickname` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -155,7 +155,7 @@ CREATE TABLE `teacher` (
 -- Dumping data for table `teacher`
 --
 
-INSERT INTO `teacher` (`teacher_id`, `nametitle`, `firstname`, `lastname`, `nickname`, `faculty`, `department`, `image`, `tel`, `facebook`, `line`, `star`) VALUES
+INSERT INTO `teacher` (`teacher_id`, `title`, `firstname`, `lastname`, `nickname`, `faculty`, `department`, `image`, `tel`, `facebook`, `line`, `star`) VALUES
 ('58070501020', 'นาย', 'ธนกฤต', 'คล้ายแก้ว', 'เอ้', 'วิศวกรรมศาสตร์', 'วิศวกรรมคอมพิวเตอร์', '', '0827096238', 'Ae thanakrit', 'AeEIEI', 0),
 ('58070501021', 'นาย', 'ธนกฤต', 'ผังวิวัฒน์', 'พันช์', 'วิทยาศาสตร์', 'เคมี', '', '0894539349', '', 'Punchnajaa', 0);
 

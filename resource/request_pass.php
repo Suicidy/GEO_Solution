@@ -100,7 +100,9 @@
                                   } else{
                                       echo 'Unable to send email. Please try again.';
                                   }
-                                  header("location: login.php");
+                                  session_start();
+                                  $_SESSION['eamil'] = $emailreal; 
+                                  header("location: ../comfirm.php");
                                 }
                             }	
                             else
