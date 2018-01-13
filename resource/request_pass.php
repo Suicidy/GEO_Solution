@@ -7,7 +7,6 @@
     require 'phpmailer/src/SMTP.php';
     require_once '../config.php';
 
-
     // Define variables and initialize with empty values
     $username = "";
     $username_err = "";
@@ -55,8 +54,6 @@
                               {
                                 $to = $row['email'];
                                 $password = generatePassword(10);
-                               // echo $password.'<br>';
-                                //echo $row['email'].'<br>';
                                 $emailreal=$row['email'];
                                 $email=md5($row['email']);
                                 $pass=md5($password);
@@ -77,7 +74,6 @@
                                 $mail->Password = "admin0000";
                                 $mail->SMTPSecure = "ssl";  
                                 // sets GMAIL as the SMTP server
-                                //$mail->Host = "smtp.gmail.com";
                                 $mail->Host = 'smtp.gmail.com';
                                 // set the SMTP port for the GMAIL server
                                 $mail->Port = "465";
@@ -105,9 +101,7 @@
                               $username_err =  "This account is already request password.";
                             }
                          }
-
                     } else{
-
                         // Display an error message if username doesn't exist
                         $username_err = 'No account found with that username.';
                     }
@@ -121,7 +115,6 @@
     }
 
     /// function generate password
-
     function generatePassword($length) { 
         $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'; 
         $count = mb_strlen($chars); 
