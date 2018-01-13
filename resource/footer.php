@@ -1,3 +1,4 @@
+  </div>
   <nav class="navbar navbar-inverse bg-inverse fixed-bottom">
     <div class="nav nav-item">
       <div class="container">
