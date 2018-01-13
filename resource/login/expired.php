@@ -11,11 +11,6 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 </head>
 <body>
-	
-	<nav class="navbar navbar-light bg-light">
-	  <a class="navbar-brand" href="#">Navbar</a>
-	</nav>
-	<br>
 	<center>
 		<div class="card text-white bg-dark mb-3" style="max-width: 35rem;">
 		  <center><img src="/image/cancel.png"></center>
