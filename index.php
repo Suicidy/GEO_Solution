@@ -10,8 +10,6 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
 	<link href="css/self_booking.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Kanit:400,500,600,700,800,900" rel="stylesheet">
-
-
 	<script>
 (function($){
 	$(document).ready(function(){
@@ -31,13 +29,13 @@
 		});
 		
 		// var i,j;
-		// var stringForPrintHtml;
-		// for(i=0;i<data['MTH'].length;i++){
-		// 	stringForPrintHtml = '<tr><th scope="row"></th><td style="width: 25%"><div class="square"><img src="'.concat(data.imgSource);
-		// 	stringForPrintHtml = stringForPrintHtml.concat('.jpg"><p class="nickname", id="nicknameMTH102">', data.nickname);
+		// var stringForPrintHtml="";
+		// for(i=0;i<response.MTH102.length;i++){
+		// 	stringForPrintHtml = '<tr><th scope="row"></th><td style="width: 25%"><div class="square"><img src="'.concat(response.MTH102[i].imgge);
+		// 	stringForPrintHtml = stringForPrintHtml.concat('.jpg"><p class="nickname", id="nicknameMTH102TA', response.MTH102[i].teacher_id, '">', response.MTH102[i].nickname);
 		// 	stringForPrintHtml = stringForPrintHtml.concat('</p><p>', data.star, '</p></div></td><td colspan="2"><p>ชื่อ ', data.firstname, '  ', data.lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
-		// 	for(j=0;j<data['MTH']['course'].length;j++){
-		// 		stringForPrintHtml = stringForPrintHtml.concat('<tr><td style="width: 35%">', data.courseName, '</td><td style="width: 15%">', data.courseRoom, '</td><td style="width: 18%" class="bookingtime"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onclick="updateSeat(', data.courseID, ')">', data.courseTime, '</button><div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">ยืนยันการจอง</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body">จำนวนที่นั่งคงเหลือ ', data.courseCount )
+		// 	for(j=0;j<response.MTH102.course.length;j++){
+		// 		stringForPrintHtml = stringForPrintHtml.concat('<tr><td style="width: 35%">', data.courseName, '</td><td style="width: 15%">', data.courseRoom, '</td><td style="width: 18%" class="bookingtime"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal', response.MTH102[i].course[j].course_id, '" onclick="updateSeat(', data.courseID, ')">', data.courseTime, '</button><div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">ยืนยันการจอง</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body">จำนวนที่นั่งคงเหลือ ', data.courseCount )
 		// 	}
 		// }
 
@@ -148,7 +146,6 @@
 										      </div>
 										      <div class="modal-body">
 										        จำนวนที่นั่งคงเหลือ 10 ที่นั่ง
-										        <p id="test12"></p>
 										      </div>
 										      <div class="modal-footer">
 										        <button type="button" class="btn btn-success" onclick="testclose()">ยืนยัน</button>
@@ -544,7 +541,5 @@
 			</div>
 		</div>
 	</div>
-
-
 </body>
 </html>
