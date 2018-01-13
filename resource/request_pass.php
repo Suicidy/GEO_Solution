@@ -65,7 +65,7 @@
                               $sql = "UPDATE student SET password='$pass' WHERE student_id = '$student_id' ";
                               $link->query($sql);
                               
-                              $link="<a href='127.0.0.1/Geo_Solution/athakit/reset.php?key=".$email."&reset=".$pass."'>Click To Reset password</a>";
+                              $link="<a href='http://geo.li.kmutt.ac.th/geo_solution/resource/login/reset.php?key=".$email."&reset=".$pass."'>Click To Reset password</a>";
                                  $mail = new PHPMailer();
                                  $mail->CharSet =  "utf-8";
                                  $mail->IsSMTP();
