@@ -28,16 +28,9 @@
 			}
 		});
 		
-		// var i,j;
-		// var stringForPrintHtml="";
-		// for(i=0;i<response.MTH102.length;i++){
-		// 	stringForPrintHtml = '<tr><th scope="row"></th><td style="width: 25%"><div class="square"><img src="'.concat(response.MTH102[i].imgge);
-		// 	stringForPrintHtml = stringForPrintHtml.concat('.jpg"><p class="nickname", id="nicknameMTH102TA', response.MTH102[i].teacher_id, '">', response.MTH102[i].nickname);
-		// 	stringForPrintHtml = stringForPrintHtml.concat('</p><p>', data.star, '</p></div></td><td colspan="2"><p>ชื่อ ', data.firstname, '  ', data.lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
-		// 	for(j=0;j<response.MTH102.course.length;j++){
-		// 		stringForPrintHtml = stringForPrintHtml.concat('<tr><td style="width: 35%">', data.courseName, '</td><td style="width: 15%">', data.courseRoom, '</td><td style="width: 18%" class="bookingtime"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal', response.MTH102[i].course[j].course_id, '" onclick="updateSeat(', data.courseID, ')">', data.courseTime, '</button><div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">ยืนยันการจอง</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body">จำนวนที่นั่งคงเหลือ ', data.courseCount )
-		// 	}
-		// }
+
+
+
 
 		$("#buttonMTH102").click(function(){
 	    	var singleValues = $( "#exampleFormControlSelect1" ).val();
@@ -56,10 +49,27 @@
 				data: obj,
 				dataType: 'json',
 				success: function(data){
-					var response = data[0];
-					//$("#demo").html(status);
-					//$("#day").html(response.course_id);
-					$("#testeiei").html("<b>" + response.MTH102[0].course[0].topic + "</b>");
+					// var i,j;
+					// var stringForPrintHtml="";
+					// if(data.length){
+					// 	stringForPrintHtml = 
+					// }
+					
+					// if(response.date){
+
+					// }
+					// for (var checkdate = 0; checkdate<data.length; i++) {
+					// 	var response = data[0];
+					// 	for(i=0;i<response.MTH102.length;i++){
+					// 		stringForPrintHtml = '<tr><th scope="row"></th><td style="width: 25%"><div class="square"><img src="'.concat(response.MTH102[i].image);
+					// 		stringForPrintHtml = stringForPrintHtml.concat('.jpg"><p class="nickname", id="nicknameMTH102TA', response.MTH102[i].teacher_id, '">', response.MTH102[i].nickname);
+					// 		stringForPrintHtml = stringForPrintHtml.concat('</p><p>', response.MTH102[i].star, '</p></div></td><td colspan="2"><p>ชื่อ ', response.MTH102[i].title, ' ', response.MTH102[i].firstname, '  ', response.MTH102[i].lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
+					// 		for(j=0;j<response.MTH102[i].course.length;j++){
+					// 			stringForPrintHtml = stringForPrintHtml.concat('<tr><td style="width: 35%">', response.MTH102[i].course[j].topic, '</td><td style="width: 15%">', response.MTH102[i].course[j].room, '</td><td style="width: 18%" class="bookingtime"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalC', response.MTH102[i].course[j].course_id, '" onclick="updateSeat(', response.MTH102[i].course[j].course_id, ')">', response.MTH102[i].course[j].date, ' ', '</button><div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">ยืนยันการจอง</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body">จำนวนที่นั่งคงเหลือ ', response.MTH102[i].course[j].seatleft, ' ที่นั่ง</div><div class="modal-footer"><button type="button" class="btn btn-success" onclick="sendBooking(', response.MTH102[i].course[j].course_id, '">ยืนยัน</button></div></div></div></div></td><td>จำนวนที่นั่งคงเหลือ ', response.MTH102[i].course[j].seatleft, ' ที่นั่ง</td></tr>'  )
+					// 		}
+					// 		stringForPrintHtml = stringForPrintHtml.concat('</tbody></table>');
+					// 	}				
+					// }
 				}
 			});
 	    });
@@ -109,7 +119,7 @@
 						    <button type="submit" class="btn btn-success" id="buttonMTH102">ยืนยัน</button>
 				  	</div>
 					<div class="col-12">
-						<h4 id="dayMTH102">วันจันทร์</h4>
+						<h4 id="mondayMTH102">วันจันทร์</h4>
 						<p id="testeiei"></p>
 						<hr>
 						<table class="table borderless">
@@ -148,7 +158,7 @@
 										        จำนวนที่นั่งคงเหลือ 10 ที่นั่ง
 										      </div>
 										      <div class="modal-footer">
-										        <button type="button" class="btn btn-success" onclick="testclose()">ยืนยัน</button>
+										        <button type="button" class="btn btn-success" onclick="sendBooking()">ยืนยัน</button>
 										      </div>
 										    </div>
 										  </div>
