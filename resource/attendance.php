@@ -37,7 +37,7 @@
                 $('<td><input type="checkbox" name="student_id[]" value="' + data[i]['student_id'] +'"></td>').appendTo("#body");
                 $("#body > td").wrapAll("<tr></tr>");
               }
-              $("#send").val(data[0]['cousre_id']);
+              $("#course").val(data[0]['course_id']);
             },"json"); 
             $("#table,#send").hide();
             $("#table,#send").slideDown();
@@ -85,6 +85,7 @@
             </tbody>
           </table>
         </div>
+        <input type="hidden" name="course_id" id = "course">
         <center><button id ="send" type="submit" class="btn btn-primary " style ="background-color : #ff7454; border-color : #ff7454;"> SAVE </button></center>
       </form>
     </div> 
