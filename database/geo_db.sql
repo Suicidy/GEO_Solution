@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.6
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 12, 2018 at 02:29 PM
--- Server version: 10.1.29-MariaDB
--- PHP Version: 7.0.26
+-- Generation Time: Jan 13, 2018 at 10:23 AM
+-- Server version: 10.1.28-MariaDB
+-- PHP Version: 7.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -36,18 +36,19 @@ CREATE TABLE `assign_course` (
   `student_id` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
   `attending_status` tinyint(1) NOT NULL DEFAULT '0',
   `star` tinyint(1) DEFAULT NULL,
-  `time_stamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `time_stamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `review_status` tinyint(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `assign_course`
 --
 
-INSERT INTO `assign_course` (`comment_id`, `course_id`, `student_id`, `attending_status`, `star`, `time_stamp`) VALUES
-(1, 1, '58070501045', 0, NULL, '0000-00-00 00:00:00'),
-(2, 3, '58074001023', 1, 3, '0000-00-00 00:00:00'),
-(3, 4, '58070501090', 1, 5, '0000-00-00 00:00:00'),
-(4, 3, '58074001023', 1, 3, '2018-01-12 07:54:34');
+INSERT INTO `assign_course` (`comment_id`, `course_id`, `student_id`, `attending_status`, `star`, `time_stamp`, `review_status`) VALUES
+(1, 1, '58070501045', 0, 0, '0000-00-00 00:00:00', 0),
+(2, 1, '58074001023', 0, 0, '0000-00-00 00:00:00', 0),
+(3, 4, '58070501090', 1, 5, '0000-00-00 00:00:00', 0),
+(4, 3, '58074001023', 1, 3, '2018-01-12 07:54:34', 0);
 
 -- --------------------------------------------------------
 
@@ -115,7 +116,7 @@ CREATE TABLE `student` (
   `tel` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `facebook` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `line` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `password` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `email` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
   `login_count` int(4) NOT NULL DEFAULT '0',
   `type` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'student'
@@ -129,8 +130,8 @@ INSERT INTO `student` (`student_id`, `title`, `firstname`, `lastname`, `faculty`
 ('58070501045', 'นาย', 'พิชญุตม์', 'ศิริพิศ', 'วิศวกรรมศาสตร์', 'วิศวกรรมคอมพิวเตอร์', '0860644292', 'Phichayut Siripis', 'pangyasff', '', 'pangyassf@gmail.com', 0, 'student'),
 ('58070501090', 'นาย', 'ธนาธิป', 'สุเนตร', 'วิศวกรรมศาสตร์', 'วิศวกรรมคอมพิวเตอร์', '0909796893', 'Yorsh Thanathip', 'yorsh44', '', 'thanathip.sunate@gmail.com', 0, 'student'),
 ('58074001023', 'นางสาว', 'ไม่', 'นะ', 'ครุศาสตร์และเทคโนโลยี', 'เทคโนโลยีอุตสาหกรรม', '0973249234', '', 'B', '', 'yorsh44@gmail.com', 0, 'student'),
-('admin', '-', 'GEO', 'ADMIN', '-', '-', '-', '-', '-', '', 'goofily.student@gmail.com', 0, 'admin'),
-('ta', '-', 'TA', 'GEO', '-', '-', '-', '-', '-', '', 'pangyafff@gmail.com', 0, 'teacher');
+('admin', '-', 'GEO', 'ADMIN', '-', '-', '-', '-', '-', '123456', 'goofily.student@gmail.com', 0, 'admin'),
+('ta', '-', 'TA', 'GEO', '-', '-', '-', '-', '-', '123456', 'pangyafff@gmail.com', 0, 'teacher');
 
 -- --------------------------------------------------------
 
