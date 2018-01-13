@@ -1,6 +1,6 @@
 <?php
     // Include config file
-    require_once 'config.php';
+    require_once '../config.php';
     session_start();
     // Define variables and initialize with empty values
     $username = $password = $type = "";
@@ -41,7 +41,7 @@
                                 /* Password is correct, so start a new session and save the username to the session */
                                 $_SESSION['username'] = $username; 
                                 $_SESSION['userview'] = $type;     
-                                header("location: header.php");
+                                header("location: ../resource/header.php");
                             } else{
                                 // Display an error message if password is not valid
                                 $password_err = 'รหัสผ่านไม่ถูกต้อง';
@@ -82,7 +82,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand mx-auto" href="https://www.facebook.com/GEO.Solution.KMUTT/">
-      <img src="./image/geo_logo.png" width="40" height="40" class="d-inline-block align-top" alt="">
+      <img src="../image/geo_logo.png" width="40" height="40" class="d-inline-block align-top" alt="">
         <font color="#ff7454">GEO Solution</font>
       </a>
     <div class="collapse navbar-collapse justify-content-between" id="navbar">
@@ -107,7 +107,10 @@
         <?php
 			if(!(isset($_SESSION['username']))) {echo
 	            '<li class="nav-item">
-	                <button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in" aria-hidden="true"></i>  ลงชื่อเข้าใช้</button></a>
+	                <button type="button" class="btn btn-outline-warning"><a href="request_pass.php"><font color="white">ขอรหัสผ่านครั้งแรก</font></a></button>
+	            </li>
+	            <li class="nav-item">
+	            	<button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in" aria-hidden="true"></i>  ลงชื่อเข้าใช้</button>
 	            </li>';
         	}
             elseif ((isset( $_SESSION['username'])) && ($_SESSION['userview'] == 'student')) {echo
@@ -118,7 +121,7 @@
             	<div class="dropdown-menu">
                 	<a class="dropdown-item" href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>  ข้อมูลส่วนตัว</a>
                 	<a class="dropdown-item" href="#"><i class="fa fa-wrench" aria-hidden="true"></i>  เปลี่ยนรหัสผ่าน</a>
-                	<a class="dropdown-item" href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i>  ออกจากระบบ</a>
+                	<a class="dropdown-item" href="../resource/login/logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i>  ออกจากระบบ</a>
             	</div>
             </li>';
 			}
@@ -129,7 +132,7 @@
                     .$_SESSION['username'].
                   	'</a>
 					<div class="dropdown-menu">
-						<a class="dropdown-item" href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i>  ออกจากระบบ</a>
+						<a class="dropdown-item" href="../resource/login/logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i>  ออกจากระบบ</a>
 					</div>
             	</li>';
             }
@@ -140,7 +143,7 @@
                     .$_SESSION['username'].
                   '</a>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i>  ออกจากระบบ</a>
+                <a class="dropdown-item" href="../resource/login/logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i>  ออกจากระบบ</a>
               </div>
             </li>';
             }
@@ -169,7 +172,7 @@
 						<input class="form-control" type="password" name="password">
 						<span class="help-block"><?php echo $password_err; ?></span>
 	            	</div>
-					<p><a href="#" class="tooltip-test">ลืมรหัสผ่าน</a> หรือ <a href="register.php" class="tooltip-test">สมัครสมาชิก</a></p>
+					<p><a href="#" class="tooltip-test">ลืมรหัสผ่าน</a> หรือ <a href="request_pass.php" class="tooltip-test">ขอรหัสผ่านครั้งแรก</a></p>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
