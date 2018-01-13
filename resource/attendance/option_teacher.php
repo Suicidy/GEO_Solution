@@ -12,7 +12,7 @@ AND*/ course.teacher_id = teacher.teacher_id;";
 $results = query($sql);
 
 while($result = mysqli_fetch_assoc($results)) {
-   echo "<option value=".$result['teacher_id'].">".$result['teacher_id']."</option>"; /*. $result['firstname'] ." ". $result['lastname']*/ 
+   echo "<option value=".$result['teacher_id'].">".$result['teacher_id']."</option>";
 }
 mysqli_free_result($results);
 ?>
