@@ -2,23 +2,29 @@
        require "../../config.php";
 
         $input = $_POST['day'];
-
+        $setday = array("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday");
         $setdayTH = array("วันจันทร์","วันอังคาร","วันพุธ","วันพฤหัสบดี","วันศุกร์","วันเสาร์","วันอาทิตย์");
       //  $tempFindCourse = arrray('','','','','','');
         $allday = "ทุกวัน";
         $print = '[';
         if($input == $allday)
         {   
-           
+            $day = date("l" , strtotime("+2 days" , strtotime(date("l"))));
+            for($l=0;$l<7;$l++)
+            {
+            if($day==$setday[$l])$countDay=$l;
+            }
+
             for($a = 0 ; $a < 5 ; $a++ )
             {  
-                $tempDate = find_date($setdayTH[$a]);
+                $tempDate = find_date($setdayTH[$countDay]);
                $tempCourse[$a] = find_course($tempDate);
                if($a==0)$print .= $tempCourse[$a];
                else $print.=','.$tempCourse[$a];
-               
+               $countDay++;
+               if($countDay==5)$countDay=0;
             }
-            $print.']'
+            $print.=']';
             echo $print;
         }
         else{
