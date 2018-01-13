@@ -1,81 +1,6 @@
 <?php   
-       require "../../config.php";
 
-        $input = $_POST['day'];
-
-        $setdayTH = array("วันจันทร์","วันอังคาร","วันพุธ","วันพฤหัสบดี","วันศุกร์","วันเสาร์","วันอาทิตย์");
-      //  $tempFindCourse = arrray('','','','','','');
-        $allday = "ทุกวัน";
-        $print = '[';
-        if($input == $allday)
-        {   
-           
-            for($a = 0 ; $a < 5 ; $a++ )
-            {  
-                $tempDate = find_date($setdayTH[$a]);
-               $tempCourse[$a] = find_course($tempDate);
-               if($a==0)$print .= $tempCourse[$a];
-               else $print.=','.$tempCourse[$a];
-               
-            }
-            $print.']'
-            echo $print;
-        }
-        else{
-            $tempDate = find_date($input);
-            $course_of_day =  find_course($tempDate);
-            $print .=$course_of_day.']';
-            echo $print;
-        }
-        
-
-        
-
-        function find_date($dayTH){
-        $thisDay = date("l");
-        $setday = array("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday");
-        $setdayTH = array("วันจันทร์","วันอังคาร","วันพุธ","วันพฤหัสบดี","วันศุกร์","วันเสาร์","วันอาทิตย์");
-
-
-        for($l=0;$l<7;$l++){
-            if($dayTH==$setdayTH[$l])$input=$setday[$l];
-        }
-   
-        for($k = 0 ; $k < 7 ; $k++){
-            if($input==$setday[$k]) $i=$k;
-            if($thisDay==$setday[$k]) $j=$k;
-        }
-        
-        $diffday = $i-$j;
-   
-        $nday=7;
-       
-        if($diffday>1) {
-             $searchDate = $diffday;
-            }
-        elseif($diffday==0 or $diffday==1){ 
-         
-            $searchDate = $diffday+$nday;
-        }
-        else{ 
-
-            $searchDate = $nday+$diffday;
-        }
-        $nowDate= date("Y-m-d");
-       
-        $date = date("Y-m-d" , strtotime("+$searchDate days" , strtotime($nowDate)));
-
-        return $date;
-        }
-
-
-       
-
-
-
-
-       
-        function find_course($date){
+    function query($date){
         $result = "SELECT c.subject,c.course_id,t.teacher_id,t.title,t.firstname,t.lastname,t.nickname,c.topic,DATE_FORMAT(c.start_time,'%H:%i') start_time,DATE_FORMAT(c.end_time,'%H:%i') end_time,date(c.start_time)cdate,c.room,t.image,avgStar.star,c.max_seat-seat.countSeat as seatLeft,c.max_seat
         FROM course c,teacher t   , (SELECT AVG(assign_course.star) AS star ,teacher.teacher_id as teacherid
                                   FROM assign_course, course , teacher 
@@ -96,22 +21,17 @@
         $sql=query($result);
      
 
-        $day = date("l" , strtotime($date));
+
 
 
        // $outp = array();
         $listSubject = array('MTH102','MTH112','PHY102','PHY104','CHM103');
 
-        $jsonSubject = array('',
+        $jsonSubject = array('"MTH102":[',
                              '"MTH112":[',
                              '"PHY102":[',
                              '"PHY104":[',
                              '"CHM103":[');
-        $jsonSubject[0] .= '"date":"'.$date
-                                       .'"'
-                                       .',"day":"'.$day
-                                       .'"'
-                                       .',"MTH102":[';
         $count = array(0,0,0,0,0);
         $temp = array('','','','','');
        
@@ -189,18 +109,19 @@
 
             //========================
         }
-        $final = '{';
+        $final = '[{"date":'.'"'.$date.'"';
         for($m = 0 ; $m < count($listSubject) ; $m++){
              if($count[$m]!=0) $jsonSubject[$m] .= ']}]';
              else  $jsonSubject[$m] .= "]";
-             if($m!=0)$final.=',';
+             $final.=',';
              $final.=$jsonSubject[$m];
         }
-        $final .= '}';
+        $final .= '}]';
 
          mysqli_free_result($sql);
         return $final;
         
-    }
 
+       
+    }
 ?>
