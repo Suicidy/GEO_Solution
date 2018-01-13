@@ -89,7 +89,10 @@
                                 $mail->Body    = '<H2>Hello '.$emailreal.'</H2><br>Here is the password you need to login your GEO Solution :<br><H3>'.$password.'</H3><br><br>if you want to reset password <br><H3>'.$link.'</H3>';
                                 if($mail->Send())
                                 {
-                                    echo 'Your mail has been sent successfully.';        
+                                    echo 'Your mail has been sent successfully.';
+                                    session_start();
+                                    $_SESSION['email'] = $emailreal; 
+                                    header("location: login/comfirm.php");        
                                 }
                                 else
                                 {
