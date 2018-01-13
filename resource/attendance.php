@@ -30,7 +30,7 @@
               var attributes = ["student_id","title","firstname","lastname"];
               var length = attributes.length;
               if (jQuery.isEmptyObject(data)){
-                alert("ทำการเช็คชื่อครบทุกคนแล้ว")
+                alert("This is not time to checking attendance or Everyone has been checked")
               } 
               else{
                 for (var i = 0; data[i];i++){
