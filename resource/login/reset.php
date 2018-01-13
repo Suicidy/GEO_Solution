@@ -2,7 +2,7 @@
 
 // Include config file
 
-require_once 'config.php';
+require_once '../../config.php';
 session_start();
 
 // Define variables and initialize with empty values
@@ -68,7 +68,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             session_unset();
             session_destroy();
             // Redirect to login page
-            header("location: login.php");
+            header("location: ../../index.php");
         } else{
             echo "Something went wrong. Please try again later.";
         }
