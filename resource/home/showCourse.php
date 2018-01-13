@@ -19,8 +19,7 @@
    
         $nday=7;
        
-        if($diffday>0) {
-      
+        if($diffday>1) {
              $searchDate = $diffday;
             }
         elseif($diffday==0){ 
@@ -42,7 +41,7 @@
         mysqli_set_charset( $con, 'utf8');
         $sql=mysqli_query($con,"
 
-        SELECT c.subject,t.teacher_id,t.title,t.firstname,t.lastname,c.topic,c.start_time,c.end_time,c.room,t.image,avgStar.star,c.max_seat-seat.countSeat as seatLeft,c.max_seat
+        SELECT c.subject,t.teacher_id,t.title,t.firstname,t.lastname,t.nickname,c.topic,c.start_time,c.end_time,c.room,t.image,avgStar.star,c.max_seat-seat.countSeat as seatLeft,c.max_seat
         FROM course c,teacher t   , (SELECT AVG(assign_course.star) AS star ,teacher.teacher_id as teacherid
                                   FROM assign_course, course , teacher 
                                   where course.teacher_id = teacher.teacher_id 
@@ -65,7 +64,7 @@
         $MTH102 = '"MTH102":['; $count1=0; $temp1="";
         $MTH112 = '"MTH112":['; $count2=0; $temp2="";
         $PHY102 = '"PHY102":['; $count3=0; $temp3="";
-        $PHY104 = '"PHY104":[';  $count4=0; $temp4="";
+        $PHY104 = '"PHY104":['; $count4=0; $temp4="";
         $CHM103 = '"CHM103":['; $count5=0; $temp5="";
 
         while($rs=mysqli_fetch_array($sql,MYSQLI_ASSOC))
@@ -80,6 +79,7 @@
                         .',"teacher_id":"'.$rs['teacher_id'].'"'
                         .',"firstname":"'.$rs['firstname'].'"'
                         .',"lastname":"'.$rs['lastname'].'"'
+                        .',"nickname":"'.$rs['nickname'].'"'
                         .',"star":"'.$rs['star'].'"'
                         .',"course":['
 
@@ -112,6 +112,7 @@
                         .',"teacher_id":"'.$rs['teacher_id'].'"'
                         .',"firstname":"'.$rs['firstname'].'"'
                         .',"lastname":"'.$rs['lastname'].'"'
+                        .',"nickname":"'.$rs['nickname'].'"'
                         .',"star":"'.$rs['star'].'"'
                         .',"course":['
                                  .'{"topic":"'.$rs['topic'].'"'
@@ -141,6 +142,7 @@
                         .',"teacher_id":"'.$rs['teacher_id'].'"'
                         .',"firstname":"'.$rs['firstname'].'"'
                         .',"lastname":"'.$rs['lastname'].'"'
+                        .',"nickname":"'.$rs['nickname'].'"'
                         .',"star":"'.$rs['star'].'"'
                         .',"course":['
 
@@ -173,6 +175,7 @@
                         .',"teacher_id":"'.$rs['teacher_id'].'"'
                         .',"firstname":"'.$rs['firstname'].'"'
                         .',"lastname":"'.$rs['lastname'].'"'
+                        .',"nickname":"'.$rs['nickname'].'"'
                         .',"star":"'.$rs['star'].'"'
                         .',"course":['
 
@@ -204,6 +207,7 @@
                         .',"teacher_id":"'.$rs['teacher_id'].'"'
                         .',"firstname":"'.$rs['firstname'].'"'
                         .',"lastname":"'.$rs['lastname'].'"'
+                        .',"nickname":"'.$rs['nickname'].'"'
                         .',"star":"'.$rs['star'].'"'
                         .',"course":['
 
@@ -236,6 +240,7 @@
                         .',"teacher_id":"'.$rs['teacher_id'].'"'
                         .',"firstname":"'.$rs['firstname'].'"'
                         .',"lastname":"'.$rs['lastname'].'"'
+                        .',"nickname":"'.$rs['nickname'].'"'
                         .',"star":"'.$rs['star'].'"'
                         .',"course":['
 
@@ -263,6 +268,7 @@
                         .',"teacher_id":"'.$rs['teacher_id'].'"'
                         .',"firstname":"'.$rs['firstname'].'"'
                         .',"lastname":"'.$rs['lastname'].'"'
+                        .',"nickname":"'.$rs['nickname'].'"'
                         .',"star":"'.$rs['star'].'"'
                         .',"course":['
 
@@ -295,6 +301,7 @@
                         .',"teacher_id":"'.$rs['teacher_id'].'"'
                         .',"firstname":"'.$rs['firstname'].'"'
                         .',"lastname":"'.$rs['lastname'].'"'
+                        .',"nickname":"'.$rs['nickname'].'"'
                         .',"star":"'.$rs['star'].'"'
                         .',"course":['
 
@@ -322,6 +329,7 @@
                         .',"teacher_id":"'.$rs['teacher_id'].'"'
                         .',"firstname":"'.$rs['firstname'].'"'
                         .',"lastname":"'.$rs['lastname'].'"'
+                        .',"nickname":"'.$rs['nickname'].'"'
                         .',"star":"'.$rs['star'].'"'
                         .',"course":['
 
@@ -354,6 +362,7 @@
                         .',"teacher_id":"'.$rs['teacher_id'].'"'
                         .',"firstname":"'.$rs['firstname'].'"'
                         .',"lastname":"'.$rs['lastname'].'"'
+                        .',"nickname":"'.$rs['nickname'].'"'
                         .',"star":"'.$rs['star'].'"'
                         .',"course":['
 
