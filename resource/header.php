@@ -105,7 +105,7 @@
       </div>
       <div class="navbar-nav">
         <?php
-			if($_SESSION['username'] == '') {echo
+			if(!(isset($_SESSION['username']))) {echo
 	            '<li class="nav-item">
 	                <button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in" aria-hidden="true"></i>  ลงชื่อเข้าใช้</button></a>
 	            </li>';
@@ -179,3 +179,4 @@
 			</div>
 		</div>
 	</div>
+<div class="container">
