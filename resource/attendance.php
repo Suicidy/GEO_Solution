@@ -13,7 +13,7 @@
       $(document).ready(function(){
         $("#table,#send").hide();
         $("#search").click(function(){
-          $("#table,#send").hide();
+          $("#body").empty();
           var data_array = {};
           var id = $("#search_id").val();
           var subject = $("#search_subject").val();
@@ -27,11 +27,20 @@
             data_array['id'] = id;
             data_array['subject'] = subject;
             $.post("attendance/searching.php",data_array,function(data,status){
-                for (i = 0; data[i];i++){
-                  //alert(data[i]['student_id']);
+              var attributes = ["student_id","title","firstname","lastname"];
+              var length = attributes.length;  
+              for (var i = 0; data[i];i++){
+                for (var j = 0; j < length ; j++){
+                  var k = attributes[j];
+                  $("<td></td>").text(data[i][k]).appendTo("#body");
                 }
-             },"json");
-             $("#table,#send").slideDown();
+                $('<td><input type="checkbox" name="student_id[]" value="' + data[i]['student_id'] +'"></td>').appendTo("#body");
+                $("#body > td").wrapAll("<tr></tr>");
+              }
+              $("#send").val(data[0]['cousre_id']);
+            },"json"); 
+            $("#table,#send").hide();
+            $("#table,#send").slideDown();
           }
         });
       });
@@ -60,8 +69,8 @@
           </div>
           <button id = "search" type="submit" class="btn btn-primary search" style ="background-color : #ff7454; border-color : #ff7454; margin-top: 30px; "> SEARCH </button>
         </div>
-      <form action="attendance.php" method="post">
-        <div class="form-row align-items-center" id = "table">
+      <form action="attendance/submit.php" method="post" id = "submit_form">
+        <div class="form-row align-items-center" id = "table" >
           <table class="table table-striped">
             <thead>
               <tr>  
@@ -72,49 +81,7 @@
                 <th scope="col">Status</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>58070501020</td>
-                <td>นาย</td>
-                <td>พิชญุตม์</td>
-                <td>ศิริพิศ</td>
-                <td>
-                  <form class="was-validated">
-                    <div class="custom-control custom-checkbox mb-3">
-                      <input type="checkbox" class="custom-control-input" id="customControlValidation1">
-                      <label class="custom-control-label" for="customControlValidation1"></label>
-                    </div>
-                  </form>
-                </td>
-              </tr>
-              <tr>
-                <td>58070501021</td>
-                <td>นาย</td>
-                <td>พิชญุตม์</td>
-                <td>ศิริพิศ</td>
-                <td>
-                  <form class="was-validated">
-                    <div class="custom-control custom-checkbox mb-3">
-                      <input type="checkbox" class="custom-control-input" id="customControlValidation2">
-                      <label class="custom-control-label" for="customControlValidation2"></label>
-                    </div>
-                  </form>
-                </td>
-              </tr>
-              <tr>
-                <td>58070501052</td>
-                <td>นาย</td>
-                <td>พิชญุตม์</td>
-                <td>ศิริพิศ</td>
-                <td>  
-                  <form class="was-validated">
-                    <div class="custom-control custom-checkbox mb-3">
-                      <input type="checkbox" class="custom-control-input" id="customControlValidation3">
-                      <label class="custom-control-label" for="customControlValidation3"></label>
-                    </div>
-                  </form>
-                </td>
-              </tr>
+            <tbody id = "body">
             </tbody>
           </table>
         </div>
