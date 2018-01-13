@@ -1,5 +1,5 @@
 <?php   
-       
+       require "../../config.php";
         
         $thisDay = date("l");
         $setday = array("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday");
@@ -33,15 +33,10 @@
         $nowDate= date("Y-m-d");
        
         $date = date("Y-m-d" , strtotime("+$searchDate days" , strtotime($nowDate)));
-        
-        $con = new mysqli("localhost", "root", "", "geo_db");
-        if ($con->connect_errno) {
-            die( "Failed to connect to MySQL : (" . $con->connect_errno . ") " . $con->connect_error);
-        }
-        mysqli_set_charset( $con, 'utf8');
-        $sql=mysqli_query($con,"
 
-        SELECT c.subject,t.teacher_id,t.title,t.firstname,t.lastname,t.nickname,c.topic,c.start_time,c.end_time,c.room,t.image,avgStar.star,c.max_seat-seat.countSeat as seatLeft,c.max_seat
+
+
+$result = "SELECT c.subject,c.course_id,t.teacher_id,t.title,t.firstname,t.lastname,t.nickname,c.topic,c.start_time,c.end_time,c.room,t.image,avgStar.star,c.max_seat-seat.countSeat as seatLeft,c.max_seat
         FROM course c,teacher t   , (SELECT AVG(assign_course.star) AS star ,teacher.teacher_id as teacherid
                                   FROM assign_course, course , teacher 
                                   where course.teacher_id = teacher.teacher_id 
@@ -55,10 +50,15 @@
         AND t.teacher_id = avgStar.teacherid
         AND date(c.start_time)='$date'
         AND seat.course_id = c.course_id
-        ORDER BY c.subject,t.teacher_id
-        ");
+        ORDER BY c.subject,t.teacher_id;";
         
+        
+        $sql=query($result);
      
+
+
+
+
        // $outp = array();
         $listSubject = array('MTH102','MTH112','PHY102','PHY104','CHM103');
 
@@ -78,8 +78,9 @@
                  if($count[$run]==0)
                  {
 
-                 $jsonSubject[$run].='{"title":"'.$rs['title'] .'"'
-                        .',"teacher_id":"'.$rs['teacher_id'].'"'
+                 $jsonSubject[$run].='{"course_id":"'.$rs['course_id'].'"'
+                        .',"teacher_id":"'.$rs['teacher_id'].'"'   
+                        .',"title":"'.$rs['title'].'"'
                         .',"firstname":"'.$rs['firstname'].'"'
                         .',"lastname":"'.$rs['lastname'].'"'
                         .',"nickname":"'.$rs['nickname'].'"'
@@ -111,11 +112,13 @@
                 elseif($temp[$run]!=$rs['teacher_id'])
                 {   
                          $jsonSubject[$run].=']}'
-                        .'{"title":"'.$rs['title'] .'"'
+                        .'{"course_id":"'.$rs['course_id'] .'"'
                         .',"teacher_id":"'.$rs['teacher_id'].'"'
+                        .',"title":"'.$rs['title'] .'"'
                         .',"firstname":"'.$rs['firstname'].'"'
                         .',"lastname":"'.$rs['lastname'].'"'
                         .',"nickname":"'.$rs['nickname'].'"'
+                        .',"img":"'.$rs['image'].'"'
                         .',"star":"'.$rs['star'].'"'
                         .',"course":['
                                  .'{"topic":"'.$rs['topic'].'"'
@@ -153,6 +156,9 @@
 
 
         echo $final;
+
+
+        mysqli_free_result($sql);
         
         // $MTH112 .= "]";
         // $PHY102 .= "]";

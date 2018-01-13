@@ -1,5 +1,5 @@
   </div>
-  <nav class="navbar navbar-inverse bg-inverse fixed-bottom">
+  <nav class="navbar navbar-inverse bg-inverse">
     <div class="nav nav-item">
       <div class="container">
         <div class="row">
