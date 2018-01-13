@@ -21,7 +21,8 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
             $row = mysqli_fetch_array($select);
             $_SESSION['stid'] = $row['student_id'];
         }else{
-            $link_err = "Error your link may expired or something might occur please contact yorsh44@gmail.com for more information";
+            $link_err = "Error your link may expired or something might occur please contact geo.kmutt@mail.com for more information";
+            header("Location: expired.php");
         }
     }else{
         header("Location: ../index.php");
