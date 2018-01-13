@@ -1,5 +1,5 @@
 <?php
-require "../../config.php";
+require $_SERVER['DOCUMENT_ROOT'].'/geo_solution/config.php';
 
 foreach($_POST['student_id'] as $student_id){
     $course_id = $_POST['course_id'];

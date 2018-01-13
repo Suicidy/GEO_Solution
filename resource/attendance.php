@@ -28,19 +28,24 @@
             data_array['subject'] = subject;
             $.post("attendance/searching.php",data_array,function(data,status){
               var attributes = ["student_id","title","firstname","lastname"];
-              var length = attributes.length;  
-              for (var i = 0; data[i];i++){
-                for (var j = 0; j < length ; j++){
-                  var k = attributes[j];
-                  $("<td></td>").text(data[i][k]).appendTo("#body");
+              var length = attributes.length;
+              if (jQuery.isEmptyObject(data)){
+                alert("ทำการเช็คชื่อครบทุกคนแล้ว")
+              } 
+              else{
+                for (var i = 0; data[i];i++){
+                  for (var j = 0; j < length ; j++){
+                    var k = attributes[j];
+                    $("<td></td>").text(data[i][k]).appendTo("#body");
+                  }
+                  $('<td><input type="checkbox" name="student_id[]" value="' + data[i]['student_id'] +'"></td>').appendTo("#body");
+                  $("#body > td").wrapAll("<tr></tr>");
                 }
-                $('<td><input type="checkbox" name="student_id[]" value="' + data[i]['student_id'] +'"></td>').appendTo("#body");
-                $("#body > td").wrapAll("<tr></tr>");
-              }
-              $("#course").val(data[0]['course_id']);
+                $("#course").val(data[0]['course_id']);
+                $("#table,#send").slideDown();
+              } 
             },"json"); 
-            $("#table,#send").hide();
-            $("#table,#send").slideDown();
+            
           }
         });
       });
@@ -52,7 +57,7 @@
       <center><p><big><big><h1> Check Attendance </h1></big></center></p></big>
         <div class="form-row align-items-center">
           <div class="col-auto my-1">
-            <label class="mr-sm-2" for="inlineFormCustomSelect">Teacher Assistant</label>
+            <label class="mr-sm-2" for="inlineFormCustomSelect">Teacher Assistant ID</label>
             <select class="custom-select mr-sm-2" id = "search_id">
               <option value="" selected>Choose...</option>
               <?php require "attendance/option_teacher.php";?>
