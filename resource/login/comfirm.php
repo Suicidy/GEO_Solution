@@ -22,9 +22,7 @@
 				 if(!isset($_SESSION['email']) || empty($_SESSION['email'])){
 					
 								header("location: ../request_pass.php");
-					
 								exit;
-					
 							}
 				echo $_SESSION['email'];
 				session_destroy();
