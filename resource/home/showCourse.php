@@ -36,7 +36,7 @@
 
 
 
-$result = "SELECT c.subject,c.course_id,t.teacher_id,t.title,t.firstname,t.lastname,t.nickname,c.topic,c.start_time,c.end_time,c.room,t.image,avgStar.star,c.max_seat-seat.countSeat as seatLeft,c.max_seat
+$result = "SELECT c.subject,c.course_id,t.teacher_id,t.title,t.firstname,t.lastname,t.nickname,c.topic,DATE_FORMAT(c.start_time,'%H:%i') start_time,DATE_FORMAT(c.end_time,'%H:%i') end_time,c.room,t.image,avgStar.star,c.max_seat-seat.countSeat as seatLeft,c.max_seat
         FROM course c,teacher t   , (SELECT AVG(assign_course.star) AS star ,teacher.teacher_id as teacherid
                                   FROM assign_course, course , teacher 
                                   where course.teacher_id = teacher.teacher_id 
@@ -48,7 +48,7 @@ $result = "SELECT c.subject,c.course_id,t.teacher_id,t.title,t.firstname,t.lastn
                                    
         WHERE c.teacher_id = t.teacher_id
         AND t.teacher_id = avgStar.teacherid
-        AND date(c.start_time)='$date'
+        AND date(c.start_time)='2018-01-15'
         AND seat.course_id = c.course_id
         ORDER BY c.subject,t.teacher_id;";
         
@@ -89,8 +89,7 @@ $result = "SELECT c.subject,c.course_id,t.teacher_id,t.title,t.firstname,t.lastn
 
                                  .'{"topic":"'.$rs['topic'].'"'
                                  .',"room":"'.$rs['room'].'"'
-                                 .',"start_time":"'.$rs['start_time'].'"'
-                                 .',"end_time":"'.$rs['end_time'].'"'
+                                 .',"time":"'.$rs['start_time'].'-'.$rs['end_time'].'"'
                                  .',"seatLeft":"'.$rs['seatLeft'].'"'
                                  .',"max_seat":"'.$rs['max_seat'].'"'
                                  .'}';
@@ -123,8 +122,7 @@ $result = "SELECT c.subject,c.course_id,t.teacher_id,t.title,t.firstname,t.lastn
                         .',"course":['
                                  .'{"topic":"'.$rs['topic'].'"'
                                  .',"room":"'.$rs['room'].'"'
-                                 .',"start_time":"'.$rs['start_time'].'"'
-                                 .',"end_time":"'.$rs['end_time'].'"'
+                                 .',"time":"'.$rs['start_time'].'-'.$rs['end_time'].'"'
                                  .',"seatLeft":"'.$rs['seatLeft'].'"'
                                  .',"max_seat":"'.$rs['max_seat'].'"'
                                  .'}';
@@ -145,11 +143,11 @@ $result = "SELECT c.subject,c.course_id,t.teacher_id,t.title,t.firstname,t.lastn
 
             //========================
         }
-        $final = '[{';
+        $final = '[{"date:"'.'"'.$date.'"';
         for($m = 0 ; $m < count($listSubject) ; $m++){
              if($count[$m]!=0) $jsonSubject[$m] .= ']}]';
              else  $jsonSubject[$m] .= "]";
-             if($m!=0) $final.=',';
+             $final.=',';
              $final.=$jsonSubject[$m];
         }
         $final .= '}]';
