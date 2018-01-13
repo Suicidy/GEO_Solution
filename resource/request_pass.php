@@ -126,25 +126,28 @@
         return $result; 
       }
     ?>
-
+<!-- 
     <!DOCTYPE html>
     <head>
         <meta charset="UTF-8">
         <title>Login</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
-        <style type="text/css">
-            body{ font: 14px sans-serif; }
-            .wrapper{ width: 350px; padding: 20px; }
-        </style>
+        
     </head>
 
-    <body>
-        <div class="wrapper">
-            <h2>Login</h2>
-            <p>Please fill in your credentials to login.</p>
+    <body> -->
+        <?php require_once './header.php'; ?>
+        <style type="text/css">
+            body{ font: 18px sans-serif; font-family: 'Kanit', sans-serif;}
+            .wrapper{ width: 400px; padding: 20px; }
+        </style>
+        <center>
+        <div class="card bg-light wrapper">
+            <h2>Request Password</h2>
+            <p>Please enter student ID.</p>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                    <label>Username:<sup>*</sup></label>
+                    <label>Student ID:<sup>*</sup></label>
                     <input type="text" name="username"class="form-control" value="<?php echo $username; ?>">
                     <span class="help-block"><?php echo $username_err; ?></span>
                 </div>    
@@ -152,7 +155,9 @@
                     <input type="submit" class="btn btn-primary" value="Submit">
                 </div>
             </form>
-        </div>  
-    </body>
-    </html>
+        </div>
+        </center>  
+<!--     </body>
+    </html> -->
+    <?php require_once './footer.php'; ?>
 

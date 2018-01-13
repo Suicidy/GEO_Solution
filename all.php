@@ -1,3 +1,3 @@
-<?php include('resource/header.php'); ?>
+<?php require_once '../header.php'; ?>
 
-<?php include('resource/footer.php'); ?>
+<?php require_once '../footer.php'; ?>
