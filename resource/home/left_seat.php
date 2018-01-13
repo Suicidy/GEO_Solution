@@ -10,12 +10,8 @@
     $sql=query($result);
     while($rs=mysqli_fetch_array($sql,MYSQLI_ASSOC))
         {   
-
            $final = $rs['leftSeat'].'/'.$rs['max_seat'];
-
-            //========================
         }
         echo $final;
         mysqli_free_result($sql);
-
 ?>
