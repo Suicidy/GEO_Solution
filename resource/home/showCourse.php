@@ -7,9 +7,9 @@
         for($l=0;$l<7;$l++){
             if($_POST['day']==$setdayTH[$l])$input=$setday[$l];
         }
-        if($input==date("l")){
-            echo 'It is the same day';
-        }
+        // if($input==date("l")){
+        //     echo 'It is the same day';
+        // }
         for($k=0 ; $k<7;$k++){
             if($input==$setday[$k]) $i=$k;
             if($thisDay==$setday[$k]) $j=$k;
@@ -22,9 +22,9 @@
         if($diffday>1) {
              $searchDate = $diffday;
             }
-        elseif($diffday==0){ 
+        elseif($diffday==0 or $diffday==1){ 
          
-            $searchDate = $nday;
+            $searchDate = $diffday+$nday;
         }
         else{ 
 
@@ -61,21 +61,24 @@
      
        // $outp = array();
         $listSubject = array('MTH102','MTH112','PHY102','PHY104','CHM103');
-        $MTH102 = '"MTH102":['; $count1=0; $temp1="";
-        $MTH112 = '"MTH112":['; $count2=0; $temp2="";
-        $PHY102 = '"PHY102":['; $count3=0; $temp3="";
-        $PHY104 = '"PHY104":['; $count4=0; $temp4="";
-        $CHM103 = '"CHM103":['; $count5=0; $temp5="";
 
-        while($rs=mysqli_fetch_array($sql,MYSQLI_ASSOC))
+        $jsonSubject = array('"MTH102":[','"MTH112":[','"PHY102":[','"PHY104":[','"CHM103":[');
+        $count = array(0,0,0,0,0);
+        $temp = array('','','','','');
+       
+
+    while($rs=mysqli_fetch_array($sql,MYSQLI_ASSOC))
         {   
-            if($rs['subject']==$listSubject[0])
+
+            for($run=0;$run<count($listSubject);$run++)
+            {
+                 if($rs['subject']==$listSubject[$run])
             {
                // if($count1[0]!=0)$MTH102.=",";
-                 if($count1==0)
+                 if($count[$run]==0)
                  {
 
-                 $MTH102.='{"title":"'.$rs['title'] .'"'
+                 $jsonSubject[$run].='{"title":"'.$rs['title'] .'"'
                         .',"teacher_id":"'.$rs['teacher_id'].'"'
                         .',"firstname":"'.$rs['firstname'].'"'
                         .',"lastname":"'.$rs['lastname'].'"'
@@ -90,13 +93,13 @@
                                  .',"seatLeft":"'.$rs['seatLeft'].'"'
                                  .',"max_seat":"'.$rs['max_seat'].'"'
                                  .'}';
-                    $count1++;
-                    $temp1=$rs['teacher_id'];
+                    $count[$run]++;
+                    $temp[$run]=$rs['teacher_id'];
 
                 }
-                elseif($count1!=0 and $temp1==$rs['teacher_id'])
+                elseif($count[$run]!=0 and $temp[$run]==$rs['teacher_id'])
                 {
-                    $MTH102.=',{"topic":"'.$rs['topic'].'"'
+                   $jsonSubject[$run].=',{"topic":"'.$rs['topic'].'"'
                                  .',"room":"'.$rs['room'].'"'
                                  .',"start_time":"'.$rs['start_time'].'"'
                                  .',"end_time":"'.$rs['end_time'].'"'
@@ -105,9 +108,9 @@
                                  .'}';
 
                 }
-                elseif($temp1!=$rs['teacher_id'])
+                elseif($temp[$run]!=$rs['teacher_id'])
                 {   
-                         $MTH102.=']}'
+                         $jsonSubject[$run].=']}'
                         .'{"title":"'.$rs['title'] .'"'
                         .',"teacher_id":"'.$rs['teacher_id'].'"'
                         .',"firstname":"'.$rs['firstname'].'"'
@@ -122,7 +125,7 @@
                                  .',"seatLeft":"'.$rs['seatLeft'].'"'
                                  .',"max_seat":"'.$rs['max_seat'].'"'
                                  .'}';
-                    $temp1=$rs['teacher_id'];
+                    $temp[$run]=$rs['teacher_id'];
 
 
                 }
@@ -131,271 +134,25 @@
 
 
 
-            //=============================
-            if($rs['subject']==$listSubject[1])
-            {
-               // if($count2[0]!=0)$MTH112.=",";
-                 if($count2==0)
-                 {
-
-                 $MTH112.='{"title":"'.$rs['title'] .'"'
-                        .',"teacher_id":"'.$rs['teacher_id'].'"'
-                        .',"firstname":"'.$rs['firstname'].'"'
-                        .',"lastname":"'.$rs['lastname'].'"'
-                        .',"nickname":"'.$rs['nickname'].'"'
-                        .',"star":"'.$rs['star'].'"'
-                        .',"course":['
-
-                                 .'{"topic":"'.$rs['topic'].'"'
-                                 .',"room":"'.$rs['room'].'"'
-                                 .',"start_time":"'.$rs['start_time'].'"'
-                                 .',"end_time":"'.$rs['end_time'].'"'
-                                 .',"seatLeft":"'.$rs['seatLeft'].'"'
-                                 .',"max_seat":"'.$rs['max_seat'].'"'
-                                 .'}';
-                    $count2++;
-                    $temp2=$rs['teacher_id'];
-
-                }
-                elseif($count2!=0 and $temp2==$rs['teacher_id'])
-                {
-                    $MTH112.=',{"topic":"'.$rs['topic'].'"'
-                                 .',"room":"'.$rs['room'].'"'
-                                 .',"start_time":"'.$rs['start_time'].'"'
-                                 .',"end_time":"'.$rs['end_time'].'"'
-                                 .',"seatLeft":"'.$rs['seatLeft'].'"'
-                                 .',"max_seat":"'.$rs['max_seat'].'"'
-                                 .'}';
-
-                }
-                elseif($temp2!=$rs['teacher_id'])
-                {   
-                         $MTH112.=']}'
-                        .'{"title":"'.$rs['title'] .'"'
-                        .',"teacher_id":"'.$rs['teacher_id'].'"'
-                        .',"firstname":"'.$rs['firstname'].'"'
-                        .',"lastname":"'.$rs['lastname'].'"'
-                        .',"nickname":"'.$rs['nickname'].'"'
-                        .',"star":"'.$rs['star'].'"'
-                        .',"course":['
-
-                                 .'{"topic":"'.$rs['topic'].'"'
-                                 .',"room":"'.$rs['room'].'"'
-                                 .',"start_time":"'.$rs['start_time'].'"'
-                                 .',"end_time":"'.$rs['end_time'].'"'
-                                 .',"seatLeft":"'.$rs['seatLeft'].'"'
-                                 .',"max_seat":"'.$rs['max_seat'].'"'
-                                 .'}';
-                    $temp2=$rs['teacher_id'];
-
-
-                }
             }
 
+           
 
 
 
-           // ==========================================
-
-            if($rs['subject']==$listSubject[2])
-            {
-               // if($count3[0]!=0)$PHY102.=",";
-                 if($count3==0)
-                 {
-
-                 $PHY102.='{"title":"'.$rs['title'] .'"'
-                        .',"teacher_id":"'.$rs['teacher_id'].'"'
-                        .',"firstname":"'.$rs['firstname'].'"'
-                        .',"lastname":"'.$rs['lastname'].'"'
-                        .',"nickname":"'.$rs['nickname'].'"'
-                        .',"star":"'.$rs['star'].'"'
-                        .',"course":['
-
-                                 .'{"topic":"'.$rs['topic'].'"'
-                                 .',"room":"'.$rs['room'].'"'
-                                 .',"start_time":"'.$rs['start_time'].'"'
-                                 .',"end_time":"'.$rs['end_time'].'"'
-                                 .',"seatLeft":"'.$rs['seatLeft'].'"'
-                                 .',"max_seat":"'.$rs['max_seat'].'"'
-                                 .'}';
-                    $count3++;
-                    $temp3=$rs['teacher_id'];
-
-                }
-                elseif($count3!=0 and $temp3==$rs['teacher_id'])
-                {
-                    $PHY102.=',{"topic":"'.$rs['topic'].'"'
-                                 .',"room":"'.$rs['room'].'"'
-                                 .',"start_time":"'.$rs['start_time'].'"'
-                                 .',"end_time":"'.$rs['end_time'].'"'
-                                 .',"seatLeft":"'.$rs['seatLeft'].'"'
-                                 .',"max_seat":"'.$rs['max_seat'].'"'
-                                 .'}';
-
-                }
-                elseif($temp3!=$rs['teacher_id'])
-                {   
-                         $PHY102.=']}'
-                        .'{"title":"'.$rs['title'] .'"'
-                        .',"teacher_id":"'.$rs['teacher_id'].'"'
-                        .',"firstname":"'.$rs['firstname'].'"'
-                        .',"lastname":"'.$rs['lastname'].'"'
-                        .',"nickname":"'.$rs['nickname'].'"'
-                        .',"star":"'.$rs['star'].'"'
-                        .',"course":['
-
-                                 .'{"topic":"'.$rs['topic'].'"'
-                                 .',"room":"'.$rs['room'].'"'
-                                 .',"start_time":"'.$rs['start_time'].'"'
-                                 .',"end_time":"'.$rs['end_time'].'"'
-                                 .',"seatLeft":"'.$rs['seatLeft'].'"'
-                                 .',"max_seat":"'.$rs['max_seat'].'"'
-                                 .'}';
-                    $temp3=$rs['teacher_id'];
-
-
-                }
-            }
-            //=========================
-
-            if($rs['subject']==$listSubject[3])
-            {
-               // if($count4[0]!=0)$PHY104.=",";
-                 if($count4==0)
-                 {
-
-                 $PHY104.='{"title":"'.$rs['title'] .'"'
-                        .',"teacher_id":"'.$rs['teacher_id'].'"'
-                        .',"firstname":"'.$rs['firstname'].'"'
-                        .',"lastname":"'.$rs['lastname'].'"'
-                        .',"nickname":"'.$rs['nickname'].'"'
-                        .',"star":"'.$rs['star'].'"'
-                        .',"course":['
-
-                                 .'{"topic":"'.$rs['topic'].'"'
-                                 .',"room":"'.$rs['room'].'"'
-                                 .',"start_time":"'.$rs['start_time'].'"'
-                                 .',"end_time":"'.$rs['end_time'].'"'
-                                 .',"seatLeft":"'.$rs['seatLeft'].'"'
-                                 .',"max_seat":"'.$rs['max_seat'].'"'
-                                 .'}';
-                    $count4++;
-                    $temp4=$rs['teacher_id'];
-
-                }
-                elseif($count4!=0 and $temp4==$rs['teacher_id'])
-                {
-                    $PHY104.=',{"topic":"'.$rs['topic'].'"'
-                                 .',"room":"'.$rs['room'].'"'
-                                 .',"start_time":"'.$rs['start_time'].'"'
-                                 .',"end_time":"'.$rs['end_time'].'"'
-                                 .',"seatLeft":"'.$rs['seatLeft'].'"'
-                                 .',"max_seat":"'.$rs['max_seat'].'"'
-                                 .'}';
-
-                }
-                elseif($temp4!=$rs['teacher_id'])
-                {   
-                         $PHY104.=']}'
-                        .'{"title":"'.$rs['title'] .'"'
-                        .',"teacher_id":"'.$rs['teacher_id'].'"'
-                        .',"firstname":"'.$rs['firstname'].'"'
-                        .',"lastname":"'.$rs['lastname'].'"'
-                        .',"nickname":"'.$rs['nickname'].'"'
-                        .',"star":"'.$rs['star'].'"'
-                        .',"course":['
-
-                                 .'{"topic":"'.$rs['topic'].'"'
-                                 .',"room":"'.$rs['room'].'"'
-                                 .',"start_time":"'.$rs['start_time'].'"'
-                                 .',"end_time":"'.$rs['end_time'].'"'
-                                 .',"seatLeft":"'.$rs['seatLeft'].'"'
-                                 .',"max_seat":"'.$rs['max_seat'].'"'
-                                 .'}';
-                    $temp4=$rs['teacher_id'];
-
-
-                }
-            }
-
-            ///=====================================================
-            if($rs['subject']==$listSubject[4])
-            {
-               // if($count5[0]!=0)$CHM103.=",";
-                 if($count5==0)
-                 {
-
-                 $CHM103.='{"title":"'.$rs['title'] .'"'
-                        .',"teacher_id":"'.$rs['teacher_id'].'"'
-                        .',"firstname":"'.$rs['firstname'].'"'
-                        .',"lastname":"'.$rs['lastname'].'"'
-                        .',"nickname":"'.$rs['nickname'].'"'
-                        .',"star":"'.$rs['star'].'"'
-                        .',"course":['
-
-                                 .'{"topic":"'.$rs['topic'].'"'
-                                 .',"room":"'.$rs['room'].'"'
-                                 .',"start_time":"'.$rs['start_time'].'"'
-                                 .',"end_time":"'.$rs['end_time'].'"'
-                                 .',"seatLeft":"'.$rs['seatLeft'].'"'
-                                 .',"max_seat":"'.$rs['max_seat'].'"'
-                                 .'}';
-                    $count5++;
-                    $temp5=$rs['teacher_id'];
-
-                }
-                elseif($count5!=0 and $temp5==$rs['teacher_id'])
-                {
-                    $CHM103.=',{"topic":"'.$rs['topic'].'"'
-                                 .',"room":"'.$rs['room'].'"'
-                                 .',"start_time":"'.$rs['start_time'].'"'
-                                 .',"end_time":"'.$rs['end_time'].'"'
-                                 .',"seatLeft":"'.$rs['seatLeft'].'"'
-                                 .',"max_seat":"'.$rs['max_seat'].'"'
-                                 .'}';
-
-                }
-                elseif($temp5!=$rs['teacher_id'])
-                {   
-                         $CHM103.=']}'
-                        .'{"title":"'.$rs['title'] .'"'
-                        .',"teacher_id":"'.$rs['teacher_id'].'"'
-                        .',"firstname":"'.$rs['firstname'].'"'
-                        .',"lastname":"'.$rs['lastname'].'"'
-                        .',"nickname":"'.$rs['nickname'].'"'
-                        .',"star":"'.$rs['star'].'"'
-                        .',"course":['
-
-                                 .'{"topic":"'.$rs['topic'].'"'
-                                 .',"room":"'.$rs['room'].'"'
-                                 .',"start_time":"'.$rs['start_time'].'"'
-                                 .',"end_time":"'.$rs['end_time'].'"'
-                                 .',"seatLeft":"'.$rs['seatLeft'].'"'
-                                 .',"max_seat":"'.$rs['max_seat'].'"'
-                                 .'}';
-                    $temp5=$rs['teacher_id'];
-
-
-                }
-            }
             //========================
         }
-        if($count1!=0) $MTH102 .= "]}]";
-        else  $MTH102 .= "]";
+        $final = '[{';
+        for($m = 0 ; $m < count($listSubject) ; $m++){
+             if($count[$m]!=0) $jsonSubject[$m] .= ']}]';
+             else  $jsonSubject[$m] .= "]";
+             if($m!=0) $final.=',';
+             $final.=$jsonSubject[$m];
+        }
+        $final .= '}]';
 
-        if($count2!=0) $MTH112 .= "]}]";
-         else  $MTH112 .= "]";
 
-        if($count3!=0) $PHY102 .= "]}]";
-         else  $PHY102 .= "]";
-
-        if($count4!=0) $PHY104 .= "]}]";
-        else  $PHY104 .= "]";
-
-        if($count5!=0) $CHM103 .= "]}]";
-        else  $CHM103 .= "]";
-
-        echo '[{'.$MTH102.','.$MTH112.','.$PHY102.','.$PHY104.','.$CHM103.'}]';
+        echo $final;
         
         // $MTH112 .= "]";
         // $PHY102 .= "]";
