@@ -11,9 +11,8 @@
 	<link href="css/self_booking.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Kanit:400,500,600,700,800,900" rel="stylesheet">
 	<script>
-(function($){
 	$(document).ready(function(){
-		$("#dayMTH102").html( "ทุกวัน" );
+		//$("#dayMTH102").html( "ทุกวัน" );
 		$.ajax({
 			url: 'resource/home/showCourse.php',
 			type: 'post',
@@ -22,16 +21,75 @@
 			},
 			dataType: 'json',
 			success: function(data){
-				var response = data[0];
+				//var response = data[0];
 				//$("#demo").html(status);
-				$("#day").html(response.course_id);
+				$("#mondayMTH102").html(data.length);
+				//test();
+				var stringForPrintHtml='';
+				var response;
+				//var data = data[0];
+
+				// // MTH102
+				// stringForPrintHtml = stringForPrintHtml.concat('<div class="form-group"><select class="form-control col-2" style="float:left;" id="formControlSelectMTH102"><option>-</option>');
+				// for (var datetrig = 0; datetrig<data.length; datetrig--) {
+				// 	stringForPrintHtml = stringForPrintHtml.concat('<option>', data[i].day, '  ', data[i].date, '</option>');
+				// }
+				// stringForPrintHtml = stringForPrintHtml.concat('</select><button type="submit" class="btn btn-success" id="buttonMTH102">ยืนยัน</button></div>');
+				// $("#nav-MTH_102").html(stringForPrintHtml);
+
+				// // MTH112
+				// stringForPrintHtml='';
+				// stringForPrintHtml = stringForPrintHtml.concat('<div class="form-group"><select class="form-control col-2" style="float:left;" id="formControlSelectMTH112"><option>-</option>');
+				// for (var datetrig = 0; datetrig<data.length; datetrig--) {
+				// 	stringForPrintHtml = stringForPrintHtml.concat('<option>', data[i].day, '  ', data[i].date, '</option>');
+				// }
+				// stringForPrintHtml = stringForPrintHtml.concat('</select><button type="submit" class="btn btn-success" id="buttonMTH112">ยืนยัน</button></div>');
+				// $("#nav-MTH_112").html(stringForPrintHtml);
+
+				// // PHY102
+				// stringForPrintHtml='';
+				// stringForPrintHtml = stringForPrintHtml.concat('<div class="form-group"><select class="form-control col-2" style="float:left;" id="formControlSelectPHY102"><option>-</option>');
+				// for (var datetrig = 0; datetrig<data.length; datetrig--) {
+				// 	stringForPrintHtml = stringForPrintHtml.concat('<option>', data[i].day, '  ', data[i].date, '</option>');
+				// }
+				// stringForPrintHtml = stringForPrintHtml.concat('</select><button type="submit" class="btn btn-success" id="buttonPHY102">ยืนยัน</button></div>');
+				// $("#nav-PHY_102").html(stringForPrintHtml);
+
+				// // PHY104
+				// stringForPrintHtml='';
+				// stringForPrintHtml = stringForPrintHtml.concat('<div class="form-group"><select class="form-control col-2" style="float:left;" id="formControlSelectPHY104"><option>-</option>');
+				// for (var datetrig = 0; datetrig<data.length; datetrig--) {
+				// 	stringForPrintHtml = stringForPrintHtml.concat('<option>', data[i].day, '  ', data[i].date, '</option>');
+				// }
+				// stringForPrintHtml = stringForPrintHtml.concat('</select><button type="submit" class="btn btn-success" id="buttonPHY104">ยืนยัน</button></div>');
+				// $("#nav-PHY_104").html(stringForPrintHtml);
+
+				// // CHM103
+				// stringForPrintHtml='';
+				// stringForPrintHtml = stringForPrintHtml.concat('<div class="form-group"><select class="form-control col-2" style="float:left;" id="formControlSelectCHM103"><option>-</option>');
+				// for (var datetrig = 0; datetrig<data.length; datetrig--) {
+				// 	stringForPrintHtml = stringForPrintHtml.concat('<option>', data[i].day, '  ', data[i].date, '</option>');
+				// }
+				// stringForPrintHtml = stringForPrintHtml.concat('</select><button type="submit" class="btn btn-success" id="buttonCHM103">ยืนยัน</button></div>');
+				// $("#nav-CHM_103").html(stringForPrintHtml);
+
+				stringForPrintHtml='';
+				for (var checkdate = 0; checkdate<data.length; checkdate++) {
+					var response = data[checkdate];
+					for(var i=0;i<response.MTH102.length;i++){
+						stringForPrintHtml = '<tr><th scope="row"></th><td style="width: 25%"><div class="square"><img src="'.concat(response.MTH102[i].image);
+						stringForPrintHtml = stringForPrintHtml.concat('.jpg"><p class="nickname", id="nicknameMTH102TA', response.MTH102[i].teacher_id, '"> พี่ ', response.MTH102[i].nickname);
+						stringForPrintHtml = stringForPrintHtml.concat('</p><p>', response.MTH102[i].star, '</p></div></td><td colspan="2"><p>ชื่อ ', response.MTH102[i].title, ' ', response.MTH102[i].firstname, '    ', response.MTH102[i].lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
+						for(var j=0;j<response.MTH102[i].course.length;j++){
+							stringForPrintHtml = stringForPrintHtml.concat('<tr><td style="width: 35%">', response.MTH102[i].course[j].topic, '</td><td style="width: 15%">', response.MTH102[i].course[j].room, '</td><td style="width: 18%" class="bookingtime"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalNB', response.MTH102[i].course[j].course_id, '" onclick="updateSeat(', response.MTH102[i].course[j].course_id, ')" >', response.MTH102[i].course[j].time, '</button><div class="modal fade" id="modalNB', response.MTH102[i].course[j].course_id, '" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">ยืนยันการจอง</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body" id="modalcontent', response.MTH102[i].course[j].course_id, '">จำนวนที่นั่งคงเหลือ ', response.MTH102[i].course[j].seatLeft, ' ที่นั่ง</div><div class="modal-footer"><button type="button" class="btn btn-success" onclick="sendBooking(', response.MTH102[i].course[j].course_id, ')">ยืนยัน</button></div></div></div></div></td><td>จำนวนที่นั่งคงเหลือ ', response.MTH102[i].course[j].seatLeft, ' ที่นั่ง</td></tr>'  )
+						}
+						stringForPrintHtml = stringForPrintHtml.concat('</tbody></table>');
+					}				
+				}
+				$("#tableMTH102").html(stringForPrintHtml);		
 			}
 		});
 		
-
-
-
-
 		$("#buttonMTH102").click(function(){
 	    	var singleValues = $( "#exampleFormControlSelect1" ).val();
 
@@ -73,17 +131,43 @@
 				}
 			});
 	    });
-
 	});
-})(jQuery);
 	</script>
 
 	<script type="text/javascript">
 		function alerteiei(){
 			$("#test12").html("2345");
 		};
-		function testclose(){
-			$("#exampleModal").modal('hide');
+
+		function updateSeat(id){
+			//$("#modalcontent"+id).html("2345");
+			//$("#mondayMTH102").html('eiei');
+			$("#modalcontent"+id).html("2345"+id);
+			var obj ={};
+			obj['course_id'] = id;
+			$.ajax({
+				url: 'resource/home/showSeatLeft.php',
+				type: 'post',
+				data: obj,
+				dataType: 'json',
+				success: function(data){
+					//
+				}
+			});
+		};
+
+		function sendBooking(id){
+			var obj ={};
+			obj['course_id'] = id;
+			$.ajax({
+				url: 'resource/home/booking.php',
+				type: 'post',
+				data: obj,
+				dataType: 'json',
+				success: function(data){
+					//
+				}
+			});;
 		};
 	</script>
 </head>
@@ -122,7 +206,7 @@
 						<h4 id="mondayMTH102">วันจันทร์</h4>
 						<p id="testeiei"></p>
 						<hr>
-						<table class="table borderless">
+						<table class="table borderless" id="tableMTH102">
 						  <tbody>
 						    <tr>
 						      <th scope="row"></th>
@@ -154,7 +238,7 @@
 										          <span aria-hidden="true">&times;</span>
 										        </button>
 										      </div>
-										      <div class="modal-body">
+										      <div class="modal-body" id="">
 										        จำนวนที่นั่งคงเหลือ 10 ที่นั่ง
 										      </div>
 										      <div class="modal-footer">
