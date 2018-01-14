@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -9,17 +9,19 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
-	<script src="../js/show_student_course" type="text/javascript"></script>
+	<script src="../js/show_student_course" type="text/javascript"></script> -->
 <!-- 	<script>
 $(document).ready(function(){
     $("tr:even").css("background-color", "gray");
 });
 </script> -->
-</head>
+<!-- </head>
 <body>
 	<nav class="navbar navbar-light bg-light">
 	  <a class="navbar-brand" href="#">Navbar</a>
-	</nav>
+	</nav> -->
+	<?php include('header.php'); ?>
+	<link href="/GEO_Solution/css/review.css" rel="stylesheet">
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 						  <div class="modal-dialog" role="document">
 						    <div class="modal-content">
@@ -96,5 +98,6 @@ $(document).ready(function(){
 			</div>
 		</div>
 	</div>
-</body>
-</html>
+<!-- </body>
+</html> -->
+  <?php require_once 'footer.php'; ?>
