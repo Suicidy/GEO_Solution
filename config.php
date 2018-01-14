@@ -54,6 +54,13 @@
         die("ERROR: Could not connect. " . mysqli_connect_error());
     }
 
+    function check_input($input){
+        $conn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+        $output = mysqli_real_escape_string($conn,$input);
+        mysqli_close($conn);
+        return $output;
+    }
+    
     function query($sql_statement){
         $conn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
         mysqli_set_charset( $conn, DB_CHARSET);
