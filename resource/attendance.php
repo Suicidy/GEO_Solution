@@ -2,13 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script src="/geo_solution/js/jquery-3.2.1.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-    <script src="../js/jquery-3.2.1.js"></script>
     <script>
       $(document).ready(function(){
         $("#table,#send").hide();
@@ -28,19 +27,23 @@
             data_array['subject'] = subject;
             $.post("attendance/searching.php",data_array,function(data,status){
               var attributes = ["student_id","title","firstname","lastname"];
-              var length = attributes.length;  
-              for (var i = 0; data[i];i++){
-                for (var j = 0; j < length ; j++){
-                  var k = attributes[j];
-                  $("<td></td>").text(data[i][k]).appendTo("#body");
+              var length = attributes.length;
+              if (jQuery.isEmptyObject(data)){
+                alert("This is not time to checking attendance or Everyone has been checked")
+              } 
+              else{
+                for (var i = 0; data[i];i++){
+                  for (var j = 0; j < length ; j++){
+                    var k = attributes[j];
+                    $("<td></td>").text(data[i][k]).appendTo("#body");
+                  }
+                  $('<td><input type="checkbox" name="student_id[]" value="' + data[i]['student_id'] +'"></td>').appendTo("#body");
+                  $("#body > td").wrapAll("<tr></tr>");
                 }
-                $('<td><input type="checkbox" name="student_id[]" value="' + data[i]['student_id'] +'"></td>').appendTo("#body");
-                $("#body > td").wrapAll("<tr></tr>");
-              }
-              $("#course").val(data[0]['course_id']);
-            },"json"); 
-            $("#table,#send").hide();
-            $("#table,#send").slideDown();
+                $("#course").val(data[0]['course_id']);
+                $("#table,#send").slideDown();
+              } 
+            },"json");        
           }
         });
       });
@@ -52,7 +55,7 @@
       <center><p><big><big><h1> Check Attendance </h1></big></center></p></big>
         <div class="form-row align-items-center">
           <div class="col-auto my-1">
-            <label class="mr-sm-2" for="inlineFormCustomSelect">Teacher Assistant</label>
+            <label class="mr-sm-2" for="inlineFormCustomSelect">Teacher Assistant ID</label>
             <select class="custom-select mr-sm-2" id = "search_id">
               <option value="" selected>Choose...</option>
               <?php require "attendance/option_teacher.php";?>

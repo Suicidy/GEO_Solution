@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.6
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 13, 2018 at 10:23 AM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.10
+-- Generation Time: Jan 14, 2018 at 07:39 AM
+-- Server version: 10.1.29-MariaDB
+-- PHP Version: 7.0.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -31,24 +31,23 @@ USE `geo_db`;
 --
 
 CREATE TABLE `assign_course` (
-  `comment_id` int(11) NOT NULL,
   `course_id` int(11) NOT NULL,
   `student_id` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `comment_id` int(11) NOT NULL,
   `attending_status` tinyint(1) NOT NULL DEFAULT '0',
   `star` tinyint(1) DEFAULT NULL,
-  `time_stamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `review_status` tinyint(1) DEFAULT '0'
+  `time_stamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `assign_course`
 --
 
-INSERT INTO `assign_course` (`comment_id`, `course_id`, `student_id`, `attending_status`, `star`, `time_stamp`, `review_status`) VALUES
-(1, 1, '58070501045', 0, 0, '0000-00-00 00:00:00', 0),
-(2, 1, '58074001023', 0, 0, '0000-00-00 00:00:00', 0),
-(3, 4, '58070501090', 1, 5, '0000-00-00 00:00:00', 0),
-(4, 3, '58074001023', 1, 3, '2018-01-12 07:54:34', 0);
+INSERT INTO `assign_course` (`course_id`, `student_id`, `comment_id`, `attending_status`, `star`, `time_stamp`) VALUES
+(2, '58070501045', 1, 0, NULL, '0000-00-00 00:00:00'),
+(2, '58070501090', 3, 1, 5, '0000-00-00 00:00:00'),
+(3, '58074001023', 2, 1, 3, '0000-00-00 00:00:00'),
+(5, '58074001023', 4, 1, 3, '2018-01-12 07:54:34');
 
 -- --------------------------------------------------------
 
@@ -72,11 +71,14 @@ CREATE TABLE `course` (
 --
 
 INSERT INTO `course` (`course_id`, `teacher_id`, `subject`, `topic`, `start_time`, `end_time`, `room`, `max_seat`) VALUES
-(1, '58070501020', 'MTH102', 'เปิดโลกมหัศจรรย์กับยอร์ช', '2018-01-15 16:00:00', '2018-08-01 18:00:00', '1115', 30),
-(2, '58070501020', 'MTH112', 'ยอร์ชกับขนมปังที่หายไป', '2018-01-15 16:00:00', '2018-01-15 18:00:00', '1114', 40),
-(3, '58070501021', 'PHY104', 'เรียกเขาว่ายอร์ช', '2018-01-15 16:00:00', '2018-01-15 18:00:00', '1118', 35),
-(4, '58070501021', 'PHY102', 'ยอร์ชตะลุยตราด', '2018-01-15 16:00:00', '2018-01-15 18:00:00', '1212', 50),
-(5, '58070501020', 'MTH102', 'ยอร์ช/', '2018-01-15 18:00:00', '2018-01-15 20:00:00', '1115', 30);
+(1, '58070501020', 'MTH102', 'เปิดโลกมหัศจรรย์กับยอร์ช', '2018-01-17 16:00:00', '2018-08-01 18:00:00', '1115', 30),
+(2, '58070501020', 'MTH112', 'ยอร์ชกับขนมปังที่หายไป', '2018-01-15 09:00:00', '2018-01-15 18:00:00', '1114', 40),
+(3, '58070501021', 'PHY104', 'เรียกเขาว่ายอร์ช', '2018-01-18 14:00:00', '2018-01-15 18:00:00', '1118', 35),
+(4, '58070501099', 'PHY102', 'ยอร์ชตะลุยตราด', '2018-01-19 06:00:00', '2018-01-15 18:00:00', '1212', 50),
+(5, '58070501020', 'MTH102', 'ยอร์ช/', '2018-01-15 15:00:00', '2018-01-15 20:00:00', '1115', 30),
+(6, '58070501021', 'MTH102', 'zzzzzzz', '2018-01-16 15:00:00', '2018-01-16 20:00:00', '1115', 30),
+(7, '58070501099', 'MTH102', 'ยอร์ชกับwtffffff', '2018-01-15 09:00:00', '2018-01-15 18:00:00', '1114', 40),
+(8, '58070501020', 'MTH102', 'czxczxczxczxczxcqqqqqqqqqqqqq', '2018-01-15 09:00:00', '2018-01-15 18:00:00', '1114', 40);
 
 -- --------------------------------------------------------
 
@@ -96,9 +98,12 @@ CREATE TABLE `review` (
 --
 
 INSERT INTO `review` (`comment_id`, `type`, `review_txt`, `show_status`) VALUES
+(1, 'content', 'เนื้อหามีมากเกินไปทำให้อาจารย์ต้องรีบสอน', 1),
+(1, 'etc', 'มีคนในห้องที่คุยกัน ทำให้อาจารย์เสียเวลาตักเตือนและมีเวลาการสอนน้อยลง', 1),
 (1, 'teacher', 'อาจารย์สอนเร็วไปนะครับ', 0),
-(2, 'content', 'เนื้อหามีมากเกินไปทำให้อาจารย์ต้องรีบสอน', 1),
-(3, 'etc', 'มีคนในห้องที่คุยกัน ทำให้อาจารย์เสียเวลาตักเตือนและมีเวลาการสอนน้อยลง', 1);
+(3, 'teacher', 'สอนดีมากเลยครับ อยากเรียนอีกๆ', 0),
+(4, 'etc', 'อิอิ', 0),
+(4, 'teacher', 'eiei', 0);
 
 -- --------------------------------------------------------
 
@@ -116,7 +121,7 @@ CREATE TABLE `student` (
   `tel` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `facebook` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `line` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `password` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `password` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
   `login_count` int(4) NOT NULL DEFAULT '0',
   `type` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'student'
@@ -130,8 +135,8 @@ INSERT INTO `student` (`student_id`, `title`, `firstname`, `lastname`, `faculty`
 ('58070501045', 'นาย', 'พิชญุตม์', 'ศิริพิศ', 'วิศวกรรมศาสตร์', 'วิศวกรรมคอมพิวเตอร์', '0860644292', 'Phichayut Siripis', 'pangyasff', '', 'pangyassf@gmail.com', 0, 'student'),
 ('58070501090', 'นาย', 'ธนาธิป', 'สุเนตร', 'วิศวกรรมศาสตร์', 'วิศวกรรมคอมพิวเตอร์', '0909796893', 'Yorsh Thanathip', 'yorsh44', '', 'thanathip.sunate@gmail.com', 0, 'student'),
 ('58074001023', 'นางสาว', 'ไม่', 'นะ', 'ครุศาสตร์และเทคโนโลยี', 'เทคโนโลยีอุตสาหกรรม', '0973249234', '', 'B', '', 'yorsh44@gmail.com', 0, 'student'),
-('admin', '-', 'GEO', 'ADMIN', '-', '-', '-', '-', '-', '123456', 'goofily.student@gmail.com', 0, 'admin'),
-('ta', '-', 'TA', 'GEO', '-', '-', '-', '-', '-', '123456', 'pangyafff@gmail.com', 0, 'teacher');
+('admin', '-', 'GEO', 'ADMIN', '-', '-', '-', '-', '-', '', 'goofily.student@gmail.com', 0, 'admin'),
+('ta', '-', 'TA', 'GEO', '-', '-', '-', '-', '-', '', 'pangyafff@gmail.com', 0, 'teacher');
 
 -- --------------------------------------------------------
 
@@ -159,8 +164,9 @@ CREATE TABLE `teacher` (
 --
 
 INSERT INTO `teacher` (`teacher_id`, `title`, `firstname`, `lastname`, `nickname`, `faculty`, `department`, `image`, `tel`, `facebook`, `line`, `star`) VALUES
-('58070501020', 'นาย', 'ธนกฤต', 'คล้ายแก้ว', 'เอ้', 'วิศวกรรมศาสตร์', 'วิศวกรรมคอมพิวเตอร์', '', '0827096238', 'Ae thanakrit', 'AeEIEI', 0),
-('58070501021', 'นาย', 'ธนกฤต', 'ผังวิวัฒน์', 'พันช์', 'วิทยาศาสตร์', 'เคมี', '', '0894539349', '', 'Punchnajaa', 0);
+('58070501020', 'นาย', 'ธนกฤต', 'คล้ายแก้ว', 'เอ้', 'วิศวกรรมศาสตร์', 'วิศวกรรมคอมพิวเตอร์', 'team-member-1', '0827096238', 'Ae thanakrit', 'AeEIEI', 0),
+('58070501021', 'นาย', 'ธนกฤต', 'ผังวิวัฒน์', 'พันช์', 'วิทยาศาสตร์', 'เคมี', 'team-member-2', '0894539349', '', 'Punchnajaa', 0),
+('58070501099', 'นาย', 'ธนา', 'สุเนตร', 'ยอช', 'วิศวกรรมศาสตร์', 'วิศวกรรมคอมพิวเตอร์', 'team-member-3', '0909796893', '', 'yorsh44', 0);
 
 --
 -- Indexes for dumped tables
@@ -170,7 +176,8 @@ INSERT INTO `teacher` (`teacher_id`, `title`, `firstname`, `lastname`, `nickname
 -- Indexes for table `assign_course`
 --
 ALTER TABLE `assign_course`
-  ADD PRIMARY KEY (`comment_id`),
+  ADD PRIMARY KEY (`course_id`,`student_id`),
+  ADD UNIQUE KEY `comment_id` (`comment_id`),
   ADD KEY `assign_course_fk1` (`student_id`),
   ADD KEY `assign_course_fk2` (`course_id`);
 
@@ -213,7 +220,7 @@ ALTER TABLE `assign_course`
 -- AUTO_INCREMENT for table `course`
 --
 ALTER TABLE `course`
-  MODIFY `course_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `course_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables

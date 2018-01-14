@@ -1,5 +1,6 @@
 <?php   
-       require "../../config.php";
+       require $_SERVER['DOCUMENT_ROOT'].'/geo_solution/config.php';
+
 
         $input = $_POST['day'];
         $setday = array("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday");
@@ -158,8 +159,7 @@
                                   .'"course_id":"'.$rs['course_id'] .'"'
                                  .',"topic":"'.$rs['topic'].'"'
                                  .',"room":"'.$rs['room'].'"'
-                                 .',"start_time":"'.$rs['start_time'].'"'
-                                 .',"end_time":"'.$rs['end_time'].'"'
+                                 .',"time":"'.$rs['start_time'].'-'.$rs['end_time'].'"'
                                  .',"seatLeft":"'.$rs['seatLeft'].'"'
                                  .',"max_seat":"'.$rs['max_seat'].'"'
                                  .'}';
