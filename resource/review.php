@@ -18,12 +18,39 @@
 				show_data(type);
 			});
 			$('#review-modal').on('show.bs.modal', function (event) {
-  			var button = $(event.relatedTarget) // Button that triggered the modal
-  			var course_id = button.data('course') // Extract info from data-* attributes
-				var modal = $(this)
+  			var button = $(event.relatedTarget);
+  			var course_id = button.data('course'); 
+				var modal = $(this);
 				$.post("/geo_solution/resource/review/pre_review.php",{course : course_id},function(data,status){
-					
+					var name = data['title'] + " " + data['firstname'] + " " + data['lastname'];
+					var nickname = "พี่ " + data['nickname'];
+					var subject = "วิชา " + data['subject'];
+					var topic = "เรื่องที่สอน " + data['topic'];
+					var image = "/geo_solution/image/" + data['image'];
+					var obj = {
+						name: name,
+						nickname: nickname,
+						subject: subject,
+						topic: topic,
+					}
+					var i;
+					for (i in obj){
+						$("#"+i).html(obj[i]);
+					}
+					//$("#ta_image").attr("src",image);		
 				},"json");
+			});
+			$("#submit_review").click(function(){
+				var content = $("#content_txt").val();
+				var teacher = $("#teacher_txt").val();
+				var other = $("#other_txt").val();
+				$.post("/geo_solution/resource/review/submit_review.php", {content : content, teacher : teacher, other : other}, function(data,status){
+						alert("eueu");
+				},"json");
+			});
+			$('#review-modal').on('hidden.bs.modal', function (event) {
+				type = $("#select").val();
+				show_data(type);
 			});
 		});
 	</script>
@@ -41,14 +68,14 @@
 						        	<div class="col-1"></div>
 							      	<div class="col-3">
 										<div class="square">
-											<!--<img src="/geo_solution/image/team-member-3.jpg">-->
-											<p class="nickname">พี่lalala</p>
+											<img id = "ta_image" src = "">
+											<p class="nickname" id="nickname"></p>
 										</div>
 									</div>
 									<div class="col-sm">
-										<p>ชื่อ eieieieieieieieieie</p>
-										<p>วิชา MTH111</p>
-										<p>เรื่องที่สอน Block Diagram</p>
+										<p id = "name"></p>
+										<p id = "subject"></p>
+										<p id = "topic"></p>
 									</div>
 								</div>
 								<p>ใส่ดาวววววววววววววววววววว</p>
@@ -62,14 +89,14 @@
 									    <textarea class="form-control" id="teacher_txt" rows="3"></textarea>
 									</div>
 									<div class="form-group">
-										<label for="exampleFormControlTextarea1">อื่นๆ</label>
+										<label for="exampleFormControlTextarea1">ข้อเสนอแนะ</label>
 									    <textarea class="form-control" id="other_txt" rows="3"></textarea>
 									</div>
 								</form>
 						      </div>
 						      <div class="modal-footer">
 						        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-						        <button type="submit" class="btn btn-primary">Submit</button>
+						        <button id = "submit_review" type="submit" class="btn btn-primary">Submit</button>
 						      </div>
 						    </div>
 						  </div>
