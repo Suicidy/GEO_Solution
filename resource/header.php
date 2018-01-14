@@ -5,6 +5,7 @@
     // Define variables and initialize with empty values
     $username = $password = $type = "";
     $username_err = $password_err = "";
+    $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
     // Processing form data when form is submitted
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         // Check if username is empty

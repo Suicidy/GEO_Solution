@@ -2,9 +2,9 @@
 require $_SERVER['DOCUMENT_ROOT'].'/geo_solution/config.php';
 session_start();
 //$id= $_SESSION['username'];
-//$type = check_input($_POST['show_type'])
+$type = check_input($_POST['show_type']);
 $id = "58070501090";
-$type = "all";
+//$type = "all";
 $array_result = array();
 
 if ($type == "all"){

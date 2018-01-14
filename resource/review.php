@@ -57,8 +57,13 @@ $(document).ready(function(){
 					show_data(data);
 				},"json");
 			}
-			$("tbody > tr:odd").css("background-color", "gray");
-			//$("#select")
+			$("#body > tr:even").css("background-color", "gray");
+			$("#select").click(function(){
+				type = $("#select").val();
+				$.post("review/show_data.php",{show_type : type },function(data,status){
+					show_data(data);
+				},"json");
+			});
 		});
 	</script>
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -117,11 +122,10 @@ $(document).ready(function(){
 							<option value = "not_review">ยังไม่รีวิว</option>
 					    <option value = "reviewed">รีวิวแล้ว</option>					    
 					</select>
-					<button type="submit" class="btn btn-success" id="search">ยืนยัน</button>
 				</div>
 				<br>
 				<br>
-				<table class="table table-striped table-bordered" >
+				<table class="table table-striped table-bordered">
 				  <thead>
 				    <tr>
 				      <th scope="col"><center>ลำดับ</center></th>
