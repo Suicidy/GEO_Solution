@@ -176,7 +176,7 @@
 						<input class="form-control" type="password" name="password">
 						<span class="help-block"><?php echo $password_err; ?></span>
 	            	</div>
-					<p><a href="#" class="tooltip-test">ลืมรหัสผ่าน</a> หรือ <a href="request_pass.php" class="tooltip-test">ขอรหัสผ่านครั้งแรก</a></p>
+					<p><a href="#" class="tooltip-test">ลืมรหัสผ่าน</a> หรือ <a href="/geo_solution/resource/request_pass.php" class="tooltip-test">ขอรหัสผ่านครั้งแรก</a></p>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
