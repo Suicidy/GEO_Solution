@@ -113,7 +113,7 @@
         <?php
           if(!(isset($_SESSION['username']))) {echo
             '<li class="nav-item">
-              <button type="button" class="btn btn-outline-warning" href="request_pass.php"><i class="fa fa-unlock" aria-hidden="true"></i>   ขอรหัสผ่านครั้งแรก</button>
+              <button type="button" class="btn btn-outline-warning" href="/geo_solution/resource/request_pass.php"><i class="fa fa-unlock" aria-hidden="true"></i>   ขอรหัสผ่านครั้งแรก</button>
             </li>
             <li class="nav-item">
               <button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in" aria-hidden="true"></i>  ลงชื่อเข้าใช้</button>
