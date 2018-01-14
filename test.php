@@ -6,7 +6,7 @@
 	<script>
 	$(document).ready(function(){
 		//$("#eiei").html("aasd2");
-		jQuery.ajax({
+		$.ajax({
 			url: 'resource/home/showCourse.php',
 			type: 'post',
 			data: {

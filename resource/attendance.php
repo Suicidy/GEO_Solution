@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<?php include('header.php'); ?>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -7,7 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800,900" rel="stylesheet"> -->
     <script>
       $(document).ready(function(){
         $("#table,#send").hide();
@@ -48,10 +49,10 @@
         });
       });
     </script>
-    <title>Check Attendance</title>
+ <!--    <title>Check Attendance</title>
   </head>  
   <body>
-    <div class="container">
+    <div class="container"> -->
       <center><p><big><big><h1> Check Attendance </h1></big></center></p></big>
         <div class="form-row align-items-center">
           <div class="col-auto my-1">
@@ -91,6 +92,7 @@
         <input type="hidden" name="course_id" id = "course">
         <center><button id ="send" type="submit" class="btn btn-primary " style ="background-color : #ff7454; border-color : #ff7454;"> SAVE </button></center>
       </form>
-    </div> 
+ <!--    </div> 
   </body>
-</html>
+</html> -->
+ <?php include('footer.php'); ?>
