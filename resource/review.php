@@ -24,9 +24,21 @@ $(document).ready(function(){
 	<!--<link href="/GEO_Solution/css/review.css" rel="stylesheet">-->
 	<script>
 		$(document).ready(function(){
-			$.post("review/view_type.php",{data : "None"},function(data,status){
-				alert (data);
+			var type;
+			$.post("review/view_type.php",{},function(data,status){
+				type = data['type'];
+				//alert(type);
 			},"json");
+			if (type == "student"){
+					$("#body").empty();
+				}
+			else{
+				$.post("review/show_data.php",{show_type : "all"},function(data,status){
+				type = data['type'];
+				//alert(type);
+				},"json");
+			}
+			alert(type);
 			$("tr:even").css("background-color", "gray");
 		});
 	</script>
@@ -76,7 +88,7 @@ $(document).ready(function(){
 						    </div>
 						  </div>
 						</div>
-	<div class="container">
+	<div class="container" id = "body">
 		<div class="row">
 			<div class="col">
 				<h2>Review</h2>
@@ -108,7 +120,7 @@ $(document).ready(function(){
 				      <td scope="col">เรื่อง</td>
 				      <td scope="col">ผู้สอน</td>
 				      <td scope="col">รายละเอียด</td>
-				      <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Review</button></td>
+				      <!--<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Review</button></td>-->
 				    </tr>
 				</table>
 			</div>
