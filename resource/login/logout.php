@@ -1,4 +1,5 @@
 <?php
+	echo "eiei";
     // Initialize the session
     session_start();
     // Unset all of the session variables
@@ -6,6 +7,6 @@
     // Destroy the session.
     session_destroy();
     // Redirect to login page
-    header("location: ../header.php");
+    header("location:".$_SERVER['DOCUMENT_ROOT']."/geo_solution/resource/header.php");
     exit;
 ?>
