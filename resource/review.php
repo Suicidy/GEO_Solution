@@ -21,7 +21,15 @@ $(document).ready(function(){
 	  <a class="navbar-brand" href="#">Navbar</a>
 	</nav> -->
 	<?php include('header.php'); ?>
-	<link href="/GEO_Solution/css/review.css" rel="stylesheet">
+	<!--<link href="/GEO_Solution/css/review.css" rel="stylesheet">-->
+	<script>
+		$(document).ready(function(){
+			$.post("review/view_type.php",{data : "None"},function(data,status){
+				alert (data);
+			},"json");
+			$("tr:even").css("background-color", "gray");
+		});
+	</script>
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 						  <div class="modal-dialog" role="document">
 						    <div class="modal-content">
@@ -36,7 +44,7 @@ $(document).ready(function(){
 						        	<div class="col-1"></div>
 							      	<div class="col-3">
 										<div class="square">
-											<img src="/image/team-member-3.jpg">
+											<img src="/geo_solution/image/team-member-3.jpg">
 											<p class="nickname">พี่lalala</p>
 										</div>
 									</div>
@@ -74,11 +82,11 @@ $(document).ready(function(){
 				<h2>Review</h2>
 				<div class="form-group">
 					<select class="form-control col-2" style="float:left;" id="exampleFormControlSelect1">
-					    <option>ทั้งหมด</option>
-					    <option>ยังไม่รีวิว</option>
-					    <option>รีวิวแล้ว</option>					    
+					    <option value = "all">ทั้งหมด</option>
+							<option value = "not_review">ยังไม่รีวิว</option>
+					    <option value = "reviewed">รีวิวแล้ว</option>					    
 					</select>
-					<button type="submit" class="btn btn-success" id="button1">ยืนยัน</button>
+					<button type="submit" class="btn btn-success" id="search">ยืนยัน</button>
 				</div>
 				<br>
 				<br>
@@ -93,7 +101,15 @@ $(document).ready(function(){
 				      <th scope="col">สถานะ</th>
 				    </tr>
 				  </thead>
-				  <tbody id="student-course-list"></tbody>
+					<tbody id="student-course-list"></tbody>
+					<tr>
+				      <td scope="col">ลำดับ</td>
+				      <td scope="col">วิชา</td>
+				      <td scope="col">เรื่อง</td>
+				      <td scope="col">ผู้สอน</td>
+				      <td scope="col">รายละเอียด</td>
+				      <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Review</button></td>
+				    </tr>
 				</table>
 			</div>
 		</div>
