@@ -1,4 +1,5 @@
 <?php
+require_once $_SERVER['DOCUMENT_ROOT'].'/geo_solution/config.php';
 $redirect = '/geo_solution/index.php';
 header( "Location: $redirect");
 require $_SERVER['DOCUMENT_ROOT'].'/geo_solution/config.php';

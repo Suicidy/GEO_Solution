@@ -1,7 +1,7 @@
 <?php
 
 //SQL Statement
-
+require_once $_SERVER['DOCUMENT_ROOT'].'/geo_solution/config.php';
 $sql = "SELECT DISTINCT teacher.teacher_id
 FROM teacher, course 
 WHERE now() BETWEEN DATE_ADD(course.start_time , INTERVAL 1 HOUR) AND DATE_ADD(course.end_time, INTERVAL 1 HOUR) 

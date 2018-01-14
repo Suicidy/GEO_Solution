@@ -38,7 +38,7 @@ $(document).ready(function(){
 							$('<td><button type="button" class="btn btn-outline-Secondary active btn-block" disabled>Reviewed</button></td>').appendTo("#body");
 						}
 						else{
-							$('<td><button type="button" class="btn btn-info btn-block" id="' + data[i]['course_id'] +'">Review</button></td>').appendTo("#body");
+							$('<td><button type="button" class="btn btn-info btn-block" data-toggle="modal" data-target="#review-modal" data-id="' + data[i]['course_id'] +'">Review</button></td>').appendTo("#body");
 						}
             $("#body > td").wrapAll("<tr></tr>");
 					}
@@ -46,27 +46,27 @@ $(document).ready(function(){
 		}
 		$(document).ready(function(){
 			var type;
-			$.post("review/view_type.php",{},function(data,status){
+			$.post("/geo_solution/resource/review/view_type.php",{},function(data,status){
 				type = data['type'];
 			},"json");
 			if (type == "student"){
 					$("#all").empty();
 				}
 			else{
-				$.post("review/show_data.php",{show_type : "all"},function(data,status){
+				$.post("/geo_solution/resource/review/show_data.php",{show_type : "all"},function(data,status){
 					show_data(data);
 				},"json");
 			}
 			$("#body > tr:even").css("background-color", "gray");
 			$("#select").click(function(){
 				type = $("#select").val();
-				$.post("review/show_data.php",{show_type : type },function(data,status){
+				$.post("/geo_solution/resource/review/show_data.php",{show_type : type },function(data,status){
 					show_data(data);
 				},"json");
 			});
 		});
 	</script>
-	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal fade" id="review-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 						  <div class="modal-dialog" role="document">
 						    <div class="modal-content">
 						      <div class="modal-header">
@@ -80,7 +80,7 @@ $(document).ready(function(){
 						        	<div class="col-1"></div>
 							      	<div class="col-3">
 										<div class="square">
-											<img src="/geo_solution/image/team-member-3.jpg">
+											<!--<img src="/geo_solution/image/team-member-3.jpg">-->
 											<p class="nickname">พี่lalala</p>
 										</div>
 									</div>

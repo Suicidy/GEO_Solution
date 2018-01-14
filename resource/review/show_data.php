@@ -1,5 +1,5 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT'].'/geo_solution/config.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/geo_solution/config.php';
 session_start();
 //$id= $_SESSION['username'];
 $type = check_input($_POST['show_type']);

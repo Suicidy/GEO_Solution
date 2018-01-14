@@ -1,5 +1,5 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT'].'/geo_solution/config.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/geo_solution/config.php';
 $subject = $_POST["subject"];
 $teacher_id = $_POST["id"];
 $array_result = array();
