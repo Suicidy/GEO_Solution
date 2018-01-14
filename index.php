@@ -78,7 +78,7 @@
 				stringForPrintHtml='';
 				for (var checkdate = 0; checkdate<data.length; checkdate++) {
 					var response = data[checkdate];
-					stringForPrintHtml = stringForPrintHtml.concat('<tbody><tr><th></th><td style="width: 25%"><p id="', response.day, 'MTH102">', response.day, '</p><hr style="border: 1px"><td></tr>');
+					stringForPrintHtml = stringForPrintHtml.concat('<tr><th></th><td><p id="', response.day, 'MTH102">', response.day, '</p><hr style="border: 1px"><td></tr>');
 // 					for(var i=0;i<response.MTH102.length;i++){
 // 						stringForPrintHtml = '<tr><th scope="row"></th><td style="width: 25%"><div class="square"><img src="'.concat(response.MTH102[i].image);
 // 						stringForPrintHtml = stringForPrintHtml.concat('.jpg"><p class="nickname", id="nicknameMTH102TA', response.MTH102[i].teacher_id, '"> พี่ ', response.MTH102[i].nickname);
@@ -192,8 +192,8 @@
 					<div class="col-12">
 						<h4 id="headMTH102">ทุกวัน</h4>
 						<hr>
-						<table class="table borderless" id="tableMTH102">
-						  <tbody>
+						<table class="table borderless" >
+						  <tbody id="tableMTH102">
 						  	<tr>
 						  		<th></th>
 						  		<td style="width: 25%">						  
