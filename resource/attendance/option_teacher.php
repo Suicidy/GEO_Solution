@@ -1,5 +1,4 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT'].'/geo_solution/config.php';
 
 //SQL Statement
 
