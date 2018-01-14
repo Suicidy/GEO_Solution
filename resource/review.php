@@ -10,40 +10,9 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 	<script src="../js/show_student_course" type="text/javascript"></script> -->
-<!-- 	<script>
-$(document).ready(function(){
-    $("tr:even").css("background-color", "gray");
-});
-</script> -->
-<!-- </head>
-<body>
-	<nav class="navbar navbar-light bg-light">
-	  <a class="navbar-brand" href="#">Navbar</a>
-	</nav> -->
 	<?php include('header.php'); ?>
-	<!--<link href="/GEO_Solution/css/review.css" rel="stylesheet">-->
+	<script src="/geo_solution/js/review.js"></script>
 	<script>
-		function show_data(data){
-			$("#body").empty();
-			var attributes = ["subject","topic","nickname","start_time"];
-      var length = attributes.length;
-      if (!jQuery.isEmptyObject(data)){
-          for (var i = 0; data[i];i++){
-						$("<td></td>").html("<center>" + (i+1) + "</center>").appendTo("#body");
-            for (var j = 0; j < length ; j++){
-              var k = attributes[j];
-              $("<td></td>").html("<center>" + data[i][k] + "</center>" ).appendTo("#body");
-						}
-						if (data[i]['star'] != null){
-							$('<td><button type="button" class="btn btn-outline-Secondary active btn-block" disabled>Reviewed</button></td>').appendTo("#body");
-						}
-						else{
-							$('<td><button type="button" class="btn btn-info btn-block" data-toggle="modal" data-target="#review-modal" data-id="' + data[i]['course_id'] +'">Review</button></td>').appendTo("#body");
-						}
-            $("#body > td").wrapAll("<tr></tr>");
-					}
-			}
-		}
 		$(document).ready(function(){
 			var type;
 			$.post("/geo_solution/resource/review/view_type.php",{},function(data,status){
@@ -52,16 +21,20 @@ $(document).ready(function(){
 			if (type == "student"){
 					$("#all").empty();
 				}
-			else{
-				$.post("/geo_solution/resource/review/show_data.php",{show_type : "all"},function(data,status){
-					show_data(data);
-				},"json");
+			else{	
+					show_data("all");	
 			}
 			$("#body > tr:even").css("background-color", "gray");
 			$("#select").click(function(){
 				type = $("#select").val();
-				$.post("/geo_solution/resource/review/show_data.php",{show_type : type },function(data,status){
-					show_data(data);
+				show_data(type);
+			});
+			$('#review-modal').on('show.bs.modal', function (event) {
+  			var button = $(event.relatedTarget) // Button that triggered the modal
+  			var course_id = button.data('course') // Extract info from data-* attributes
+				var modal = $(this)
+				$.post("/geo_solution/resource/review/pre_review.php",{course : course_id },function(data,status){
+					
 				},"json");
 			});
 		});
@@ -93,15 +66,15 @@ $(document).ready(function(){
 								<form>
 									<div class="form-group">
 										<label for="exampleFormControlTextarea1">เนื้อหา</label>
-									    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+									    <textarea class="form-control" id="content_txt" rows="3"></textarea>
 									</div>
 									<div class="form-group">
 										<label for="exampleFormControlTextarea1">ผู้สอน</label>
-									    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+									    <textarea class="form-control" id="teacher_txt" rows="3"></textarea>
 									</div>
 									<div class="form-group">
 										<label for="exampleFormControlTextarea1">อื่นๆ</label>
-									    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+									    <textarea class="form-control" id="other_txt" rows="3"></textarea>
 									</div>
 								</form>
 						      </div>
