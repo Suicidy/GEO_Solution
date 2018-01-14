@@ -19,7 +19,7 @@
             for($a = 0 ; $a < 5 ; $a++ )
             {  
                 $tempDate = find_date($setdayTH[$countDay]);
-               $tempCourse[$a] = find_course($tempDate);
+               $tempCourse[$a] = find_course($tempDate,$setdayTH[$countDay]);
                if($a==0)$print .= $tempCourse[$a];
                else $print.=','.$tempCourse[$a];
                $countDay++;
@@ -30,7 +30,7 @@
         }
         else{
             $tempDate = find_date($input);
-            $course_of_day =  find_course($tempDate);
+            $course_of_day =  find_course($tempDate,$input);
             $print .=$course_of_day.']';
             echo $print;
         }
@@ -82,7 +82,7 @@
 
 
        
-        function find_course($date){
+        function find_course($date,$dayTH){
         $result = "SELECT c.subject,c.course_id,t.teacher_id,t.title,t.firstname,t.lastname,t.nickname,c.topic,DATE_FORMAT(c.start_time,'%H:%i') start_time,DATE_FORMAT(c.end_time,'%H:%i') end_time,date(c.start_time)cdate,c.room,t.image,avgStar.star,c.max_seat-seat.countSeat as seatLeft,c.max_seat
         FROM course c,teacher t   , (SELECT AVG(assign_course.star) AS star ,teacher.teacher_id as teacherid
                                   FROM assign_course, course , teacher 
@@ -116,7 +116,7 @@
                              '"CHM103":[');
         $jsonSubject[0] .= '"date":"'.$date
                                        .'"'
-                                       .',"day":"'.$day
+                                       .',"day":"'.$dayTH
                                        .'"'
                                        .',"MTH102":[';
         $count = array(0,0,0,0,0);
@@ -208,5 +208,7 @@
         return $final;
         
     }
+
+
 
 ?>
