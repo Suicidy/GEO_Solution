@@ -1,5 +1,5 @@
 <?php   
-       require $_SERVER['DOCUMENT_ROOT'].'s/geo_solution/config.php';
+       require $_SERVER['DOCUMENT_ROOT'].'/geo_solution/config.php';
 
 
         $input = $_POST['day'];
@@ -74,13 +74,6 @@
 
         return $date;
         }
-
-
-       
-
-
-
-
        
         function find_course($date,$dayTH){
         $result = "SELECT c.subject,c.course_id,t.teacher_id,t.title,t.firstname,t.lastname,t.nickname,c.topic,DATE_FORMAT(c.start_time,'%H:%i') start_time,DATE_FORMAT(c.end_time,'%H:%i') end_time,date(c.start_time)cdate,c.room,t.image,avgStar.star,c.max_seat-seat.countSeat as seatLeft,c.max_seat
