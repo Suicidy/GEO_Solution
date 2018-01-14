@@ -1,6 +1,6 @@
 <?php   
 
-$dayTH = 'วันจันทร์';
+       $dayTH = 'วันศุกร์';
         $thisDay = date("l");
         $setday = array("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday");
         $setdayTH = array("วันจันทร์","วันอังคาร","วันพุธ","วันพฤหัสบดี","วันศุกร์","วันเสาร์","วันอาทิตย์");
@@ -22,8 +22,8 @@ $dayTH = 'วันจันทร์';
         if($diffday>1) {
              $searchDate = $diffday;
             }
-        elseif($diffday==0 or $diffday==1){ 
-         
+        elseif($diffday==0 or $diffday==1 or $diffday==-6){ 
+         	if($diffday==-6)$diffday=1;
             $searchDate = $diffday+$nday;
         }
         else{ 

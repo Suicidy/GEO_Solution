@@ -1,5 +1,5 @@
 <?php   
-       require $_SERVER['DOCUMENT_ROOT'].'/geo_solution/config.php';
+       require $_SERVER['DOCUMENT_ROOT'].'/geo/geo_solution/config.php';
 
 
         $input = $_POST['day'];
@@ -60,8 +60,8 @@
         if($diffday>1) {
              $searchDate = $diffday;
             }
-        elseif($diffday==0 or $diffday==1){ 
-         
+        elseif($diffday==0 or $diffday==1 or $diffday==-6){ 
+            if($diffday==-6)$diffday=1;
             $searchDate = $diffday+$nday;
         }
         else{ 
