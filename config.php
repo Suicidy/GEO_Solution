@@ -43,6 +43,8 @@
     define('DB_NAME', 'geo_db');
     define("DB_CHARSET","utf8");
 
+    $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+
     function check_input($input){
         $conn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
         $output = mysqli_real_escape_string($conn,$input);
