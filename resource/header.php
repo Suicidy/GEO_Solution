@@ -95,7 +95,7 @@
     <div id="navbarNavDropdown" class="navbar-collapse collapse">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">หน้าหลัก <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/geo_solution/index.php">หน้าหลัก <span class="sr-only">(current)</span></a>
         <?php
           if(isset($_SESSION['username']) && $_SESSION['userview'] == 'student') {echo
             '<li class="nav-item">
