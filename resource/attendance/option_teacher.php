@@ -1,7 +1,6 @@
 <?php
 require $_SERVER['DOCUMENT_ROOT'].'/geo_solution/config.php';
 
-
 //SQL Statement
 
 $sql = "SELECT DISTINCT teacher.teacher_id
