@@ -42,7 +42,6 @@
 	}
 	else
 	{
-
 		echo 'No Permission';
 
 	}
