@@ -1,16 +1,4 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Review</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
-	<link href="css/review.css" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Kanit:400,500,600,700,800,900" rel="stylesheet">
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
-	<script src="../js/show_student_course" type="text/javascript"></script> -->
-	<?php include('header.php'); ?>
+<?php include('header.php'); ?>
 	<script src="/geo_solution/js/review.js"></script>
 	<script>
 		$(document).ready(function(){
@@ -33,7 +21,7 @@
   			var button = $(event.relatedTarget) // Button that triggered the modal
   			var course_id = button.data('course') // Extract info from data-* attributes
 				var modal = $(this)
-				$.post("/geo_solution/resource/review/pre_review.php",{course : course_id },function(data,status){
+				$.post("/geo_solution/resource/review/pre_review.php",{course : course_id},function(data,status){
 					
 				},"json");
 			});
@@ -59,6 +47,7 @@
 									</div>
 									<div class="col-sm">
 										<p>ชื่อ eieieieieieieieieie</p>
+										<p>วิชา MTH111</p>
 										<p>เรื่องที่สอน Block Diagram</p>
 									</div>
 								</div>
@@ -114,6 +103,4 @@
 			</div>
 		</div>
 	</div>
-<!-- </body>
-</html> -->
   <?php require_once 'footer.php'; ?>
