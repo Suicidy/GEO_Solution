@@ -1,6 +1,6 @@
 <?php
     // Include config file
-    require_once $_SERVER['DOCUMENT_ROOT'].'/config.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'/GEO_Solution/config.php';
     session_start();
     // Define variables and initialize with empty values
     $username = $password = $type = "";
