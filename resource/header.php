@@ -40,8 +40,9 @@
                             if(md5($password) == $hashed_password){
                                 /* Password is correct, so start a new session and save the username to the session */
                                 $_SESSION['username'] = $username; 
-                                $_SESSION['userview'] = $type;     
-                                header("location:".$_SERVER['DOCUMENT_ROOT']."/geo_solution/resource/header.php");
+                                $_SESSION['userview'] = $type;
+                                header('Location: '.$_SERVER['PHP_SELF']);     
+                                //header("location: /geo_solution/index.php");
                             } else{
                                 // Display an error message if password is not valid
                                 $password_err = 'รหัสผ่านไม่ถูกต้อง';
