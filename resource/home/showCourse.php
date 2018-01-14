@@ -1,5 +1,6 @@
 <?php   
-       require "../../config.php";
+       require $_SERVER['DOCUMENT_ROOT'].'/geo_solution/config.php';
+
 
         $input = $_POST['day'];
         $setday = array("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday");
