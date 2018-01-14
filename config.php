@@ -61,9 +61,14 @@
         if (!$conn) {
             die("Connection failed: " . mysqli_connect_error()) . "<br>";
         }
-        $result = mysqli_query($conn, $sql_statement);
+        if($result = mysqli_query($conn, $sql_statement))
+        {
+         return $result;
+        } else {
+         return 0;
+        }
         mysqli_close($conn);
-        return $result;
+      //  return $result;
     }
 
     ?>
