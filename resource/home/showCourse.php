@@ -1,6 +1,9 @@
 <?php   
+<<<<<<< HEAD
        require $_SERVER['DOCUMENT_ROOT'].'/geo_solution/config.php';
+=======
        require $_SERVER['DOCUMENT_ROOT'].'/geo/geo_solution/config.php';
+>>>>>>> 5bb92b9f45cdf5ba893b448c23c13c172e51c481
 
 
         $input = check_input($_POST['day']);
