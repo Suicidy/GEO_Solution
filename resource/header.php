@@ -1,6 +1,10 @@
 <?php
     // Include config file
+<<<<<<< HEAD
     require_once $_SERVER['DOCUMENT_ROOT'].'/GEO_Solution/config.php';
+=======
+    require_once $_SERVER['DOCUMENT_ROOT'].'/geo_solution/config.php';
+>>>>>>> 3053f3cbf5ac2f1a5c82686a20a5dedbc413c4b0
     session_start();
     // Define variables and initialize with empty values
     $username = $password = $type = "";
@@ -41,7 +45,7 @@
                                 /* Password is correct, so start a new session and save the username to the session */
                                 $_SESSION['username'] = $username; 
                                 $_SESSION['userview'] = $type;     
-                                header("location: ../resource/header.php");
+                                header("location:".$_SERVER['DOCUMENT_ROOT']."/geo_solution/resource/header.php");
                             } else{
                                 // Display an error message if password is not valid
                                 $password_err = 'รหัสผ่านไม่ถูกต้อง';
