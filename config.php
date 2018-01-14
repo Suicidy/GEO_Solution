@@ -43,17 +43,13 @@
     define('DB_NAME', 'geo_db');
     define("DB_CHARSET","utf8");
 
-
-    /* Attempt to connect to MySQL database */
-
-    $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
-
-    // Check connection
-
-    if($link === false){
-        die("ERROR: Could not connect. " . mysqli_connect_error());
+    function check_input($input){
+        $conn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+        $output = mysqli_real_escape_string($conn,$input);
+        mysqli_close($conn);
+        return $output;
     }
-
+    
     function query($sql_statement){
         $conn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
         mysqli_set_charset( $conn, DB_CHARSET);
@@ -61,9 +57,14 @@
         if (!$conn) {
             die("Connection failed: " . mysqli_connect_error()) . "<br>";
         }
-        $result = mysqli_query($conn, $sql_statement);
+        if($result = mysqli_query($conn, $sql_statement))
+        {
+         return $result;
+        } else {
+         return 0;
+        }
         mysqli_close($conn);
-        return $result;
+      //  return $result;
     }
 
     ?>

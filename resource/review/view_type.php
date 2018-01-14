@@ -1,11 +1,12 @@
 <?php
 session_start();
+$data = array();
 if (!isset($_SESSION['username'])){
-    $type = "guest";
+    $data['type'] = "guest";
 }
 else{
-    $type = $_SESSION['userview'];
+    $data['type'] = $_SESSION['userview'];
 }
-echo json_encode($type, JSON_UNESCAPED_UNICODE);
+echo json_encode($data, JSON_UNESCAPED_UNICODE);
 
 ?>

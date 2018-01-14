@@ -8,7 +8,10 @@
 
         $_POST['course_id'];
 
-        $result = 'SELECT * FROM `assign_course` WHERE student_id='.$_SESSIOM['username'];
+        // $result = 'SELECT * FROM `assign_course` WHERE student_id='.$_SESSIOM['username'];
+        $result = "SELECT c.subject, c.topic, t.nametitle, t.firstname, t.lastname, date(c.start_time), DATE_FORMAT(c.start_time,'%H:%i') start_time, DATE_FORMAT(c.end_time,'%H:%i') end_time
+			FROM course c, teacher t
+			WHERE c.teacher_id = t.teacher_id;";
         $sql = query($result);
         $outp = '[';
         $count=0;
@@ -26,5 +29,5 @@
 
 		mysqli_free_result($sql);
 
-		echo json_encode($outp);
+		echo $outp;
 ?>

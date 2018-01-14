@@ -3,6 +3,7 @@
 
 
         $input = $_POST['day'];
+        $input = check_input($_POST['day']);
         $setday = array("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday");
         $setdayTH = array("วันจันทร์","วันอังคาร","วันพุธ","วันพฤหัสบดี","วันศุกร์","วันเสาร์","วันอาทิตย์");
       //  $tempFindCourse = arrray('','','','','','');
