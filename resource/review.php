@@ -23,23 +23,42 @@ $(document).ready(function(){
 	<?php include('header.php'); ?>
 	<!--<link href="/GEO_Solution/css/review.css" rel="stylesheet">-->
 	<script>
+		function show_data(data){
+			$("#body").empty();
+			var attributes = ["subject","topic","nickname","start_time"];
+      var length = attributes.length;
+      if (!jQuery.isEmptyObject(data)){
+          for (var i = 0; data[i];i++){
+						$("<td></td>").html("<center>" + (i+1) + "</center>").appendTo("#body");
+            for (var j = 0; j < length ; j++){
+              var k = attributes[j];
+              $("<td></td>").html("<center>" + data[i][k] + "</center>" ).appendTo("#body");
+						}
+						if (data[i]['star'] != null){
+							$('<td><button type="button" class="btn btn-outline-Secondary active btn-block" disabled>Reviewed</button></td>').appendTo("#body");
+						}
+						else{
+							$('<td><button type="button" class="btn btn-info btn-block" id="' + data[i]['course_id'] +'">Review</button></td>').appendTo("#body");
+						}
+            $("#body > td").wrapAll("<tr></tr>");
+					}
+			}
+		}
 		$(document).ready(function(){
 			var type;
 			$.post("review/view_type.php",{},function(data,status){
 				type = data['type'];
-				//alert(type);
 			},"json");
 			if (type == "student"){
-					$("#body").empty();
+					$("#all").empty();
 				}
 			else{
 				$.post("review/show_data.php",{show_type : "all"},function(data,status){
-				type = data['type'];
-				//alert(type);
+					show_data(data);
 				},"json");
 			}
-			alert(type);
-			$("tr:even").css("background-color", "gray");
+			$("tbody > tr:odd").css("background-color", "gray");
+			//$("#select")
 		});
 	</script>
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -88,12 +107,12 @@ $(document).ready(function(){
 						    </div>
 						  </div>
 						</div>
-	<div class="container" id = "body">
+	<div class="container" id = "all">
 		<div class="row">
 			<div class="col">
 				<h2>Review</h2>
 				<div class="form-group">
-					<select class="form-control col-2" style="float:left;" id="exampleFormControlSelect1">
+					<select class="form-control col-2" style="float:left;" id="select">
 					    <option value = "all">ทั้งหมด</option>
 							<option value = "not_review">ยังไม่รีวิว</option>
 					    <option value = "reviewed">รีวิวแล้ว</option>					    
@@ -102,26 +121,18 @@ $(document).ready(function(){
 				</div>
 				<br>
 				<br>
-				<table class="table table-striped">
+				<table class="table table-striped table-bordered" >
 				  <thead>
 				    <tr>
-				      <th scope="col">ลำดับ</th>
-				      <th scope="col">วิชา</th>
-				      <th scope="col">เรื่อง</th>
-				      <th scope="col">ผู้สอน</th>
-				      <th scope="col">รายละเอียด</th>
-				      <th scope="col">สถานะ</th>
+				      <th scope="col"><center>ลำดับ</center></th>
+				      <th scope="col"><center>วิชา</center></th>
+				      <th scope="col"><center>เรื่อง</center></th>
+				      <th scope="col"><center>ผู้สอน</center></th>
+				      <th scope="col"><center>รายละเอียด</center></th>
+				      <th scope="col"><center>สถานะ </center></th>
 				    </tr>
 				  </thead>
-					<tbody id="student-course-list"></tbody>
-					<tr>
-				      <td scope="col">ลำดับ</td>
-				      <td scope="col">วิชา</td>
-				      <td scope="col">เรื่อง</td>
-				      <td scope="col">ผู้สอน</td>
-				      <td scope="col">รายละเอียด</td>
-				      <!--<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Review</button></td>-->
-				    </tr>
+					<tbody id = "body"></tbody>
 				</table>
 			</div>
 		</div>
