@@ -5,6 +5,8 @@
 	session_start();
 	$_SESSION["username"] = "58070501023";
 
+	
+
 	$sql=query(" SELECT course.course_id , count(assign_course.course_id) AS countSeat, course.max_seat
                  FROM assign_course RIGHT JOIN course ON assign_course.course_id = course.course_id
                  GROUP BY course.course_id
@@ -25,21 +27,13 @@
 				  ");
 
 
-		if($sql==1){
-			echo 'Successfull';
-			}
-
-		else{
-
-			echo 'Booking Error';
-
-			}
-
+		if($sql==1) echo 'Successfull';
+		else echo 'Booking Error';
+			
     }
-    else{
-
+    else
+    {
     	echo 'This course is full already.';
-
     }
 
     
