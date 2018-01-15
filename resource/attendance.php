@@ -11,8 +11,15 @@
     <link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800,900" rel="stylesheet"> -->
     <script>
       $(document).ready(function(){
-        $("#table,#send").hide();
-        $("#search").click(function(){
+        var type;
+        $.post("/geo_solution/resource/review/view_type.php",{},function(data,status){
+          type = data['type'];
+          if (type != "teacher"){
+					  $("#all").empty();
+				  }
+			    },"json");
+          $("#table,#send").hide();
+          $("#search").click(function(){
           $("#body").empty();
           var data_array = {};
           var id = $("#search_id").val();
@@ -54,7 +61,7 @@
   <body>
     <div class="container"> -->
       <center><p><big><big><h1> Check Attendance </h1></big></center></p></big>
-        <div class="form-row align-items-center">
+        <div id="all" class="form-row align-items-center">
           <div class="col-auto my-1">
             <label class="mr-sm-2" for="inlineFormCustomSelect">Teacher Assistant ID</label>
             <select class="custom-select mr-sm-2" id = "search_id">

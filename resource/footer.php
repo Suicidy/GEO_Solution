@@ -1,6 +1,15 @@
   </div>
-
-  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+   <div>
+  	<br>
+  	<br>
+  	<br>
+  	<br>
+  	<br>
+  	<br>
+  	<br>
+  	<br>
+  </div>
+   <nav class="navbar navbar-fixed-bottom navbar-expand-sm navbar-dark bg-dark">
     <table style="width:100%">
       <tr>
         <td>
@@ -22,4 +31,3 @@
   </nav>
 </body>
 </html>
-

@@ -1,39 +1,22 @@
-<?php   
+<?php
 
-       $dayTH = 'วันศุกร์';
-        $thisDay = date("l");
-        $setday = array("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday");
-        $setdayTH = array("วันจันทร์","วันอังคาร","วันพุธ","วันพฤหัสบดี","วันศุกร์","วันเสาร์","วันอาทิตย์");
+	require $_SERVER['DOCUMENT_ROOT'].'/geo/geo_solution/config.php';
 
+	$teacherid = $_POST['teacher_id'];
 
-        for($l=0;$l<7;$l++){
-            if($dayTH==$setdayTH[$l])$input=$setday[$l];
-        }
-   
-        for($k = 0 ; $k < 7 ; $k++){
-            if($input==$setday[$k]) $i=$k;
-            if($thisDay==$setday[$k]) $j=$k;
-        }
+	$result = "SELECT * FROM assign_course";
         
-        $diffday = $i-$j;
-   
-        $nday=7;
-       
-        if($diffday>1) {
-             $searchDate = $diffday;
-            }
-        elseif($diffday==0 or $diffday==1 or $diffday==-6){ 
-         	if($diffday==-6)$diffday=1;
-            $searchDate = $diffday+$nday;
-        }
-        else{ 
+     $sql=query($result);
+ 	 
+ 	 $outp = array();
 
-            $searchDate = $nday+$diffday;
-        }
-        $nowDate= date("Y-m-d");
-       
-        $date = date("Y-m-d" , strtotime("+$searchDate days" , strtotime($nowDate)));
-        echo $diffday.'<br>';
-        echo $date;
-        
+      while($rs=mysqli_fetch_array($sql,MYSQLI_ASSOC))
+      {
+      	$outp[] = $rs;
+
+      }
+      echo json_encode($outp, JSON_UNESCAPED_UNICODE);
+
+	 mysqli_free_result($sql);
+
 ?>
