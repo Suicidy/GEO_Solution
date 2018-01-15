@@ -68,5 +68,21 @@
         mysqli_close($conn);
       //  return $result;
     }
+    function multi_query($sql_statement){
+        $conn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+        mysqli_set_charset( $conn, DB_CHARSET);
+        // Check connection
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error()) . "<br>";
+        }
+        if($result = mysqli_multi_query($conn, $sql_statement))
+        {
+         return $result;
+        } else {
+         return 0;
+        }
+        mysqli_close($conn);
+      //  return $result;
+    }
 
     ?>

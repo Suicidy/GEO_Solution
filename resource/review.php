@@ -2,7 +2,7 @@
 	<script src="/geo_solution/js/review.js"></script>
 	<script>
 		$(document).ready(function(){
-			var type;
+			var type, course_id;
 			$.post("/geo_solution/resource/review/view_type.php",{},function(data,status){
 				type = data['type'];
 			},"json");
@@ -19,7 +19,7 @@
 			});
 			$('#review-modal').on('show.bs.modal', function (event) {
   			var button = $(event.relatedTarget);
-  			var course_id = button.data('course'); 
+  			course_id = button.data('course'); 
 				var modal = $(this);
 				$.post("/geo_solution/resource/review/pre_review.php",{course : course_id},function(data,status){
 					var name = data['title'] + " " + data['firstname'] + " " + data['lastname'];
@@ -37,16 +37,21 @@
 					for (i in obj){
 						$("#"+i).html(obj[i]);
 					}
-					//$("#ta_image").attr("src",image);		
+					//$("#ta_image").attr("src",image);
+					$("#content_txt").val("");
+					$("#teacher_txt").val("");
+					$("#other_txt").val("");		
 				},"json");
 			});
 			$("#submit_review").click(function(){
 				var content = $("#content_txt").val();
 				var teacher = $("#teacher_txt").val();
 				var other = $("#other_txt").val();
-				$.post("/geo_solution/resource/review/submit_review.php", {content : content, teacher : teacher, other : other}, function(data,status){
-						alert("eueu");
-				},"json");
+				$.post("/geo_solution/resource/review/submit_review.php", {content : content, teacher : teacher, other : other, course_id : course_id}, function(data,status){
+						alert("แสดงความคิดเห็นเรียบร้อย ขอบคุณสำหรับความร่วมมือ")
+				},"json").fail(function(){
+					alert("เกิดบางอย่างผิดพลาด");
+				});
 			});
 			$('#review-modal').on('hidden.bs.modal', function (event) {
 				type = $("#select").val();
@@ -82,15 +87,15 @@
 								<form>
 									<div class="form-group">
 										<label for="exampleFormControlTextarea1">เนื้อหา</label>
-									    <textarea class="form-control" id="content_txt" rows="3"></textarea>
+									    <textarea class="form-control" id="content_txt" rows="3" placeholder="แสดงความคิดเห็นเกี่ยวกับเนื้อหาที่เรียน..."></textarea>
 									</div>
 									<div class="form-group">
 										<label for="exampleFormControlTextarea1">ผู้สอน</label>
-									    <textarea class="form-control" id="teacher_txt" rows="3"></textarea>
+									    <textarea class="form-control" id="teacher_txt" rows="3" placeholder="แสดงความคิดเห็นเกี่ยวกับผู้สอน..."></textarea>
 									</div>
 									<div class="form-group">
 										<label for="exampleFormControlTextarea1">ข้อเสนอแนะ</label>
-									    <textarea class="form-control" id="other_txt" rows="3"></textarea>
+									    <textarea class="form-control" id="other_txt" rows="3" placeholder="คำแนะนำเพิ่มเติม..."></textarea>
 									</div>
 								</form>
 						      </div>
