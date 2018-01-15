@@ -1,5 +1,6 @@
 <?php include('header.php'); ?>
 	<script src="/geo_solution/js/review.js"></script>
+	<link href= "/geo_solution/css/review.css" rel="stylesheet">
 	<script>
 		$(document).ready(function(){
 			var type, course_id;
