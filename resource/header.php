@@ -1,68 +1,3 @@
-<?php
-    // Include config file
-    require_once $_SERVER['DOCUMENT_ROOT'].'/geo_solution/config.php';
-    session_start();
-    // Define variables and initialize with empty values
-    $username = $password = $type = "";
-    $username_err = $password_err = "";
-    // Processing form data when form is submitted
-    if($_SERVER["REQUEST_METHOD"] == "POST"){
-        // Check if username is empty
-        if(empty(trim($_POST["username"]))){
-            $username_err = 'โปรดกรอกรหัสนักศึกษา';
-        } else{
-            $username = trim($_POST["username"]);
-        }
-        // Check if password is empty
-        if(empty(trim($_POST['password']))){
-            $password_err = 'โปรดกรอกรหัสผ่าน';
-        } else{
-            $password = trim($_POST['password']);
-        }
-        // Validate credentials
-        if(empty($username_err) && empty($password_err)){
-            // Prepare a select statement
-            $sql = "SELECT student_id, password, type FROM student WHERE student_id = ?";
-            if($stmt = mysqli_prepare($link, $sql)){
-                // Bind variables to the prepared statement as parameters
-                mysqli_stmt_bind_param($stmt, "s", $param_username);
-                // Set parameters
-                $param_username = $username;
-               // Attempt to execute the prepared statement
-                if(mysqli_stmt_execute($stmt)){
-                    // Store result
-                    mysqli_stmt_store_result($stmt);
-                    // Check if username exists, if yes then verify password
-                    if(mysqli_stmt_num_rows($stmt) == 1){                    
-                        // Bind result variables
-                        mysqli_stmt_bind_result($stmt, $username, $hashed_password,$type);
-                        if(mysqli_stmt_fetch($stmt)){
-                            if(md5($password) == $hashed_password){
-                                /* Password is correct, so start a new session and save the username to the session */
-                                $_SESSION['username'] = $username; 
-                                $_SESSION['userview'] = $type;
-                                header('Location: '.$_SERVER['PHP_SELF']);     
-                            } else{
-                                // Display an error message if password is not valid
-                                $password_err = 'รหัสผ่านไม่ถูกต้อง';
-                               // echo $password.md5($password);
-                            }
-                        }
-                    } else{
-                        // Display an error message if username doesn't exist
-                        $username_err = 'ไม่พบบัญชีผู้ใช้นี้ โปรดสมัครสมาชิก';
-                    }
-                } else{
-                    echo "เข้าสู่ระบบอีกครั้งในภายหลัง";
-                }
-            }
-            // Close statement
-            mysqli_stmt_close($stmt);
-        }
-        // Close connection
-        mysqli_close($link);
-    }
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -82,6 +17,9 @@
   <script src="/geo_solution/js/jquery-3.2.1.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+  <?php
+  	session_start();
+  ?>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-faded navbar-dark bg-dark sticky-top">
@@ -113,7 +51,7 @@
         <?php
           if(!(isset($_SESSION['username']))) {echo
             '<li class="nav-item">
-              <button type="button" class="btn btn-outline-warning" href="/geo_solution/resource/request_pass.php"><i class="fa fa-unlock" aria-hidden="true"></i>   ขอรหัสผ่านครั้งแรก</button>
+            	<a href="/geo_solution/resource/request_pass.php"><button type="button" class="btn btn-outline-warning" href="/geo_solution/resource/request_pass.php"><i class="fa fa-unlock" aria-hidden="true"></i>   ขอรหัสผ่านครั้งแรก</button></a>
             </li>
             <li class="nav-item">
               <button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in" aria-hidden="true"></i>  ลงชื่อเข้าใช้</button>
@@ -165,16 +103,16 @@
 					</button>
         		</div>
 	        	<div class="modal-body">
-	          		<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-	            		<div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+	          		<form action="/geo_solution/resource/login/login.php" method="post">
+	            		<div class="form-group">
 			            	<label class="form-control-label">รหัสนักศึกษา</label>
-			            	<input class="form-control" type="text" name="username" value="<?php echo $username; ?>">
-			            	<span class="help-block"><?php echo $username_err; ?></span>
+			            	<input class="form-control" type="text" name="username">
+			            	<span class="help-block"></span>
 	            		</div>
-	            	<div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+	            	<div class="form-group">
 						<label class="form-control-label">รหัสผ่าน</label>
 						<input class="form-control" type="password" name="password">
-						<span class="help-block"><?php echo $password_err; ?></span>
+						<span class="help-block"></span>
 	            	</div>
 					<p><a href="#" class="tooltip-test">ลืมรหัสผ่าน</a> หรือ <a href="/geo_solution/resource/request_pass.php" class="tooltip-test">ขอรหัสผ่านครั้งแรก</a></p>
 				</div>
