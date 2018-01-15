@@ -74,8 +74,8 @@
             <select class="custom-select mr-sm-2" id = "search_subject">
               <option value="" selected>Choose...</option>
               <option value="MTH">Math</option>
-              <option value="PHYSIC">Physic</option>
-              <option value="CHEM">Chemistry</option>
+              <option value="PHY">Physic</option>
+              <option value="CHM">Chemistry</option>
             </select>
           </div>
           <button id = "search" type="submit" class="btn btn-primary search" style ="background-color : #ff7454; border-color : #ff7454; margin-top: 30px; "> SEARCH </button>
