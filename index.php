@@ -207,7 +207,13 @@
 						      	<div class="square">
 									<img src="./image/team-member-2.jpg">
 									<p class="nickname" id="nicknameMTH102">พี่.....</p>
-									<p >ใส่ดาวววววววววว</p>
+									<center>
+									<span class="fa fa-star"></span>
+									<span class="fa fa-star"></span>
+									<span class="fa fa-star"></span>
+									<span class="fa fa-star"></span>
+									<span class="fa fa-star"></span>
+									</center>
 								</div>
 						      </td>
 						      <td colspan="2">

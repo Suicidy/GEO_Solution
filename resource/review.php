@@ -1,5 +1,6 @@
 <?php include('header.php'); ?>
 	<script src="/geo_solution/js/review.js"></script>
+	<link href="/geo_solution/css/review.css" rel="stylesheet">
 	<script>
 		$(document).ready(function(){
 			var type, course_id;
@@ -84,7 +85,13 @@
 										<p id = "topic"></p>
 									</div>
 								</div>
-								<p>ใส่ดาวววววววววววววววววววว</p>
+								<p>ให้คะแนนพี่ TA   
+									<span class="fa fa-star"></span>
+									<span class="fa fa-star"></span>
+									<span class="fa fa-star"></span>
+									<span class="fa fa-star"></span>
+									<span class="fa fa-star"></span>
+								</p>
 								<form>
 									<div class="form-group">
 										<label for="exampleFormControlTextarea1">เนื้อหา</label>
