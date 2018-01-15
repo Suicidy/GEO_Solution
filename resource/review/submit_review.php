@@ -6,12 +6,13 @@ $content_txt = check_input($_POST['content']);
 $teacher_txt = check_input($_POST['teacher']);
 $other_txt = check_input($_POST['other']);
 $course_id = check_input($_POST['course_id']);
+$star_default = 1;
 $array_result = array();
 
 
 //SQL Statement
 
-$sql = "SELECT comment_id
+$sql = "SELECT comment_id, star
         FROM assign_course
         WHERE assign_course.course_id = '$course_id' 
         AND assign_course.student_id = '$id';";
@@ -19,7 +20,14 @@ $sql = "SELECT comment_id
 $results = query($sql);
 $result = mysqli_fetch_assoc($results);
 $comment_id = $result['comment_id'];
-$sql = " ";
+$star = $result['star'];
+if ($star == NULL){
+    $sql = "UPDATE assign_course SET star = '$star_default' WHERE student_id = '$id' AND course_id = '$course_id'; ";
+}
+else{
+    $sql = "Nothing can query rn";
+}
+
 
 if ($content_txt != ""){
     $sql .= "INSERT INTO review (comment_id, type, review_txt)
@@ -39,9 +47,9 @@ $results = multi_query($sql);
 
 if ($results == 0){
     query("Nothing can query");
-    echo("Failed");
+
 }
 else{
-    echo("Success");
+    echo json_encode(array('message' => 'Success'),JSON_UNESCAPED_UNICODE);
 }
 ?>
