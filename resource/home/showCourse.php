@@ -1,6 +1,6 @@
 <?php   
-
        require $_SERVER['DOCUMENT_ROOT'].'/geo_solution/config.php';
+
 
         $input = check_input($_POST['day']);
         $setday = array("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday");
@@ -8,6 +8,8 @@
       //  $tempFindCourse = arrray('','','','','','');
         $allday = "ทุกวัน";
         $print = '[';
+       
+
         if($input == $allday)
         {   
             $day = date("l" , strtotime("+2 days" , strtotime(date("l"))));
@@ -37,6 +39,20 @@
         
 
         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         function find_date($dayTH){
         $thisDay = date("l");
@@ -74,23 +90,27 @@
 
         return $date;
         }
+
+
        
+
+
         function find_course($date,$dayTH){
         $result = "SELECT c.subject,c.course_id,t.teacher_id,t.title,t.firstname,t.lastname,t.nickname,c.topic,DATE_FORMAT(c.start_time,'%H:%i') start_time,DATE_FORMAT(c.end_time,'%H:%i') end_time,date(c.start_time)cdate,c.room,t.image,avgStar.star,c.max_seat-seat.countSeat as seatLeft,c.max_seat
-        FROM course c,teacher t   , (SELECT AVG(assign_course.star) AS star ,teacher.teacher_id as teacherid
+        FROM course c,teacher t  left join (SELECT AVG(assign_course.star) AS star ,teacher.teacher_id as teacherid
                                   FROM assign_course, course , teacher 
                                   where course.teacher_id = teacher.teacher_id 
-                                        AND assign_course.course_id=course.course_id
-                                  GROUP BY teacher.teacher_id) avgStar,
+                                        AND assign_course.course_id=course.course_id 
+                                  GROUP BY teacher.teacher_id) avgStar on t.teacher_id = avgStar.teacherid,
                              (SELECT course.course_id , count(assign_course.course_id) AS countSeat
                                    FROM assign_course RIGHT JOIN course ON assign_course.course_id = course.course_id
                                    GROUP BY course_id) seat
                                    
-        WHERE c.teacher_id = t.teacher_id
-        AND t.teacher_id = avgStar.teacherid
+        WHERE  c.teacher_id = t.teacher_id
         AND date(c.start_time)= '$date'
         AND seat.course_id = c.course_id
-        ORDER BY c.subject,t.teacher_id;";
+        ORDER BY c.subject,t.teacher_id;
+";
         
         
         $sql=query($result);
@@ -133,6 +153,7 @@
                         .',"firstname":"'.$rs['firstname'].'"'
                         .',"lastname":"'.$rs['lastname'].'"'
                         .',"nickname":"'.$rs['nickname'].'"'
+                        .',"img":"'.$rs['image'].'"'
                         .',"star":"'.$rs['star'].'"'
                         .',"course":[{'
                                  .'"course_id":"'.$rs['course_id'].'"'

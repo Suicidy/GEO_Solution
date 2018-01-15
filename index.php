@@ -40,6 +40,42 @@
 	  		getCourseMTH112(singleValues);
 	    });
 
+	    $("#buttonPHY102").click(function(){
+	    	var singleValues = $( "#exampleFormControlSelect3" ).val();
+
+	    	if (!singleValues.localeCompare("เลือกวัน")) {
+	    		singleValues = "ทุกวัน";
+	    	}
+
+	  		$("#headPHY102").html(singleValues);
+	  		
+	  		getCourseMTH112(singleValues);
+	    });
+
+	    $("#buttonPHY104").click(function(){
+	    	var singleValues = $( "#exampleFormControlSelect4" ).val();
+
+	    	if (!singleValues.localeCompare("เลือกวัน")) {
+	    		singleValues = "ทุกวัน";
+	    	}
+
+	  		$("#headPHY104").html(singleValues);
+	  		
+	  		getCourseMTH112(singleValues);
+	    });
+
+	    $("#buttonCHM103").click(function(){
+	    	var singleValues = $( "#exampleFormControlSelect2" ).val();
+
+	    	if (!singleValues.localeCompare("เลือกวัน")) {
+	    		singleValues = "ทุกวัน";
+	    	}
+
+	  		$("#headCHM103").html(singleValues);
+	  		
+	  		getCourseMTH112(singleValues);
+	    });	
+
 	    $("#nav-MTH_102-tab").click(function(){
 	    	getCourseMTH102('ทุกวัน');
 	    });
@@ -64,18 +100,16 @@
 	function updateSeat(id){
 		//$("#modalcontent"+id).html("2345");
 		//$("#mondayMTH102").html('eiei');
-		$("#modalcontent"+id).html("2345"+id);
+		//$("#modalcontent"+id).html("2345"+id);
 		var obj ={};
 		obj['course_id'] = id;
 		$.ajax({
-			url: 'resource/home/showCourse.php',
+			url: 'resource/home/left_seat.php',
 			type: 'post',
-			data: {
-				'day':'วันจันทร์'
-			},
+			data: obj,
 			dataType: 'json',
 			success: function(data){
-				$("#modalcontent"+id).html("2345"+id);
+				$("#modalcontent"+id).html(data.length);
 				//$("#modalcontent6").html("23456");
 
 			}
@@ -144,7 +178,7 @@
 						stringForPrintHtml = stringForPrintHtml.concat('<tr><th style="width:1%"></th><td id="', response.day, 'MTH102">', response.day, '<hr style="border: 1px"></td><td>',  response.date, '<hr style="border: 1px"></td></tr>');
 
 						for(var i=0; i<response.MTH102.length; i++){
-							stringForPrintHtml = stringForPrintHtml.concat('<tr><th scope="row"></th><td style="width: 25%"><div class="square"><img src="img/', response.MTH102[i].image);
+							stringForPrintHtml = stringForPrintHtml.concat('<tr><th scope="row"></th><td style="width: 25%"><div class="square"><img src="image/', response.MTH102[i].img);
 							stringForPrintHtml = stringForPrintHtml.concat('"><p class="nickname", id="nicknameMTH102TA', response.MTH102[i].teacher_id, '"> พี่ ', response.MTH102[i].nickname);
 							stringForPrintHtml = stringForPrintHtml.concat('</p><p class="nickname">', response.MTH102[i].star, '</p></div></td><td colspan="2"><p>ชื่อ ', response.MTH102[i].title, ' ', response.MTH102[i].firstname, '    ', response.MTH102[i].lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
 							for(var j=0; j<response.MTH102[i].course.length; j++){
@@ -186,7 +220,7 @@
 						stringForPrintHtml = stringForPrintHtml.concat('<tr><th style="width:1%"></th><td id="', response.day, 'MTH112">', response.day, '<hr style="border: 1px"></td><td>',  response.date, '<hr style="border: 1px"></td></tr>');
 
 						for(var i=0; i<response.MTH112.length; i++){
-							stringForPrintHtml = stringForPrintHtml.concat('<tr><th scope="row"></th><td style="width: 25%"><div class="square"><img src="img/', response.MTH112[i].image);
+							stringForPrintHtml = stringForPrintHtml.concat('<tr><th scope="row"></th><td style="width: 25%"><div class="square"><img src="image/', response.MTH112[i].img);
 							stringForPrintHtml = stringForPrintHtml.concat('"><p class="nickname", id="nicknameMTH112TA', response.MTH112[i].teacher_id, '"> พี่ ', response.MTH112[i].nickname);
 							stringForPrintHtml = stringForPrintHtml.concat('</p><p class="nickname">', response.MTH112[i].star, '</p></div></td><td colspan="2"><p>ชื่อ ', response.MTH112[i].title, ' ', response.MTH112[i].firstname, '    ', response.MTH112[i].lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
 							for(var j=0; j<response.MTH112[i].course.length; j++){
@@ -229,7 +263,7 @@
 						stringForPrintHtml = stringForPrintHtml.concat('<tr><th style="width:1%"></th><td id="', response.day, 'PHY102">', response.day, '<hr style="border: 1px"></td><td>',  response.date, '<hr style="border: 1px"></td></tr>');
 
 						for(var i=0; i<response.PHY102.length; i++){
-							stringForPrintHtml = stringForPrintHtml.concat('<tr><th scope="row"></th><td style="width: 25%"><div class="square"><img src="img/', response.PHY102[i].image);
+							stringForPrintHtml = stringForPrintHtml.concat('<tr><th scope="row"></th><td style="width: 25%"><div class="square"><img src="image/', response.PHY102[i].img);
 							stringForPrintHtml = stringForPrintHtml.concat('"><p class="nickname", id="nicknamePHY102TA', response.PHY102[i].teacher_id, '"> พี่ ', response.PHY102[i].nickname);
 							stringForPrintHtml = stringForPrintHtml.concat('</p><p class="nickname">', response.PHY102[i].star, '</p></div></td><td colspan="2"><p>ชื่อ ', response.PHY102[i].title, ' ', response.PHY102[i].firstname, '    ', response.PHY102[i].lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
 							for(var j=0; j<response.PHY102[i].course.length; j++){
@@ -271,7 +305,7 @@
 						stringForPrintHtml = stringForPrintHtml.concat('<tr><th style="width:1%"></th><td id="', response.day, 'PHY104">', response.day, '<hr style="border: 1px"></td><td>',  response.date, '<hr style="border: 1px"></td></tr>');
 
 						for(var i=0; i<response.PHY104.length; i++){
-							stringForPrintHtml = stringForPrintHtml.concat('<tr><th scope="row"></th><td style="width: 25%"><div class="square"><img src="img/', response.PHY104[i].image);
+							stringForPrintHtml = stringForPrintHtml.concat('<tr><th scope="row"></th><td style="width: 25%"><div class="square"><img src="image/', response.PHY104[i].img);
 							stringForPrintHtml = stringForPrintHtml.concat('"><p class="nickname", id="nicknamePHY104TA', response.PHY104[i].teacher_id, '"> พี่ ', response.PHY104[i].nickname);
 							stringForPrintHtml = stringForPrintHtml.concat('</p><p class="nickname">', response.PHY104[i].star, '</p></div></td><td colspan="2"><p>ชื่อ ', response.PHY104[i].title, ' ', response.PHY104[i].firstname, '    ', response.PHY104[i].lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
 							for(var j=0; j<response.PHY104[i].course.length; j++){
@@ -314,7 +348,7 @@
 						stringForPrintHtml = stringForPrintHtml.concat('<tr><th style="width:1%"></th><td id="', response.day, 'CHM103">', response.day, '<hr style="border: 1px"></td><td>',  response.date, '<hr style="border: 1px"></td></tr>');
 
 						for(var i=0; i<response.CHM103.length; i++){
-							stringForPrintHtml = stringForPrintHtml.concat('<tr><th scope="row"></th><td style="width: 25%"><div class="square"><img src="img/', response.CHM103[i].image);
+							stringForPrintHtml = stringForPrintHtml.concat('<tr><th scope="row"></th><td style="width: 25%"><div class="square"><img src="image/', response.CHM103[i].img);
 							stringForPrintHtml = stringForPrintHtml.concat('"><p class="nickname", id="nicknameCHM103TA', response.CHM103[i].teacher_id, '"> พี่ ', response.CHM103[i].nickname);
 							stringForPrintHtml = stringForPrintHtml.concat('</p><p class="nickname">', response.CHM103[i].star, '</p></div></td><td colspan="2"><p>ชื่อ ', response.CHM103[i].title, ' ', response.CHM103[i].firstname, '    ', response.CHM103[i].lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
 							for(var j=0; j<response.CHM103[i].course.length; j++){
