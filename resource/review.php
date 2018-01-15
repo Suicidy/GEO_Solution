@@ -3,7 +3,7 @@
 <<<<<<< HEAD
 	<link href="/geo_solution/css/review.css" rel="stylesheet">
 =======
-	<link href= "/geo_solution/css/review.css" rel="stylesheet">
+	<!-- <link href= "/geo_solution/css/review.css" rel="stylesheet"> -->
 >>>>>>> b3fa7ec271cc52c046c90fbf81b65f519dd8bd11
 	<script>
 
@@ -68,14 +68,36 @@
 	</script>
 	<script>
 		$(document).ready(function(){
-		    $(".fa-star").click(function(){
+		    // $(".fa-star").click(function(){
 		    	
-             alert($(this).val());
+      //        alert($(this).val());
 
 		    	// var t= $(this).val();
   				 //  alert(t);
 		        //$(".fa-star").css("color", "#ff7454");
-		    });
+		    // });
+
+		    var $star_rating = $('.star-rating .fa');
+
+			var SetRatingStar = function() {
+  				return $star_rating.each(function() {
+    				if (parseInt($star_rating.siblings('input.rating-value').val()) >= parseInt($(this).data('rating'))) {
+     					 return $(this).removeClass('fa-star-o').addClass('fa-star');
+    			 	 } else {
+     					 return $(this).removeClass('fa-star').addClass('fa-star-o');
+    					}
+  				});
+			};
+
+			$star_rating.on('click', function() {
+  					$star_rating.siblings('input.rating-value').val($(this).data('rating'));
+  					alert($(this).data('rating'));
+  					return SetRatingStar();
+			});
+			//SetRatingStar();
+				$(document).ready(function() {
+
+				});
 		});
 	</script>
 	<div class="modal fade" id="review-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -103,11 +125,19 @@
 									</div>
 								</div>
 								<p>ให้คะแนนพี่ TA   
-									<span class="fa fa-star" id = 'star1' value=1></span>
+									<!-- <span class="fa fa-star" id = 'star1' value=1></span>
 									<span class="fa fa-star" id = 'star2' value=2></span>
 									<span class="fa fa-star" id = 'star3' value=3></span>
 									<span class="fa fa-star" id = 'star4' value=4></span>
-									<span class="fa fa-star" id = 'star5' value=5></span>
+									<span class="fa fa-star" id = 'star5' value=5></span> -->
+									<div class="star-rating">
+      									 <span class="fa fa-star-o" data-rating="1"></span>
+       								   	 <span class="fa fa-star-o" data-rating="2"></span>
+      									 <span class="fa fa-star-o" data-rating="3"></span>
+  										 <span class="fa fa-star-o" data-rating="4"></span>
+     									 <span class="fa fa-star-o" data-rating="5"></span>
+     									  <input type="hidden" name="whatever1" class="rating-value" value="2.56">
+      								</div>
 								</p>
 								<form>
 									<div class="form-group">
