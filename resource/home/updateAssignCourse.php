@@ -4,14 +4,15 @@
         session_start();
 
         //student_id
-        //$_SESSIOM['username'];
+        $_SESSIOM['username'];
 
-        //$_POST['course_id'];
+        $_POST['course_id'];
 
         // $result = 'SELECT * FROM `assign_course` WHERE student_id='.$_SESSIOM['username'];
-        $result = "SELECT c.subject, c.topic, t.title, t.firstname, t.lastname, date(c.start_time) as date, DATE_FORMAT(c.start_time,'%H:%i') start_time, DATE_FORMAT(c.end_time,'%H:%i') end_time
-			FROM course c, teacher t
-			WHERE c.teacher_id = t.teacher_id;";
+   //      $result = "SELECT c.subject, c.topic, t.title, t.firstname, t.lastname, date(c.start_time) as date, DATE_FORMAT(c.start_time,'%H:%i') start_time, DATE_FORMAT(c.end_time,'%H:%i') end_time
+			// FROM course c, teacher t
+			// WHERE c.teacher_id = t.teacher_id;";
+		$result = "DELETE FROM assign_course WHERE course_id = ".$_POST['course_id']." AND student_id = ".$_SESSIOM['username'];
         $sql = query($result);
         $outp = array();
         $count=0;
