@@ -1,5 +1,5 @@
 <?php   
-       require $_SERVER['DOCUMENT_ROOT'].'/geo/geo_solution/config.php';
+       require $_SERVER['DOCUMENT_ROOT'].'/geo_solution/config.php';
 
 
         $input = check_input($_POST['day']);
@@ -8,6 +8,13 @@
       //  $tempFindCourse = arrray('','','','','','');
         $allday = "ทุกวัน";
         $print = '[';
+       
+
+
+
+
+
+
         if($input == $allday)
         {   
             $day = date("l" , strtotime("+2 days" , strtotime(date("l"))));
@@ -37,6 +44,20 @@
         
 
         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         function find_date($dayTH){
         $thisDay = date("l");
@@ -79,9 +100,6 @@
        
 
 
-
-
-       
         function find_course($date,$dayTH){
         $result = "SELECT c.subject,c.course_id,t.teacher_id,t.title,t.firstname,t.lastname,t.nickname,c.topic,DATE_FORMAT(c.start_time,'%H:%i') start_time,DATE_FORMAT(c.end_time,'%H:%i') end_time,date(c.start_time)cdate,c.room,t.image,avgStar.star,c.max_seat-seat.countSeat as seatLeft,c.max_seat
         FROM course c,teacher t   , (SELECT AVG(assign_course.star) AS star ,teacher.teacher_id as teacherid
@@ -140,6 +158,7 @@
                         .',"firstname":"'.$rs['firstname'].'"'
                         .',"lastname":"'.$rs['lastname'].'"'
                         .',"nickname":"'.$rs['nickname'].'"'
+                        .',"img":"'.$rs['image'].'"'
                         .',"star":"'.$rs['star'].'"'
                         .',"course":[{'
                                  .'"course_id":"'.$rs['course_id'].'"'
