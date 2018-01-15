@@ -1,10 +1,6 @@
 <?php include('header.php'); ?>
 	<script src="/geo_solution/js/review.js"></script>
-<<<<<<< HEAD
 	<link href="/geo_solution/css/review.css" rel="stylesheet">
-=======
-	<link href= "/geo_solution/css/review.css" rel="stylesheet">
->>>>>>> b3fa7ec271cc52c046c90fbf81b65f519dd8bd11
 	<script>
 
 		$(document).ready(function(){
