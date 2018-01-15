@@ -37,7 +37,7 @@
 					for (i in obj){
 						$("#"+i).html(obj[i]);
 					}
-					//$("#ta_image").attr("src",image);
+					$("#ta_image").attr("src",image);
 					$("#content_txt").val("");
 					$("#teacher_txt").val("");
 					$("#other_txt").val("");		
@@ -52,6 +52,7 @@
 				},"json").fail(function(){
 					alert("เกิดบางอย่างผิดพลาด");
 				});
+				$('#review-modal').modal('hide')
 			});
 			$('#review-modal').on('hidden.bs.modal', function (event) {
 				type = $("#select").val();
@@ -72,7 +73,7 @@
 						        <div class="row">
 						        	<div class="col-1"></div>
 							      	<div class="col-3">
-										<div class="square">
+										<div class="square" style="wide:100px; height:100px;">
 											<img id = "ta_image" src = "">
 											<p class="nickname" id="nickname"></p>
 										</div>
