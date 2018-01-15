@@ -1,18 +1,23 @@
 <?php include('header.php'); ?>
 	<script src="/geo_solution/js/review.js"></script>
+<<<<<<< HEAD
+	<link href="/geo_solution/css/review.css" rel="stylesheet">
+=======
 	<link href= "/geo_solution/css/review.css" rel="stylesheet">
+>>>>>>> b3fa7ec271cc52c046c90fbf81b65f519dd8bd11
 	<script>
+
 		$(document).ready(function(){
 			var type, course_id;
 			$.post("/geo_solution/resource/review/view_type.php",{},function(data,status){
 				type = data['type'];
-			},"json");
-			if (type == "student"){
+				if (type != "student"){
 					$("#all").empty();
 				}
-			else{	
+				else{	
 					show_data("all");	
-			}
+				}
+			},"json");
 			$("#body > tr:even").css("background-color", "gray");
 			$("#select").click(function(){
 				type = $("#select").val();
@@ -85,7 +90,13 @@
 										<p id = "topic"></p>
 									</div>
 								</div>
-								<p>ใส่ดาวววววววววววววววววววว</p>
+								<p>ให้คะแนนพี่ TA   
+									<span class="fa fa-star"></span>
+									<span class="fa fa-star"></span>
+									<span class="fa fa-star"></span>
+									<span class="fa fa-star"></span>
+									<span class="fa fa-star"></span>
+								</p>
 								<form>
 									<div class="form-group">
 										<label for="exampleFormControlTextarea1">เนื้อหา</label>
