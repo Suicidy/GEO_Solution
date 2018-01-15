@@ -1,6 +1,10 @@
 <?php include('header.php'); ?>
 	<script src="/geo_solution/js/review.js"></script>
+<<<<<<< HEAD
+	<link href="/geo_solution/css/review.css" rel="stylesheet">
+=======
 	<link href= "/geo_solution/css/review.css" rel="stylesheet">
+>>>>>>> b3fa7ec271cc52c046c90fbf81b65f519dd8bd11
 	<script>
 
 		$(document).ready(function(){
@@ -62,6 +66,18 @@
 			});
 		});
 	</script>
+	<script>
+		$(document).ready(function(){
+		    $(".fa-star").click(function(){
+		    	
+             alert($(this).val());
+
+		    	// var t= $(this).val();
+  				 //  alert(t);
+		        //$(".fa-star").css("color", "#ff7454");
+		    });
+		});
+	</script>
 	<div class="modal fade" id="review-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 						  <div class="modal-dialog" role="document">
 						    <div class="modal-content">
@@ -86,7 +102,13 @@
 										<p id = "topic"></p>
 									</div>
 								</div>
-								<p>ใส่ดาวววววววววววววววววววว</p>
+								<p>ให้คะแนนพี่ TA   
+									<span class="fa fa-star" id = 'star1' value=1></span>
+									<span class="fa fa-star" id = 'star2' value=2></span>
+									<span class="fa fa-star" id = 'star3' value=3></span>
+									<span class="fa fa-star" id = 'star4' value=4></span>
+									<span class="fa fa-star" id = 'star5' value=5></span>
+								</p>
 								<form>
 									<div class="form-group">
 										<label for="exampleFormControlTextarea1">เนื้อหา</label>
