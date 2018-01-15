@@ -2,6 +2,10 @@
        require $_SERVER['DOCUMENT_ROOT'].'/geo_solution/config.php';
 
 
+
+       session_start();
+        // $_SESSION["username"] = "58070501023";
+        // $_SESSION["userview"] = "student";
         $input = check_input($_POST['day']);
         $setday = array("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday");
         $setdayTH = array("วันจันทร์","วันอังคาร","วันพุธ","วันพฤหัสบดี","วันศุกร์","วันเสาร์","วันอาทิตย์");
@@ -39,19 +43,6 @@
         
 
         
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         function find_date($dayTH){
@@ -96,6 +87,9 @@
 
 
         function find_course($date,$dayTH){
+        
+        if(check_show_course()==0){
+
         $result = "SELECT c.subject,c.course_id,t.teacher_id,t.title,t.firstname,t.lastname,t.nickname,c.topic,DATE_FORMAT(c.start_time,'%H:%i') start_time,DATE_FORMAT(c.end_time,'%H:%i') end_time,date(c.start_time)cdate,c.room,t.image,avgStar.star,c.max_seat-seat.countSeat as seatLeft,c.max_seat
         FROM course c,teacher t  left join (SELECT AVG(assign_course.star) AS star ,teacher.teacher_id as teacherid
                                   FROM assign_course, course , teacher 
@@ -109,9 +103,45 @@
         WHERE  c.teacher_id = t.teacher_id
         AND date(c.start_time)= '$date'
         AND seat.course_id = c.course_id
-        ORDER BY c.subject,t.teacher_id;
-";
+        ORDER BY c.subject,t.teacher_id;";
         
+        }
+        elseif(check_show_course()==1){
+            $username = $_SESSION['username'];
+
+            $result = "SELECT c.subject,c.course_id,t.teacher_id,t.title,t.firstname,t.lastname,t.nickname,c.topic,DATE_FORMAT(c.start_time,'%H:%i') start_time,DATE_FORMAT(c.end_time,'%H:%i') end_time,date(c.start_time)cdate,c.room,t.image,avgStar.star,c.max_seat-seat.countSeat as seatLeft,c.max_seat
+        FROM course c,teacher t  left join (SELECT AVG(assign_course.star) AS star ,teacher.teacher_id as teacherid
+                                  FROM assign_course, course , teacher 
+                                  where course.teacher_id = teacher.teacher_id 
+                                        AND assign_course.course_id=course.course_id 
+                                  GROUP BY teacher.teacher_id) avgStar on t.teacher_id = avgStar.teacherid,
+                             (SELECT course.course_id , count(assign_course.course_id) AS countSeat
+                                   FROM assign_course RIGHT JOIN course ON assign_course.course_id = course.course_id
+                                   GROUP BY course_id) seat
+                                   
+        WHERE c.course_id NOT IN (SELECT course.course_id
+        FROM course
+        WHERE course.course_id IN
+    (SELECT ac.course_id 
+     FROM assign_course ac
+     WHERE ac.student_id = '$username')  
+
+)
+         AND c.teacher_id = t.teacher_id
+        AND date(c.start_time)= '$date'
+        AND seat.course_id = c.course_id
+        ORDER BY c.subject,t.teacher_id;";
+
+
+
+
+
+
+
+        }
+
+
+
         
         $sql=query($result);
      
@@ -224,5 +254,21 @@
     }
 
 
+
+function check_show_course(){
+        if(isset( $_SESSION['username']) and isset($_SESSION['userview']))
+        { 
+          if($_SESSION['userview']=='student')
+          {
+
+            return 1;
+
+          }
+
+        }
+       // echo 'id:'.$_SESSION['username'].'type'.$_SESSION['userview'];
+        return 0;
+          
+      }
 
 ?>
