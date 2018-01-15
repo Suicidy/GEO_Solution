@@ -12,6 +12,7 @@
 </head>
 <body> -->
 <?php require_once '../header.php'; ?>
+	<br><br>
 	<link href="../../css/comfirm.css" rel="stylesheet">
 	<center>
 		<div class="card text-white bg-dark mb-3" style="max-width: 35rem;">

@@ -124,6 +124,7 @@
     </head>
     <body> -->
         <?php require_once './header.php'; ?>
+        <br><br>
         <style type="text/css">
             body{ font: 18px sans-serif; font-family: 'Kanit', sans-serif;}
             .wrapper{ width: 400px; padding: 20px; }
