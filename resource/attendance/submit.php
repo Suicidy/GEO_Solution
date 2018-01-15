@@ -2,7 +2,6 @@
 require_once $_SERVER['DOCUMENT_ROOT'].'/geo_solution/config.php';
 $redirect = '/geo_solution/index.php';
 header( "Location: $redirect");
-require $_SERVER['DOCUMENT_ROOT'].'/geo_solution/config.php';
 if (isset($_POST['student_id'])){
     foreach($_POST['student_id'] as $student_id){
         $course_id = $_POST['course_id'];
