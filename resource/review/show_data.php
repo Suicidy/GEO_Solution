@@ -23,8 +23,7 @@ $sql = "SELECT course.subject, course.topic, teacher.nickname, course.start_time
         WHERE course.course_id = assign_course.course_id 
         AND course.teacher_id = teacher.teacher_id 
         AND assign_course.attending_status = 1 
-        AND assign_course.student_id = '$id'". $selector .
-        "ORDER BY course.start_time ;";
+        AND assign_course.student_id = '$id'". $selector .";";
 
 $results = query($sql);
 
