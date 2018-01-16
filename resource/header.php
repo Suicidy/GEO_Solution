@@ -51,8 +51,9 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-faded navbar-dark bg-dark sticky-top">
-    <a class="navbar-brand mx-auto" href="https://www.facebook.com/GEO.Solution.KMUTT/">
-      <img src="/geo_solution/image/geo_logo.png" width="40" height="40" class="d-inline-block align-top" alt="">
+  <div class="container">
+    <a class="navbar-brand mx-auto" href="/geo_solution/index.php">
+      <img src="/geo_solution/image/geo_logo.png" width="50" height="50" class="d-inline-block align-top" alt="">
       <font color="#ff7454">GEO Solution</font>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -70,7 +71,7 @@
           }
           elseif(isset($_SESSION['username']) && $_SESSION['userview'] == 'teacher') {echo
             '<li class="nav-item">
-              <a class="nav-link" href="#">เช็กชื่อ</a>
+              <a class="nav-link" href="/geo_solution/resource/attendance.php">เช็กชื่อ</a>
             </li>';
           }
         ?>
@@ -79,7 +80,7 @@
         <?php
           if(!(isset($_SESSION['username']))) {echo
             '<li class="nav-item">
-            	<a href="/geo_solution/resource/request_pass.php"><button type="button" class="btn btn-outline-warning" href="/geo_solution/resource/request_pass.php"><i class="fa fa-unlock" aria-hidden="true"></i>   ขอรหัสผ่านครั้งแรก</button></a>
+              <a href="/geo_solution/resource/request_pass.php"><button type="button" class="btn btn-outline-warning" href="/geo_solution/resource/request_pass.php"><i class="fa fa-unlock" aria-hidden="true"></i>   ขอรหัสผ่านครั้งแรก</button></a>
             </li>
             <li class="nav-item">
               <button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in" aria-hidden="true"></i>  ลงชื่อเข้าใช้</button>
@@ -88,10 +89,10 @@
           elseif ((isset( $_SESSION['username'])) && ($_SESSION['userview'] == 'student')) {echo
             '<li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                <i class="fa fa-user" aria-hidden="true"></i>'. $_SESSION['username'] .
+                <i class="fa fa-user" aria-hidden="true"></i>   '. $_SESSION['username'] .
               '</a>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>  ข้อมูลส่วนตัว</a>
+                <a class="dropdown-item" href="/geo_solution/resource/profile.php"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>  ข้อมูลส่วนตัว</a>
                 <a class="dropdown-item" href="#"><i class="fa fa-wrench" aria-hidden="true"></i>  เปลี่ยนรหัสผ่าน</a>
                 <a class="dropdown-item" href="/geo_solution/resource/login/logout.php");><i class="fa fa-sign-out" aria-hidden="true"></i>  ออกจากระบบ</a>
               </div>
@@ -113,14 +114,15 @@
                 <i class="fa fa-user-secret" aria-hidden="true"></i>   '.$_SESSION['username'].
               '</a>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="../resource/login/logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i>  ออกจากระบบ</a>
+                <a class="dropdown-item" href="/geo_solution/resource/login/logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i>  ออกจากระบบ</a>
               </div>
             </li>';
           }
         ?>
       </ul>
     </div>
-  </nav>
+  </div>
+</nav>
 	<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     	<div class="modal-dialog" role="document">
 			<div class="modal-content">

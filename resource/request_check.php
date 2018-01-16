@@ -80,7 +80,8 @@
                                     echo '<script>console.log("'.$mailsend.' '.$emailreal.'");</script>';
                                     session_start();
                                     $_SESSION['email'] = $emailreal; 
-                                    header("location: login/comfirm.php");        
+                                    $message['SUCCESS'] = 'success';
+                                    //header("location: login/comfirm.php");        
                                 }
                                 else
                                 {

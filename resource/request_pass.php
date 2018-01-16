@@ -56,6 +56,9 @@
                                 $("#request-pass-form").addClass('has-error');
                                 document.getElementById("req-error").innerHTML = data['ERROR'];
                             }
+                            else{
+                                window.location.href = '/login/comfirm.php';                                
+                            }
                         }
                     });
                 }
