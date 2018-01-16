@@ -57,7 +57,7 @@
                                 document.getElementById("req-error").innerHTML = data['ERROR'];
                             }
                             else{
-                                window.location.href = '/login/confirm.php';                                
+                                window.location.href = '/login/comfirm.php';                                
                             }
                         }
                     });
