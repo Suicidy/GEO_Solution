@@ -26,11 +26,15 @@ img {
 	color: white;
 }
 
-.fa-star {
-	color: #ff7454;
+.star-rating {
+  line-height:33px;
+  font-size:1.25em;
 }
 
-/*.sss {
+.star-rating .fa-star{color: #FFD700;}
+
+/*.fa-star:active {
 	color: #ff7454;
-}*/
+}
+*/
 

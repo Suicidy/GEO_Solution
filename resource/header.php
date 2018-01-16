@@ -17,6 +17,34 @@
   <script src="/geo_solution/js/jquery-3.2.1.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+  
+  <script>
+
+  $(document).ready(function(){
+    $("#login").click(function(){
+      
+      var username = $("#username").val();
+      var password = $("#password").val();
+      $.post("/geo_solution/resource/login/login.php",{username : username,password : password},function(data,status){
+        var username_err = data['username_err'];
+        var password_err = data['password_err'];
+        var status_login = data['status_login'];
+        $("#user_err").text(username_err);
+        $("#pass_err").text(password_err);
+        // alert(data['username_err']);
+        if(status_login==1)
+        {
+          location.reload();
+        }
+      },"json")
+      $('#login-modal').on('hidden.bs.modal', function (event) {
+        location.reload();
+			});
+    });
+  });
+</script>
+
+
   <?php
   	session_start();
   ?>
@@ -37,7 +65,7 @@
         <?php
           if(isset($_SESSION['username']) && $_SESSION['userview'] == 'student') {echo
             '<li class="nav-item">
-              <a class="nav-link" href="#">รีวิว</a>
+              <a class="nav-link" href="/geo_solution/resource/review.php">รีวิว</a>
             </li>';
           }
           elseif(isset($_SESSION['username']) && $_SESSION['userview'] == 'teacher') {echo
@@ -103,24 +131,24 @@
 					</button>
         		</div>
 	        	<div class="modal-body">
-	          		<form action="/geo_solution/resource/login/login.php" method="post">
+	          		
 	            		<div class="form-group">
 			            	<label class="form-control-label">รหัสนักศึกษา</label>
-			            	<input class="form-control" type="text" name="username">
-			            	<span class="help-block"></span>
+                    <input class="form-control" type="text" id="username">
+                    <span class="help-block" id="user_err"></span>
 	            		</div>
 	            	<div class="form-group">
 						<label class="form-control-label">รหัสผ่าน</label>
-						<input class="form-control" type="password" name="password">
-						<span class="help-block"></span>
+						<input class="form-control" type="password" id="password">
+						<span class="help-block" id="pass_err"></span>
 	            	</div>
 					<p><a href="#" class="tooltip-test">ลืมรหัสผ่าน</a> หรือ <a href="/geo_solution/resource/request_pass.php" class="tooltip-test">ขอรหัสผ่านครั้งแรก</a></p>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
-					<button type="submit" class="btn btn-warning" style="background-color: #ff7454"><font color="white">เข้าสู่ระบบ</font></button>
+					<button id="login" type="submit" class="btn btn-warning" style="background-color: #ff7454"><font color="white">เข้าสู่ระบบ</font></button>
 				</div>
-	        		</form>
+	      
 			</div>
 		</div>
 	</div>

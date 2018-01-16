@@ -1,6 +1,6 @@
 <?php
 	
-	require $_SERVER['DOCUMENT_ROOT'].'/geo/geo_solution/config.php';
+	require $_SERVER['DOCUMENT_ROOT'].'/geo_solution/config.php';
 	
 	$courseid = check_input($_POST['course_id']);
 	session_start();
@@ -23,9 +23,9 @@
      // mysqli_free_result($sql);
     	if($currentSeat<$maxSeat)
     	{
-    		$sql = query(" INSERT INTO `assign_course` (`course_id`, `student_id`, `comment_id`, `attending_status`, `star`, `time_stamp`) 
-      				 VALUES ('$courseid', '$_SESSION['username']', NULL, '', NULL, CURRENT_TIMESTAMP);
-					  ");
+    		$sql = query('INSERT INTO `assign_course` (`course_id`, `student_id`, `comment_id`, `attending_status`, `star`, `time_stamp`) 
+      				 VALUES ('.$courseid.','.$_SESSION['username'].', NULL, "", NULL, CURRENT_TIMESTAMP);
+					  ');
 
 
 			if($sql==1) echo 'Successfull';

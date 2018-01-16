@@ -1,19 +1,17 @@
 <?php include('header.php'); ?>
 	<link href="/GEO_Solution/css/reserved.css" rel="stylesheet">
+	<script src="/geo_solution/js/reserved.js"></script>
 	<script>
-		$(document).ready(function(){
-			//$("#courselist").html("stringHtml");
-		  	$.ajax({
-				url: 'home/showAssignCourse.php',
-				type: 'post',
-				data: {},
-				dataType: 'json',
-				success: function(data){
-					courseList(data);
-				}
-			});
-		})
+		$.post("/geo_solution/resource/review/view_type.php",{},function(data,status){
+			type = data['type'];
+			if (type != "student"){
+				$("#all").empty();
+			}
+			else{	
+				//show_data("all");
 
+			}
+		},"json");
 	</script>
 
 	<script>
@@ -46,7 +44,7 @@
 				<br>
 				<h2>สถานะการจอง</h2>
 				<br>
-				<table class="table table-striped">
+				<table class="table table-striped" id="all">
 				  <thead>
 				    <tr>
 				      <th scope="col">ลำดับ</th>
