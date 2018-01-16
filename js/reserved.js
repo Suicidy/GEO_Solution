@@ -1,7 +1,7 @@
-function show_data(type) {
+function show_data() {
   $.post(
-    "/geo_solution/resource/review/show_data.php",
-    { show_type: type },
+    "/geo_solution/resource/reserved/show_data.php",
+    {},
     function(data, status) {
       $("#body").empty();
       var attributes = ["subject", "topic", "nickname", "start_time"];
@@ -17,17 +17,9 @@ function show_data(type) {
               .html("<center>" + data[i][k] + "</center>")
               .appendTo("#body");
           }
-          if (data[i]["star"] != null) {
-            $(
-              '<td><button type="button" class="btn btn-outline-Secondary active btn-block" disabled>Reviewed</button></td>'
-            ).appendTo("#body");
-          } else {
-            $(
-              '<td><button type="button" class="btn btn-info btn-block" data-toggle="modal" data-target="#review-modal" data-course="' +
-                data[i]["course_id"] +
-                '">Review</button></td>'
-            ).appendTo("#body");
-          }
+          $(
+            '<td><center><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#ask-modal" data-course = "' + data[i]["course_id"] + '">ยกเลิก</button></center></td>'
+          ).appendTo("#body");
           $("#body > td").wrapAll("<tr></tr>");
         }
       }

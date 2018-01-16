@@ -2,6 +2,8 @@
 	<link href="/geo_solution/css/reserved.css" rel="stylesheet">
 	<script src="/geo_solution/js/reserved.js"></script>
 	<script>
+	$(document).ready(function(){
+		var course_id;
 		$.post("/geo_solution/resource/review/view_type.php",{},function(data,status){
 			type = data['type'];
 			if (type != "student"){
@@ -13,6 +15,22 @@
 				show_data();
 			}
 		},"json");
+		$('#ask-modal').on('show.bs.modal',function(event){
+			var button = $(event.relatedTarget);
+  		course_id = button.data('course'); 
+		});
+		$('#submit-btn-modal').click(function(){
+				$.post("/geo_solution/resource/reserved/cancel.php", {course_id : course_id}, function(data,status){
+						alert("เรียบร้อย")
+				},"json").fail(function(){
+					alert("เกิดบางอย่างผิดพลาด");
+				});
+				$('#ask-modal').modal('hide');
+				show_data();
+			});
+	});
+	
+	
 	</script>
 		<div class="row">
 			<div class="col">
@@ -22,27 +40,21 @@
 				<table class="table table-striped" id="all">
 				  <thead>
 				    <tr>
-				      <th scope="col">ลำดับ</th>
-				      <th scope="col">วิชา</th>
-				      <th scope="col">เรื่อง</th>
-				      <th scope="col">ผู้สอน</th>
-				      <th scope="col">รายละเอียด</th>
-				      <th scope="col">ยกเลิดการจอง</th>
+				      <th scope="col"><center>ลำดับ</center></th>
+				      <th scope="col"><center>วิชา</center></th>
+				      <th scope="col"><center>เรื่อง</center></th>
+				      <th scope="col"><center>ผู้สอน</center></th>
+				      <th scope="col"><center>รายละเอียด</center></th>
+				      <th scope="col"><center>ยกเลิกการจอง</center></th>
 				    </tr>
 				  </thead>
 				  <tbody id="body">
-				    <tr>
-				      <th scope="row">1</th>
-				      <td>MTH102</td>
-				      <td>Block Diagram</td>
-				      <td>porifkjdu asdergvtifodp</td>
-				      <td>13/01/2016 13.20-15.20 น.</td>
-				      <td>
-				      	<center>
-				      	<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
-						  ยกเลิก
-						</button>
-						<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				  </tbody>
+				</table>
+			</div>
+		</div>
+		<center>
+						<div class="modal fade" id="ask-modal" tabindex="-1" role="dialog" aria-labelledby="ยืนยันที่จะยกเลิกหรือไม่" aria-hidden="true">
 						  <div class="modal-dialog" role="document">
 						    <div class="modal-content">
 						      <div class="modal-header">
@@ -54,31 +66,13 @@
 						      <div class="modal-body">
 						      	<center>
 						        <p>ยืนยันการยกเลิกการจอง</p>
-						        <button type="button" class="btn btn-success">ยืนยัน</button>
+						        <button id ="submit-btn-modal"  type="submit" class="btn btn-success">ยืนยัน</button>
 						        </center>
 						      </div>
 						    </div>
 						  </div>
 						</div>
-						</center>
-				      </td>
-				    </tr>
-				    <tr>
-				      <th scope="row">2</th>
-				      <td>Jacob</td>
-				      <td>Thornton</td>
-				      <td>@fat</td>
-				    </tr>
-				    <tr>
-				      <th scope="row">3</th>
-				      <td>Larry</td>
-				      <td>the Bird</td>
-				      <td>@twitter</td>
-				    </tr>
-				  </tbody>
-				</table>
-			</div>
-		</div>
+			</center>
 		
 <!-- </body>
 </html> -->
