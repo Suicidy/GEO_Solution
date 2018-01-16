@@ -1,6 +1,6 @@
 <?php
 
-	require $_SERVER['DOCUMENT_ROOT'].'/geo/geo_solution/config.php';
+	require $_SERVER['DOCUMENT_ROOT'].'/geo_solution/config.php';
 
 	$teacherid = $_POST['teacher_id'];
 
