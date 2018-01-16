@@ -6,6 +6,7 @@
     require 'phpmailer/src/PHPMailer.php';
     require 'phpmailer/src/SMTP.php';
     require_once '../config.php';
+    session_start();
     // Define variables and initialize with empty values
     $studentid = "";
     $message = array();
@@ -78,7 +79,6 @@
                                 {
                                     $mailsend = 'Your mail has been sent successfully.';
                                     echo '<script>console.log("'.$mailsend.' '.$emailreal.'");</script>';
-                                    session_start();
                                     $_SESSION['email'] = $emailreal; 
                                     $message['SUCCESS'] = 'success';
                                     //header("location: login/comfirm.php");        
