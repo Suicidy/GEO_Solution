@@ -8,7 +8,6 @@
 	// $_SESSION["userview"] = "stu";
 	if(isset( $_SESSION['username']) && ($_SESSION['userview'] == 'student'))
 	{
-
 			$sql=query(" SELECT course.course_id , count(assign_course.course_id) AS countSeat, course.max_seat
                  FROM assign_course RIGHT JOIN course ON assign_course.course_id = course.course_id
                  GROUP BY course.course_id
@@ -22,31 +21,24 @@
     
      // mysqli_free_result($sql);
     	if($currentSeat<$maxSeat)
-    	{
-    		$sql = query('INSERT INTO `assign_course` (`course_id`, `student_id`, `comment_id`, `attending_status`, `star`, `time_stamp`) 
-      				 VALUES ('.$courseid.','.$_SESSION['username'].', NULL, "", NULL, CURRENT_TIMESTAMP);
-					  ');
-
-
-			if($sql==1) echo 'Successfull';
-			else echo 'Booking Error';
+    	{   
+    		 $user = $_SESSION['username'];
+    		 $command =  "INSERT INTO `assign_course` (`course_id`, `student_id`, `comment_id`, `star`, `time_stamp`)VALUES ($courseid,$user, NULL, NULL,CURRENT_TIMESTAMP);";
+    		 $sql = query($command);
+    		 
+			 if($sql==1) echo 'Successfull';
+			 else echo 'Booking Error';
 			
    	 	}
    	 	else
    		{
     		echo 'This course is full already.';
     	}
-
-
-
 	}
 	else
 	{
 		echo 'No Permission';
-
 	}
 	
 	//$_SESSION["username"] = "58070501023";
-
-
 ?>
