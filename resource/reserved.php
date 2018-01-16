@@ -1,43 +1,18 @@
-<?php include('header.php'); ?>
-	<link href="/GEO_Solution/css/reserved.css" rel="stylesheet">
+<?php include('header.php');?>
+	<link href="/geo_solution/css/reserved.css" rel="stylesheet">
 	<script src="/geo_solution/js/reserved.js"></script>
 	<script>
 		$.post("/geo_solution/resource/review/view_type.php",{},function(data,status){
 			type = data['type'];
 			if (type != "student"){
 				$("#all").empty();
+				alert("คุณไม่มีสิทธิใช้งาน");
+				window.location.replace("/geo_solution/index.php");
 			}
 			else{	
-				//show_data("all");
-
+				show_data();
 			}
 		},"json");
-	</script>
-
-	<script>
-		function updateCourse(id){
-			var obj = {};
-			obj['course_id']=id;
-			$.ajax({
-				url: 'home/updateAssignCourse.php',
-				type: 'post',
-				data: obj,
-				dataType: 'json',
-				success: function(data){
-					//var data = data[0];
-					courseList(data);	
-				}
-			});
-		}
-
-		function courseList(data){
-				var stringHtml='';
-				for (var i = 0; i < data.length; i++) {
-					stringHtml = stringHtml+'<tr><th scope="row">'+(i+1)+'</th><td>'+data[i].subject+'</td><td>'+data[i].topic+'</td><td>'+data[i].title+' '+data[i].firstname+' '+data[i].lastname+'</td><td>'+data[i].date+' '+data[i].start_time+'-'+data[i].end_time+' น.'+'</td><td><center><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#'+i+'">ยกเลิก</button><div class="modal fade" id="'+i+'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">สถานะการจอง</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body"><center><p>ยืนยันการยกเลิกการจอง</p><button type="button" class="btn btn-success" onclick="updateCourse('+data[i].course_id+')">ยืนยัน</button></center></div></div></div></div></center></td></tr>';
-				}
-				$("#courselist").html(stringHtml);
-			}
-		}
 	</script>
 		<div class="row">
 			<div class="col">
@@ -55,7 +30,7 @@
 				      <th scope="col">ยกเลิดการจอง</th>
 				    </tr>
 				  </thead>
-				  <tbody id="courselist">
+				  <tbody id="body">
 				    <tr>
 				      <th scope="row">1</th>
 				      <td>MTH102</td>
