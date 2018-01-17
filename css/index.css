@@ -38,7 +38,7 @@ hr {
 }
 
 .card-course {
-	width: 600px;
+	width: 100%;
 }
 
 .card-course .card-body {
@@ -86,7 +86,9 @@ img {
 	width: 40px;
 	height: 40px;
 }
-
+.card-group {
+	width: 100%;
+}
 
 
 

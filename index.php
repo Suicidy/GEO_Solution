@@ -74,11 +74,13 @@
 									        <h5 class="card-title">คอร์สที่ทำการสอน</h5>
 									        <p class="card-text">
 									        	<div class="row">
-										        	<div class="col-5 class-name">Block Diagram</div>
-										        	<div class="col-3 room">CB2406</div>
+										        	<div class="col-4 class-name"><span>Block Diagram</span></div>
+															<div class="col-3 room"><span>CB2406</span></div>
+															<div class="col-3">
 										        	<button type="button" class="btn btn-primary time-reseved" data-toggle="modal" data-target="#exampleModal">
-													  08.00-19.00
+													  <span>08.00-19.00</span>
 													</button>
+													</div>
 													<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 													  <div class="modal-dialog" role="document">
 													    <div class="modal-content">
