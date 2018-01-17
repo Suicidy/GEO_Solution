@@ -6,7 +6,7 @@ $content_txt = check_input($_POST['content']);
 $teacher_txt = check_input($_POST['teacher']);
 $other_txt = check_input($_POST['other']);
 $course_id = check_input($_POST['course_id']);
-$star_default = 1;
+$star = check_input($_POST['star']);
 $array_result = array();
 
 
@@ -20,9 +20,9 @@ $sql = "SELECT comment_id, star
 $results = query($sql);
 $result = mysqli_fetch_assoc($results);
 $comment_id = $result['comment_id'];
-$star = $result['star'];
-if ($star == NULL){
-    $sql = "UPDATE assign_course SET star = '$star_default' WHERE student_id = '$id' AND course_id = '$course_id'; ";
+$star_old = $result['star'];
+if ($star_old == NULL){
+    $sql = "UPDATE assign_course SET star = '$star' WHERE student_id = '$id' AND course_id = '$course_id'; ";
 }
 else{
     $sql = "Nothing can query rn";
