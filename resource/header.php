@@ -36,7 +36,7 @@
         {
           location.reload();
         }
-      },"json");
+      },"json")
       $('#login-modal').on('hidden.bs.modal', function (event) {
         location.reload();
 			});
