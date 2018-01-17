@@ -132,11 +132,181 @@
 										    </div>
 								    	</div>
 								    </div>
+								</div>
+								<br>
+																<div class="row">
+									<div class="col-1"></div>
+									<div class="card-group">
+										<center>							  
+									    	<div class="card text-white bg-dark card-name">
+											  <img class="card-img-top" src="./image/team-member-2.jpg" alt="Card image cap">
+											  <div class="card-body">
+											    <h5 class="card-title">นายภัทรพงศ์  แดงจินดา</h5>
+											    <p class="card-text">Life is journey not a destinaiton.</p>
+											    <a href="#" class="btn btn-primary">Review</a>
+											  </div>
+											</div>
+										</center>
+									    <div class="card text-white bg-dark card-course">
+									      <div class="card-body">									      	
+									        <h5 class="card-title">คอร์สที่ทำการสอน</h5>
+									        <p class="card-text">
+									        	<div class="row">
+										        	<div class="col-5 class-name">Block Diagram</div>
+										        	<div class="col-3 room">CB2406</div>
+										        	<button type="button" class="btn btn-primary time-reseved" data-toggle="modal" data-target="#exampleModal">
+													  08.00-19.00
+													</button>
+													<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+													  <div class="modal-dialog" role="document">
+													    <div class="modal-content">
+													      <div class="modal-header">
+													        <h5 class="modal-title" id="exampleModalLabel">ยืนยันการจอง</h5>
+													        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+													          <span aria-hidden="true">&times;</span>
+													        </button>
+													      </div>
+													      <div class="modal-body">
+													        จำนวนที่นั่งคงเหลือ 10/10 ที่นั่ง
+													      </div>
+													      <div class="modal-footer">						        
+													        <button type="button" class="btn btn-success">ยืนยัน</button>
+													      </div>													 
+													    </div>
+													  </div>
+													</div>
+
+									       		</div>								       		
+									       		<div class="row">
+										        	<div class="col-5 class-name">Block Diagram</div>
+										        	<div class="col-3 room">CB2406</div>
+										        	<button type="button" class="btn btn-primary time-reseved" data-toggle="modal" data-target="#exampleModal">
+													  08.00-09.00
+													</button>
+									       		</div>
+									       		<div class="row">
+										        	<div class="col-5 class-name">Block Diagram</div>
+										        	<div class="col-3 room">CB2406</div>
+										        	<button type="button" class="btn btn-primary time-reseved" data-toggle="modal" data-target="#exampleModal">
+													  08.00-09.00
+													</button>
+									       		</div>		
+									    	</p>								        
+									      </div>
+									      	<div class="card-footer">
+										      <p>ติดต่อ</p>
+										      <p>
+										      <img class="contract" src="./image/facebook.png">
+										      Prapasiri Sawetsutipn
+										  	  </p>
+										  	  <p>
+										      <img class="contract" src="./image/line.png">
+										      Bonus><
+										  	  </p>
+										  	  <p>
+										      <img class="contract" src="./image/instagram.png">
+										      Bonus
+										  	  </p>
+										    </div>
+								    	</div>
+								    </div>
 								</div>														
-							</div>
 						</div>
-					</div>
+					</div>					
 				</div>
+				<div class="tab-pane fade" id="nav-MTH_112" role="tabpanel" aria-labelledby="nav-MTH_112-tab">
+				  	<div class="form-group">
+				  			<select class="form-control col-2" style="float:left;" id="exampleFormControlSelect2">
+						      <option>เลือกวัน</option>
+						      <option>วันจันทร์</option>
+						      <option>วันอังคาร</option>
+						      <option>วันพุธ</option>
+						      <option>วันพฤหัสบดี</option>
+						      <option>วันศุกร์</option>
+						    </select>
+						    <button type="submit" class="btn btn-success" id="buttonMTH112">ยืนยัน</button>
+				  	</div>
+					<div class="col-12">
+						<h4 id="headMTH112">ทุกวัน</h4>
+						<hr>
+						<table class="table borderless" >
+						  <tbody id="tableMTH112">
+
+						  </tbody>
+						</table>
+					</div>
+				  </div>
+				  <div class="tab-pane fade" id="nav-PHY_102" role="tabpanel" aria-labelledby="nav-PHY_102-tab">
+				  	<div class="form-group">
+				  			<select class="form-control col-2" style="float:left;" id="exampleFormControlSelect3">
+						      <option>เลือกวัน</option>
+						      <option>วันจันทร์</option>
+						      <option>วันอังคาร</option>
+						      <option>วันพุธ</option>
+						      <option>วันพฤหัสบดี</option>
+						      <option>วันศุกร์</option>
+						    </select>
+						    <button type="submit" class="btn btn-success" id="buttonPHY102">ยืนยัน</button>
+				  	</div>
+					<div class="col-12">
+						<h4 id="headPHY102">ทุกวัน</h4>
+						<hr>
+						<table class="table borderless" >
+						  <tbody id="tablePHY102">
+
+						  </tbody>
+						</table>
+					</div>
+				  </div>
+				  <div class="tab-pane fade" id="nav-PHY_104" role="tabpanel" aria-labelledby="nav-PHY_104-tab">
+				  	<div class="form-group">
+				  			<select class="form-control col-2" style="float:left;" id="exampleFormControlSelect4">
+						      <option>เลือกวัน</option>
+						      <option>วันจันทร์</option>
+						      <option>วันอังคาร</option>
+						      <option>วันพุธ</option>
+						      <option>วันพฤหัสบดี</option>
+						      <option>วันศุกร์</option>
+						    </select>
+						    <button type="submit" class="btn btn-success" id="buttonPHY104">ยืนยัน</button>
+				  	</div>
+					<div class="col-12">
+						<h4 id="headPHY104">ทุกวัน</h4>
+						<hr>
+						<table class="table borderless" >
+						  <tbody id="tablePHY104">
+
+						  </tbody>
+						</table>
+					</div>
+				  </div>
+				  <div class="tab-pane fade" id="nav-CHM_103" role="tabpanel" aria-labelledby="nav-CHM_103-tab">
+				  	<div class="form-group">
+				  			<select class="form-control col-2" style="float:left;" id="exampleFormControlSelect5">
+						      <option>เลือกวัน</option>
+						      <option>วันจันทร์</option>
+						      <option>วันอังคาร</option>
+						      <option>วันพุธ</option>
+						      <option>วันพฤหัสบดี</option>
+						      <option>วันศุกร์</option>
+						    </select>
+						    <button type="submit" class="btn btn-success" id="buttonCHM103">ยืนยัน</button>
+				  	</div>
+					<div class="col-12">
+						<h4 id="headCHM103">ทุกวัน</h4>
+						<hr>
+						<table class="table borderless" >
+						  <tbody id="tableCHM103">
+
+						  </tbody>
+						</table>
+					</div>
+				  </div>
+			</div>
+		</div>
+	</div>
+
+
 
 		<!-- <script type="text/javascript" scr="js/indexJ.js" id="js0"></script> -->
 <!-- 	</div>
