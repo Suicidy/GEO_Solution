@@ -63,10 +63,11 @@
     //window.history.back();
     location.reload();
     }
-    var hidden = false;
+
     function enable() {
     document.getElementById("save").hidden = false;
     document.getElementById("cancel").hidden = false;
+    document.getElementById("edit").hidden = true;
     document.getElementById("tel").readOnly = false;
     document.getElementById("email").readOnly = false;
     document.getElementById("facebook").readOnly = false;
@@ -75,6 +76,7 @@
 </script>
 
 <!-- <form action="/geo_solution/resource/profile/save_profile.php" method="post"> -->
+<body>
 	<h1><font color="#ff7454">ข้อมูลส่วนตัว</font></h1>
   <p>ช่องที่มี <font color="red">*</font> จำเป็นต้องกรอกข้อมูล</p>
   <br>
@@ -131,5 +133,6 @@
     <button id="save"  class="btn btn-secondary" style="background-color: #ff7454" hidden="true">ยืนยัน</button>
     <button id="cancel" type="button"onclick="goBack()"  class="btn btn-secondary" hidden="true">ยกเลิก</button>
   </center>
+  </body>
 <!-- </form> -->
 <?php require_once 'footer.php'; ?>
