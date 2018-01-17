@@ -35,3 +35,4 @@ function show_data(type) {
     "json"
   );
 }
+

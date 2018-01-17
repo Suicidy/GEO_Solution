@@ -25,6 +25,8 @@
 				type = data['type'];
 				if (type != "student"){
 					$("#all").empty();
+					alert("คุณไม่มีสิทธิใช้งาน");
+					window.location.replace("/geo_solution/index.php");
 				}
 				else{	
 					show_data("all");	
