@@ -536,11 +536,11 @@
 									<img src="./image/team-member-2.jpg">
 									<p class="nickname" id="nicknameMTH102">พี่.....</p>
 									<center>
-									<span class="fa fa-star"></span>
-									<span class="fa fa-star"></span>
-									<span class="fa fa-star"></span>
-									<span class="fa fa-star"></span>
-									<span class="fa fa-star"></span>
+									<span id="star1" class="fa fa-star-half-full"></span>
+									<span id="star2" class="fa fa-star"></span>
+									<span id="star3" class="fa fa-star"></span>
+									<span id="star4" class="fa fa-star"></span>
+									<span id="star5" class="fa fa-star"></span>
 									</center>
 								</div>
 						      </td>
@@ -1058,7 +1058,7 @@
 		    </div>
 		  </div>
 		</div>
-		
+
 		<!-- <script type="text/javascript" scr="js/indexJ.js" id="js0"></script> -->
 <!-- 	</div>
 </body>

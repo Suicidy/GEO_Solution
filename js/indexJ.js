@@ -142,9 +142,28 @@
 						stringForPrintHtml = stringForPrintHtml.concat('<tr><th style="width:1%"></th><td id="', response.day, 'PHY102">', response.day, '<hr style="border: 1px"></td><td>',  response.date, '<hr style="border: 1px"></td></tr>');
 
 						for(var i=0; i<response.PHY102.length; i++){
+							var star = response.PHY102[i].star;
+							if(response.PHY102[i].star==""){
+								star = 5.0;
+							}
+							var starString = '';
+							for (var st = 0.0; st < 5.0; st++) {
+								if (star>=(st+0.5)) {
+									if(star>=(st+1.0)){
+										starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star"></span>';
+									}
+									else{
+										starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-half-full"></span>';
+									}
+								}
+								else{
+									starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-o"></span>';
+								}
+							}
+							//console.log(starString);
 							stringForPrintHtml = stringForPrintHtml.concat('<tr><th scope="row"></th><td style="width: 25%"><div class="square"><img src="image/', response.PHY102[i].img);
 							stringForPrintHtml = stringForPrintHtml.concat('"><p class="nickname", id="nicknamePHY102TA', response.PHY102[i].teacher_id, '"> พี่ ', response.PHY102[i].nickname);
-							stringForPrintHtml = stringForPrintHtml.concat('</p><p class="nickname">', response.PHY102[i].star, '</p></div></td><td colspan="2"><p>ชื่อ ', response.PHY102[i].title, ' ', response.PHY102[i].firstname, '    ', response.PHY102[i].lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
+							stringForPrintHtml = stringForPrintHtml.concat('</p><p class="nickname2">', starString, '</p></div></td><td colspan="2"><p>ชื่อ ', response.PHY102[i].title, ' ', response.PHY102[i].firstname, '    ', response.PHY102[i].lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
 							for(var j=0; j<response.PHY102[i].course.length; j++){
 								stringForPrintHtml = stringForPrintHtml.concat('<tr><td style="width: 35%">', response.PHY102[i].course[j].topic, '</td><td style="width: 15%">', response.PHY102[i].course[j].room, '</td><td style="width: 18%" class="bookingtime"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalNB', response.PHY102[i].course[j].course_id, '" onclick="updateSeat(', response.PHY102[i].course[j].course_id, ');" >', response.PHY102[i].course[j].time, '</button><div class="modal fade" id="modalNB', response.PHY102[i].course[j].course_id, '" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">ยืนยันการจอง</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" id="hidemodal">&times;</span></button></div><div class="modal-body" id="modalcontent', response.PHY102[i].course[j].course_id, '">จำนวนที่นั่งคงเหลือ ', response.PHY102[i].course[j].seatLeft, ' ที่นั่ง</div><div class="modal-footer"><button type="button" class="btn btn-success" onclick="sendBooking(', response.PHY102[i].course[j].course_id, ');" id="buttonToBook">ยืนยัน</button></div></div></div></div></td><td>จำนวนที่นั่งคงเหลือ ', response.PHY102[i].course[j].seatLeft, ' ที่นั่ง</td></tr>'  )
 							}
@@ -165,9 +184,27 @@
 							stringForPrintHtml = stringForPrintHtml.concat('<tr><th style="width:1%"></th><td id="', response.day, 'PHY102">', response.day, '<hr style="border: 1px"></td><td>',  response.date, '<hr style="border: 1px"></td></tr>');
 
 							for(var i=0; i<response.PHY102.length; i++){
+								var star = response.PHY102[i].star;
+								if(response.PHY102[i].star==""){
+									star = 5.0;
+								}
+								var starString = '';
+								for (var st = 0.0; st < 5.0; st++) {
+									if (star>=(st+0.5)) {
+										if(star>=(st+1.0)){
+											starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star"></span>';
+										}
+										else{
+											starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-half-full"></span>';
+										}
+									}
+									else{
+										starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-o"></span>';
+									}
+								}
 								stringForPrintHtml = stringForPrintHtml.concat('<tr><th scope="row"></th><td style="width: 25%"><div class="square"><img src="image/', response.PHY102[i].img);
 								stringForPrintHtml = stringForPrintHtml.concat('"><p class="nickname", id="nicknamePHY102TA', response.PHY102[i].teacher_id, '"> พี่ ', response.PHY102[i].nickname);
-								stringForPrintHtml = stringForPrintHtml.concat('</p><p class="nickname">', response.PHY102[i].star, '</p></div></td><td colspan="2"><p>ชื่อ ', response.PHY102[i].title, ' ', response.PHY102[i].firstname, '    ', response.PHY102[i].lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
+								stringForPrintHtml = stringForPrintHtml.concat('</p><p class="nickname">', starString, '</p></div></td><td colspan="2"><p>ชื่อ ', response.PHY102[i].title, ' ', response.PHY102[i].firstname, '    ', response.PHY102[i].lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
 								for(var j=0; j<response.PHY102[i].course.length; j++){
 									stringForPrintHtml = stringForPrintHtml.concat('<tr><td style="width: 35%">', response.PHY102[i].course[j].topic, '</td><td style="width: 15%">', response.PHY102[i].course[j].room, '</td><td style="width: 18%" class="bookingtime"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalNB', response.PHY102[i].course[j].course_id, '" onclick="updateSeat(', response.PHY102[i].course[j].course_id, ');" >', response.PHY102[i].course[j].time, '</button><div class="modal fade" id="modalNB', response.PHY102[i].course[j].course_id, '" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">ยืนยันการจอง</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" id="hidemodal">&times;</span></button></div><div class="modal-body" id="modalcontent', response.PHY102[i].course[j].course_id, '">จำนวนที่นั่งคงเหลือ ', response.PHY102[i].course[j].seatLeft, ' ที่นั่ง</div><div class="modal-footer"><button type="button" class="btn btn-success" onclick="sendBooking(', response.PHY102[i].course[j].course_id, ');" id="buttonToBook">ยืนยัน</button></div></div></div></div></td><td>จำนวนที่นั่งคงเหลือ ', response.PHY102[i].course[j].seatLeft, ' ที่นั่ง</td></tr>'  )
 								}
@@ -440,9 +477,27 @@
 						stringForPrintHtml = stringForPrintHtml.concat('<tr><th style="width:1%"></th><td id="', response.day, 'MTH102">', response.day, '<hr style="border: 1px"></td><td>',  response.date, '<hr style="border: 1px"></td></tr>');
 
 						for(var i=0; i<response.MTH102.length; i++){
+							var star = response.MTH102[i].star;
+							if(response.MTH102[i].star==""){
+								star = 5.0;
+							}
+							var starString = '';
+							for (var st = 0.0; st < 5.0; st++) {
+								if (star>=(st+0.5)) {
+									if(star>=(st+1.0)){
+										starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star"></span>';
+									}
+									else{
+										starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-half-full"></span>';
+									}
+								}
+								else{
+									starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-o"></span>';
+								}
+							}
 							stringForPrintHtml = stringForPrintHtml.concat('<tr><th scope="row"></th><td style="width: 25%"><div class="square"><img src="image/', response.MTH102[i].img);
 							stringForPrintHtml = stringForPrintHtml.concat('"><p class="nickname", id="nicknameMTH102TA', response.MTH102[i].teacher_id, '"> พี่ ', response.MTH102[i].nickname);
-							stringForPrintHtml = stringForPrintHtml.concat('</p><p class="nickname">', response.MTH102[i].star, '</p></div></td><td colspan="2"><p>ชื่อ ', response.MTH102[i].title, ' ', response.MTH102[i].firstname, '    ', response.MTH102[i].lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
+							stringForPrintHtml = stringForPrintHtml.concat('</p><p class="nickname">', starString, '</p></div></td><td colspan="2"><p>ชื่อ ', response.MTH102[i].title, ' ', response.MTH102[i].firstname, '    ', response.MTH102[i].lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
 							for(var j=0; j<response.MTH102[i].course.length; j++){
 								stringForPrintHtml = stringForPrintHtml.concat('<tr><td style="width: 35%">', response.MTH102[i].course[j].topic, '</td><td style="width: 15%">', response.MTH102[i].course[j].room, '</td><td style="width: 18%" class="bookingtime"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalNB', response.MTH102[i].course[j].course_id, '" onclick="updateSeat(', response.MTH102[i].course[j].course_id, ')" >', response.MTH102[i].course[j].time, '</button><div class="modal fade" id="modalNB', response.MTH102[i].course[j].course_id, '" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">ยืนยันการจอง</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" id="hidemodal">&times;</span></button></div><div class="modal-body" id="modalcontent', response.MTH102[i].course[j].course_id, '">จำนวนที่นั่งคงเหลือ ', response.MTH102[i].course[j].seatLeft, ' ที่นั่ง</div><div class="modal-footer"><button type="button" class="btn btn-success" onclick="sendBooking(', response.MTH102[i].course[j].course_id, ')" id="buttonToBook">ยืนยัน</button></div></div></div></div></td><td>จำนวนที่นั่งคงเหลือ ', response.MTH102[i].course[j].seatLeft, ' ที่นั่ง</td></tr>'  )
 							}
@@ -462,9 +517,27 @@
 							stringForPrintHtml = stringForPrintHtml.concat('<tr><th style="width:1%"></th><td id="', response.day, 'MTH102">', response.day, '<hr style="border: 1px"></td><td>',  response.date, '<hr style="border: 1px"></td></tr>');
 
 							for(var i=0; i<response.MTH102.length; i++){
+								var star = response.MTH102[i].star;
+								if(response.MTH102[i].star==""){
+									star = 5.0;
+								}
+								var starString = '';
+								for (var st = 0.0; st < 5.0; st++) {
+									if (star>=(st+0.5)) {
+										if(star>=(st+1.0)){
+											starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star"></span>';
+										}
+										else{
+											starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-half-full"></span>';
+										}
+									}
+									else{
+										starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-o"></span>';
+									}
+								}
 								stringForPrintHtml = stringForPrintHtml.concat('<tr><th scope="row"></th><td style="width: 25%"><div class="square"><img src="image/', response.MTH102[i].img);
 								stringForPrintHtml = stringForPrintHtml.concat('"><p class="nickname", id="nicknameMTH102TA', response.MTH102[i].teacher_id, '"> พี่ ', response.MTH102[i].nickname);
-								stringForPrintHtml = stringForPrintHtml.concat('</p><p class="nickname">', response.MTH102[i].star, '</p></div></td><td colspan="2"><p>ชื่อ ', response.MTH102[i].title, ' ', response.MTH102[i].firstname, '    ', response.MTH102[i].lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
+								stringForPrintHtml = stringForPrintHtml.concat('</p><p class="nickname">', starString, '</p></div></td><td colspan="2"><p>ชื่อ ', response.MTH102[i].title, ' ', response.MTH102[i].firstname, '    ', response.MTH102[i].lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
 								for(var j=0; j<response.MTH102[i].course.length; j++){
 									stringForPrintHtml = stringForPrintHtml.concat('<tr><td style="width: 35%">', response.MTH102[i].course[j].topic, '</td><td style="width: 15%">', response.MTH102[i].course[j].room, '</td><td style="width: 18%" class="bookingtime"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalNB', response.MTH102[i].course[j].course_id, '" onclick="updateSeat(', response.MTH102[i].course[j].course_id, ')" >', response.MTH102[i].course[j].time, '</button><div class="modal fade" id="modalNB', response.MTH102[i].course[j].course_id, '" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">ยืนยันการจอง</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" id="hidemodal">&times;</span></button></div><div class="modal-body" id="modalcontent', response.MTH102[i].course[j].course_id, '">จำนวนที่นั่งคงเหลือ ', response.MTH102[i].course[j].seatLeft, ' ที่นั่ง</div><div class="modal-footer"><button type="button" class="btn btn-success" onclick="sendBooking(', response.MTH102[i].course[j].course_id, ')" id="buttonToBook">ยืนยัน</button></div></div></div></div></td><td>จำนวนที่นั่งคงเหลือ ', response.MTH102[i].course[j].seatLeft, ' ที่นั่ง</td></tr>'  )
 								}
@@ -506,9 +579,27 @@
 						stringForPrintHtml = stringForPrintHtml.concat('<tr><th style="width:1%"></th><td id="', response.day, 'MTH112">', response.day, '<hr style="border: 1px"></td><td>',  response.date, '<hr style="border: 1px"></td></tr>');
 
 						for(var i=0; i<response.MTH112.length; i++){
+							var star = response.MTH112[i].star;
+							if(response.MTH112[i].star==""){
+								star = 5.0;
+							}
+							var starString = '';
+							for (var st = 0.0; st < 5.0; st++) {
+								if (star>=(st+0.5)) {
+									if(star>=(st+1.0)){
+										starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star"></span>';
+									}
+									else{
+										starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-half-full"></span>';
+									}
+								}
+								else{
+									starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-o"></span>';
+								}
+							}
 							stringForPrintHtml = stringForPrintHtml.concat('<tr><th scope="row"></th><td style="width: 25%"><div class="square"><img src="image/', response.MTH112[i].img);
 							stringForPrintHtml = stringForPrintHtml.concat('"><p class="nickname", id="nicknameMTH112TA', response.MTH112[i].teacher_id, '"> พี่ ', response.MTH112[i].nickname);
-							stringForPrintHtml = stringForPrintHtml.concat('</p><p class="nickname">', response.MTH112[i].star, '</p></div></td><td colspan="2"><p>ชื่อ ', response.MTH112[i].title, ' ', response.MTH112[i].firstname, '    ', response.MTH112[i].lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
+							stringForPrintHtml = stringForPrintHtml.concat('</p><p class="nickname">', starString, '</p></div></td><td colspan="2"><p>ชื่อ ', response.MTH112[i].title, ' ', response.MTH112[i].firstname, '    ', response.MTH112[i].lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
 							for(var j=0; j<response.MTH112[i].course.length; j++){
 								stringForPrintHtml = stringForPrintHtml.concat('<tr><td style="width: 35%">', response.MTH112[i].course[j].topic, '</td><td style="width: 15%">', response.MTH112[i].course[j].room, '</td><td style="width: 18%" class="bookingtime"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalNB', response.MTH112[i].course[j].course_id, '" onclick="updateSeat(', response.MTH112[i].course[j].course_id, ')" >', response.MTH112[i].course[j].time, '</button><div class="modal fade" id="modalNB', response.MTH112[i].course[j].course_id, '" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">ยืนยันการจอง</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" id="hidemodal">&times;</span></button></div><div class="modal-body" id="modalcontent', response.MTH112[i].course[j].course_id, '">จำนวนที่นั่งคงเหลือ ', response.MTH112[i].course[j].seatLeft, ' ที่นั่ง</div><div class="modal-footer"><button type="button" class="btn btn-success" onclick="sendBooking(', response.MTH112[i].course[j].course_id, ')" id="buttonToBook">ยืนยัน</button></div></div></div></div></td><td>จำนวนที่นั่งคงเหลือ ', response.MTH112[i].course[j].seatLeft, ' ที่นั่ง</td></tr>'  )
 							}
@@ -529,9 +620,27 @@
 							stringForPrintHtml = stringForPrintHtml.concat('<tr><th style="width:1%"></th><td id="', response.day, 'MTH112">', response.day, '<hr style="border: 1px"></td><td>',  response.date, '<hr style="border: 1px"></td></tr>');
 
 							for(var i=0; i<response.MTH112.length; i++){
+								var star = response.MTH112[i].star;
+								if(response.MTH112[i].star==""){
+									star = 5.0;
+								}
+								var starString = '';
+								for (var st = 0.0; st < 5.0; st++) {
+									if (star>=(st+0.5)) {
+										if(star>=(st+1.0)){
+											starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star"></span>';
+										}
+										else{
+											starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-half-full"></span>';
+										}
+									}
+									else{
+										starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-o"></span>';
+									}
+								}
 								stringForPrintHtml = stringForPrintHtml.concat('<tr><th scope="row"></th><td style="width: 25%"><div class="square"><img src="image/', response.MTH112[i].img);
 								stringForPrintHtml = stringForPrintHtml.concat('"><p class="nickname", id="nicknameMTH112TA', response.MTH112[i].teacher_id, '"> พี่ ', response.MTH112[i].nickname);
-								stringForPrintHtml = stringForPrintHtml.concat('</p><p class="nickname">', response.MTH112[i].star, '</p></div></td><td colspan="2"><p>ชื่อ ', response.MTH112[i].title, ' ', response.MTH112[i].firstname, '    ', response.MTH112[i].lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
+								stringForPrintHtml = stringForPrintHtml.concat('</p><p class="nickname">', starString, '</p></div></td><td colspan="2"><p>ชื่อ ', response.MTH112[i].title, ' ', response.MTH112[i].firstname, '    ', response.MTH112[i].lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
 								for(var j=0; j<response.MTH112[i].course.length; j++){
 									stringForPrintHtml = stringForPrintHtml.concat('<tr><td style="width: 35%">', response.MTH112[i].course[j].topic, '</td><td style="width: 15%">', response.MTH112[i].course[j].room, '</td><td style="width: 18%" class="bookingtime"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalNB', response.MTH112[i].course[j].course_id, '" onclick="updateSeat(', response.MTH112[i].course[j].course_id, ')" >', response.MTH112[i].course[j].time, '</button><div class="modal fade" id="modalNB', response.MTH112[i].course[j].course_id, '" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">ยืนยันการจอง</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" id="hidemodal">&times;</span></button></div><div class="modal-body" id="modalcontent', response.MTH112[i].course[j].course_id, '">จำนวนที่นั่งคงเหลือ ', response.MTH112[i].course[j].seatLeft, ' ที่นั่ง</div><div class="modal-footer"><button type="button" class="btn btn-success" onclick="sendBooking(', response.MTH112[i].course[j].course_id, ')" id="buttonToBook">ยืนยัน</button></div></div></div></div></td><td>จำนวนที่นั่งคงเหลือ ', response.MTH112[i].course[j].seatLeft, ' ที่นั่ง</td></tr>'  )
 								}
@@ -596,9 +705,27 @@
 						stringForPrintHtml = stringForPrintHtml.concat('<tr><th style="width:1%"></th><td id="', response.day, 'PHY104">', response.day, '<hr style="border: 1px"></td><td>',  response.date, '<hr style="border: 1px"></td></tr>');
 
 						for(var i=0; i<response.PHY104.length; i++){
+							var star = response.PHY104[i].star;
+							if(response.PHY104[i].star==""){
+								star = 5.0;
+							}
+							var starString = '';
+							for (var st = 0.0; st < 5.0; st++) {
+								if (star>=(st+0.5)) {
+									if(star>=(st+1.0)){
+										starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star"></span>';
+									}
+									else{
+										starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-half-full"></span>';
+									}
+								}
+								else{
+									starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-o"></span>';
+								}
+							}
 							stringForPrintHtml = stringForPrintHtml.concat('<tr><th scope="row"></th><td style="width: 25%"><div class="square"><img src="image/', response.PHY104[i].img);
 							stringForPrintHtml = stringForPrintHtml.concat('"><p class="nickname", id="nicknamePHY104TA', response.PHY104[i].teacher_id, '"> พี่ ', response.PHY104[i].nickname);
-							stringForPrintHtml = stringForPrintHtml.concat('</p><p class="nickname">', response.PHY104[i].star, '</p></div></td><td colspan="2"><p>ชื่อ ', response.PHY104[i].title, ' ', response.PHY104[i].firstname, '    ', response.PHY104[i].lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
+							stringForPrintHtml = stringForPrintHtml.concat('</p><p class="nickname">', starString, '</p></div></td><td colspan="2"><p>ชื่อ ', response.PHY104[i].title, ' ', response.PHY104[i].firstname, '    ', response.PHY104[i].lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
 							for(var j=0; j<response.PHY104[i].course.length; j++){
 								stringForPrintHtml = stringForPrintHtml.concat('<tr><td style="width: 35%">', response.PHY104[i].course[j].topic, '</td><td style="width: 15%">', response.PHY104[i].course[j].room, '</td><td style="width: 18%" class="bookingtime"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalNB', response.PHY104[i].course[j].course_id, '" onclick="updateSeat(', response.PHY104[i].course[j].course_id, ')" >', response.PHY104[i].course[j].time, '</button><div class="modal fade" id="modalNB', response.PHY104[i].course[j].course_id, '" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">ยืนยันการจอง</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" id="hidemodal">&times;</span></button></div><div class="modal-body" id="modalcontent', response.PHY104[i].course[j].course_id, '">จำนวนที่นั่งคงเหลือ ', response.PHY104[i].course[j].seatLeft, ' ที่นั่ง</div><div class="modal-footer"><button type="button" class="btn btn-success" onclick="sendBooking(', response.PHY104[i].course[j].course_id, ')" id="buttonToBook">ยืนยัน</button></div></div></div></div></td><td>จำนวนที่นั่งคงเหลือ ', response.PHY104[i].course[j].seatLeft, ' ที่นั่ง</td></tr>'  )
 							}
@@ -619,9 +746,27 @@
 							stringForPrintHtml = stringForPrintHtml.concat('<tr><th style="width:1%"></th><td id="', response.day, 'PHY104">', response.day, '<hr style="border: 1px"></td><td>',  response.date, '<hr style="border: 1px"></td></tr>');
 
 							for(var i=0; i<response.PHY104.length; i++){
+								var star = response.PHY104[i].star;
+								if(response.PHY104[i].star==""){
+									star = 5.0;
+								}
+								var starString = '';
+								for (var st = 0.0; st < 5.0; st++) {
+									if (star>=(st+0.5)) {
+										if(star>=(st+1.0)){
+											starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star"></span>';
+										}
+										else{
+											starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-half-full"></span>';
+										}
+									}
+									else{
+										starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-o"></span>';
+									}
+								}
 								stringForPrintHtml = stringForPrintHtml.concat('<tr><th scope="row"></th><td style="width: 25%"><div class="square"><img src="image/', response.PHY104[i].img);
 								stringForPrintHtml = stringForPrintHtml.concat('"><p class="nickname", id="nicknamePHY104TA', response.PHY104[i].teacher_id, '"> พี่ ', response.PHY104[i].nickname);
-								stringForPrintHtml = stringForPrintHtml.concat('</p><p class="nickname">', response.PHY104[i].star, '</p></div></td><td colspan="2"><p>ชื่อ ', response.PHY104[i].title, ' ', response.PHY104[i].firstname, '    ', response.PHY104[i].lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
+								stringForPrintHtml = stringForPrintHtml.concat('</p><p class="nickname">', starString, '</p></div></td><td colspan="2"><p>ชื่อ ', response.PHY104[i].title, ' ', response.PHY104[i].firstname, '    ', response.PHY104[i].lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
 								for(var j=0; j<response.PHY104[i].course.length; j++){
 									stringForPrintHtml = stringForPrintHtml.concat('<tr><td style="width: 35%">', response.PHY104[i].course[j].topic, '</td><td style="width: 15%">', response.PHY104[i].course[j].room, '</td><td style="width: 18%" class="bookingtime"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalNB', response.PHY104[i].course[j].course_id, '" onclick="updateSeat(', response.PHY104[i].course[j].course_id, ')" >', response.PHY104[i].course[j].time, '</button><div class="modal fade" id="modalNB', response.PHY104[i].course[j].course_id, '" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">ยืนยันการจอง</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" id="hidemodal">&times;</span></button></div><div class="modal-body" id="modalcontent', response.PHY104[i].course[j].course_id, '">จำนวนที่นั่งคงเหลือ ', response.PHY104[i].course[j].seatLeft, ' ที่นั่ง</div><div class="modal-footer"><button type="button" class="btn btn-success" onclick="sendBooking(', response.PHY104[i].course[j].course_id, ')" id="buttonToBook">ยืนยัน</button></div></div></div></div></td><td>จำนวนที่นั่งคงเหลือ ', response.PHY104[i].course[j].seatLeft, ' ที่นั่ง</td></tr>'  )
 								}
@@ -666,9 +811,27 @@
 						stringForPrintHtml = stringForPrintHtml.concat('<tr><th style="width:1%"></th><td id="', response.day, 'CHM103">', response.day, '<hr style="border: 1px"></td><td>',  response.date, '<hr style="border: 1px"></td></tr>');
 
 						for(var i=0; i<response.CHM103.length; i++){
+							var star = response.CHM103[i].star;
+							if(response.CHM103[i].star==""){
+								star = 5.0;
+							}
+							var starString = '';
+							for (var st = 0.0; st < 5.0; st++) {
+								if (star>=(st+0.5)) {
+									if(star>=(st+1.0)){
+										starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star"></span>';
+									}
+									else{
+										starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-half-full"></span>';
+									}
+								}
+								else{
+									starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-o"></span>';
+								}
+							}
 							stringForPrintHtml = stringForPrintHtml.concat('<tr><th scope="row"></th><td style="width: 25%"><div class="square"><img src="image/', response.CHM103[i].img);
 							stringForPrintHtml = stringForPrintHtml.concat('"><p class="nickname", id="nicknameCHM103TA', response.CHM103[i].teacher_id, '"> พี่ ', response.CHM103[i].nickname);
-							stringForPrintHtml = stringForPrintHtml.concat('</p><p class="nickname">', response.CHM103[i].star, '</p></div></td><td colspan="2"><p>ชื่อ ', response.CHM103[i].title, ' ', response.CHM103[i].firstname, '    ', response.CHM103[i].lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
+							stringForPrintHtml = stringForPrintHtml.concat('</p><p class="nickname">', starString, '</p></div></td><td colspan="2"><p>ชื่อ ', response.CHM103[i].title, ' ', response.CHM103[i].firstname, '    ', response.CHM103[i].lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
 							for(var j=0; j<response.CHM103[i].course.length; j++){
 								stringForPrintHtml = stringForPrintHtml.concat('<tr><td style="width: 35%">', response.CHM103[i].course[j].topic, '</td><td style="width: 15%">', response.CHM103[i].course[j].room, '</td><td style="width: 18%" class="bookingtime"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalNB', response.CHM103[i].course[j].course_id, '" onclick="updateSeat(', response.CHM103[i].course[j].course_id, ')" >', response.CHM103[i].course[j].time, '</button><div class="modal fade" id="modalNB', response.CHM103[i].course[j].course_id, '" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">ยืนยันการจอง</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" id="hidemodal">&times;</span></button></div><div class="modal-body" id="modalcontent', response.CHM103[i].course[j].course_id, '">จำนวนที่นั่งคงเหลือ ', response.CHM103[i].course[j].seatLeft, ' ที่นั่ง</div><div class="modal-footer"><button type="button" class="btn btn-success" onclick="sendBooking(', response.CHM103[i].course[j].course_id, ')" id="buttonToBook">ยืนยัน</button></div></div></div></div></td><td>จำนวนที่นั่งคงเหลือ ', response.CHM103[i].course[j].seatLeft, ' ที่นั่ง</td></tr>'  )
 							}
@@ -689,9 +852,28 @@
 							stringForPrintHtml = stringForPrintHtml.concat('<tr><th style="width:1%"></th><td id="', response.day, 'CHM103">', response.day, '<hr style="border: 1px"></td><td>',  response.date, '<hr style="border: 1px"></td></tr>');
 
 							for(var i=0; i<response.CHM103.length; i++){
+
+								var star = response.CHM103[i].star;
+								if(response.CHM103[i].star==""){
+									star = 5.0;
+								}
+								var starString = '';
+								for (var st = 0.0; st < 5.0; st++) {
+									if (star>=(st+0.5)) {
+										if(star>=(st+1.0)){
+											starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star"></span>';
+										}
+										else{
+											starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-half-full"></span>';
+										}
+									}
+									else{
+										starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-o"></span>';
+									}
+								}
 								stringForPrintHtml = stringForPrintHtml.concat('<tr><th scope="row"></th><td style="width: 25%"><div class="square"><img src="image/', response.CHM103[i].img);
 								stringForPrintHtml = stringForPrintHtml.concat('"><p class="nickname", id="nicknameCHM103TA', response.CHM103[i].teacher_id, '"> พี่ ', response.CHM103[i].nickname);
-								stringForPrintHtml = stringForPrintHtml.concat('</p><p class="nickname">', response.CHM103[i].star, '</p></div></td><td colspan="2"><p>ชื่อ ', response.CHM103[i].title, ' ', response.CHM103[i].firstname, '    ', response.CHM103[i].lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
+								stringForPrintHtml = stringForPrintHtml.concat('</p><p class="nickname">', starString, '</p></div></td><td colspan="2"><p>ชื่อ ', response.CHM103[i].title, ' ', response.CHM103[i].firstname, '    ', response.CHM103[i].lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
 								for(var j=0; j<response.CHM103[i].course.length; j++){
 									stringForPrintHtml = stringForPrintHtml.concat('<tr><td style="width: 35%">', response.CHM103[i].course[j].topic, '</td><td style="width: 15%">', response.CHM103[i].course[j].room, '</td><td style="width: 18%" class="bookingtime"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalNB', response.CHM103[i].course[j].course_id, '" onclick="updateSeat(', response.CHM103[i].course[j].course_id, ')" >', response.CHM103[i].course[j].time, '</button><div class="modal fade" id="modalNB', response.CHM103[i].course[j].course_id, '" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">ยืนยันการจอง</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" id="hidemodal">&times;</span></button></div><div class="modal-body" id="modalcontent', response.CHM103[i].course[j].course_id, '">จำนวนที่นั่งคงเหลือ ', response.CHM103[i].course[j].seatLeft, ' ที่นั่ง</div><div class="modal-footer"><button type="button" class="btn btn-success" onclick="sendBooking(', response.CHM103[i].course[j].course_id, ')" id="buttonToBook">ยืนยัน</button></div></div></div></div></td><td>จำนวนที่นั่งคงเหลือ ', response.CHM103[i].course[j].seatLeft, ' ที่นั่ง</td></tr>'  )
 								}
