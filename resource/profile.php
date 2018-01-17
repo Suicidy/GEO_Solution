@@ -1,8 +1,10 @@
-<?php include('header.php');
-if(empty($_SESSION['username']))
-{
-  exit(0);  
-}
+<?php
+  include('header.php');
+  $edit_flag=0;
+  if(empty($_SESSION['username']))
+  {
+    exit(0);  
+  }
 ?>
 <script>
     $(document).ready(function(){
@@ -22,7 +24,6 @@ if(empty($_SESSION['username']))
       //      var value = $( this ).val();
       //      document.getElementById("lastname").value = value;
       //    }).keyup();
-      
         $("#save").click(function(){
           var tel = $("#tel").val();
           var email = $("#email").val();
@@ -56,16 +57,16 @@ if(empty($_SESSION['username']))
     //     //console.log("เกิดบางอย่างผิดพลาด");
     //    }
 	 	// });
-
-
-        });
-      
-      
+        });      
     });
     function goBack() {
-    window.history.back();
+    //window.history.back();
+    location.reload();
     }
+    var hidden = false;
     function enable() {
+    document.getElementById("save").hidden = false;
+    document.getElementById("cancel").hidden = false;
     document.getElementById("tel").readOnly = false;
     document.getElementById("email").readOnly = false;
     document.getElementById("facebook").readOnly = false;
@@ -124,10 +125,11 @@ if(empty($_SESSION['username']))
     </div>
   </div>
   <br>
+
   <center>
     <button id="edit" onclick="enable()" class="btn btn-secondary" style="background-color: #ff7454">แก้ไขข้อมูล</button>
-    <button id="save"  class="btn btn-secondary" style="background-color: #ff7454">ยืนยัน</button>
-    <button type="button"onclick="goBack()"  class="btn btn-secondary">ยกเลิก</button>
+    <button id="save"  class="btn btn-secondary" style="background-color: #ff7454" hidden="true">ยืนยัน</button>
+    <button id="cancel" type="button"onclick="goBack()"  class="btn btn-secondary" hidden="true">ยกเลิก</button>
   </center>
 <!-- </form> -->
 <?php require_once 'footer.php'; ?>
