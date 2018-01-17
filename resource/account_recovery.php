@@ -43,7 +43,7 @@
                                 document.getElementById("recov-error").innerHTML = data['ERROR'];
                             }
                             else{
-                                // window.location.href = '/login/comfirm.php';                                
+                                window.location.href = '/geo_solution/resource/login/comfirm.php';                                
                             }
                         }
                     });
