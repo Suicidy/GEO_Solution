@@ -229,11 +229,7 @@
 					<div class="col-12">
 						<h4 id="headMTH112">ทุกวัน</h4>
 						<hr>
-						<table class="table borderless" >
-						  <tbody id="tableMTH112">
-
-						  </tbody>
-						</table>
+						
 					</div>
 				  </div>
 				  <div class="tab-pane fade" id="nav-PHY_102" role="tabpanel" aria-labelledby="nav-PHY_102-tab">
@@ -251,11 +247,7 @@
 					<div class="col-12">
 						<h4 id="headPHY102">ทุกวัน</h4>
 						<hr>
-						<table class="table borderless" >
-						  <tbody id="tablePHY102">
-
-						  </tbody>
-						</table>
+						
 					</div>
 				  </div>
 				  <div class="tab-pane fade" id="nav-PHY_104" role="tabpanel" aria-labelledby="nav-PHY_104-tab">
@@ -273,11 +265,7 @@
 					<div class="col-12">
 						<h4 id="headPHY104">ทุกวัน</h4>
 						<hr>
-						<table class="table borderless" >
-						  <tbody id="tablePHY104">
-
-						  </tbody>
-						</table>
+						
 					</div>
 				  </div>
 				  <div class="tab-pane fade" id="nav-CHM_103" role="tabpanel" aria-labelledby="nav-CHM_103-tab">
@@ -294,12 +282,7 @@
 				  	</div>
 					<div class="col-12">
 						<h4 id="headCHM103">ทุกวัน</h4>
-						<hr>
-						<table class="table borderless" >
-						  <tbody id="tableCHM103">
-
-						  </tbody>
-						</table>
+						<hr>						
 					</div>
 				  </div>
 			</div>

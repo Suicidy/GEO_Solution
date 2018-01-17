@@ -48,10 +48,13 @@ hr {
 .time-reseved {
 	margin-bottom: 5px;
 	width: 120px;
+	height: 40px;
 }
 
 .class-name, .room {
-	margin-top: 8px;
+	padding: 10px;
+	padding-left: 15px;
+	height: 40px;
 }
 
 .modal-body .col-12 {
