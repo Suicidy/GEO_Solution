@@ -44,6 +44,7 @@
     define("DB_CHARSET","utf8");
 
     $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+    mysqli_set_charset($link, DB_CHARSET);
 
     function check_input($input){
         $conn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
