@@ -155,22 +155,22 @@
 				<div class="container">
 				  <div class="row">
 				    <div class="col">
-				      <center>ลำดับ
+				      <center>ลำดับ</center>
 				    </div>
 				    <div class="col">
-				    	วิชา
+						<center>วิชา</center>
 				    </div>
 				    <div class="col">
-				    	เรื่อง
+						<center>เรื่อง</center>
 				    </div>
 				    <div class="col">
-				    	ผู้สอน
+						<center>ผู้สอน</center>
 				    </div>
 				    <div class="col">
-				    	รายละเอียด
+						<center>รายละเอียด</center>
 				    </div>
 				    <div class="col">
-				    	สถานะ </center>
+						<center>สถานะ </center>
 				    </div>
 				  </div>
 				  <div id="body"></div>

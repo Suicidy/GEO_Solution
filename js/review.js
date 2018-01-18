@@ -38,7 +38,7 @@ function show_data(type) {
                 '">Review</button></div>'
             ).appendTo("#body");
           }
-          $("#body").wrapAll('<div class="row"></div>');
+          $("#body > div").wrapAll('<div class="row"></div>');
         }
       }
     },
