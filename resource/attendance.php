@@ -46,7 +46,7 @@
         });
       });
     </script>
-      <center><p><big><big><h1> Check Attendance </h1></big></center></p></big>
+      <h1><font color="#ff7454">Check Attendance</font></h1>
         <div id="all" class="form-row align-items-center">
           <div class="col-auto my-1">
             <label class="mr-sm-2" for="inlineFormCustomSelect">Teacher Assistant ID</label>
