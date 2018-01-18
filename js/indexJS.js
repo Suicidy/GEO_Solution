@@ -170,9 +170,12 @@
 						$("#content"+subject).empty();
 
 						for (showDate = 0; showDate < data.length; showDate++) {
-							$("#content"+subject).append('<div class="card text-white mb-3 day-card"><div class="card-header">'+data[showDate]["day"]+' '+data[showDate]["date"]+'</div></div><div class="col-12" id="courselist"></div>'); 
-							$("#content"+subject).append('<div class="col-12" id="courselist'+subject+data[showDate]["day"]+'"></div>');
+							if(data[showDate][subject].length!=0){
+								$("#content"+subject).append('<div class="card text-white mb-3 day-card"><div class="card-header">'+data[showDate]["day"]+' '+data[showDate]["date"]+'</div></div><div class="col-12" id="courselist"></div>'); 	
+								$("#content"+subject).append('<div class="col-12" id="courselist'+subject+data[showDate]["day"]+'"></div>');
+							}
 							reloadJS();
+
 							//console.log("#content"+subject);
 							var response = data[showDate];
 							for(var i=0; i< response[subject].length; i++){
