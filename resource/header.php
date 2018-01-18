@@ -24,10 +24,6 @@
 }
 [class*="col-"] {
     float: left;
-<<<<<<< HEAD
-    /* padding: 15px; */
-=======
->>>>>>> 7796abaa7924e4404d2b571c98496a0482b595c9
 }
 .header {
     background-color: #9933cc;
