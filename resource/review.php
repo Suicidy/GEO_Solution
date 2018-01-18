@@ -173,7 +173,7 @@
 				    	สถานะ </center>
 				    </div>
 				  </div>
-				  <div class="row" id="body"></div>
+				  <div id="body"></div>
 				</div>
 			</div>
 		</div>
