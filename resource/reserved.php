@@ -2,19 +2,18 @@
 	<link href="/geo_solution/css/reserved.css" rel="stylesheet">
 	<script src="/geo_solution/js/reserved.js"></script>
 	<script>
+	$.post("/geo_solution/resource/review/view_type.php",{},function(data,status){
+  type = data['type'];
+  if (type != "student"){
+    $("#all").empty();
+    window.location.replace("/geo_solution/index.php");
+  }
+  else{	
+    show_data();
+  }
+},"json");
 	$(document).ready(function(){
 		var course_id;
-		$.post("/geo_solution/resource/review/view_type.php",{},function(data,status){
-			type = data['type'];
-			if (type != "student"){
-				$("#all").empty();
-				alert("คุณไม่มีสิทธิใช้งาน");
-				window.location.replace("/geo_solution/index.php");
-			}
-			else{	
-				show_data();
-			}
-		},"json");
 		$('#ask-modal').on('show.bs.modal',function(event){
 			var button = $(event.relatedTarget);
   		course_id = button.data('course'); 
