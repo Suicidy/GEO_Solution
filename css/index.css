@@ -103,6 +103,14 @@ img {
 	margin-left: 0px;
 }
 
+.review-text {
+	word-wrap: break-word;
+}
+
+.review-name {
+	color: black;
+}
+
 
 
 
