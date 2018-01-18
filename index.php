@@ -51,25 +51,27 @@
 						    </select>
 						    <button type="submit" class="btn btn-success" id="buttonMTH102">ยืนยัน</button>
 				  	</div>
-					<div class="col-12">
+
+					<div class="col-12" id="contentMTH102">
 						<h4 id="headMTH102">ทุกวัน</h4>
 						<hr class="head-line">
-						<div class="card text-white mb-3 day-card">
-							  <div class="card-header">วันจันทร์</div>
-							</div>
-						<div class="col-12">
+						<center id="nocourseMTH102">
 							
-							<!-- <h4 id="headMTH102">วันจันทร์</h4>
-							<hr class="head-line"> -->							
+						</center>
+
+						<div class="card text-white mb-3 day-card">
+							  <div class="card-header">วันจันทร์(01/18/2018)</div>
+						</div>
+
+						<div class="col-12">
 								<div class="row">
 									<div class="col-1"></div>
 									<div class="card-group">
 										<center>							  
 									    	<div class="card text-white bg-dark card-name">
-											  <img class="card-img-top" src="./image/team-member-2.jpg" alt="Card image cap">
-											  
+											  <img class="card-img-top" src="/geo_solution/image/team-member-2.jpg" alt="Card image cap">
 											  <div class="card-body">
-											    <h5 class="card-title">นายภัทรพงศ์  แดงจินดา</h5>
+											    <h5 class="card-title">นายภัทรพงศ์  แดงจินดาแดงแดงแดง(เต้)</h5>
 											    <p class="card-text">
 											    	<span id="star1" class="fa fa-star-half-full"></span>
 													<span id="star2" class="fa fa-star"></span>
@@ -81,7 +83,6 @@
 												  review
 												</button>
 											  </div>
-											  
 											</div>
 										</center>
 									    <div class="card text-white bg-dark card-course">
@@ -99,27 +100,7 @@
 														  <span>08.00-19.00</span>
 														</button>
 													</center>
-
 													</div>
-													<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-													  <div class="modal-dialog" role="document">
-													    <div class="modal-content">
-													      <div class="modal-header">
-													        <h5 class="modal-title" id="exampleModalLabel">ยืนยันการจอง</h5>
-													        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-													          <span aria-hidden="true">&times;</span>
-													        </button>
-													      </div>
-													      <div class="modal-body">
-													        จำนวนที่นั่งคงเหลือ 10/10 ที่นั่ง
-													      </div>
-													      <div class="modal-footer">						        
-													        <button type="button" class="btn btn-success">ยืนยัน</button>
-													      </div>													 
-													    </div>
-													  </div>
-													</div>
-
 									       		</div>	
 									       		<hr class="course-line">							       		
 									       		<!-- <div class="row">
@@ -165,8 +146,10 @@
 								    	</div>
 								    </div>
 								</div>
+
 								<br>
-															<div class="row">
+
+								<div class="row">
 									<div class="col-1"></div>
 									<div class="card-group">
 										<center>							  
@@ -225,19 +208,6 @@
 
 									       		</div>	
 									       		<hr class="course-line">							       		
-									       		<!-- <div class="row">
-										        	<div class="col-md-4 col-xs-6 class-name"><span>Block Diagram</span></div>										        	
-													<div class="col-md-4 col-xs-6 text-md-center room">
-														<span>ห้อง CB2406</span>						
-													</div>
-													<div class="col-md-4 col-xs-4 button-time">
-													<center>
-											        	<button type="button" class="btn btn-primary time-reseved" data-toggle="modal" data-target="#exampleModal">
-														  <span>08.00-19.00</span>
-														</button>
-													</center>
-													</div>
-									       		</div> -->
 									       		<div class="row">
 										        	<div class="col-md-4 col-xs-6 class-name"><span>Block Diagram</span></div>										        	
 													<div class="col-md-4 col-xs-6 text-md-center room">
@@ -268,8 +238,8 @@
 								    	</div>
 								    </div>
 								</div>
-								<br>
-															
+
+								<br>					
 						</div>
 					</div>					
 				</div>
@@ -292,8 +262,11 @@
 						<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
 						  <div class="card-header">ไม่มีคอร์สเรียน</div>
 						</div>
+
 						<br>
+
 						</center>
+
 						<br>						
 					</div>
 				  </div>
@@ -354,79 +327,96 @@
 		</div>
 	</div>
 
-											<div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-										  <div class="modal-dialog" role="document">
-										    <div class="modal-content">
-										      <div class="modal-header">
-										        <h5 class="modal-title" id="exampleModalLongTitle">Review</h5>
-										        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										          <span aria-hidden="true">&times;</span>
-										        </button>
-										      </div>
-										      <div class="modal-body">
-										      	<div class="col-12 review-text">
-										        	<p>Goooooooooooooooooodอิอิอิ</p>
-										        </div>
-										        <center>
-										        <div class="review-name">
-													<div class="col-md-3 col-xs-6">
-										        	คะแนนพี่TA
-										        	</div>
-										        	<div class="col-md-4 col-xs-4">
-										        		<span id="star1" class="fa fa-star-half-full"></span>
-														<span id="star2" class="fa fa-star"></span>
-														<span id="star3" class="fa fa-star"></span>
-														<span id="star4" class="fa fa-star"></span>
-														<span id="star5" class="fa fa-star"></span>
-										        	</div>
-										        	<div class="col-md-5 col-xs-5 date-time">
-										        		<p>17/01/2018 16.45 น.</p>
-										        	</div>	
-										        </div>
-										        </center>
-										        <div class="col-12 review-text">
-										        	<p>GoooooooooooooooooodอิอิอิksdjjvisojsovkGoooooooooooooooooodGoooooooooooooooooodGoooooooooooooooooodGooooooooooooooooood</p>
-										        </div>
-										        <center>
-										        <div class="review-name">
-													<div class="col-md-3 col-xs-6">
-										        	คะแนนพี่TA
-										        	</div>
-										        	<div class="col-md-4 col-xs-4">
-										        		<span id="star1" class="fa fa-star-half-full"></span>
-														<span id="star2" class="fa fa-star"></span>
-														<span id="star3" class="fa fa-star"></span>
-														<span id="star4" class="fa fa-star"></span>
-														<span id="star5" class="fa fa-star"></span>
-										        	</div>
-										        	<div class="col-md-5 col-xs-5 date-time">
-										        		<p>17/01/2018 16.45 น.</p>
-										        	</div>	
-										        </div>
-										        </center>
-										      </div>
-										      <div class="modal-footer">
-										        <nav aria-label="Page navigation example">
-												  <ul class="pagination justify-content-center">
-												    <li class="page-item disabled">
-												      <a class="page-link" href="#" tabindex="-1">Previous</a>
-												    </li>
-												    <li class="page-item"><a class="page-link" href="#">1</a></li>
-												    <li class="page-item"><a class="page-link" href="#">2</a></li>
-												    <li class="page-item"><a class="page-link" href="#">3</a></li>
-												    <li class="page-item">
-												      <a class="page-link" href="#">Next</a>
-												    </li>
-												  </ul>
-												</nav>
-										      </div>
-										    </div>
-										  </div>
-										</div>
+<div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Review</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      	<div class="col-12 review-text">
+        	<p>Goooooooooooooooooodอิอิอิ</p>
+        </div>
+        <center>
+        <div class="review-name">
+			<div class="col-md-3 col-xs-6">
+        	คะแนนพี่TA
+        	</div>
+        	<div class="col-md-4 col-xs-4">
+        		<span id="star1" class="fa fa-star-half-full"></span>
+				<span id="star2" class="fa fa-star"></span>
+				<span id="star3" class="fa fa-star"></span>
+				<span id="star4" class="fa fa-star"></span>
+				<span id="star5" class="fa fa-star"></span>
+        	</div>
+        	<div class="col-md-5 col-xs-5 date-time">
+        		<p>17/01/2018 16.45 น.</p>
+        	</div>	
+        </div>
+        </center>
+        <div class="col-12 review-text">
+        	<p>GoooooooooooooooooodอิอิอิksdjjvisojsovkGoooooooooooooooooodGoooooooooooooooooodGoooooooooooooooooodGooooooooooooooooood</p>
+        </div>
+        <center>
+        <div class="review-name">
+			<div class="col-md-3 col-xs-6">
+        	คะแนนพี่TA
+        	</div>
+        	<div class="col-md-4 col-xs-4">
+        		<span id="star1" class="fa fa-star-half-full"></span>
+				<span id="star2" class="fa fa-star"></span>
+				<span id="star3" class="fa fa-star"></span>
+				<span id="star4" class="fa fa-star"></span>
+				<span id="star5" class="fa fa-star"></span>
+        	</div>
+        	<div class="col-md-5 col-xs-5 date-time">
+        		<p>17/01/2018 16.45 น.</p>
+        	</div>	
+        </div>
+        </center>
+      </div>
+      <div class="modal-footer">
+        <nav aria-label="Page navigation example">
+		  <ul class="pagination justify-content-center">
+		    <li class="page-item disabled">
+		      <a class="page-link" href="#" tabindex="-1">Previous</a>
+		    </li>
+		    <li class="page-item"><a class="page-link" href="#">1</a></li>
+		    <li class="page-item"><a class="page-link" href="#">2</a></li>
+		    <li class="page-item"><a class="page-link" href="#">3</a></li>
+		    <li class="page-item">
+		      <a class="page-link" href="#">Next</a>
+		    </li>
+		  </ul>
+		</nav>
+      </div>
+    </div>
+  </div>
+</div>
 
-		<!-- <script type="text/javascript" scr="js/indexJ.js" id="js0"></script> -->
-<!-- 	</div>
-</body>
-</html>
- -->
+
+<div class="modal fade" id="bookingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">ยืนยันการจอง</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        จำนวนที่นั่งคงเหลือ 10/10 ที่นั่ง
+      </div>
+      <div class="modal-footer">						        
+        <button type="button" class="btn btn-success">ยืนยัน</button>
+      </div>													 
+    </div>
+  </div>
+</div>
+		
+<script type="text/javascript" scr="js/indexJS.js" id="js0"></script>
+
  <?php include('resource/footer.php'); ?>
