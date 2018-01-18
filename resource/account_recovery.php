@@ -39,8 +39,13 @@
                         success: function (data){
                             console.log(data);
                             if(data['ERROR']){
-                                $("#recov-pass-form").addClass('has-error');
-                                document.getElementById("recov-error").innerHTML = data['ERROR'];
+                                if(data['type'] == "stid_notreq"){
+                                    window.location.href = '/geo_solution/resource/request_pass.php';
+                                }
+                                else{
+                                    $("#recov-pass-form").addClass('has-error');
+                                    document.getElementById("recov-error").innerHTML = data['ERROR'];
+                                }
                             }
                             else{
                                 window.location.href = '/geo_solution/resource/login/comfirm.php';                                

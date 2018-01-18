@@ -30,8 +30,7 @@
                             mysqli_stmt_bind_result($stmt, $student_id,$fname,$lname,$email,$password);
                             if(mysqli_stmt_fetch($stmt)){
                                 if($_POST['type'] == "req_pass"){
-                                    $message['password'] = $password;//ลบออกด้วย
-                                    if($password == "" || $password == " "){   
+                                    if($password == "" || $password == " " || $password == NULL){   
                                         $to = $email;
                                         $password = generatePassword(10);
                                         $emailreal=$email;
@@ -71,38 +70,42 @@
                                     }
                                 }
                                 if($_POST['type'] == "recov_pass"){
-                                    $message["TEST"] = "checkpoint2";
-                                    $to = $email;
-                                    $emailreal=$email;
-                                    $email=md5($email);
-                                    $link="<a href='http://geo.li.kmutt.ac.th/geo_solution/resource/login/reset.php?key=".$email."&reset=".$password."'>Click To Reset password</a>";
-                                    $mail = new PHPMailer();
-                                    $mail->CharSet =  "utf-8";
-                                    $mail->IsSMTP();
-                                    $mail->SMTPAuth = true;                  
-                                    $mail->Username = "geo.kmutt@gmail.com";
-                                    $mail->Password = "admin0000";
-                                    $mail->SMTPSecure = "ssl";  
-                                    $mail->Host = 'smtp.gmail.com';
-                                    $mail->Port = "465";
-                                    $mail->From='geo.kmutt@gmail.com';
-                                    $mail->FromName='GEO KMUTT';
-                                    $mail->AddAddress($emailreal);
-                                    $mail->Subject  =  '[GEO Soultion] RESET PASSWORD';
-                                    $mail->IsHTML(true);
-                                    $mail->Body    = '<H2>Password reset </H2><br>'.$fname.' '.$lname.' '.$student_id.'<br>You have requested a password reset, please click on the below link to reset your password:<br>'.$link.'<br><br><h4>Geo Solution </h4>| <a href="http://geo.li.kmutt.ac.th/geo_solution">geo.li.kmutt.ac.th/geo_solution</a><br>';
-                                    if($mail->Send())
-                                    {
-                                        $mailsend = 'Your mail has been sent successfully.';
-                                        echo '<script>console.log("'.$mailsend.' '.$emailreal.'");</script>';
-                                        $_SESSION['email'] = $emailreal; 
-                                        $message['SUCCESS'] = 'success';    
-                                    }
-                                    else
-                                    {
-                                    $mailerror =  "Mail Error - >".$mail->ErrorInfo;
-                                    $message['ERROR'] = $mailerror ;
-                                    $message['type'] = 'mail_err';
+                                    if($password == "" || $password == " " || $password == NULL){
+                                        $message['ERROR'] = "Redirecting to request page.";
+                                        $message['type'] = 'stid_notreq';
+                                    }else{
+                                        $to = $email;
+                                        $emailreal=$email;
+                                        $email=md5($email);
+                                        $link="<a href='http://geo.li.kmutt.ac.th/geo_solution/resource/login/reset.php?key=".$email."&reset=".$password."'>Click To Reset password</a>";
+                                        $mail = new PHPMailer();
+                                        $mail->CharSet =  "utf-8";
+                                        $mail->IsSMTP();
+                                        $mail->SMTPAuth = true;                  
+                                        $mail->Username = "geo.kmutt@gmail.com";
+                                        $mail->Password = "admin0000";
+                                        $mail->SMTPSecure = "ssl";  
+                                        $mail->Host = 'smtp.gmail.com';
+                                        $mail->Port = "465";
+                                        $mail->From='geo.kmutt@gmail.com';
+                                        $mail->FromName='GEO KMUTT';
+                                        $mail->AddAddress($emailreal);
+                                        $mail->Subject  =  '[GEO Soultion] RESET PASSWORD';
+                                        $mail->IsHTML(true);
+                                        $mail->Body    = '<H2>Password reset </H2><br>'.$fname.' '.$lname.' '.$student_id.'<br>You have requested a password reset, please click on the below link to reset your password:<br>'.$link.'<br><br><h4>Geo Solution </h4>| <a href="http://geo.li.kmutt.ac.th/geo_solution">geo.li.kmutt.ac.th/geo_solution</a><br>';
+                                        if($mail->Send())
+                                        {
+                                            $mailsend = 'Your mail has been sent successfully.';
+                                            echo '<script>console.log("'.$mailsend.' '.$emailreal.'");</script>';
+                                            $_SESSION['email'] = $emailreal; 
+                                            $message['SUCCESS'] = 'success';    
+                                        }
+                                        else
+                                        {
+                                        $mailerror =  "Mail Error - >".$mail->ErrorInfo;
+                                        $message['ERROR'] = $mailerror ;
+                                        $message['type'] = 'mail_err';
+                                        }
                                     }
                                 }
                             }
