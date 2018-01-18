@@ -21,6 +21,7 @@
 		$('#submit-btn-modal').click(function(){
 				$.post("/geo_solution/resource/reserved/cancel.php", {course_id : course_id}, function(data,status){
 						alert("เรียบร้อย")
+						location.reload();
 				},"json").fail(function(){
 					alert("เกิดบางอย่างผิดพลาด");
 				});
@@ -31,6 +32,7 @@
 	
 	
 	</script>
+	<body>
 		<div class="row">
 			<div class="col">
 				<br>
@@ -52,7 +54,7 @@
 				</table>
 			</div>
 		</div>
-		<center>
+	
 						<div class="modal fade" id="ask-modal" tabindex="-1" role="dialog" aria-labelledby="ยืนยันที่จะยกเลิกหรือไม่" aria-hidden="true">
 						  <div class="modal-dialog" role="document">
 						    <div class="modal-content">
@@ -71,7 +73,7 @@
 						    </div>
 						  </div>
 						</div>
-			</center>
+		</body>
 		
 <!-- </body>
 </html> -->

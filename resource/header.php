@@ -26,9 +26,6 @@
     float: left;
     padding: 15px;
 }
-html {
-    font-family: "Lucida Sans", sans-serif;
-}
 .header {
     background-color: #9933cc;
     color: #ffffff;
@@ -57,12 +54,54 @@ html {
     font-size: 14px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
+/**
+ * Demo Styles
+ */
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+	font-family: 'Kanit', sans-serif;
+}
+
+.demo {
+  margin: 0 auto;
+  padding-top: 64px;
+  max-width: 640px;
+  width: 94%;
+}
+
+.demo h1 {
+  margin-top: 0;
+}
+
+/**
+ * Footer Styles
+ */
+
 .footer {
-    background-color: #0099cc;
-    color: #ffffff;
-    text-align: center;
-    font-size: 12px;
-    padding: 15px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+}
+img {
+    max-width: 100%;
+    max-height: 100%;
 }
 /* For desktop: */
 .col-1 {width: 8.33%;}
@@ -127,7 +166,11 @@ html {
           if(isset($_SESSION['username']) && $_SESSION['userview'] == 'student') {echo
             '<li class="nav-item">
               <a class="nav-link" href="/geo_solution/resource/review.php">รีวิว</a>
-            </li>';
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="/geo_solution/resource/reserved.php">สถานะการจอง</a>
+            </li>
+            ';
           }
           elseif(isset($_SESSION['username']) && $_SESSION['userview'] == 'teacher') {echo
             '<li class="nav-item">
@@ -215,3 +258,4 @@ html {
 		</div>
 	</div>
 <div class="container">
+  <br>
