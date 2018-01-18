@@ -145,7 +145,8 @@
 														</button>
 													</center>
 													</div>
-									       		</div>		
+									       		</div>	
+									       		<hr class="course-line">	
 									    	</p>								        
 									      </div>
 									      	<div class="card-footer">
@@ -247,7 +248,8 @@
 														</button>
 													</center>
 													</div>
-									       		</div>		
+									       		</div>
+									       		<hr class="course-line">		
 									    	</p>								        
 									      </div>
 									      	<div class="card-footer">
