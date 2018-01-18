@@ -71,7 +71,7 @@ html {
 body {
 /*  background-color: #D3D3D3;*/
 /*  background-color: #efd9cd;*/
-  background-color: #ffd3b6;
+  background-color: #363636;
   position: relative;
   margin: 0;
   padding-bottom: 6rem;
@@ -160,12 +160,13 @@ img {
         var password_err = data['password_err'];
         var status_login = data['status_login'];
         var login_count = data['login_count'];
+        var type = data['type'];
         $("#user_err").text(username_err);
         $("#pass_err").text(password_err);
        // alert(data['login_count']);
-        if(login_count==0)
+        if(login_count==0&&type!="teacher"&&type!="admin")
         {
-          window.location.replace("/geo_solution/resource/profile.php");
+           window.location.replace("/geo_solution/resource/profile.php");
          }
         else if(status_login==1)
         {
