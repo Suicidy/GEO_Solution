@@ -12,10 +12,7 @@
 	
 	<link href="https://fonts.googleapis.com/css?family=Kanit:400,500,600,700,800,900" rel="stylesheet"> -->
 	<link href="css/index.css" rel="stylesheet">
-	<!-- <script src="js/indexJ.js"></script>
-	
-
-	</script> -->
+	<script src="js/indexJS.js"></script>
 
 
 <!-- </head>
@@ -41,7 +38,7 @@
 				<div class="tab-content" id="nav-tabContent">
 				  <div class="tab-pane fade show active" id="nav-MTH_102" role="tabpanel" aria-labelledby="nav-MTH_102-tab">
 				  	<div class="form-group">
-				  			<select class="form-control col-md-3 col-xs-6" style="float:left;" id="exampleFormControlSelect1">
+				  			<select class="form-control col-md-3 col-xs-6" style="float:left;" id="SelectMTH102">
 						      <option>เลือกวัน</option>
 						      <option>วันจันทร์</option>
 						      <option>วันอังคาร</option>
@@ -49,16 +46,15 @@
 						      <option>วันพฤหัสบดี</option>
 						      <option>วันศุกร์</option>
 						    </select>
-						    <button type="submit" class="btn btn-success" id="buttonMTH102">ยืนยัน</button>
+						    <button type="submit" class="btn btn-success" id="buttonSelectMTH102">ยืนยัน</button>
 				  	</div>
 
-					<div class="col-12" id="contentMTH102">
+					<div class="col-12">
 						<h4 id="headMTH102">ทุกวัน</h4>
 						<hr class="head-line">
-						<center id="nocourseMTH102">
-							
-						</center>
+						<center id="nocourseMTH102"></center>
 
+						<div id="contentMTH102">
 						<div class="card text-white mb-3 day-card">
 							  <div class="card-header">วันจันทร์(01/18/2018)</div>
 						</div>
@@ -241,11 +237,13 @@
 
 								<br>					
 						</div>
+						</div>
+						<br>
 					</div>					
 				</div>
 				<div class="tab-pane fade" id="nav-MTH_112" role="tabpanel" aria-labelledby="nav-MTH_112-tab">
 				  	<div class="form-group">
-				  			<select class="form-control col-md-3 col-xs-6" style="float:left;" id="exampleFormControlSelect2">
+				  			<select class="form-control col-md-3 col-xs-6" style="float:left;" id="SelectMTH112">
 						      <option>เลือกวัน</option>
 						      <option>วันจันทร์</option>
 						      <option>วันอังคาร</option>
@@ -253,26 +251,22 @@
 						      <option>วันพฤหัสบดี</option>
 						      <option>วันศุกร์</option>
 						    </select>
-						    <button type="submit" class="btn btn-success" id="buttonMTH112">ยืนยัน</button>
+						    <button type="submit" class="btn btn-success" id="buttonSelectMTH112">ยืนยัน</button>
 				  	</div>
 					<div class="col-12">
 						<h4 id="headMTH112">ทุกวัน</h4>
 						<hr class="head-line">
-						<center>
-						<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-						  <div class="card-header">ไม่มีคอร์สเรียน</div>
-						</div>
+						<center id="nocourseMTH112"></center>
 
-						<br>
-
-						</center>
+						<div id="contentMTH112"></div>div>	
 
 						<br>						
 					</div>
+					<br>
 				  </div>
 				  <div class="tab-pane fade" id="nav-PHY_102" role="tabpanel" aria-labelledby="nav-PHY_102-tab">
 				  	<div class="form-group">
-				  			<select class="form-control col-md-3 col-xs-6" style="float:left;" id="exampleFormControlSelect3">
+				  			<select class="form-control col-md-3 col-xs-6" style="float:left;" id="SelectPHY102">
 						      <option>เลือกวัน</option>
 						      <option>วันจันทร์</option>
 						      <option>วันอังคาร</option>
@@ -280,17 +274,20 @@
 						      <option>วันพฤหัสบดี</option>
 						      <option>วันศุกร์</option>
 						    </select>
-						    <button type="submit" class="btn btn-success" id="buttonPHY102">ยืนยัน</button>
+						    <button type="submit" class="btn btn-success" id="buttonSelectPHY102">ยืนยัน</button>
 				  	</div>
 					<div class="col-12">
 						<h4 id="headPHY102">ทุกวัน</h4>
 						<hr class="head-line" >
-						
+						<center id="nocoursePHY102"></center>
+
+						<div id="contentPHY102"></div>div>		
 					</div>
+					<br>
 				  </div>
 				  <div class="tab-pane fade" id="nav-PHY_104" role="tabpanel" aria-labelledby="nav-PHY_104-tab">
 				  	<div class="form-group">
-				  			<select class="form-control col-md-3 col-xs-6" style="float:left;" id="exampleFormControlSelect4">
+				  			<select class="form-control col-md-3 col-xs-6" style="float:left;" id="SelectPHY104">
 						      <option>เลือกวัน</option>
 						      <option>วันจันทร์</option>
 						      <option>วันอังคาร</option>
@@ -298,17 +295,21 @@
 						      <option>วันพฤหัสบดี</option>
 						      <option>วันศุกร์</option>
 						    </select>
-						    <button type="submit" class="btn btn-success" id="buttonPHY104">ยืนยัน</button>
+						    <button type="submit" class="btn btn-success" id="buttonSelectPHY104">ยืนยัน</button>
 				  	</div>
 					<div class="col-12">
 						<h4 id="headPHY104">ทุกวัน</h4>
 						<hr class="head-line">
+						<center id="nocoursePHY104">vbvb</center>
+
+						<div id="contentPHY104"></div>div>	
 						
 					</div>
+					<br>
 				  </div>
 				  <div class="tab-pane fade" id="nav-CHM_103" role="tabpanel" aria-labelledby="nav-CHM_103-tab">
 				  	<div class="form-group">
-				  			<select class="form-control col-md-3 col-xs-6" style="float:left;" id="exampleFormControlSelect5">
+				  			<select class="form-control col-md-3 col-xs-6" style="float:left;" id="SelectCHM103">
 						      <option>เลือกวัน</option>
 						      <option>วันจันทร์</option>
 						      <option>วันอังคาร</option>
@@ -316,13 +317,17 @@
 						      <option>วันพฤหัสบดี</option>
 						      <option>วันศุกร์</option>
 						    </select>
-						    <button type="submit" class="btn btn-success" id="buttonCHM103">ยืนยัน</button>
+						    <button type="submit" class="btn btn-success" id="buttonSelectCHM103">ยืนยัน</button>
 				  	</div>
 					<div class="col-12">
 						<h4 id="headCHM103">ทุกวัน</h4>
-						<hr class="head-line">						
+						<hr class="head-line">	
+						<center id="nocourseCHM103"></center>
+
+						<div id="contentCHM103"></div>div>						
 					</div>
 				  </div>
+				  <br>
 			</div>
 		</div>
 	</div>
@@ -336,8 +341,8 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-      	<div class="col-12 review-text">
+      <div class="modal-body" id="reviewModalText">
+      	<div class="col-12 review-text" ">
         	<p>Goooooooooooooooooodอิอิอิ</p>
         </div>
         <center>
@@ -378,7 +383,7 @@
         </div>
         </center>
       </div>
-      <div class="modal-footer">
+      <!-- <div class="modal-footer">
         <nav aria-label="Page navigation example">
 		  <ul class="pagination justify-content-center">
 		    <li class="page-item disabled">
@@ -392,7 +397,7 @@
 		    </li>
 		  </ul>
 		</nav>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
@@ -407,16 +412,34 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        จำนวนที่นั่งคงเหลือ 10/10 ที่นั่ง
+      <div class="modal-body" id="bookingModalBody">
+        จำนวนที่นั่งคงเหลือ 10/10 ที่นั่งss
       </div>
       <div class="modal-footer">						        
-        <button type="button" class="btn btn-success">ยืนยัน</button>
+        <button type="button" class="btn btn-success" id="bookButton">ยืนยัน</button>
       </div>													 
     </div>
   </div>
 </div>
 		
-<script type="text/javascript" scr="js/indexJS.js" id="js0"></script>
+<div class="modal fade" id="modalStatus" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalStatusLabel">ยืนยันการจอง</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="modalStatusBody">
+      	จำนวนที่นั่งคงเหลือ 10 ที่นั่ง
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="atcd">
+	<script type="text/javascript" scr="js/indexJS.js" id="js0"></script>
+</div>
 
  <?php include('resource/footer.php'); ?>
