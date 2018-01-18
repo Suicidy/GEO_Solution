@@ -36,7 +36,7 @@
 		<div class="row">
 			<div class="col">
 				<br>
-				<h2>สถานะการจอง</h2>
+				<h1><font color="#ff7454">สถานะการจอง</font></h1>
 				<br>
 				<table class="table table-striped" id="all">
 				  <thead>
@@ -75,6 +75,5 @@
 						</div>
 		</body>
 		
-<!-- </body>
-</html> -->
+
   <?php require_once 'footer.php'; ?>

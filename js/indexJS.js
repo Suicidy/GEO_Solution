@@ -1,5 +1,9 @@
 	$(document).ready(function(){
-		getCourseMTH102('ทุกวัน');
+		//getCourseMTH102('ทุกวัน');
+
+		getCourse("ทุกวัน");
+
+
 		$("#nav-MTH_102-tab").addClass('activeEi');
 		$("#buttonMTH102").click(function(){
 	    	var singleValues = $( "#exampleFormControlSelect1" ).val();
@@ -114,6 +118,127 @@
 
 	});
 
+	function getStar(star){
+		var starString = '<p class="card-text">';
+		if(star==""){
+			star = 5.0;
+		}
+		var starString = '';
+		for (var st = 0.0; st < 5.0; st++) {
+			if (star>=(st+0.5)) {
+				if(star>=(st+1.0)){
+					starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star"></span>';
+				}
+				else{
+					starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-half-full"></span>';
+				}
+			}
+			else{
+				starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-o"></span>';
+			}
+		}	
+		starString = starString+'</p>';
+		return starString;
+	}
+
+	function getCourse(day,subject){
+		var obj = {};
+		obj['day'] = day;
+		obj['subject'] = subject;
+		$.ajax({
+			url: 'resource/home/showCourse.php',
+			type: 'post',
+			data: obj,
+			dataType: 'json',
+			success: function(data){
+				var stringForPrintHtml = '';
+				var showDate=0;
+				if(day!='ทุกวัน'){
+
+					// Check date and empty of data
+					var array = [];
+					for (var checkdate = 0; checkdate<data.length; checkdate++){
+						if (day==data[checkdate].day) {
+							showDate = checkdate;
+						};
+						if (data[checkdate][subject].length!=0) {
+							array.push(checkdate);
+						};
+					};
+
+
+					// Check if data is empty
+					if(array.length==0){
+						$("#nocourse"+subject).html('<div class="card text-white bg-dark mb-3" style="max-width: 18rem;"><div class="card-header">ไม่มีคอร์สเรียน</div></div><br>');
+						$("#content"+subject).empty()
+					}
+					else{
+
+						$("#nocourse"+subject).empty();
+						$("#content"+subject).empty().append('<div class="card text-white mb-3 day-card"><div class="card-header">'+data[showDate]["day"]+' '+data[showDate]["date"]+'</div></div><div class="col-12" id="courselist"></div>'); 
+						$('<div class="col-12" id="courselistMTH102'+data[showDate]["day"]+'"></div>').html("");
+						reloadJS();
+
+						var response = data[showDate];
+						for(var i=0; i<response[subject].length; i++){
+							stringForPrintHtml = stringForPrintHtml.concat('<div class="row"><div class="col-1"></div><div class="card-group"><center><div class="card text-white bg-dark card-name"><img class="card-img-top" src="/geo_solution/image/', response[subject][i]["img"]);
+							stringForPrintHtml = stringForPrintHtml.concat('" alt="Card image cap"><div class="card-body"><h5 class="card-title">', response[subject][i]["title"], response[subject][i]["firstname"], response[subject][i]["lastname"], '(พี่', response[subject][i]["nickname"], ')</h5>', getStar(response[subject]["star"]));
+							stringForPrintHtml = stringForPrintHtml.concat('<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#reviewModal" onclick="showReview(',  response[subject][i]["teacher_id"] , ')">review</button></div></div></center><div class="card text-white bg-dark card-course"><div class="card-body"><h5 class="card-title">คอร์สที่ทำการสอน</h5><p class="card-text">');
+							for(var j=0; j<response.PHY102[i].course.length; j++){
+								stringForPrintHtml = stringForPrintHtml.concat('<div class="row"><div class="col-md-4 col-xs-6 class-name"><span>', response[subject][i]["title"][j]["topic"], '</span></div><div class="col-md-4 col-xs-6 text-md-center room"><span>', response[subject][i]["title"][j]["topic"], '</span></div><div class="col-md-4 col-xs-4 button-time"><center><button type="button" class="btn btn-primary time-reseved" data-toggle="modal" data-target="#bookingModal" onclick="updateSeat(', response[subject][i]["title"][j]["course_id"], ')"><span>', response[subject][i]["title"][j]["time"], '</span></button></center></div></div>');
+							}
+							//stringForPrintHtml = stringForPrintHtml+'<hr class="course-line"></p></div><div class="card-footer"><p>ติดต่อ</p><p><img class="contract" src="./image/facebook.png">'+response[subject][i]["facebook"]+'</p><p><img class="contract" src="./image/line.png">'+response[subject][i]["facebook"]+'</p></div></div></div></div><br>';
+							stringForPrintHtml = stringForPrintHtml+'<hr class="course-line"></p></div><div class="card-footer"><p>ติดต่อ</p><p><img class="contract" src="./image/facebook.png"></p><p><img class="contract" src="./image/line.png"></p></div></div></div></div><br>'
+							$("#courselist"+subject+response["day"]).append(stringForPrintHtml);
+						}
+					}
+
+				}
+				else{
+
+					// Check date and empty of data
+					var array = [];
+					for (var checkdate = 0; checkdate<data.length; checkdate++){
+						if (data[checkdate][subject].length!=0) {
+							array.push(checkdate);
+						};
+					};
+
+					// Check if data is empty
+					if(array.length==0){
+						$("#nocourse"+subject).html('<div class="card text-white bg-dark mb-3" style="max-width: 18rem;"><div class="card-header">ไม่มีคอร์สเรียน</div></div><br>');
+						$("#content"+subject).empty()
+					}
+					else{
+						$("#nocourse"+subject).empty();
+						$("#content"+subject).empty()
+
+						for (showDate = 0; showDate < data.length; showDate++) {
+							$("#content"+subject).append('<div class="card text-white mb-3 day-card"><div class="card-header">'+data[showDate]["day"]+' '+data[showDate]["date"]+'</div></div><div class="col-12" id="courselist"></div>'); 
+							$('<div class="col-12" id="courselistMTH102'+data[showDate]["day"]+'"></div>').html("");
+							reloadJS();
+
+							var response = data[showDate];
+							for(var i=0; i<response[subject].length; i++){
+								stringForPrintHtml = stringForPrintHtml.concat('<div class="row"><div class="col-1"></div><div class="card-group"><center><div class="card text-white bg-dark card-name"><img class="card-img-top" src="/geo_solution/image/', response[subject][i]["img"]);
+								stringForPrintHtml = stringForPrintHtml.concat('" alt="Card image cap"><div class="card-body"><h5 class="card-title">', response[subject][i]["title"], response[subject][i]["firstname"], response[subject][i]["lastname"], '(พี่', response[subject][i]["nickname"], ')</h5>', getStar(response[subject]["star"]));
+								stringForPrintHtml = stringForPrintHtml.concat('<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#reviewModal" onclick="showReview(',  response[subject][i]["teacher_id"] , ')">review</button></div></div></center><div class="card text-white bg-dark card-course"><div class="card-body"><h5 class="card-title">คอร์สที่ทำการสอน</h5><p class="card-text">');
+								for(var j=0; j<response.PHY102[i].course.length; j++){
+									stringForPrintHtml = stringForPrintHtml.concat('<div class="row"><div class="col-md-4 col-xs-6 class-name"><span>', response[subject][i]["title"][j]["topic"], '</span></div><div class="col-md-4 col-xs-6 text-md-center room"><span>', response[subject][i]["title"][j]["topic"], '</span></div><div class="col-md-4 col-xs-4 button-time"><center><button type="button" class="btn btn-primary time-reseved" data-toggle="modal" data-target="#bookingModal" onclick="updateSeat(', response[subject][i]["title"][j]["course_id"], ')"><span>', response[subject][i]["title"][j]["time"], '</span></button></center></div></div>');
+								}
+								stringForPrintHtml = stringForPrintHtml+'<hr class="course-line"></p></div><div class="card-footer"><p>ติดต่อ</p><p><img class="contract" src="./image/facebook.png">'+response[subject][i]["facebook"]+'</p><p><img class="contract" src="./image/line.png">'+response[subject][i]["facebook"]+'</p></div></div></div></div><br>';
+								//stringForPrintHtml = stringForPrintHtml+'<hr class="course-line"></p></div><div class="card-footer"><p>ติดต่อ</p><p><img class="contract" src="./image/facebook.png"></p><p><img class="contract" src="./image/line.png"></p></div></div></div></div><br>'
+								$("#courselist"+subject+response["day"]).append(stringForPrintHtml);
+							}
+						}	
+					}
+				}
+			}
+			error: function(data){
+				alert('error please try again !!!');
+			}
+		});
+	}
 
 	function getCoursePHY102(day){
 		var obj ={};
@@ -902,4 +1027,3 @@
 			}).appendTo("#atcd");
 		console.log($("#atcd").html());
 	}
-

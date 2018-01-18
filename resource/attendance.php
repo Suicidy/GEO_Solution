@@ -46,7 +46,7 @@
         });
       });
     </script>
-      <center><p><big><big><h1> Check Attendance </h1></big></center></p></big>
+      <h1><font color="#ff7454">Check Attendance</font></h1>
         <div id="all" class="form-row align-items-center">
           <div class="col-auto my-1">
             <label class="mr-sm-2" for="inlineFormCustomSelect">Teacher Assistant ID</label>
@@ -66,6 +66,7 @@
           </div>
           <button id = "search" type="submit" class="btn btn-primary search" style ="background-color : #ff7454; border-color : #ff7454; margin-top: 30px; "> SEARCH </button>
         </div>
+        <br>
       <form action="attendance/submit.php" method="post" id = "submit_form">
         <div class="form-row align-items-center" id = "table" >
           <table class="table table-striped">
@@ -85,4 +86,5 @@
         <input type="hidden" name="course_id" id = "course">
         <center><button id ="send" type="submit" class="btn btn-primary " style ="background-color : #ff7454; border-color : #ff7454;"> SAVE </button></center>
       </form>
+      <br>
  <?php include('footer.php'); ?>

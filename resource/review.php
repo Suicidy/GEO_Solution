@@ -137,10 +137,12 @@
 						    </div>
 						  </div>
 						</div>
+
 	<div class="container" id = "all">
 		<div class="row">
 			<div class="col">
-				<h2>Review</h2>
+				<br>
+				<h1><font color="#ff7454">Review</font></h1>
 				<div class="form-group">
 					<select class="form-control col-2" style="float:left;" id="select">
 					    <option value = "all">ทั้งหมด</option>
@@ -150,19 +152,29 @@
 				</div>
 				<br>
 				<br>
-				<table class="table table-striped table-bordered">
-				  <thead>
-				    <tr>
-				      <th scope="col"><center>ลำดับ</center></th>
-				      <th scope="col"><center>วิชา</center></th>
-				      <th scope="col"><center>เรื่อง</center></th>
-				      <th scope="col"><center>ผู้สอน</center></th>
-				      <th scope="col"><center>รายละเอียด</center></th>
-				      <th scope="col"><center>สถานะ </center></th>
-				    </tr>
-				  </thead>
-					<tbody id = "body"></tbody>
-				</table>
+				<div class="container">
+				  <div class="row">
+				    <div class="col">
+				      <center>ลำดับ</center>
+				    </div>
+				    <div class="col">
+						<center>วิชา</center>
+				    </div>
+				    <div class="col">
+						<center>เรื่อง</center>
+				    </div>
+				    <div class="col">
+						<center>ผู้สอน</center>
+				    </div>
+				    <div class="col">
+						<center>รายละเอียด</center>
+				    </div>
+				    <div class="col">
+						<center>สถานะ </center>
+				    </div>
+				  </div>
+				  <div id="body"></div>
+				</div>
 			</div>
 		</div>
 	</div>

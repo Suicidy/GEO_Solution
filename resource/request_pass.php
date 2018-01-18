@@ -13,7 +13,7 @@
         }
     </style>
     <center>
-        <div class="card bg-light wrapper">
+        <div class="card wrapper" style="border: none;">
             <h2>Request Password</h2>
             <p>Please enter student ID.</p>
                 <div class="form-group" id="request-pass-form">
