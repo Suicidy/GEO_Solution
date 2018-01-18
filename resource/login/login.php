@@ -48,6 +48,7 @@
                                 $_SESSION['userview'] = $type; 
                                 $data['status_login']=1;
                                 $data['login_count'] =$login_count;  
+                                $data['type']=$type;
                                 $login_count++;
                                 $add = 'update student set login_count='.$login_count.' where student_id="'.$_SESSION['username'].'";';
                                 $results = query($add);
