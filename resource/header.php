@@ -159,10 +159,15 @@ img {
         var username_err = data['username_err'];
         var password_err = data['password_err'];
         var status_login = data['status_login'];
+        var login_count = data['login_count'];
         $("#user_err").text(username_err);
         $("#pass_err").text(password_err);
-        // alert(data['username_err']);
-        if(status_login==1)
+       // alert(data['login_count']);
+        if(login_count==0)
+        {
+          window.location.replace("/geo_solution/resource/profile.php");
+         }
+        else if(status_login==1)
         {
           location.reload();
         }
