@@ -35,3 +35,14 @@ function show_data(type) {
     "json"
   );
 }
+
+$.post("/geo_solution/resource/review/view_type.php",{},function(data,status){
+  type = data['type'];
+  if (type != "student"){
+    window.location.replace("/geo_solution/index.php");
+  }
+  else{	
+    show_data("all");	
+  }
+},"json");
+

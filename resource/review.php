@@ -2,24 +2,34 @@
 	<script src="/geo_solution/js/review.js"></script>
 	<link href="/geo_solution/css/review.css" rel="stylesheet">
 	<script>
-
 		$(document).ready(function(){
+			var $star_rating = $('.star-rating .fa');
+
+		var SetRatingStar = function() {
+		return $star_rating.each(function() {
+			if (parseInt($star_rating.siblings('input.rating-value').val()) >= parseInt($(this).data('rating'))) {
+					return $(this).removeClass('fa-star-o').addClass('fa-star');
+				} else {
+					return $(this).removeClass('fa-star').addClass('fa-star-o');
+				}
+				});
+			};
+
+			$star_rating.on('click', function() {
+			$star_rating.siblings('input.rating-value').val($(this).data('rating'));
+			$('#star-value').val($(this).data('rating'));
+				return SetRatingStar();
+			});
 			var type, course_id;
-			$.post("/geo_solution/resource/review/view_type.php",{},function(data,status){
-				type = data['type'];
-				if (type != "student"){
-					$("#all").empty();
-				}
-				else{	
-					show_data("all");	
-				}
-			},"json");
 			$("#body > tr:even").css("background-color", "gray");
 			$("#select").click(function(){
 				type = $("#select").val();
 				show_data(type);
 			});
 			$('#review-modal').on('show.bs.modal', function (event) {
+				$('.star-rating .fa').each(function() {
+					return $(this).removeClass('fa-star').addClass('fa-star-o');
+				});
   			var button = $(event.relatedTarget);
   			course_id = button.data('course'); 
 				var modal = $(this);
@@ -49,51 +59,25 @@
 				var content = $("#content_txt").val();
 				var teacher = $("#teacher_txt").val();
 				var other = $("#other_txt").val();
-				$.post("/geo_solution/resource/review/submit_review.php", {content : content, teacher : teacher, other : other, course_id : course_id}, function(data,status){
-						alert("แสดงความคิดเห็นเรียบร้อย ขอบคุณสำหรับความร่วมมือ")
-				},"json").fail(function(){
-					alert("เกิดบางอย่างผิดพลาด");
-				});
-				$('#review-modal').modal('hide')
+				var star = $('#star-value').val();
+				if (star == "0")
+				{
+					alert("กรุณาให้คะแนนก่อนยืนยัน");
+				}
+				else
+				{
+					$.post("/geo_solution/resource/review/submit_review.php", {content : content, teacher : teacher, other : other, course_id : course_id, star: star}, function(data,status){
+						alert("แสดงความคิดเห็นเรียบร้อย ขอบคุณสำหรับความร่วมมือ");
+					},"json").fail(function(){
+						alert("เกิดบางอย่างผิดพลาด");
+					});
+						$('#review-modal').modal('hide');
+				}		
 			});
 			$('#review-modal').on('hidden.bs.modal', function (event) {
 				type = $("#select").val();
 				show_data(type);
 			});
-		});
-	</script>
-	<script>
-		$(document).ready(function(){
-		    // $(".fa-star").click(function(){
-		    	
-      //        alert($(this).val());
-
-		    	// var t= $(this).val();
-  				 //  alert(t);
-		        //$(".fa-star").css("color", "#ff7454");
-		    // });
-
-		    var $star_rating = $('.star-rating .fa');
-
-			var SetRatingStar = function() {
-  				return $star_rating.each(function() {
-    				if (parseInt($star_rating.siblings('input.rating-value').val()) >= parseInt($(this).data('rating'))) {
-     					 return $(this).removeClass('fa-star-o').addClass('fa-star');
-    			 	 } else {
-     					 return $(this).removeClass('fa-star').addClass('fa-star-o');
-    					}
-  				});
-			};
-
-			$star_rating.on('click', function() {
-  					$star_rating.siblings('input.rating-value').val($(this).data('rating'));
-  					alert($(this).data('rating'));
-  					return SetRatingStar();
-			});
-			//SetRatingStar();
-				$(document).ready(function() {
-
-				});
 		});
 	</script>
 	<div class="modal fade" id="review-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -121,18 +105,14 @@
 									</div>
 								</div>
 								<p>ให้คะแนนพี่ TA   
-									<!-- <span class="fa fa-star" id = 'star1' value=1></span>
-									<span class="fa fa-star" id = 'star2' value=2></span>
-									<span class="fa fa-star" id = 'star3' value=3></span>
-									<span class="fa fa-star" id = 'star4' value=4></span>
-									<span class="fa fa-star" id = 'star5' value=5></span> -->
+
 									<div class="star-rating">
       									 <span class="fa fa-star-o" data-rating="1"></span>
        								   	 <span class="fa fa-star-o" data-rating="2"></span>
       									 <span class="fa fa-star-o" data-rating="3"></span>
   										 <span class="fa fa-star-o" data-rating="4"></span>
      									 <span class="fa fa-star-o" data-rating="5"></span>
-     									  <input type="hidden" name="whatever1" class="rating-value" value="2.56">
+     									  <input type="hidden" name="star" id= "star-value" class="rating-value" value="0">
       								</div>
 								</p>
 								<form>

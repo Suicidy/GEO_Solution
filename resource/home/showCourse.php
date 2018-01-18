@@ -1,11 +1,11 @@
-<?php   
+    <?php   
        require $_SERVER['DOCUMENT_ROOT'].'/geo_solution/config.php';
 
 
 
        session_start();
-        // $_SESSION["username"] = "58070501023";
-        // $_SESSION["userview"] = "student";
+
+        
         $input = check_input($_POST['day']);
         $setday = array("Monday","Tuesday","Wednesday","Thursday","Friday");
         $setdayTH = array("วันจันทร์","วันอังคาร","วันพุธ","วันพฤหัสบดี","วันศุกร์");
@@ -17,28 +17,48 @@
         if($input == $allday)
         {   
             $day = date("l" , strtotime("+2 days" , strtotime(date("l"))));
+           // echo $day;
             for($l=0;$l<7;$l++)
             {
-            if($day==$setday[$l])$countDay=$l;
+                if($day==$setday[$l])$countDay=$l;
             }
 
-            for($a = 0 ; $a < 5 ; $a++ )
-            {  
-                $tempDate = find_date($setdayTH[$countDay]);
-               $tempCourse[$a] = find_course($tempDate,$setdayTH[$countDay]);
-               if($a==0)$print .= $tempCourse[$a];
-               else $print.=','.$tempCourse[$a];
-               $countDay++;
-               if($countDay==5)$countDay=0;
+            if($countDay!=5 and $countDay!=6){
+                 for($a = 0 ; $a < 5 ; $a++ )
+                 {  
+                      $tempDate = find_date($setdayTH[$countDay]);
+                      $tempCourse[$a] = find_course($tempDate,$setdayTH[$countDay]);
+                      if($a==0)$print .= $tempCourse[$a];
+                      else $print.=','.$tempCourse[$a];
+                      $countDay++;
+                      if($countDay==5)$countDay=0;
             }
             $print.=']';
             echo $print;
+
+
+            }
+            else{
+                for($a = 0 ; $a < 5 ; $a++ )
+                 {  
+                      $tempDate = find_date($setdayTH[$a]);
+                      $tempCourse[$a] = find_course($tempDate,$setdayTH[$a]);
+                      if($a==0)$print .= $tempCourse[$a];
+                      else $print.=','.$tempCourse[$a];
+            }
+            $print.=']';
+            echo $print;
+           
+          }
+
         }
         else{
-            $tempDate = find_date($input);
-            $course_of_day =  find_course($tempDate,$input);
-            $print .=$course_of_day.']';
-            echo $print;
+            if($input!= $setdayTH[5] and $input!=$setdayTH[6]){
+                $tempDate = find_date($input);
+                $course_of_day =  find_course($tempDate,$input);
+                $print .=$course_of_day.']';
+                 echo $print;
+           }
         }
         
 
@@ -90,7 +110,7 @@
         
         if(check_show_course()==0){
 
-        $result = "SELECT c.subject,c.course_id,t.teacher_id,t.title,t.firstname,t.lastname,t.nickname,c.topic,DATE_FORMAT(c.start_time,'%H:%i') start_time,DATE_FORMAT(c.end_time,'%H:%i') end_time,date(c.start_time)cdate,c.room,t.image,avgStar.star,c.max_seat-seat.countSeat as seatLeft,c.max_seat
+        $result = "SELECT c.subject,c.course_id,t.teacher_id,t.title,t.firstname,t.lastname,t.nickname,t.facebook,t.line,c.topic,DATE_FORMAT(c.start_time,'%H:%i') start_time,DATE_FORMAT(c.end_time,'%H:%i') end_time,date(c.start_time)cdate,c.room,t.image,avgStar.star,c.max_seat-seat.countSeat as seatLeft,c.max_seat
         FROM course c,teacher t  left join (SELECT AVG(assign_course.star) AS star ,teacher.teacher_id as teacherid
                                   FROM assign_course, course , teacher 
                                   where course.teacher_id = teacher.teacher_id 
@@ -109,7 +129,7 @@
         elseif(check_show_course()==1){
             $username = $_SESSION['username'];
 
-            $result = "SELECT c.subject,c.course_id,t.teacher_id,t.title,t.firstname,t.lastname,t.nickname,c.topic,DATE_FORMAT(c.start_time,'%H:%i') start_time,DATE_FORMAT(c.end_time,'%H:%i') end_time,date(c.start_time)cdate,c.room,t.image,avgStar.star,c.max_seat-seat.countSeat as seatLeft,c.max_seat
+            $result = "SELECT c.subject,c.course_id,t.teacher_id,t.title,t.firstname,t.lastname,t.nickname,t.facebook,t.line,c.topic,DATE_FORMAT(c.start_time,'%H:%i') start_time,DATE_FORMAT(c.end_time,'%H:%i') end_time,date(c.start_time)cdate,c.room,t.image,avgStar.star,c.max_seat-seat.countSeat as seatLeft,c.max_seat
         FROM course c,teacher t  left join (SELECT AVG(assign_course.star) AS star ,teacher.teacher_id as teacherid
                                   FROM assign_course, course , teacher 
                                   where course.teacher_id = teacher.teacher_id 
@@ -183,6 +203,9 @@
                         .',"firstname":"'.$rs['firstname'].'"'
                         .',"lastname":"'.$rs['lastname'].'"'
                         .',"nickname":"'.$rs['nickname'].'"'
+                        .',"facebook":"'.$rs['facebook'].'"'
+                        .',"line":"'.$rs['line'].'"'
+
                         .',"img":"'.$rs['image'].'"'
                         .',"star":"'.$rs['star'].'"'
                         .',"course":[{'
@@ -217,6 +240,8 @@
                         .',"firstname":"'.$rs['firstname'].'"'
                         .',"lastname":"'.$rs['lastname'].'"'
                         .',"nickname":"'.$rs['nickname'].'"'
+                        .',"facebook":"'.$rs['facebook'].'"'
+                        .',"line":"'.$rs['line'].'"'
                         .',"img":"'.$rs['image'].'"'
                         .',"star":"'.$rs['star'].'"'
                         .',"course":['

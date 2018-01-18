@@ -1,16 +1,6 @@
 
-    <!-- 
-    <!DOCTYPE html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Login</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
-        
-    </head>
-    <body> -->
+    
     <?php require_once './header.php'; ?>
-    <br>
-    <br>
     <style type="text/css">
         body {
             font: 18px sans-serif;
@@ -27,12 +17,9 @@
             <h2>Request Password</h2>
             <p>Please enter student ID.</p>
                 <div class="form-group" id="request-pass-form">
-                    <label>Student ID:
-                        <sup>*</sup>
-                    </label>
+                    <label>Student ID:<sup>*</sup></label>
                     <input type="text" class="form-control" id="student-id" name="studentid">
-                    <span class="help-block" id="req-error">
-                    </span>
+                    <span class="help-block" id="req-error"></span>
                 </div>
                 <div class="form-group">
                     <input type="submit" id="req-btn" class="btn btn-primary" value="Submit">
@@ -42,7 +29,7 @@
     <script>
         $(document).ready(function(){
             $('#req-btn').click(function(){
-                var dataString = { studentid : $("#student-id").val()};
+                var dataString = { studentid : $("#student-id").val(), type : 'req_pass' };
                 console.log(dataString);//test only
                 if(dataString){
                     $.ajax({
@@ -57,7 +44,7 @@
                                 document.getElementById("req-error").innerHTML = data['ERROR'];
                             }
                             else{
-                                window.location.href = '/login/comfirm.php';                                
+                                window.location.href = '/geo_solution/resource/login/comfirm.php';                                
                             }
                         }
                     });

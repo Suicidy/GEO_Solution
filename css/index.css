@@ -1,0 +1,128 @@
+body {
+	font-family: 'Kanit', sans-serif;
+	width: 100%;
+}
+
+h2 {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.nav-tabs .nav-link {
+	color: gray;
+}
+
+.nav-tabs .nav-link .active {
+	background-color: #ff7454;
+	color: white;
+}
+
+.form-control {
+	margin-top: 10px;
+}
+
+.btn-success {
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+.head-line {
+	background-color: #ff7454;
+	height: 2px;
+}
+
+.day-card {
+	background-color: #ff7454;
+	font-size: 22px;
+}
+
+.card-name {
+	width: 16rem;
+}
+
+.card-title {
+	font-size: 18px;
+}
+
+.card-text {
+	font-size: 15px;
+}
+
+.card-course {
+	width: 100%;
+
+	position: relative;
+}
+
+.card-course .card-body {
+	height: 100%;
+}
+
+.time-reseved {
+	width: 120px;
+	height: 40px;
+}
+
+.class-name, .room {
+	padding: 10px;
+	padding-left: 15px;
+	height: 40px;
+}
+
+.modal-body .col-12 {
+	border: solid 1px;
+	border-color: #ff7454;
+	border-radius: 5px;
+	padding: 15px;
+}
+
+.modal-header {
+	background-color: #ff7454;
+	color: white;
+}
+
+.modal-body {
+	color: black;
+}
+
+.card-footer p {
+	margin-bottom: 10px;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.contract {
+	width: 40px;
+	height: 40px;
+}
+
+.card-group {
+	width: 100%;
+}
+
+.button-time {
+	padding: 0px;
+}
+
+.course-line {
+	background-color: #778899;
+	margin: 5px;
+	margin-left: 0px;
+}
+
+.review-text {
+	word-wrap: break-word;
+}
+
+.review-name {
+	color: black;
+}
+
+
+
+
+
+
