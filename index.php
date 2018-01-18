@@ -64,10 +64,10 @@
 								<div class="row">
 									<div class="col-1"></div>
 									<div class="card-group">
-																	  
+										<center>							  
 									    	<div class="card text-white bg-dark card-name">
 											  <img class="card-img-top" src="./image/team-member-2.jpg" alt="Card image cap">
-											  <center>
+											  
 											  <div class="card-body">
 											    <h5 class="card-title">นายภัทรพงศ์  แดงจินดา</h5>
 											    <p class="card-text">
@@ -81,9 +81,9 @@
 												  review
 												</button>
 											  </div>
-											  </center>
+											  
 											</div>
-										
+										</center>
 									    <div class="card text-white bg-dark card-course">
 									      <div class="card-body">									      	
 									        <h5 class="card-title">คอร์สที่ทำการสอน</h5>
