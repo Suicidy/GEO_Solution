@@ -40,7 +40,7 @@
 				<div class="tab-content" id="nav-tabContent">
 				  <div class="tab-pane fade show active" id="nav-MTH_102" role="tabpanel" aria-labelledby="nav-MTH_102-tab">
 				  	<div class="form-group">
-				  			<select class="form-control col-2" style="float:left;" id="exampleFormControlSelect1">
+				  			<select class="form-control col-md-3 col-xs-6" style="float:left;" id="exampleFormControlSelect1">
 						      <option>เลือกวัน</option>
 						      <option>วันจันทร์</option>
 						      <option>วันอังคาร</option>
@@ -52,10 +52,10 @@
 				  	</div>
 					<div class="col-12">
 						<h4 id="headMTH102">ทุกวัน</h4>
-						<hr>
+						<hr class="head-line">
 						<div class="col-12">
 							<h4 id="headMTH102">วันจันทร์</h4>
-							<hr>							
+							<hr class="head-line">							
 								<div class="row">
 									<div class="col-1"></div>
 									<div class="card-group">
@@ -105,7 +105,8 @@
 													  </div>
 													</div>
 
-									       		</div>								       		
+									       		</div>	
+									       		<hr class="course-line">							       		
 									       		<!-- <div class="row">
 										        	<div class="col-md-4 col-xs-6 class-name"><span>Block Diagram</span></div>										        	
 													<div class="col-md-4 col-xs-6 text-md-center room">
@@ -167,7 +168,7 @@
 				  	</div>
 					<div class="col-12">
 						<h4 id="headMTH112">ทุกวัน</h4>
-						<hr>
+						<hr class="head-line">
 						<center>
 						<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
 						  <div class="card-header">ไม่มีคอร์สเรียน</div>
@@ -190,7 +191,7 @@
 				  	</div>
 					<div class="col-12">
 						<h4 id="headPHY102">ทุกวัน</h4>
-						<hr>
+						<hr class="head-line" >
 						
 					</div>
 				  </div>
@@ -208,7 +209,7 @@
 				  	</div>
 					<div class="col-12">
 						<h4 id="headPHY104">ทุกวัน</h4>
-						<hr>
+						<hr class="head-line">
 						
 					</div>
 				  </div>
@@ -226,7 +227,7 @@
 				  	</div>
 					<div class="col-12">
 						<h4 id="headCHM103">ทุกวัน</h4>
-						<hr>						
+						<hr class="head-line">						
 					</div>
 				  </div>
 			</div>
