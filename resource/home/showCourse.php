@@ -7,8 +7,8 @@
         // $_SESSION["username"] = "58070501023";
         // $_SESSION["userview"] = "student";
         $input = check_input($_POST['day']);
-        $setday = array("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday");
-        $setdayTH = array("วันจันทร์","วันอังคาร","วันพุธ","วันพฤหัสบดี","วันศุกร์","วันเสาร์","วันอาทิตย์");
+        $setday = array("Monday","Tuesday","Wednesday","Thursday","Friday");
+        $setdayTH = array("วันจันทร์","วันอังคาร","วันพุธ","วันพฤหัสบดี","วันศุกร์");
       //  $tempFindCourse = arrray('','','','','','');
         $allday = "ทุกวัน";
         $print = '[';
