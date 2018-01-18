@@ -168,6 +168,11 @@
 					<div class="col-12">
 						<h4 id="headMTH112">ทุกวัน</h4>
 						<hr>
+						<center>
+						<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+						  <div class="card-header">ไม่มีคอร์สเรียน</div>
+						</div>
+						</center>
 						
 					</div>
 				  </div>
