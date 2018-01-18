@@ -64,8 +64,16 @@
 											  <img class="card-img-top" src="./image/team-member-2.jpg" alt="Card image cap">
 											  <div class="card-body">
 											    <h5 class="card-title">นายภัทรพงศ์  แดงจินดา</h5>
-											    <p class="card-text">Life is journey not a destinaiton.</p>
-											    <a href="#" class="btn btn-primary">Review</a>
+											    <p class="card-text">
+											    	<span id="star1" class="fa fa-star-half-full"></span>
+													<span id="star2" class="fa fa-star"></span>
+													<span id="star3" class="fa fa-star"></span>
+													<span id="star4" class="fa fa-star"></span>
+													<span id="star5" class="fa fa-star"></span>
+											    </p>
+											    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#reviewModal">
+												  review
+												</button>
 											  </div>
 											</div>
 										</center>
@@ -234,7 +242,75 @@
 		</div>
 	</div>
 
-
+											<div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+										  <div class="modal-dialog" role="document">
+										    <div class="modal-content">
+										      <div class="modal-header">
+										        <h5 class="modal-title" id="exampleModalLongTitle">Review</h5>
+										        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										          <span aria-hidden="true">&times;</span>
+										        </button>
+										      </div>
+										      <div class="modal-body">
+										      	<div class="col-12 review-text">
+										        	<p>Goooooooooooooooooodอิอิอิ</p>
+										        </div>
+										        <center>
+										        <div class="review-name">
+													<div class="col-md-3 col-xs-6">
+										        	คะแนนพี่TA
+										        	</div>
+										        	<div class="col-md-4 col-xs-4">
+										        		<span id="star1" class="fa fa-star-half-full"></span>
+														<span id="star2" class="fa fa-star"></span>
+														<span id="star3" class="fa fa-star"></span>
+														<span id="star4" class="fa fa-star"></span>
+														<span id="star5" class="fa fa-star"></span>
+										        	</div>
+										        	<div class="col-md-5 col-xs-5 date-time">
+										        		<p>17/01/2018 16.45 น.</p>
+										        	</div>	
+										        </div>
+										        </center>
+										        <div class="col-12 review-text">
+										        	<p>GoooooooooooooooooodอิอิอิksdjjvisojsovkGoooooooooooooooooodGoooooooooooooooooodGoooooooooooooooooodGooooooooooooooooood</p>
+										        </div>
+										        <center>
+										        <div class="review-name">
+													<div class="col-md-3 col-xs-6">
+										        	คะแนนพี่TA
+										        	</div>
+										        	<div class="col-md-4 col-xs-4">
+										        		<span id="star1" class="fa fa-star-half-full"></span>
+														<span id="star2" class="fa fa-star"></span>
+														<span id="star3" class="fa fa-star"></span>
+														<span id="star4" class="fa fa-star"></span>
+														<span id="star5" class="fa fa-star"></span>
+										        	</div>
+										        	<div class="col-md-5 col-xs-5 date-time">
+										        		<p>17/01/2018 16.45 น.</p>
+										        	</div>	
+										        </div>
+										        </center>
+										      </div>
+										      <div class="modal-footer">
+										        <nav aria-label="Page navigation example">
+												  <ul class="pagination justify-content-center">
+												    <li class="page-item disabled">
+												      <a class="page-link" href="#" tabindex="-1">Previous</a>
+												    </li>
+												    <li class="page-item"><a class="page-link" href="#">1</a></li>
+												    <li class="page-item"><a class="page-link" href="#">2</a></li>
+												    <li class="page-item"><a class="page-link" href="#">3</a></li>
+												    <li class="page-item">
+												      <a class="page-link" href="#">Next</a>
+												    </li>
+												  </ul>
+												</nav>
+										      </div>
+										    </div>
+										  </div>
+										</div>
 
 		<!-- <script type="text/javascript" scr="js/indexJ.js" id="js0"></script> -->
 <!-- 	</div>
