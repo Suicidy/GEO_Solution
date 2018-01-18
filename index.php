@@ -12,7 +12,7 @@
 	
 	<link href="https://fonts.googleapis.com/css?family=Kanit:400,500,600,700,800,900" rel="stylesheet"> -->
 	<link href="css/index.css" rel="stylesheet">
-	<!-- <script src="js/indexJ.js">
+	<!-- <script src="js/indexJ.js"></script>
 	
 
 	</script> -->
@@ -25,7 +25,7 @@
 	  <a class="navbar-brand" href="#">Navbar</a>
 	</nav>
 	<div class="container"> -->
-		<h2>GEO Solution</h2>
+		<br><h2>GEO Solution</h2>
 		<div class="row">
 			<div class="col">
 				
