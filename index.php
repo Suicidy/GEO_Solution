@@ -164,7 +164,7 @@
 				</div>
 				<div class="tab-pane fade" id="nav-MTH_112" role="tabpanel" aria-labelledby="nav-MTH_112-tab">
 				  	<div class="form-group">
-				  			<select class="form-control col-2" style="float:left;" id="exampleFormControlSelect2">
+				  			<select class="form-control col-md-3 col-xs-6" style="float:left;" id="exampleFormControlSelect2">
 						      <option>เลือกวัน</option>
 						      <option>วันจันทร์</option>
 						      <option>วันอังคาร</option>
@@ -181,13 +181,14 @@
 						<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
 						  <div class="card-header">ไม่มีคอร์สเรียน</div>
 						</div>
+						<br>
 						</center>
-						
+						<br>						
 					</div>
 				  </div>
 				  <div class="tab-pane fade" id="nav-PHY_102" role="tabpanel" aria-labelledby="nav-PHY_102-tab">
 				  	<div class="form-group">
-				  			<select class="form-control col-2" style="float:left;" id="exampleFormControlSelect3">
+				  			<select class="form-control col-md-3 col-xs-6" style="float:left;" id="exampleFormControlSelect3">
 						      <option>เลือกวัน</option>
 						      <option>วันจันทร์</option>
 						      <option>วันอังคาร</option>
@@ -205,7 +206,7 @@
 				  </div>
 				  <div class="tab-pane fade" id="nav-PHY_104" role="tabpanel" aria-labelledby="nav-PHY_104-tab">
 				  	<div class="form-group">
-				  			<select class="form-control col-2" style="float:left;" id="exampleFormControlSelect4">
+				  			<select class="form-control col-md-3 col-xs-6" style="float:left;" id="exampleFormControlSelect4">
 						      <option>เลือกวัน</option>
 						      <option>วันจันทร์</option>
 						      <option>วันอังคาร</option>
@@ -223,7 +224,7 @@
 				  </div>
 				  <div class="tab-pane fade" id="nav-CHM_103" role="tabpanel" aria-labelledby="nav-CHM_103-tab">
 				  	<div class="form-group">
-				  			<select class="form-control col-2" style="float:left;" id="exampleFormControlSelect5">
+				  			<select class="form-control col-md-3 col-xs-6" style="float:left;" id="exampleFormControlSelect5">
 						      <option>เลือกวัน</option>
 						      <option>วันจันทร์</option>
 						      <option>วันอังคาร</option>
