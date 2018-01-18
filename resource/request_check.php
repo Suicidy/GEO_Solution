@@ -54,15 +54,15 @@
                                         $mail->Subject  =  '[GEO Soultion] RESET PASSWORD';
                                         $mail->IsHTML(true);
                                         $mail->Body    = '<H2>Password reset </H2><br>'.$fname.' '.$lname.' '.$student_id.'<br>You have requested your password:<br><b>'.$password.'</b><br> or click on the below link to reset your password:<br>'.$link.'<br><br><h4>Geo Solution </h4> <a href="http://geo.li.kmutt.ac.th/geo_solution">geo.li.kmutt.ac.th/geo_solution</a><br>';
-                                        //if($mail->Send()){
+                                        if($mail->Send()){
                                             $mailsend = 'Your mail has been sent successfully.';
                                             echo '<script>console.log("'.$mailsend.' '.$emailreal.'");</script>';
                                             $_SESSION['email'] = $emailreal; 
                                             $message['SUCCESS'] = 'success';    
-                                        //}else{
-                                        //$mailerror =  "Mail Error - >".$mail->ErrorInfo;
-                                        //$message['ERROR'] = $mailerror ;
-                                        //$message['type'] = 'mail_err';
+                                        }else{
+                                        $mailerror =  "Mail Error - >".$mail->ErrorInfo;
+                                        $message['ERROR'] = $mailerror ;
+                                        $message['type'] = 'mail_err';
                                         }
                                     }else{
                                         $message['ERROR'] = "This account is already request password.";
