@@ -3,6 +3,11 @@ body {
 	width: 100%;
 }
 
+h2 {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
 .nav-tabs .nav-link {
 	color: gray;
 }
@@ -13,14 +18,15 @@ body {
 }
 
 .form-control {
-	margin: 10px;
+	margin-top: 10px;
 }
 
 .btn-success {
 	margin-top: 10px;
+	margin-left: 10px;
 }
 
-hr {
+.head-line {
 	background-color: #ff7454;
 	height: 2px;
 }
@@ -48,7 +54,6 @@ hr {
 }
 
 .time-reseved {
-	margin-bottom: 5px;
 	width: 120px;
 	height: 40px;
 }
@@ -97,6 +102,19 @@ img {
 	padding: 0px;
 }
 
+.course-line {
+	background-color: #778899;
+	margin: 5px;
+	margin-left: 0px;
+}
+
+.review-text {
+	word-wrap: break-word;
+}
+
+.review-name {
+	color: black;
+}
 
 
 

@@ -25,9 +25,10 @@
 	  <a class="navbar-brand" href="#">Navbar</a>
 	</nav>
 	<div class="container"> -->
+		<h2>GEO Solution</h2>
 		<div class="row">
 			<div class="col">
-				<h2>GEO Solution</h2>
+				
 				<nav>
 				  <div class="nav nav-tabs" id="nav-tab" role="tablist">
 				    <a class="nav-item nav-link active" id="nav-MTH_102-tab" data-toggle="tab" href="#nav-MTH_102" role="tab" aria-controls="nav-MTH_102" aria-selected="true">MTH 102</a>
@@ -40,7 +41,7 @@
 				<div class="tab-content" id="nav-tabContent">
 				  <div class="tab-pane fade show active" id="nav-MTH_102" role="tabpanel" aria-labelledby="nav-MTH_102-tab">
 				  	<div class="form-group">
-				  			<select class="form-control col-2" style="float:left;" id="exampleFormControlSelect1">
+				  			<select class="form-control col-md-3 col-xs-6" style="float:left;" id="exampleFormControlSelect1">
 						      <option>เลือกวัน</option>
 						      <option>วันจันทร์</option>
 						      <option>วันอังคาร</option>
@@ -52,10 +53,10 @@
 				  	</div>
 					<div class="col-12">
 						<h4 id="headMTH102">ทุกวัน</h4>
-						<hr>
+						<hr class="head-line">
 						<div class="col-12">
 							<h4 id="headMTH102">วันจันทร์</h4>
-							<hr>							
+							<hr class="head-line">							
 								<div class="row">
 									<div class="col-1"></div>
 									<div class="card-group">
@@ -64,8 +65,16 @@
 											  <img class="card-img-top" src="./image/team-member-2.jpg" alt="Card image cap">
 											  <div class="card-body">
 											    <h5 class="card-title">นายภัทรพงศ์  แดงจินดา</h5>
-											    <p class="card-text">Life is journey not a destinaiton.</p>
-											    <a href="#" class="btn btn-primary">Review</a>
+											    <p class="card-text">
+											    	<span id="star1" class="fa fa-star-half-full"></span>
+													<span id="star2" class="fa fa-star"></span>
+													<span id="star3" class="fa fa-star"></span>
+													<span id="star4" class="fa fa-star"></span>
+													<span id="star5" class="fa fa-star"></span>
+											    </p>
+											    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#reviewModal">
+												  review
+												</button>
 											  </div>
 											</div>
 										</center>
@@ -105,7 +114,8 @@
 													  </div>
 													</div>
 
-									       		</div>								       		
+									       		</div>	
+									       		<hr class="course-line">							       		
 									       		<!-- <div class="row">
 										        	<div class="col-md-4 col-xs-6 class-name"><span>Block Diagram</span></div>										        	
 													<div class="col-md-4 col-xs-6 text-md-center room">
@@ -155,7 +165,7 @@
 				</div>
 				<div class="tab-pane fade" id="nav-MTH_112" role="tabpanel" aria-labelledby="nav-MTH_112-tab">
 				  	<div class="form-group">
-				  			<select class="form-control col-2" style="float:left;" id="exampleFormControlSelect2">
+				  			<select class="form-control col-md-3 col-xs-6" style="float:left;" id="exampleFormControlSelect2">
 						      <option>เลือกวัน</option>
 						      <option>วันจันทร์</option>
 						      <option>วันอังคาร</option>
@@ -167,18 +177,19 @@
 				  	</div>
 					<div class="col-12">
 						<h4 id="headMTH112">ทุกวัน</h4>
-						<hr>
+						<hr class="head-line">
 						<center>
 						<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
 						  <div class="card-header">ไม่มีคอร์สเรียน</div>
 						</div>
+						<br>
 						</center>
-						
+						<br>						
 					</div>
 				  </div>
 				  <div class="tab-pane fade" id="nav-PHY_102" role="tabpanel" aria-labelledby="nav-PHY_102-tab">
 				  	<div class="form-group">
-				  			<select class="form-control col-2" style="float:left;" id="exampleFormControlSelect3">
+				  			<select class="form-control col-md-3 col-xs-6" style="float:left;" id="exampleFormControlSelect3">
 						      <option>เลือกวัน</option>
 						      <option>วันจันทร์</option>
 						      <option>วันอังคาร</option>
@@ -190,13 +201,13 @@
 				  	</div>
 					<div class="col-12">
 						<h4 id="headPHY102">ทุกวัน</h4>
-						<hr>
+						<hr class="head-line" >
 						
 					</div>
 				  </div>
 				  <div class="tab-pane fade" id="nav-PHY_104" role="tabpanel" aria-labelledby="nav-PHY_104-tab">
 				  	<div class="form-group">
-				  			<select class="form-control col-2" style="float:left;" id="exampleFormControlSelect4">
+				  			<select class="form-control col-md-3 col-xs-6" style="float:left;" id="exampleFormControlSelect4">
 						      <option>เลือกวัน</option>
 						      <option>วันจันทร์</option>
 						      <option>วันอังคาร</option>
@@ -208,13 +219,13 @@
 				  	</div>
 					<div class="col-12">
 						<h4 id="headPHY104">ทุกวัน</h4>
-						<hr>
+						<hr class="head-line">
 						
 					</div>
 				  </div>
 				  <div class="tab-pane fade" id="nav-CHM_103" role="tabpanel" aria-labelledby="nav-CHM_103-tab">
 				  	<div class="form-group">
-				  			<select class="form-control col-2" style="float:left;" id="exampleFormControlSelect5">
+				  			<select class="form-control col-md-3 col-xs-6" style="float:left;" id="exampleFormControlSelect5">
 						      <option>เลือกวัน</option>
 						      <option>วันจันทร์</option>
 						      <option>วันอังคาร</option>
@@ -226,14 +237,82 @@
 				  	</div>
 					<div class="col-12">
 						<h4 id="headCHM103">ทุกวัน</h4>
-						<hr>						
+						<hr class="head-line">						
 					</div>
 				  </div>
 			</div>
 		</div>
 	</div>
 
-
+											<div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+										  <div class="modal-dialog" role="document">
+										    <div class="modal-content">
+										      <div class="modal-header">
+										        <h5 class="modal-title" id="exampleModalLongTitle">Review</h5>
+										        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										          <span aria-hidden="true">&times;</span>
+										        </button>
+										      </div>
+										      <div class="modal-body">
+										      	<div class="col-12 review-text">
+										        	<p>Goooooooooooooooooodอิอิอิ</p>
+										        </div>
+										        <center>
+										        <div class="review-name">
+													<div class="col-md-3 col-xs-6">
+										        	คะแนนพี่TA
+										        	</div>
+										        	<div class="col-md-4 col-xs-4">
+										        		<span id="star1" class="fa fa-star-half-full"></span>
+														<span id="star2" class="fa fa-star"></span>
+														<span id="star3" class="fa fa-star"></span>
+														<span id="star4" class="fa fa-star"></span>
+														<span id="star5" class="fa fa-star"></span>
+										        	</div>
+										        	<div class="col-md-5 col-xs-5 date-time">
+										        		<p>17/01/2018 16.45 น.</p>
+										        	</div>	
+										        </div>
+										        </center>
+										        <div class="col-12 review-text">
+										        	<p>GoooooooooooooooooodอิอิอิksdjjvisojsovkGoooooooooooooooooodGoooooooooooooooooodGoooooooooooooooooodGooooooooooooooooood</p>
+										        </div>
+										        <center>
+										        <div class="review-name">
+													<div class="col-md-3 col-xs-6">
+										        	คะแนนพี่TA
+										        	</div>
+										        	<div class="col-md-4 col-xs-4">
+										        		<span id="star1" class="fa fa-star-half-full"></span>
+														<span id="star2" class="fa fa-star"></span>
+														<span id="star3" class="fa fa-star"></span>
+														<span id="star4" class="fa fa-star"></span>
+														<span id="star5" class="fa fa-star"></span>
+										        	</div>
+										        	<div class="col-md-5 col-xs-5 date-time">
+										        		<p>17/01/2018 16.45 น.</p>
+										        	</div>	
+										        </div>
+										        </center>
+										      </div>
+										      <div class="modal-footer">
+										        <nav aria-label="Page navigation example">
+												  <ul class="pagination justify-content-center">
+												    <li class="page-item disabled">
+												      <a class="page-link" href="#" tabindex="-1">Previous</a>
+												    </li>
+												    <li class="page-item"><a class="page-link" href="#">1</a></li>
+												    <li class="page-item"><a class="page-link" href="#">2</a></li>
+												    <li class="page-item"><a class="page-link" href="#">3</a></li>
+												    <li class="page-item">
+												      <a class="page-link" href="#">Next</a>
+												    </li>
+												  </ul>
+												</nav>
+										      </div>
+										    </div>
+										  </div>
+										</div>
 
 		<!-- <script type="text/javascript" scr="js/indexJ.js" id="js0"></script> -->
 <!-- 	</div>

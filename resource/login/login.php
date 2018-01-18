@@ -1,3 +1,4 @@
+
 <?php
     // Include config file
     require_once $_SERVER['DOCUMENT_ROOT'].'/geo_solution/config.php';
@@ -26,7 +27,7 @@
         // Validate credentials
         if(empty($data['username_err']) && empty($data['password_err'])){
             // Prepare a select statement
-            $sql = "SELECT student_id, password, type FROM student WHERE student_id = ?";
+            $sql = "SELECT student_id, password, type, login_count FROM student WHERE student_id = ?";
             if($stmt = mysqli_prepare($link, $sql)){
                 // Bind variables to the prepared statement as parameters
                 mysqli_stmt_bind_param($stmt, "s", $param_username);
@@ -39,13 +40,20 @@
                     // Check if username exists, if yes then verify password
                     if(mysqli_stmt_num_rows($stmt) == 1){                    
                         // Bind result variables
-                        mysqli_stmt_bind_result($stmt, $username, $hashed_password,$type);
+                        mysqli_stmt_bind_result($stmt, $username, $hashed_password,$type,$login_count);
                         if(mysqli_stmt_fetch($stmt)){
                             if(md5($password) == $hashed_password){
                                 /* Password is correct, so start a new session and save the username to the session */
                                 $_SESSION['username'] = $username; 
                                 $_SESSION['userview'] = $type; 
-                                $data['status_login']=1;    
+                                $data['status_login']=1;
+                                $data['login_count'] =$login_count;  
+                                $data['type']=$type;
+                                $login_count++;
+                                $add = 'update student set login_count='.$login_count.' where student_id="'.$_SESSION['username'].'";';
+                                $results = query($add);
+                               // echo $add;
+                               // echo $results;
                             } else{
                                 // Display an error message if password is not valid
                                 $data['password_err'] = 'รหัสผ่านไม่ถูกต้อง';

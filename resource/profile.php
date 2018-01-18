@@ -1,13 +1,17 @@
 <?php
   include('header.php');
-  $edit_flag=0;
-  if(empty($_SESSION['username']))
-  {
-    exit(0);  
-  }
 ?>
 <script>
     $(document).ready(function(){
+      $.post("/geo_solution/resource/review/view_type.php",{},function(data,status){
+  type = data['type'];
+  if (type != "student"){
+    window.location.replace("/geo_solution/index.php");
+  }
+},"json");
+
+
+
       $.post("/geo_solution/resource/profile/view_profile.php",{},function(data,status){
         document.getElementById("name_title").value = data['title'];
         document.getElementById("firstname").value = data['firstname'];
@@ -133,6 +137,7 @@
     <button id="save"  class="btn btn-secondary" style="background-color: #ff7454" hidden="true">ยืนยัน</button>
     <button id="cancel" type="button"onclick="goBack()"  class="btn btn-secondary" hidden="true">ยกเลิก</button>
   </center>
+  <br>
   </body>
 <!-- </form> -->
 <?php require_once 'footer.php'; ?>
