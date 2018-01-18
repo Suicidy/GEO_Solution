@@ -39,10 +39,12 @@ hr {
 
 .card-course {
 	width: 100%;
+
+	position: relative;
 }
 
 .card-course .card-body {
-	height: 200px;
+	height: 100%;
 }
 
 .time-reseved {
@@ -86,10 +88,14 @@ img {
 	width: 40px;
 	height: 40px;
 }
+
 .card-group {
 	width: 100%;
 }
 
+.button-time {
+	padding: 0px;
+}
 
 
 

@@ -24,12 +24,12 @@
 }
 [class*="col-"] {
     float: left;
-    padding: 15px;
+/*    padding: 15px;*/
 }
 .header {
     background-color: #9933cc;
     color: #ffffff;
-    padding: 15px;
+/*    padding: 15px;*/
 }
 .menu ul {
     list-style-type: none;
