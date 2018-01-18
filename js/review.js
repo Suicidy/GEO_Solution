@@ -1,4 +1,4 @@
-.post("/geo_solution/resource/review/view_type.php",{},function(data,status){
+$.post("/geo_solution/resource/review/view_type.php",{},function(data,status){
   type = data['type'];
   if (type != "student"){
     window.location.replace("/geo_solution/index.php");
@@ -18,12 +18,12 @@ function show_data(type) {
       var length = attributes.length;
       if (!jQuery.isEmptyObject(data)) {
         for (var i = 0; data[i]; i++) {
-          $("<div class="col"></div>")
+          $('<div class="col"></div>')
             .html(i + 1)
             .appendTo("#body");
           for (var j = 0; j < length; j++) {
             var k = attributes[j];
-            $("<div class="col"></div>")
+            $('<div class="col"></div>')
               .html(data[i][k])
               .appendTo("#body");
           }
@@ -38,7 +38,7 @@ function show_data(type) {
                 '">Review</button></div>'
             ).appendTo("#body");
           }
-          $("#body").wrapAll("<div class="row"></div>");
+          $("#body").wrapAll('<div class="row"></div>');
         }
       }
     },
