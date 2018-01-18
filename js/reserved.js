@@ -17,9 +17,17 @@ function show_data() {
               .html("<center>" + data[i][k] + "</center>")
               .appendTo("#body");
           }
-          $(
-            '<td><center><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#ask-modal" data-course = "' + data[i]["course_id"] + '">ยกเลิก</button></center></td>'
-          ).appendTo("#body");
+          if (data[i]['button_status'] == "1"){
+            $(
+              '<td><center><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#ask-modal" data-course = "' + data[i]["course_id"] + '">ยกเลิก</button></center></td>'
+            ).appendTo("#body");
+          }
+          else{
+            $(
+              '<td><center><button type="button" class="btn btn-Secondary" data-toggle="modal" data-target="#ask-modal" data-course = "' + data[i]["course_id"] + ' " disabled>ยกเลิก</button></center></td>'
+            ).appendTo("#body");
+          }
+          
           $("#body > td").wrapAll("<tr></tr>");
         }
       }

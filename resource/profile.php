@@ -81,6 +81,7 @@
 
 <!-- <form action="/geo_solution/resource/profile/save_profile.php" method="post"> -->
 <body>
+  <br>
 	<h1><font color="#ff7454">ข้อมูลส่วนตัว</font></h1>
   <p>ช่องที่มี <font color="red">*</font> จำเป็นต้องกรอกข้อมูล</p>
   <br>
