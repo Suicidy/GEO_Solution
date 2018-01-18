@@ -12,7 +12,7 @@
           $("#search").click(function(){
           $("#body").empty();
           var data_array = {};
-          var id = $("#search_id").val();
+          var id = $("#search_teacher").val();
           var subject = $("#search_subject").val();
           if (id == ""){
             alert("Please select ID");
@@ -23,7 +23,7 @@
           else{
             data_array['id'] = id;
             data_array['subject'] = subject;
-            $.post("attendance/searching.php",data_array,function(data,status){
+            $.post("check_review/searching.php",data_array,function(data,status){
               var attributes = ["student_id","title","firstname","lastname"];
               var length = attributes.length;
               if (jQuery.isEmptyObject(data)){
@@ -46,14 +46,11 @@
         });
       });
     </script>
-      <h1><font color="#ff7454">Check Attendance</font></h1>
+      <h1><font color="#ff7454">Check Review</font></h1>
         <div id="all" class="form-row align-items-center">
           <div class="col-auto my-1">
             <label class="mr-sm-2" for="inlineFormCustomSelect">Teacher Assistant ID</label>
-            <select class="custom-select mr-sm-2" id = "search_id">
-              <option value="" selected>Choose...</option>
-              <?php require "attendance/option_teacher.php";?>
-            </select>
+            <input type="text" class="form-control" id="search_teacher">
           </div>
           <div class="col-auto my-1">
             <label class="mr-sm-2" for="inlineFormCustomSelect">Course</label>
@@ -66,23 +63,19 @@
           </div>
           <button id = "search" type="submit" class="btn btn-primary search" style ="background-color : #ff7454; border-color : #ff7454; margin-top: 30px; "> SEARCH </button>
         </div>
-      <form action="attendance/submit.php" method="post" id = "submit_form">
         <div class="form-row align-items-center" id = "table" >
           <table class="table table-striped">
             <thead>
-              <tr>  
-                <th scope="col">Student-ID</th>
-                <th scope="col">Title</th>
-                <th scope="col">Firstname</th>
-                <th scope="col">Lastname</th>
-                <th scope="col">Status</th>
+              <tr>
+                <th scope="col">ลำดับ</th>  
+                <th scope="col">วิชา</th>
+                <th scope="col">หัวข้อ</th>
+                <th scope="col">รายละเอียด</th>
+                <th scope="col">เมนู</th>
               </tr>
             </thead>
             <tbody id = "body">
             </tbody>
           </table>
         </div>
-        <input type="hidden" name="course_id" id = "course">
-        <center><button id ="send" type="submit" class="btn btn-primary " style ="background-color : #ff7454; border-color : #ff7454;"> SAVE </button></center>
-      </form>
  <?php include('footer.php'); ?>
