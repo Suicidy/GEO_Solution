@@ -25,9 +25,10 @@
 	  <a class="navbar-brand" href="#">Navbar</a>
 	</nav>
 	<div class="container"> -->
+		<h2>GEO Solution</h2>
 		<div class="row">
 			<div class="col">
-				<h2>GEO Solution</h2>
+				
 				<nav>
 				  <div class="nav nav-tabs" id="nav-tab" role="tablist">
 				    <a class="nav-item nav-link active" id="nav-MTH_102-tab" data-toggle="tab" href="#nav-MTH_102" role="tab" aria-controls="nav-MTH_102" aria-selected="true">MTH 102</a>

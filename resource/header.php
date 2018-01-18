@@ -71,7 +71,7 @@ html {
 body {
 /*  background-color: #D3D3D3;*/
 /*  background-color: #efd9cd;*/
-  background-color: #ffd3b6;
+  background-color: #363636;
   position: relative;
   margin: 0;
   padding-bottom: 6rem;

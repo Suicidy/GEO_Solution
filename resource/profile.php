@@ -137,6 +137,7 @@
     <button id="save"  class="btn btn-secondary" style="background-color: #ff7454" hidden="true">ยืนยัน</button>
     <button id="cancel" type="button"onclick="goBack()"  class="btn btn-secondary" hidden="true">ยกเลิก</button>
   </center>
+  <br>
   </body>
 <!-- </form> -->
 <?php require_once 'footer.php'; ?>
