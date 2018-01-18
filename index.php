@@ -40,7 +40,7 @@
 				<div class="tab-content" id="nav-tabContent">
 				  <div class="tab-pane fade show active" id="nav-MTH_102" role="tabpanel" aria-labelledby="nav-MTH_102-tab">
 				  	<div class="form-group">
-				  			<select class="form-control col-2" style="float:left;" id="exampleFormControlSelect1">
+				  			<select class="form-control col-md-3 col-xs-6" style="float:left;" id="exampleFormControlSelect1">
 						      <option>เลือกวัน</option>
 						      <option>วันจันทร์</option>
 						      <option>วันอังคาร</option>
@@ -52,10 +52,10 @@
 				  	</div>
 					<div class="col-12">
 						<h4 id="headMTH102">ทุกวัน</h4>
-						<hr>
+						<hr class="head-line">
 						<div class="col-12">
 							<h4 id="headMTH102">วันจันทร์</h4>
-							<hr>							
+							<hr class="head-line">							
 								<div class="row">
 									<div class="col-1"></div>
 									<div class="card-group">
@@ -74,12 +74,17 @@
 									        <h5 class="card-title">คอร์สที่ทำการสอน</h5>
 									        <p class="card-text">
 									        	<div class="row">
-										        	<div class="col-4 class-name"><span>Block Diagram</span></div>
-															<div class="col-3 room"><span>CB2406</span></div>
-															<div class="col-3">
-										        	<button type="button" class="btn btn-primary time-reseved" data-toggle="modal" data-target="#exampleModal">
-													  <span>08.00-19.00</span>
-													</button>
+										        	<div class="col-md-4 col-xs-6 class-name"><span>Block Diagram</span></div>										        	
+													<div class="col-md-4 col-xs-6 text-md-center room">
+														<span>ห้อง CB2406</span>						
+													</div>
+													<div class="col-md-4 col-xs-4 button-time">
+													<center>
+											        	<button type="button" class="btn btn-primary time-reseved" data-toggle="modal" data-target="#exampleModal">
+														  <span>08.00-19.00</span>
+														</button>
+													</center>
+
 													</div>
 													<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 													  <div class="modal-dialog" role="document">
@@ -100,20 +105,33 @@
 													  </div>
 													</div>
 
-									       		</div>								       		
+									       		</div>	
+									       		<hr class="course-line">							       		
+									       		<!-- <div class="row">
+										        	<div class="col-md-4 col-xs-6 class-name"><span>Block Diagram</span></div>										        	
+													<div class="col-md-4 col-xs-6 text-md-center room">
+														<span>ห้อง CB2406</span>						
+													</div>
+													<div class="col-md-4 col-xs-4 button-time">
+													<center>
+											        	<button type="button" class="btn btn-primary time-reseved" data-toggle="modal" data-target="#exampleModal">
+														  <span>08.00-19.00</span>
+														</button>
+													</center>
+													</div>
+									       		</div> -->
 									       		<div class="row">
-										        	<div class="col-5 class-name">Block Diagram</div>
-										        	<div class="col-3 room">CB2406</div>
-										        	<button type="button" class="btn btn-primary time-reseved" data-toggle="modal" data-target="#exampleModal">
-													  08.00-09.00
-													</button>
-									       		</div>
-									       		<div class="row">
-										        	<div class="col-5 class-name">Block Diagram</div>
-										        	<div class="col-3 room">CB2406</div>
-										        	<button type="button" class="btn btn-primary time-reseved" data-toggle="modal" data-target="#exampleModal">
-													  08.00-09.00
-													</button>
+										        	<div class="col-md-4 col-xs-6 class-name"><span>Block Diagram</span></div>										        	
+													<div class="col-md-4 col-xs-6 text-md-center room">
+														<span>ห้อง CB2406</span>						
+													</div>
+													<div class="col-md-4 col-xs-4 button-time">
+													<center>
+											        	<button type="button" class="btn btn-primary time-reseved" data-toggle="modal" data-target="#exampleModal">
+														  <span>08.00-19.00</span>
+														</button>
+													</center>
+													</div>
 									       		</div>		
 									    	</p>								        
 									      </div>
@@ -126,93 +144,13 @@
 										  	  <p>
 										      <img class="contract" src="./image/line.png">
 										      Bonus><
-										  	  </p>
-										  	  <p>
-										      <img class="contract" src="./image/instagram.png">
-										      Bonus
 										  	  </p>
 										    </div>
 								    	</div>
 								    </div>
 								</div>
 								<br>
-																<div class="row">
-									<div class="col-1"></div>
-									<div class="card-group">
-										<center>							  
-									    	<div class="card text-white bg-dark card-name">
-											  <img class="card-img-top" src="./image/team-member-2.jpg" alt="Card image cap">
-											  <div class="card-body">
-											    <h5 class="card-title">นายภัทรพงศ์  แดงจินดา</h5>
-											    <p class="card-text">Life is journey not a destinaiton.</p>
-											    <a href="#" class="btn btn-primary">Review</a>
-											  </div>
-											</div>
-										</center>
-									    <div class="card text-white bg-dark card-course">
-									      <div class="card-body">									      	
-									        <h5 class="card-title">คอร์สที่ทำการสอน</h5>
-									        <p class="card-text">
-									        	<div class="row">
-										        	<div class="col-5 class-name">Block Diagram</div>
-										        	<div class="col-3 room">CB2406</div>
-										        	<button type="button" class="btn btn-primary time-reseved" data-toggle="modal" data-target="#exampleModal">
-													  08.00-19.00
-													</button>
-													<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-													  <div class="modal-dialog" role="document">
-													    <div class="modal-content">
-													      <div class="modal-header">
-													        <h5 class="modal-title" id="exampleModalLabel">ยืนยันการจอง</h5>
-													        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-													          <span aria-hidden="true">&times;</span>
-													        </button>
-													      </div>
-													      <div class="modal-body">
-													        จำนวนที่นั่งคงเหลือ 10/10 ที่นั่ง
-													      </div>
-													      <div class="modal-footer">						        
-													        <button type="button" class="btn btn-success">ยืนยัน</button>
-													      </div>													 
-													    </div>
-													  </div>
-													</div>
-
-									       		</div>								       		
-									       		<div class="row">
-										        	<div class="col-5 class-name">Block Diagram</div>
-										        	<div class="col-3 room">CB2406</div>
-										        	<button type="button" class="btn btn-primary time-reseved" data-toggle="modal" data-target="#exampleModal">
-													  08.00-09.00
-													</button>
-									       		</div>
-									       		<div class="row">
-										        	<div class="col-5 class-name">Block Diagram</div>
-										        	<div class="col-3 room">CB2406</div>
-										        	<button type="button" class="btn btn-primary time-reseved" data-toggle="modal" data-target="#exampleModal">
-													  08.00-09.00
-													</button>
-									       		</div>		
-									    	</p>								        
-									      </div>
-									      	<div class="card-footer">
-										      <p>ติดต่อ</p>
-										      <p>
-										      <img class="contract" src="./image/facebook.png">
-										      Prapasiri Sawetsutipn
-										  	  </p>
-										  	  <p>
-										      <img class="contract" src="./image/line.png">
-										      Bonus><
-										  	  </p>
-										  	  <p>
-										      <img class="contract" src="./image/instagram.png">
-										      Bonus
-										  	  </p>
-										    </div>
-								    	</div>
-								    </div>
-								</div>														
+															
 						</div>
 					</div>					
 				</div>
@@ -230,7 +168,12 @@
 				  	</div>
 					<div class="col-12">
 						<h4 id="headMTH112">ทุกวัน</h4>
-						<hr>
+						<hr class="head-line">
+						<center>
+						<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+						  <div class="card-header">ไม่มีคอร์สเรียน</div>
+						</div>
+						</center>
 						
 					</div>
 				  </div>
@@ -248,7 +191,7 @@
 				  	</div>
 					<div class="col-12">
 						<h4 id="headPHY102">ทุกวัน</h4>
-						<hr>
+						<hr class="head-line" >
 						
 					</div>
 				  </div>
@@ -266,7 +209,7 @@
 				  	</div>
 					<div class="col-12">
 						<h4 id="headPHY104">ทุกวัน</h4>
-						<hr>
+						<hr class="head-line">
 						
 					</div>
 				  </div>
@@ -284,7 +227,7 @@
 				  	</div>
 					<div class="col-12">
 						<h4 id="headCHM103">ทุกวัน</h4>
-						<hr>						
+						<hr class="head-line">						
 					</div>
 				  </div>
 			</div>

@@ -12,7 +12,7 @@
     }
 </style>
     <center>
-    <div class="card bg-light wrapper">
+    <div class="card text-white bg-dark wrapper">
         <h2> Forgotten Password</h2>
         <p>Please fill in your Student ID.</p>
         <div class="form-group" id="recov-pass-form">

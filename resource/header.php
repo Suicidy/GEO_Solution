@@ -24,7 +24,6 @@
 }
 [class*="col-"] {
     float: left;
-    padding: 15px;
 }
 .header {
     background-color: #9933cc;
@@ -70,11 +69,19 @@ html {
 }
 
 body {
+/*  background-color: #D3D3D3;*/
+/*  background-color: #efd9cd;*/
+  background-color: #ffd3b6;
   position: relative;
   margin: 0;
   padding-bottom: 6rem;
   min-height: 100%;
 	font-family: 'Kanit', sans-serif;
+}
+
+#container{
+  background-color: white;
+  border-radius: 10px;
 }
 
 .demo {
@@ -97,12 +104,31 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  text-align: center;
 }
+
+/*.h1{
+  background-color: #ff7454;
+  font-color: white;
+}*/
+
+.navbar{
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.nav-item{
+  margin-right: 10px;
+}
+
+#navbarNavDropdown{
+  padding-left: 20px;
+}
+
 img {
-    max-width: 100%;
-    max-height: 100%;
+  max-width: 100%;
+  max-height: 100%;
 }
+
 /* For desktop: */
 .col-1 {width: 8.33%;}
 .col-2 {width: 16.66%;}
@@ -124,7 +150,7 @@ img {
     }
 }
 </style>
-  <script>
+<script>
   $(document).ready(function(){
     $("#login").click(function(){
       var username = $("#username").val();
@@ -133,10 +159,15 @@ img {
         var username_err = data['username_err'];
         var password_err = data['password_err'];
         var status_login = data['status_login'];
+        var login_count = data['login_count'];
         $("#user_err").text(username_err);
         $("#pass_err").text(password_err);
-        // alert(data['username_err']);
-        if(status_login==1)
+       // alert(data['login_count']);
+        if(login_count==0)
+        {
+          window.location.replace("/geo_solution/resource/profile.php");
+         }
+        else if(status_login==1)
         {
           location.reload();
         }
@@ -150,18 +181,18 @@ img {
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-faded navbar-dark bg-dark sticky-top">
-  <div class="container">
+  <div class="nav container">
     <a class="navbar-brand mx-auto" href="/geo_solution/index.php">
-      <img src="/geo_solution/image/geo_logo.png" width="50" height="50" class="d-inline-block align-top" alt="">
-      <font color="#ff7454">GEO Solution</font>
+      <img src="/geo_solution/image/geo_logo.png" width="70" height="70">
+      <font color="#ff7454" size="6">GEO Solution</font>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div id="navbarNavDropdown" class="navbar-collapse collapse">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="/geo_solution/index.php">หน้าหลัก <span class="sr-only">(current)</span></a>
+        <li class="nav-item">
+          <a class="nav-link" href="/geo_solution/index.php">หน้าหลัก</a>
         <?php
           if(isset($_SESSION['username']) && $_SESSION['userview'] == 'student') {echo
             '<li class="nav-item">
@@ -236,7 +267,6 @@ img {
 					</button>
         		</div>
 	        	<div class="modal-body">
-	          		
 	            		<div class="form-group">
 			            	<label class="form-control-label">รหัสนักศึกษา</label>
                     <input class="form-control" type="text" id="username">
@@ -257,5 +287,6 @@ img {
 			</div>
 		</div>
 	</div>
-<div class="container">
   <br>
+  <br>
+<div class="container" id="container">
