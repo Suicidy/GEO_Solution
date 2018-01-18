@@ -21,17 +21,6 @@
 				return SetRatingStar();
 			});
 			var type, course_id;
-			$.post("/geo_solution/resource/review/view_type.php",{},function(data,status){
-				type = data['type'];
-				if (type != "student"){
-					$("#all").empty();
-					alert("คุณไม่มีสิทธิใช้งาน");
-					window.location.replace("/geo_solution/index.php");
-				}
-				else{	
-					show_data("all");	
-				}
-			},"json");
 			$("#body > tr:even").css("background-color", "gray");
 			$("#select").click(function(){
 				type = $("#select").val();
