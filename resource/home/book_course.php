@@ -35,10 +35,9 @@
 			 					   WHERE course_id = $courseid and student_id = $user";
 			 	while($rs=mysqli_fetch_array($find_commentid,MYSQLI_ASSOC))
       				{
-      					$comment_id = $rs['comment_id'];	
+      					$comment_id = $rs['comment_id'];
      				}
-     			 $command_insertcomment =  "INSERT INTO `review` (`comment_id`,`type`,`review_txt`,`show_status`)
-     			 							VALUES ($comment_id,'before_class',$comment,1);";
+     			 $command_insertcomment =  "INSERT INTO `review` (`comment_id`,`type`,`review_txt`,`show_status`) VALUES ($comment_id,'beforeClass','$comment',1);";
      			 $check_comment = query($command_insertcomment);	
 
      			 if($check_comment)echo 'สถานะการจองสำเร็จแล้ว และพี่ TA ได้รับความคิดเห็นของคุณแล้ว';
