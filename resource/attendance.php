@@ -35,13 +35,13 @@
                   $("<td></td>").html("<center>" + i + "</center>").appendTo("#body");
                   for (var j = 0; j < length ; j++){
                     var k = attributes[j];
-                    $("<td></td>").text(data[i][k]).appendTo("#body");
+                    $("<td></td>").html("<center>" + data[i][k] + "</center>").appendTo("#body");
                   }
                   if(data[i]['attending_status']== "0"){
-                    $('<td><input type="checkbox" name="student_id[]" value="' + data[i]['student_id'] +'"></td>').appendTo("#body");
+                    $('<td><center><input type="checkbox" name="student_id[]" value="' + data[i]['student_id'] +'"></center></td>').appendTo("#body");
                   }
                   else{
-                    $('<td><input type="checkbox" name="student_id[]" value="' + data[i]['student_id'] +'" checked></td>').appendTo("#body");
+                    $('<td><center><input type="checkbox" name="student_id[]" value="' + data[i]['student_id'] +'" checked></center></td>').appendTo("#body");
                   }
                   
                   $("#body > td").wrapAll("<tr></tr>");
@@ -82,12 +82,12 @@
                 <table class="table table-striped" id = "table">
                   <thead>
                     <tr>
-                      <th scope="col"></th> 
-                      <th scope="col">Student-ID</th>
-                      <th scope="col">Title</th>
-                      <th scope="col">Firstname</th>
-                      <th scope="col">Lastname</th>
-                      <th scope="col">Status</th>
+                      <th scope="col"><center></center></th> 
+                      <th scope="col"><center>Student-ID</center></th>
+                      <th scope="col"><center>Title</center></th>
+                      <th scope="col"><center>Firstname</center></th>
+                      <th scope="col"><center>Lastname</center></th>
+                      <th scope="col"><center>Status</center></th>
                     </tr>
                   </thead>
                   <tbody id = "body">
