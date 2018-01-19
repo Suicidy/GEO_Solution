@@ -38,6 +38,7 @@
 				<br>
 				<h1><font color="#ff7454">สถานะการจอง</font></h1>
 				<br>
+			<div style="overflow-x:auto;">
 				<table class="table table-striped" id="all">
 				  <thead>
 				    <tr>
@@ -53,6 +54,7 @@
 				  </tbody>
 				</table>
 			</div>
+		</div>
 		</div>
 	
 						<div class="modal fade" id="ask-modal" tabindex="-1" role="dialog" aria-labelledby="ยืนยันที่จะยกเลิกหรือไม่" aria-hidden="true">

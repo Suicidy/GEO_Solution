@@ -96,7 +96,6 @@
                                         if($mail->Send())
                                         {
                                             $mailsend = 'Your mail has been sent successfully.';
-                                            //echo '<script>console.log("'.$mailsend.' '.$emailreal.'");</script>';
                                             $_SESSION['email'] = $emailreal; 
                                             $message['SUCCESS'] = 'success';    
                                         }
@@ -119,7 +118,8 @@
                 }
                 mysqli_stmt_close($stmt);
             }  
-        echo json_encode($message);
+        }
+    echo json_encode($message);
     }
         
     function generatePassword($length) { 
