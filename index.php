@@ -59,185 +59,7 @@
 							  <div class="card-header">วันจันทร์(01/18/2018)</div>
 						</div>
 
-						<div class="col-12">
-								<div class="row">
-									<div class="col-1"></div>
-									<div class="card-group">
-										<center>							  
-									    	<div class="card text-white bg-dark card-name">
-											  <img class="card-img-top" src="/geo_solution/image/team-member-2.jpg" alt="Card image cap">
-											  <div class="card-body">
-											    <h5 class="card-title">นายภัทรพงศ์  แดงจินดาแดงแดงแดง(เต้)</h5>
-											    <p class="card-text">
-											    	<span id="star1" class="fa fa-star-half-full"></span>
-													<span id="star2" class="fa fa-star"></span>
-													<span id="star3" class="fa fa-star"></span>
-													<span id="star4" class="fa fa-star"></span>
-													<span id="star5" class="fa fa-star"></span>
-											    </p>
-											    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#reviewModal">
-												  review
-												</button>
-											  </div>
-											</div>
-										</center>
-									    <div class="card text-white bg-dark card-course">
-									      <div class="card-body">									      	
-									        <h5 class="card-title">คอร์สที่ทำการสอน</h5>
-									        <p class="card-text">
-									        	<div class="row">
-										        	<div class="col-md-4 col-xs-6 class-name"><span>Block Diagram</span></div>										        	
-													<div class="col-md-4 col-xs-6 text-md-center room">
-														<span>ห้อง CB2406</span>						
-													</div>
-													<div class="col-md-4 col-xs-4 button-time">
-													<center>
-											        	<button type="button" class="btn btn-primary time-reseved" data-toggle="modal" data-target="#exampleModal">
-														  <span>08.00-19.00</span>
-														</button>
-													</center>
-													</div>
-									       		</div>	
-									       		<hr class="course-line">							       		
-									       		<!-- <div class="row">
-										        	<div class="col-md-4 col-xs-6 class-name"><span>Block Diagram</span></div>										        	
-													<div class="col-md-4 col-xs-6 text-md-center room">
-														<span>ห้อง CB2406</span>						
-													</div>
-													<div class="col-md-4 col-xs-4 button-time">
-													<center>
-											        	<button type="button" class="btn btn-primary time-reseved" data-toggle="modal" data-target="#exampleModal">
-														  <span>08.00-19.00</span>
-														</button>
-													</center>
-													</div>
-									       		</div> -->
-									       		<div class="row">
-										        	<div class="col-md-4 col-xs-6 class-name"><span>Block Diagram</span></div>										        	
-													<div class="col-md-4 col-xs-6 text-md-center room">
-														<span>ห้อง CB2406</span>						
-													</div>
-													<div class="col-md-4 col-xs-4 button-time">
-													<center>
-											        	<button type="button" class="btn btn-primary time-reseved" data-toggle="modal" data-target="#exampleModal">
-														  <span>08.00-19.00</span>
-														</button>
-													</center>
-													</div>
-									       		</div>	
-									       		<hr class="course-line">	
-									    	</p>								        
-									      </div>
-									      	<div class="card-footer">
-										      <p>ติดต่อ</p>
-										      <p>
-										      <img class="contract" src="./image/facebook.png">
-										      Prapasiri Sawetsutipn
-										  	  </p>
-										  	  <p>
-										      <img class="contract" src="./image/line.png">
-										      Bonus><
-										  	  </p>
-										    </div>
-								    	</div>
-								    </div>
-								</div>
-
-								<br>
-
-								<div class="row">
-									<div class="col-1"></div>
-									<div class="card-group">
-										<center>							  
-									    	<div class="card text-white bg-dark card-name">
-											  <img class="card-img-top" src="./image/team-member-2.jpg" alt="Card image cap">
-											  <div class="card-body">
-											    <h5 class="card-title">นายภัทรพงศ์  แดงจินดา</h5>
-											    <p class="card-text">
-											    	<span id="star1" class="fa fa-star-half-full"></span>
-													<span id="star2" class="fa fa-star"></span>
-													<span id="star3" class="fa fa-star"></span>
-													<span id="star4" class="fa fa-star"></span>
-													<span id="star5" class="fa fa-star"></span>
-											    </p>
-											    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#reviewModal">
-												  review
-												</button>
-											  </div>
-											</div>
-										</center>
-									    <div class="card text-white bg-dark card-course">
-									      <div class="card-body">									      	
-									        <h5 class="card-title">คอร์สที่ทำการสอน</h5>
-									        <p class="card-text">
-									        	<div class="row">
-										        	<div class="col-md-4 col-xs-6 class-name"><span>Block Diagram</span></div>										        	
-													<div class="col-md-4 col-xs-6 text-md-center room">
-														<span>ห้อง CB2406</span>						
-													</div>
-													<div class="col-md-4 col-xs-4 button-time">
-													<center>
-											        	<button type="button" class="btn btn-primary time-reseved" data-toggle="modal" data-target="#exampleModal">
-														  <span>08.00-19.00</span>
-														</button>
-													</center>
-
-													</div>
-													<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-													  <div class="modal-dialog" role="document">
-													    <div class="modal-content">
-													      <div class="modal-header">
-													        <h5 class="modal-title" id="exampleModalLabel">ยืนยันการจอง</h5>
-													        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-													          <span aria-hidden="true">&times;</span>
-													        </button>
-													      </div>
-													      <div class="modal-body">
-													        จำนวนที่นั่งคงเหลือ 10/10 ที่นั่ง
-													      </div>
-													      <div class="modal-footer">						        
-													        <button type="button" class="btn btn-success">ยืนยัน</button>
-													      </div>													 
-													    </div>
-													  </div>
-													</div>
-
-									       		</div>	
-									       		<hr class="course-line">							       		
-									       		<div class="row">
-										        	<div class="col-md-4 col-xs-6 class-name"><span>Block Diagram</span></div>										        	
-													<div class="col-md-4 col-xs-6 text-md-center room">
-														<span>ห้อง CB2406</span>						
-													</div>
-													<div class="col-md-4 col-xs-4 button-time">
-													<center>
-											        	<button type="button" class="btn btn-primary time-reseved" data-toggle="modal" data-target="#exampleModal">
-														  <span>08.00-19.00</span>
-														</button>
-													</center>
-													</div>
-									       		</div>
-									       		<hr class="course-line">		
-									    	</p>								        
-									      </div>
-									      	<div class="card-footer">
-										      <p>ติดต่อ</p>
-										      <p>
-										      <img class="contract" src="./image/facebook.png">
-										      Prapasiri Sawetsutipn
-										  	  </p>
-										  	  <p>
-										      <img class="contract" src="./image/line.png">
-										      Bonus><
-										  	  </p>
-										    </div>
-								    	</div>
-								    </div>
-								</div>
-
-								<br>					
-						</div>
-						</div>
+					
 						<br>
 					</div>					
 				</div>
@@ -258,9 +80,8 @@
 						<hr class="head-line">
 						<center id="nocourseMTH112"></center>
 
-						<div id="contentMTH112"></div>div>	
-
-						<br>						
+						<div id="contentMTH112"></div>	
+					
 					</div>
 					<br>
 				  </div>
@@ -281,7 +102,8 @@
 						<hr class="head-line" >
 						<center id="nocoursePHY102"></center>
 
-						<div id="contentPHY102"></div>div>		
+						<div id="contentPHY102"></div>
+
 					</div>
 					<br>
 				  </div>
@@ -302,7 +124,7 @@
 						<hr class="head-line">
 						<center id="nocoursePHY104">vbvb</center>
 
-						<div id="contentPHY104"></div>div>	
+						<div id="contentPHY104"></div>
 						
 					</div>
 					<br>
@@ -324,7 +146,7 @@
 						<hr class="head-line">	
 						<center id="nocourseCHM103"></center>
 
-						<div id="contentCHM103"></div>div>						
+						<div id="contentCHM103"></div>					
 					</div>
 				  </div>
 				  <br>
@@ -342,46 +164,7 @@
         </button>
       </div>
       <div class="modal-body" id="reviewModalText">
-      	<div class="col-12 review-text" ">
-        	<p>Goooooooooooooooooodอิอิอิ</p>
-        </div>
-        <center>
-        <div class="review-name">
-			<div class="col-md-3 col-xs-6">
-        	คะแนนพี่TA
-        	</div>
-        	<div class="col-md-4 col-xs-4">
-        		<span id="star1" class="fa fa-star-half-full"></span>
-				<span id="star2" class="fa fa-star"></span>
-				<span id="star3" class="fa fa-star"></span>
-				<span id="star4" class="fa fa-star"></span>
-				<span id="star5" class="fa fa-star"></span>
-        	</div>
-        	<div class="col-md-5 col-xs-5 date-time">
-        		<p>17/01/2018 16.45 น.</p>
-        	</div>	
-        </div>
-        </center>
-        <div class="col-12 review-text">
-        	<p>GoooooooooooooooooodอิอิอิksdjjvisojsovkGoooooooooooooooooodGoooooooooooooooooodGoooooooooooooooooodGooooooooooooooooood</p>
-        </div>
-        <center>
-        <div class="review-name">
-			<div class="col-md-3 col-xs-6">
-        	คะแนนพี่TA
-        	</div>
-        	<div class="col-md-4 col-xs-4">
-        		<span id="star1" class="fa fa-star-half-full"></span>
-				<span id="star2" class="fa fa-star"></span>
-				<span id="star3" class="fa fa-star"></span>
-				<span id="star4" class="fa fa-star"></span>
-				<span id="star5" class="fa fa-star"></span>
-        	</div>
-        	<div class="col-md-5 col-xs-5 date-time">
-        		<p>17/01/2018 16.45 น.</p>
-        	</div>	
-        </div>
-        </center>
+ 
       </div>
       <!-- <div class="modal-footer">
         <nav aria-label="Page navigation example">
