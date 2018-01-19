@@ -1,7 +1,7 @@
 <?php include('header.php'); ?>
-	<script src="/geo_solution/js/review.js"></script>
+	<!-- <script src="/geo_solution/js/review.js"></script> -->
 	<link href="/geo_solution/css/review.css" rel="stylesheet">
-	<script>
+	<!-- <script>
 		$(document).ready(function(){
 			var $star_rating = $('.star-rating .fa');
 
@@ -79,66 +79,118 @@
 				show_data(type);
 			});
 		});
-	</script>
+	</script> -->
 	<div class="modal fade" id="review-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-						  <div class="modal-dialog" role="document">
-						    <div class="modal-content">
-						      <div class="modal-header">
-						        <h5 class="modal-title" id="exampleModalLabel">Review</h5>
-						        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						          <span aria-hidden="true">&times;</span>
-						        </button>
-						      </div>
-						      <div class="modal-body">
-						        <div class="row">
-						        	<div class="col-1"></div>
-							      	<div class="col-3">
-										<div class="square" style="wide:100px; height:100px;">
-											<img id = "ta_image" src = "">
-											<p class="nickname" id="nickname"></p>
-										</div>
-									</div>
-									<div class="col-sm">
-										<p id = "name"></p>
-										<p id = "subject"></p>
-										<p id = "topic"></p>
-									</div>
-								</div>
-								<p>ให้คะแนนพี่ TA   
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">Review</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	        <div class="row">
+	        	<div class="col-1"></div>
+		      	<div class="col-3">
+					<div class="square">
+						<img id = "ta_image" src = "">
+						<p class="nickname" id="nickname"></p>
+					</div>
+				</div>
+				<div class="col-sm">
+					<p id = "name"></p>
+					<p id = "subject"></p>
+					<p id = "topic"></p>
+				</div>
+			</div>
+			  
+				<div class="star-rating">
+					<p>ให้คะแนนพี่ TA 
+					 <span class="fa fa-star-o" data-rating="1"></span>
+				   	 <span class="fa fa-star-o" data-rating="2"></span>
+					 <span class="fa fa-star-o" data-rating="3"></span>
+					 <span class="fa fa-star-o" data-rating="4"></span>
+					 <span class="fa fa-star-o" data-rating="5"></span>
+					 <input type="hidden" name="star" id= "star-value" class="rating-value" value="0">
+					 </p>
+				</div>
+			
+			<form>
+				<div class="form-group">
+					<label for="exampleFormControlTextarea1">เนื้อหา</label>
+				    <textarea class="form-control" id="content_txt" rows="3" placeholder="แสดงความคิดเห็นเกี่ยวกับเนื้อหาที่เรียน..."></textarea>
+				</div>
+				<div class="form-group">
+					<label for="exampleFormControlTextarea1">ผู้สอน</label>
+				    <textarea class="form-control" id="teacher_txt" rows="3" placeholder="แสดงความคิดเห็นเกี่ยวกับผู้สอน..."></textarea>
+				</div>
+				<div class="form-group">
+					<label for="exampleFormControlTextarea1">ข้อเสนอแนะ</label>
+				    <textarea class="form-control" id="other_txt" rows="3" placeholder="คำแนะนำเพิ่มเติม..."></textarea>
+				</div>
+			</form>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+	        <button id = "submit_review" type="submit" class="btn btn-primary">Submit</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<h2>Review</h2>
+			<div style="overflow-x:auto;">
+				<table class="table table-striped">
+				  <thead>
+				    <tr>
+				      <th scope="col"></th>
+				      <th scope="col">วิชา</th>
+				      <th scope="col">เรื่องที่สอน</th>
+				      <th scope="col">รายละเอียด</th>
+				      <th scope="col">สถานะ</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr>
+				      <th scope="row">1</th>
+				      <td>MTH102</td>
+				      <td>Block Diagram</td>
+				      <td>12/01/2016 14.00-18.00</td>
+				      <td>
+				      	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#review-modal">
+						  review
+						</button>
+				      </td>
+				    </tr>
+				    <tr>
+				      <th scope="row">2</th>
+				      <td>MTH102</td>
+				      <td>Block Diagram</td>
+				      <td>12/01/2016 14.00-18.00</td>
+				      <td>
+				      	<button type="button" class="btn btn-secondary">review</button>
+				      </td>
+				    </tr>
+				    <tr>
+				      <th scope="row">3</th>
+				      <td>MTH102</td>
+				      <td>Block Diagram</td>
+				      <td>12/01/2016 14.00-18.00</td>
+				      <td>
+				      	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#review-modal">
+						  review
+						</button>
+				      </td>
+				    </tr>
+				  </tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 
-									<div class="star-rating">
-      									 <span class="fa fa-star-o" data-rating="1"></span>
-       								   	 <span class="fa fa-star-o" data-rating="2"></span>
-      									 <span class="fa fa-star-o" data-rating="3"></span>
-  										 <span class="fa fa-star-o" data-rating="4"></span>
-     									 <span class="fa fa-star-o" data-rating="5"></span>
-     									  <input type="hidden" name="star" id= "star-value" class="rating-value" value="0">
-      								</div>
-								</p>
-								<form>
-									<div class="form-group">
-										<label for="exampleFormControlTextarea1">เนื้อหา</label>
-									    <textarea class="form-control" id="content_txt" rows="3" placeholder="แสดงความคิดเห็นเกี่ยวกับเนื้อหาที่เรียน..."></textarea>
-									</div>
-									<div class="form-group">
-										<label for="exampleFormControlTextarea1">ผู้สอน</label>
-									    <textarea class="form-control" id="teacher_txt" rows="3" placeholder="แสดงความคิดเห็นเกี่ยวกับผู้สอน..."></textarea>
-									</div>
-									<div class="form-group">
-										<label for="exampleFormControlTextarea1">ข้อเสนอแนะ</label>
-									    <textarea class="form-control" id="other_txt" rows="3" placeholder="คำแนะนำเพิ่มเติม..."></textarea>
-									</div>
-								</form>
-						      </div>
-						      <div class="modal-footer">
-						        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-						        <button id = "submit_review" type="submit" class="btn btn-primary">Submit</button>
-						      </div>
-						    </div>
-						  </div>
-						</div>
-
-	<div class="container" id = "all">
+	<!-- <div class="container" id = "all">
 		<div class="row">
 			<div class="col">
 				<br>
@@ -177,5 +229,5 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
   <?php require_once 'footer.php'; ?>
