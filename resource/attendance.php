@@ -27,7 +27,7 @@
               var attributes = ["student_id","title","firstname","lastname"];
               var length = attributes.length;
               if (jQuery.isEmptyObject(data)){
-                alert("This is not time to checking attendance or Everyone has been checked")
+                alert("This is not time to checking attendance")
               } 
               else{
                 for (var i = 0; data[i];i++){
