@@ -174,6 +174,7 @@
 								$("#content"+subject).append('<div class="card text-white mb-3 day-card"><div class="card-header">'+data[showDate]["day"]+' '+data[showDate]["date"]+'</div></div><div class="col-12" id="courselist"></div>'); 	
 								$("#content"+subject).append('<div class="col-12" id="courselist'+subject+data[showDate]["day"]+'"></div>');
 							}
+							console.log(data[showDate][subject].length);
 							reloadJS();
 
 							//console.log("#content"+subject);

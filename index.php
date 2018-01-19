@@ -54,14 +54,9 @@
 						<hr class="head-line">
 						<center id="nocourseMTH102"></center>
 
-						<div id="contentMTH102">
-						<div class="card text-white mb-3 day-card">
-							  <div class="card-header">วันจันทร์(01/18/2018)</div>
-						</div>
-
-					
-						<br>
-					</div>					
+						<div id="contentMTH102"></div>
+					</div>
+					<br>					
 				</div>
 				<div class="tab-pane fade" id="nav-MTH_112" role="tabpanel" aria-labelledby="nav-MTH_112-tab">
 				  	<div class="form-group">
