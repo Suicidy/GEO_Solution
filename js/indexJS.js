@@ -73,7 +73,8 @@
 	});
 
 	function getStar(star){
-		var starString = '<p class="card-text">';
+		//var starString = '<p class="card-text">';
+		var starString = '';
 		if(star==""){
 			star = 5.0;
 		}
@@ -91,7 +92,8 @@
 				starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-o"></span>';
 			}
 		}	
-		starString = starString+'</p>';
+		starString = starString+'<br><br>';
+		//starString = starString+'</p>';
 		return starString;
 	}
 
@@ -138,7 +140,7 @@
 							//console.log(response[subject]["star"]);
 							stringForPrintHtml ='';
 							stringForPrintHtml = stringForPrintHtml.concat('<div class="row"><div class="col-1"></div><div class="card-group"><center><div class="card text-white bg-dark card-name"><img class="card-img-top" src="/geo_solution/image/', response[subject][i]["img"]);
-							stringForPrintHtml = stringForPrintHtml.concat('" alt="Card image cap"><div class="card-body"><h5 class="card-title">', response[subject][i]["title"], response[subject][i]["firstname"], '  ', response[subject][i]["lastname"], '(พี่', response[subject][i]["nickname"], ')</h5>', getStar(response[subject][i]["star"]));
+							stringForPrintHtml = stringForPrintHtml.concat('" alt="Card image cap"><div class="card-body"><h5 class="card-title">', response[subject][i]["title"], response[subject][i]["firstname"], '  ', response[subject][i]["lastname"], '<br>(พี่', response[subject][i]["nickname"], ')</h5>', getStar(response[subject][i]["star"]));
 							stringForPrintHtml = stringForPrintHtml.concat('<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#reviewModal" onclick="showReview(', response[subject][i]["teacher_id"], ')">review</button></div></div></center><div class="card text-white bg-dark card-course"><div class="card-body"><h5 class="card-title">คอร์สที่ทำการสอน</h5><p class="card-text">');
 							for(var j=0; j<response[subject][i]["course"].length; j++){
 								stringForPrintHtml = stringForPrintHtml.concat('<div class="row"><div class="col-md-4 col-xs-6 class-name"><span>', response[subject][i]["course"][j]["topic"], '</span></div><div class="col-md-4 col-xs-6 text-md-center room"><span>ห้อง' , response[subject][i]["course"][j]["room"], '</span></div><div class="col-md-4 col-xs-4 button-time"><center><button type="button" class="btn btn-primary time-reseved" data-toggle="modal" data-target="#bookingModal" id="booking', response[subject][i]["course"][j]["course_id"], '" onclick="updateSeat(', response[subject][i]["course"][j]["course_id"], ')"><span>', response[subject][i]["course"][j]["time"], '</span></button></center></div></div>');
@@ -174,6 +176,7 @@
 								$("#content"+subject).append('<div class="card text-white mb-3 day-card"><div class="card-header">'+data[showDate]["day"]+' '+data[showDate]["date"]+'</div></div><div class="col-12" id="courselist"></div>'); 	
 								$("#content"+subject).append('<div class="col-12" id="courselist'+subject+data[showDate]["day"]+'"></div>');
 							}
+							console.log(data[showDate][subject].length);
 							reloadJS();
 
 							//console.log("#content"+subject);
@@ -185,7 +188,7 @@
 								console.log('response[subject].length='+response[subject].length);
 								stringForPrintHtml ='';
 								stringForPrintHtml = stringForPrintHtml.concat('<div class="row"><div class="col-1"></div><div class="card-group"><center><div class="card text-white bg-dark card-name"><img class="card-img-top" src="/geo_solution/image/', response[subject][i]["img"]);
-								stringForPrintHtml = stringForPrintHtml.concat('" alt="Card image cap"><div class="card-body"><h5 class="card-title">', response[subject][i]["title"], response[subject][i]["firstname"], '  ', response[subject][i]["lastname"], '(พี่', response[subject][i]["nickname"], ')</h5>', getStar(response[subject][i]["star"]));
+								stringForPrintHtml = stringForPrintHtml.concat('" alt="Card image cap"><div class="card-body"><h5 class="card-title">', response[subject][i]["title"], response[subject][i]["firstname"], '  ', response[subject][i]["lastname"], '<br>(พี่', response[subject][i]["nickname"], ')</h5>', getStar(response[subject][i]["star"]));
 								stringForPrintHtml = stringForPrintHtml.concat('<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#reviewModal" onclick="showReview(',  response[subject][i]["teacher_id"] , ')">review</button></div></div></center><div class="card text-white bg-dark card-course"><div class="card-body"><h5 class="card-title">คอร์สที่ทำการสอน</h5><p class="card-text">');
 								for(var j=0; j<response[subject][i]["course"].length; j++){
 									stringForPrintHtml = stringForPrintHtml.concat('<div class="row"><div class="col-md-4 col-xs-6 class-name"><span>', response[subject][i]["course"][j]["topic"], '</span></div><div class="col-md-4 col-xs-6 text-md-center room"><span>ห้อง', response[subject][i]["course"][j]["room"], '</span></div><div class="col-md-4 col-xs-4 button-time"><center><button type="button" class="btn btn-primary time-reseved" data-toggle="modal" data-target="#bookingModal" id="booking', response[subject][i]["course"][j]["course_id"], '" onclick="updateSeat(', response[subject][i]["course"][j]["course_id"], ')"><span>', response[subject][i]["course"][j]["time"], '</span></button></center></div></div>');
@@ -226,10 +229,12 @@
 			dataType: 'text',
 			success: function(data){
 				$("#bookingModalBody").html("จำนวนที่นั่งคงเหลือ "+data+" ที่นั่ง");
+				$("#content_txt").val("");
+				//console.log($("#content_txt").val());
 				$("#bookButton").attr({
 					onclick : "sendBooking("+id+")",
 				})
-				console.log($("#bookButton").attr("onclick"));
+				//console.log($("#bookButton").attr("onclick"));
 			}
 		});
 	};
@@ -238,6 +243,9 @@
 		console.log(id);
 		var obj ={};
 		obj['course_id'] = id;
+		reloadJS();
+		obj['comment'] = $("#content_txt").val();
+		console.log($("#content_txt").val());
 	
 		$.ajax({
 			url: 'resource/home/book_course.php',
@@ -248,9 +256,6 @@
 				$("#bookingModal").modal('hide').fadeOut(100);
 				$('.modal-backdrop').remove();
 				$("#modalStatus").modal('show');		
-				// $('#modalStatus').show().on('shown', function() { 
-				//     $('#modalStatus').modal('hide') 
-				// });
 			},
 			success: function(data){
 				//$('.modal-backdrop').remove();
