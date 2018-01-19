@@ -73,7 +73,8 @@
 	});
 
 	function getStar(star){
-		var starString = '<p class="card-text">';
+		//var starString = '<p class="card-text">';
+		var starString = '';
 		if(star==""){
 			star = 5.0;
 		}
@@ -91,7 +92,8 @@
 				starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-o"></span>';
 			}
 		}	
-		starString = starString+'</p>';
+		starString = starString+'<br><br>';
+		//starString = starString+'</p>';
 		return starString;
 	}
 
@@ -227,6 +229,8 @@
 			dataType: 'text',
 			success: function(data){
 				$("#bookingModalBody").html("จำนวนที่นั่งคงเหลือ "+data+" ที่นั่ง");
+				$("#content_txt").val("");
+				console.log($("#content_txt").val());
 				$("#bookButton").attr({
 					onclick : "sendBooking("+id+")",
 				})
@@ -239,6 +243,9 @@
 		console.log(id);
 		var obj ={};
 		obj['course_id'] = id;
+		reloadJS();
+		obj['comment'] = $("#content_txt").val();
+		console.log($("#content_txt").val());
 	
 		$.ajax({
 			url: 'resource/home/book_course.php',

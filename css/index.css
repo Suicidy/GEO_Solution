@@ -17,8 +17,13 @@ h2 {
 	color: white;
 }
 
+.nav-item {
+	margin-right: 0px;
+}
+
 .form-control {
 	margin-top: 10px;
+	float:left;
 }
 
 .btn-success {
