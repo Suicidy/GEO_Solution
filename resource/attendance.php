@@ -32,6 +32,7 @@
               } 
               else{
                 for (var i = 0; data[i];i++){
+                  $("<td></td>").html("<center>" + i + "</center>").appendTo("#body");
                   for (var j = 0; j < length ; j++){
                     var k = attributes[j];
                     $("<td></td>").text(data[i][k]).appendTo("#body");
