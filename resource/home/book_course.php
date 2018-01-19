@@ -27,24 +27,33 @@
     		 $command_insertcourse =  "INSERT INTO `assign_course` (`course_id`, `student_id`, `comment_id`, `star`, `time_stamp`)VALUES ($courseid,$user, NULL, NULL,CURRENT_TIMESTAMP);";
     		 $sql = query($command_insertcourse);
     		 
-    		 if($comment!=''){
-				 if($sql==1) {
-			 		$find_commentid =   "SELECT comment_id
+    		 if($sql==1){
+				 if($comment!='') {
+			 		$find_commentid =  "SELECT comment_id
 			 						 	FROM assign_course
 			 						    WHERE course_id = $courseid and student_id = $user";
+			 		$find_commentid = query($find_commentid);
 			 		while($rs=mysqli_fetch_array($find_commentid,MYSQLI_ASSOC))
-      					{
-      						$comment_id = $rs['comment_id'];
-     					}
+      				{		
+      					$comment_id = $rs['comment_id'];
+      						
+     				}
      			 	$command_insertcomment =  "INSERT INTO `review` (`comment_id`,`type`,`review_txt`,`show_status`) VALUES ($comment_id,'beforeClass','$comment',1);";
+     			 	//echo $command_insertcomment;
      				$check_comment = query($command_insertcomment);	
 
-     				if($check_comment)echo 'สถานะการจองสำเร็จแล้ว และพี่ TA ได้รับความคิดเห็นของคุณแล้ว';
+     				if($check_comment==1)echo 'สถานะการจองสำเร็จแล้ว และพี่ TA ได้รับความคิดเห็นของคุณแล้ว';
      				else echo 'จองแล้ว comment ไม่เข้า';
 				}
-				 else echo 'การจองล้มเหลวกรุณาเช็คว่าคุณได้จองไปแล้วหรือยัง';
+				else{
+					echo'สถานะการจองสำเร็จแล้ว';
+				} 
+
+				 //else echo 'การจองล้มเหลวกรุณาเช็คว่าคุณได้จองไปแล้วหรือยัง';
 			}
-			echo'สถานะการจองสำเร็จแล้ว';
+			else{
+				 echo 'การจองล้มเหลวกรุณาเช็คว่าคุณได้จองไปแล้วหรือยัง';
+			}
    	 	}
    	 	else
    		{
