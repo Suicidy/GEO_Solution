@@ -193,6 +193,9 @@
       <div class="modal-body" id="bookingModalBody">
         จำนวนที่นั่งคงเหลือ 10/10 ที่นั่งss
       </div>
+		<div class="modal-body" id="bookingModalComment">
+		    <textarea class="form-control" id="content_txt" rows="3" placeholder="แสดงความคิดเห็นเกี่ยวกับสิ่งที่อยากได้ตอนเรียน..."></textarea>
+		</div>
       <div class="modal-footer">						        
         <button type="button" class="btn btn-success" id="bookButton">ยืนยัน</button>
       </div>													 

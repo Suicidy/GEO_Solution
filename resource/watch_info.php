@@ -10,9 +10,10 @@
       $(document).ready(function(){   
           $("#table,#send").hide();
           $("#search").click(function(){
+            alert('eiei');
           $("#body").empty();
           var data_array = {};
-          var id = $( "form" ).serialize();
+          var id = $( "#search_teacher" ).val();
           var subject = $("#search_subject").val();
           if (id == ""){
             alert("Please select ID");
@@ -21,27 +22,24 @@
             alert("Please select subject");
           }
           else{
+             alert(id);
+             alert(subject);
             data_array['id'] = id;
             data_array['subject'] = subject;
-            $.post("info/list_course.php",data_array,function(data,status){
-              var attributes = [];
-              var length = attributes.length;
-              if (jQuery.isEmptyObject(data)){
-                alert("This is not time to checking attendance or Everyone has been checked")
-              } 
-              else{
-                for (var i = 0; data[i];i++){
-                  for (var j = 0; j < length ; j++){
-                    var k = attributes[j];
-                    $("<td></td>").text(data[i][k]).appendTo("#body");
-                  }
-                  $('<td><input type="checkbox" name="student_id[]" value="' + data[i]['student_id'] +'"></td>').appendTo("#body");
-                  $("#body > td").wrapAll("<tr></tr>");
-                }
-                $("#course").val(data[0]['course_id']);
-                $("#table,#send").slideDown();
-              } 
-            },"json");        
+           $.ajax({
+                url: 'info/list_course.php',
+                type: 'post',
+                data: data_array,
+                dataType: 'text',
+                success: function(data){
+                        alert(data)
+                      //  $("#bookingModalBody").html("จำนวนที่นั่งคงเหลือ "+data+" ที่นั่ง");
+                      //  $("#bookButton").attr({
+                      //  onclick : "sendBooking("+id+")",
+                      //    })
+                      // console.log($("#bookButton").attr("onclick"));
+                       }
+                  });      
           }
         });
       });
@@ -50,19 +48,17 @@
         <div id="all" class="form-row align-items-center">
           <div class="col-auto my-1">
             <label class="mr-sm-2" for="inlineFormCustomSelect">Teacher Assistant ID</label>
-              <form>
-              <input type="text" name="student_id">
-              </form>
+              <input type="text" class="form-control" id="search_teacher">
           </div>
           <div class="col-auto my-1">
             <label class="mr-sm-2" for="inlineFormCustomSelect">Course</label>
             <select class="custom-select mr-sm-2" id = "search_subject">
               <option value="" selected>Choose...</option>
-              <option value="MTH">MTH102</option>
-              <option value="MTH">MTH112</option>
-              <option value="PHY">PHY102</option>
-              <option value="PHY">PHY104</option>
-              <option value="CHM">CHM103</option>
+              <option value="MTH102">MTH102</option>
+              <option value="MTH112">MTH112</option>
+              <option value="PHY102">PHY102</option>
+              <option value="PHY104">PHY104</option>
+              <option value="CHM103">CHM103</option>
             </select>
           </div>
           <button id = "search" type="submit" class="btn btn-primary search" style ="background-color : #ff7454; border-color : #ff7454; margin-top: 30px; "> SEARCH </button>
