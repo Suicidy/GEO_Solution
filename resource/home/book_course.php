@@ -21,7 +21,6 @@
       		$maxSeat = $rs['max_seat'];
      	 }
     
-     // mysqli_free_result($sql);
     	if($currentSeat<$maxSeat)
     	{   
     		 $user = $_SESSION['username'];
@@ -29,22 +28,21 @@
     		 $sql = query($command_insertcourse);
     		 
     		 if($comment!=''){
-			 if($sql==1) {
-			 	$find_commentid = "SELECT comment_id
-			 						FROM assign_course
-			 					   WHERE course_id = $courseid and student_id = $user";
-			 	while($rs=mysqli_fetch_array($find_commentid,MYSQLI_ASSOC))
-      				{
-      					$comment_id = $rs['comment_id'];	
-     				}
-     			 $command_insertcomment =  "INSERT INTO `review` (`comment_id`,`type`,`review_txt`,`show_status`)
-     			 							VALUES ($comment_id,'before_class',$comment,1);";
-     			 $check_comment = query($command_insertcomment);	
+				 if($sql==1) {
+			 		$find_commentid =   "SELECT comment_id
+			 						 	FROM assign_course
+			 						    WHERE course_id = $courseid and student_id = $user";
+			 		while($rs=mysqli_fetch_array($find_commentid,MYSQLI_ASSOC))
+      					{
+      						$comment_id = $rs['comment_id'];
+     					}
+     			 	$command_insertcomment =  "INSERT INTO `review` (`comment_id`,`type`,`review_txt`,`show_status`) VALUES ($comment_id,'beforeClass','$comment',1);";
+     				$check_comment = query($command_insertcomment);	
 
-     			 if($check_comment)echo 'สถานะการจองสำเร็จแล้ว และพี่ TA ได้รับความคิดเห็นของคุณแล้ว';
-     			 else echo 'จองแล้ว comment ไม่เข้า';
-			 }
-			 else echo 'การจองล้มเหลวกรุณาเช็คว่าคุณได้จองไปแล้วหรือยัง';
+     				if($check_comment)echo 'สถานะการจองสำเร็จแล้ว และพี่ TA ได้รับความคิดเห็นของคุณแล้ว';
+     				else echo 'จองแล้ว comment ไม่เข้า';
+				}
+				 else echo 'การจองล้มเหลวกรุณาเช็คว่าคุณได้จองไปแล้วหรือยัง';
 			}
 			echo'สถานะการจองสำเร็จแล้ว';
    	 	}

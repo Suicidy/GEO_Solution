@@ -230,11 +230,11 @@
 			success: function(data){
 				$("#bookingModalBody").html("จำนวนที่นั่งคงเหลือ "+data+" ที่นั่ง");
 				$("#content_txt").val("");
-				console.log($("#content_txt").val());
+				//console.log($("#content_txt").val());
 				$("#bookButton").attr({
 					onclick : "sendBooking("+id+")",
 				})
-				console.log($("#bookButton").attr("onclick"));
+				//console.log($("#bookButton").attr("onclick"));
 			}
 		});
 	};
@@ -256,9 +256,6 @@
 				$("#bookingModal").modal('hide').fadeOut(100);
 				$('.modal-backdrop').remove();
 				$("#modalStatus").modal('show');		
-				// $('#modalStatus').show().on('shown', function() { 
-				//     $('#modalStatus').modal('hide') 
-				// });
 			},
 			success: function(data){
 				//$('.modal-backdrop').remove();
