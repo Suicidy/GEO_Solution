@@ -28,7 +28,7 @@
 	        	<div class="row">
 		        	<div class="col-md-4 col-xs-6 class-name"><span>Block Diagram</span></div>        	
 					<div class="col-md-4 col-xs-6 text-md-center room">
-						<span>08.00-19.00 น.</span>						
+						<span>13/01/2018  08.00-19.00 น.</span>						
 					</div>
 					<div class="col-md-4 col-xs-4 button-time">
 						<center>
@@ -52,7 +52,7 @@
 					      <div class="modal-body">
 					        <p>วิชา MTH 102</p>
 					        <p>หัวข้อ  Block Diagram</p>
-					        <p>สอนเวลา 09.00-00.00 น.</p>
+					        <p>รายละเอียด 13/01/2018 09.00-00.00 น.</p>
 					      	<!-- <div class="col-12 text-comment">
 					        	<p>Goooooooooooooooooodอิอิอิ</p>
 					        </div>
@@ -127,7 +127,7 @@
 	       			        	<div class="row">
 		        	<div class="col-md-4 col-xs-6 class-name"><span>Block Diagram</span></div>        	
 					<div class="col-md-4 col-xs-6 text-md-center room">
-						<span>08.00-19.00 น.</span>						
+						<span>13/01/2018   08.00-19.00 น.</span>						
 					</div>
 					<div class="col-md-4 col-xs-4 button-time">
 						<center>
@@ -151,7 +151,7 @@
 					      <div class="modal-body">
 					        <p>วิชา MTH 102</p>
 					        <p>หัวข้อ  Block Diagram</p>
-					        <p>สอนเวลา 09.00-00.00 น.</p>
+					        <p>รายละเอียด 13/01/2018 09.00-00.00 น.</p>
 					      	<!-- <div class="col-12 text-comment">
 					        	<p>Goooooooooooooooooodอิอิอิ</p>
 					        </div>

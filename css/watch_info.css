@@ -1,0 +1,48 @@
+h2 {
+	margin-top: 15px;
+}
+
+.nav-tabs .nav-link {
+	color: gray;
+}
+
+.nav-tabs .nav-link .active {
+	background-color: #ff7454;
+	color: white;
+}
+
+.nav-item {
+	margin-right: 0px;
+}
+
+
+.search {
+	background-color : #ff7454; 
+	border-color : #ff7454; 
+	margin-top: 30px;
+}
+
+.card {
+	border: none;
+}
+
+.text-comment {
+	word-wrap: break-word;
+	border: solid 1px;
+	border-color: #ff7454;
+	border-radius: 5px;
+	padding: 15px;
+	padding-bottom: 0px;
+	margin-bottom: 15px;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.contract {
+	width: 30px;
+	height: 30px;
+}
+

@@ -1,5 +1,6 @@
 <?php include('header.php'); ?>
-    <script>
+<link href="/geo_solution/css/watch_info.css" rel="stylesheet">
+    <!-- <script>
     var type;
     $.post("/geo_solution/resource/review/view_type.php",{},function(data,status){
           type = data['type'];
@@ -43,7 +44,7 @@
           }
         });
       });
-    </script>
+    </script> -->
       <h1><font color="#ff7454">Student Info</font></h1>
         <div id="all" class="form-row align-items-center">
           <div class="col-auto my-1">
@@ -61,28 +62,51 @@
               <option value="CHM103">CHM103</option>
             </select>
           </div>
-          <button id = "search" type="submit" class="btn btn-primary search" style ="background-color : #ff7454; border-color : #ff7454; margin-top: 30px; "> SEARCH </button>
+          <button id = "search" type="submit" class="btn btn-primary search"> SEARCH </button>
         </div>
-        <br>
-      <form action="attendance/submit.php" method="post" id = "submit_form">
-        <div class="form-row align-items-center" id = "table" >
-          <table class="table table-striped">
-            <thead>
-              <tr>  
-                <th scope="col">วิชา</th>
-                <th scope="col">เรื่อง</th>
-                <th scope="col">วันที่สอน</th>
-                <th scope="col">เวลา</th>
-                <th scope="col">สถานที่</th>
-                <th scope="col">จำนวนนักเรียนที่เข้าร่วม</th>
-              </tr>
-            </thead>
-            <tbody id = "body">
-            </tbody>
-          </table>
+        <div class="card">
+          <div class="card-body">                         
+            <h5 class="card-title">คอร์สที่ทำการสอน</h5>
+            <p class="card-text">
+              <div class="row">
+                <div class="col-md-2 col-xs-6 class-name"><span>58070501094</span></div>          
+                <div class="col-md-2 col-xs-6 text-md-center">
+                  <span>นายภัทรพงศ์</span>           
+                </div>
+                <div class="col-md-2 col-xs-6 text-md-center">
+                  <span>Tel 08xxxxxxxx</span>           
+                </div>
+                <div class="col-md-3 col-xs-6 text-md-center contract">
+                  <img src="/geo_solution/image/facebook.png">
+                  Prapasiri sdfdhgffg          
+                </div>
+                <div class="col-md-2 col-xs-6 text-md-center contract">
+                  <img src="/geo_solution/image/line.png">
+                  bonus><         
+                </div>           
+              </div> 
+              <hr class="course-line"> 
+               <div class="row">
+                <div class="col-md-2 col-xs-6 class-name"><span>58070501094</span></div>          
+                <div class="col-md-2 col-xs-6 text-md-center">
+                  <span>นายภัทรพงศ์</span>           
+                </div>
+                <div class="col-md-2 col-xs-6 text-md-center">
+                  <span>Tel 08xxxxxxxx</span>           
+                </div>
+                <div class="col-md-3 col-xs-6 text-md-center contract">
+                  <img src="/geo_solution/image/facebook.png">
+                  <span>Prapasiri sdfdhgffg</span>          
+                </div>
+                <div class="col-md-2 col-xs-6 text-md-center contract">
+                  <img src="/geo_solution/image/line.png">
+                  <span>bonus><</span>          
+                </div>           
+              </div>   
+            <hr class="course-line">                        
+               
+ 
+          </p>                        
         </div>
-        <input type="hidden" name="course_id" id = "course">
-        <center><button id ="send" type="submit" class="btn btn-primary " style ="background-color : #ff7454; border-color : #ff7454;"> SAVE </button></center>
-      </form>
-      <br>
+      </div>
  <?php include('footer.php'); ?>

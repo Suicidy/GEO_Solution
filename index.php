@@ -82,7 +82,7 @@
 				  </div>
 				  <div class="tab-pane fade" id="nav-PHY_102" role="tabpanel" aria-labelledby="nav-PHY_102-tab">
 				  	<div class="form-group">
-				  			<select class="form-control col-md-3 col-xs-6" style="float:left;" id="SelectPHY102">
+				  			<select class="form-control col-md-3 col-xs-6" id="SelectPHY102">
 						      <option>เลือกวัน</option>
 						      <option>วันจันทร์</option>
 						      <option>วันอังคาร</option>
@@ -104,7 +104,7 @@
 				  </div>
 				  <div class="tab-pane fade" id="nav-PHY_104" role="tabpanel" aria-labelledby="nav-PHY_104-tab">
 				  	<div class="form-group">
-				  			<select class="form-control col-md-3 col-xs-6" style="float:left;" id="SelectPHY104">
+				  			<select class="form-control col-md-3 col-xs-6" id="SelectPHY104">
 						      <option>เลือกวัน</option>
 						      <option>วันจันทร์</option>
 						      <option>วันอังคาร</option>
@@ -126,7 +126,7 @@
 				  </div>
 				  <div class="tab-pane fade" id="nav-CHM_103" role="tabpanel" aria-labelledby="nav-CHM_103-tab">
 				  	<div class="form-group">
-				  			<select class="form-control col-md-3 col-xs-6" style="float:left;" id="SelectCHM103">
+				  			<select class="form-control col-md-3 col-xs-6" id="SelectCHM103">
 						      <option>เลือกวัน</option>
 						      <option>วันจันทร์</option>
 						      <option>วันอังคาร</option>
