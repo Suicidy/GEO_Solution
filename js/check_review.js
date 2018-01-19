@@ -18,8 +18,8 @@ $(document).ready(function(){
         if (!jQuery.isEmptyObject(data)) {
             for (var i = 0; data[i]; i++) {
                 var detail = "<div class='row'><div class='col-md-4 col-xs-6 class-name'><span>"+data[i]["topic"]+"</span></div><div class='col-md-4 col-xs-6 text-md-center room'><span>"+data[i]["start_time"]+"</span></div>";
-                var button1 = "<div class='col-md-4 col-xs-4 button-time'><center> <button type='button' class='btn btn-primary' data-toggle='modal' data-target='#Review'><span>review</span></button>";
-                var button2 = "&nbsp<button type='button' class='btn btn-success' data-toggle='modal' data-target='#Comment'><span>comment</span></button></center></div></div>	<hr class='course-line'>";
+                var button1 = "<div class='col-md-4 col-xs-4 button-time'><center> <button type='button' class='btn btn-primary' data-toggle='modal' data-course="+data[i]["course_id"]+" data-target='#Review'><span>review</span></button>";
+                var button2 = "&nbsp<button type='button' class='btn btn-success' data-toggle='modal' data-course="+data[i]["course_id"]+" data-target='#Comment'><span>comment</span></button></center></div></div>	<hr class='course-line'>";
                 $("#body").append(detail+button1+button2);
               }
           }

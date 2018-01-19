@@ -32,21 +32,8 @@
 	      <div class="card-body">									      	
 	        <h5 class="card-title">คอร์สที่ทำการสอน</h5>
 	        <p class="card-text">
-	        	<!-- <div class="row">
-		        	<div id ="topic"class="col-md-4 col-xs-6 class-name"><span>Block Diagram</span></div>        	
-					<div id="time"class="col-md-4 col-xs-6 text-md-center room">
-						<span>13/01/2018  08.00-19.00 น.</span>						
-					</div>
-					<div class="col-md-4 col-xs-4 button-time">
-						<center>
-				        	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Review"id="review">
-							  <span>review</span>
-							</button>
-				        	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#Comment"id="comment">
-							  <span>comment</span>
-							</button>
-						</center>
-					</div>
+	     	
+			
 					<div class="modal fade" id="Review" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 					  <div class="modal-dialog" role="document">
 					    <div class="modal-content">
@@ -62,7 +49,7 @@
 					        <p>รายละเอียด 13/01/2018 09.00-00.00 น.</p>
 					 
 
-
+					 
 					        <ul class="nav nav-tabs" id="myTab" role="tablist">
 							  <li class="nav-item">
 							    <a class="nav-link active" id="TA-tab" data-toggle="tab" href="#TA" role="tab" aria-controls="TA" aria-selected="true">TA</a>
@@ -125,9 +112,7 @@
 					    </div>
 					  </div>
 					</div>
-
-	       		</div>	
-	       		<hr class="course-line">							       		 -->
+						       		
 						<div id="body"></div>
 	    	</p>								        
 	      </div>
