@@ -69,26 +69,38 @@
             <h5 class="card-title">คอร์สที่ทำการสอน</h5>
             <p class="card-text">
               <div class="row">
-                <div class="col-md-2 col-xs-6 class-name"><span>58070501094</span></div>          
-                <div class="col-md-2 col-xs-6 text-md-center">
+                <div class="col-md-2 col-12 class-name"><span>58070501094</span></div>          
+                <div class="col-md-2 col-12 text-md-center">
                   <span>นายภัทรพงศ์</span>           
                 </div>
-                <div class="col-md-2 col-xs-6 text-md-center">
+                <div class="col-md-2 col-12 text-md-center">
                   <span>Tel 08xxxxxxxx</span>           
                 </div>
-                <div class="col-md-3 col-xs-6 text-md-center contract">
-                  <img src="/geo_solution/image/facebook.png">
-                  Prapasiri sdfdhgffg          
+                <div class="col-md-3 col-12 text-md-center">
+                  <div class="row">
+                    <div class="col-4 col-md-4 ">
+                      <img class="contract" src="/geo_solution/image/facebook.png">
+                    </div>
+                    <div class="col-8 col-md-8">
+                      Prapasiri sdfdhgffg 
+                    </div>                              
+                  </div>
                 </div>
-                <div class="col-md-2 col-xs-6 text-md-center contract">
-                  <img src="/geo_solution/image/line.png">
-                  bonus><         
+                <div class="col-md-3 col-12 text-md-center">
+                  <div class="row">
+                    <div class="col-4 col-md-4 ">
+                      <img src="/geo_solution/image/line.png" class="contract">
+                    </div>
+                    <div class="col-8 col-md-8">
+                       bonus><
+                    </div>                              
+                  </div>          
                 </div>           
-              </div> 
+              </div>
               <hr class="course-line"> 
                <div class="row">
-                <div class="col-md-2 col-xs-6 class-name"><span>58070501094</span></div>          
-                <div class="col-md-2 col-xs-6 text-md-center">
+                <div class="col-md-2 col-6 class-name"><span>58070501094</span></div>          
+                <div class="col-md-2 col-6 text-md-center">
                   <span>นายภัทรพงศ์</span>           
                 </div>
                 <div class="col-md-2 col-xs-6 text-md-center">
