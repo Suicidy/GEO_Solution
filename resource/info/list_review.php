@@ -5,10 +5,9 @@ $course_id = check_input($_POST["course_id"]);
 
 $array_result = array();
 
-
-$sql = "SELECT s.title,s.firstname,s.lastname,s.faculty,s.department,s.tel,s.facebook,s.line,s.email 
-		FROM student s INNER JOIN assign_course ac ON s.student_id = ac.student_id
-		WHERE ac.course_id = $course_id";
+$sql = "SELECT review_txt
+		FROM review LEFT JOIN assign_course ON review.comment_id = assign_course.comment_id
+		WHERE review.type = 'beforeClass' and assign_course.course_id = $course_id";
 
 $results = query($sql);
 
