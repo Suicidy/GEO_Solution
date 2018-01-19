@@ -38,7 +38,7 @@
 				<div class="tab-content" id="nav-tabContent">
 				  <div class="tab-pane fade show active" id="nav-MTH_102" role="tabpanel" aria-labelledby="nav-MTH_102-tab">
 				  	<div class="form-group">
-				  			<select class="form-control col-md-3 col-xs-6" style="float:left;" id="SelectMTH102">
+				  			<select class="form-control col-md-3 col-xs-6" id="SelectMTH102">
 						      <option>เลือกวัน</option>
 						      <option>วันจันทร์</option>
 						      <option>วันอังคาร</option>
