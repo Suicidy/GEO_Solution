@@ -1,3 +1,24 @@
+ <script>
+ $(document).ready(function(){
+    $("#search").click(function(){
+      var student_id = $("#student_id").val();
+      var search_sub = $("#search_subject").val();
+      $.post("/geo_solution/resource/",{student_id : student_id,search_sub : search_sub},function(data,status){
+        var topic = data['course.topic'];
+        var start_time = data['course.start_time'];
+        var course_id = data['course.course_id '];
+        var type = data['type'];
+        $("#topic").text(topic);
+        $("#time").text(start_time);
+				$("#review").val(course_id);
+				$("#comment").val(course_id);
+		
+       // alert(data['login_count']);	
+      },"json")
+			});
+    });
+  });
+ </script>
 <?php include('header.php'); ?>
 <link href="/geo_solution/css/check_review.css" rel="stylesheet">
 <div class="row">
@@ -6,7 +27,7 @@
         <div id="all" class="form-row align-items-center">
           <div class="col-auto my-1">
             <label class="mr-sm-2" for="inlineFormCustomSelect">Teacher Assistant ID</label>
-            <input class="form-control" type="text" placeholder="กรอกรหัสนักศึกษา">
+            <input id="student_id" class="form-control" type="text" placeholder="กรอกรหัสนักศึกษา">
           </div>
           <div class="col-auto my-1">
             <label class="mr-sm-2" for="inlineFormCustomSelect">Course</label>
@@ -26,16 +47,16 @@
 	        <h5 class="card-title">คอร์สที่ทำการสอน</h5>
 	        <p class="card-text">
 	        	<div class="row">
-		        	<div class="col-md-4 col-xs-6 class-name"><span>Block Diagram</span></div>        	
-					<div class="col-md-4 col-xs-6 text-md-center room">
+		        	<div id ="topic"class="col-md-4 col-xs-6 class-name"><span>Block Diagram</span></div>        	
+					<div id="time"class="col-md-4 col-xs-6 text-md-center room">
 						<span>13/01/2018  08.00-19.00 น.</span>						
 					</div>
 					<div class="col-md-4 col-xs-4 button-time">
 						<center>
-				        	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Review">
+				        	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Review"id="review">
 							  <span>review</span>
 							</button>
-				        	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#Comment">
+				        	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#Comment"id="comment">
 							  <span>comment</span>
 							</button>
 						</center>
@@ -73,28 +94,28 @@
 							<div class="tab-content" id="myTabContent">
 							  <div class="tab-pane fade show active" id="TA" role="tabpanel" aria-labelledby="TA-tab">
 							  	<br>
-							  	<div class="col-12 text-comment">
+							  	<div class="col-12 text-comment" id="review_TA">
 						        	<p>Goooooooooooooooooodอิอิอิ</p>
 						        </div>
-						        <div class="col-12 text-comment">
+						        <div class="col-12 text-comment" id="review_TA2">
 						        	<p>GoooooooooooooooooodอิอิอิksdjjvisojsovkGoooooooooooooooooodGoooooooooooooooooodGoooooooooooooooooodGooooooooooooooooood</p>
 						        </div>
 							  </div>
 							  <div class="tab-pane fade" id="content" role="tabpanel" aria-labelledby="content-tab">
 							  	<br>
-							  	<div class="col-12 text-comment">
+							  	<div class="col-12 text-comment"id="review_related">
 						        	<p>อิอิอิ</p>
 						        </div>
-						        <div class="col-12 text-comment">
+						        <div class="col-12 text-comment"id="review_related2">
 						        	<p>LAlalalalalaalal</p>
 						        </div>
 							  </div>
 							  <div class="tab-pane fade" id="other" role="tabpanel" aria-labelledby="other-tab">
 							  	<br>
-							  	<div class="col-12 text-comment">
+							  	<div class="col-12 text-comment"id="review_other">
 						        	<p>OH No~~~~~~~~~~~~</p>
 						        </div>
-						        <div class="col-12 text-comment">
+						        <div class="col-12 text-comment"id="review_other2">
 						        	<p>55555555</p>
 						        </div>
 							  </div>
