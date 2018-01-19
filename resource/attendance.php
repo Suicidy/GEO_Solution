@@ -27,7 +27,7 @@
               var attributes = ["student_id","title","firstname","lastname"];
               var length = attributes.length;
               if (jQuery.isEmptyObject(data)){
-                alert("This is not time to checking attendance or Everyone has been checked")
+                alert("This is not time to checking attendance")
               } 
               else{
                 for (var i = 0; data[i];i++){
@@ -35,7 +35,13 @@
                     var k = attributes[j];
                     $("<td></td>").text(data[i][k]).appendTo("#body");
                   }
-                  $('<td><input type="checkbox" name="student_id[]" value="' + data[i]['student_id'] +'"></td>').appendTo("#body");
+                  if(data[i]['attending_status']== "0"){
+                    $('<td><input type="checkbox" name="student_id[]" value="' + data[i]['student_id'] +'"></td>').appendTo("#body");
+                  }
+                  else{
+                    $('<td><input type="checkbox" name="student_id[]" value="' + data[i]['student_id'] +'" checked></td>').appendTo("#body");
+                  }
+                  
                   $("#body > td").wrapAll("<tr></tr>");
                 }
                 $("#course").val(data[0]['course_id']);
