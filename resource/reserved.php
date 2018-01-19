@@ -1,7 +1,7 @@
 <?php include('header.php');?>
 	<link href="/geo_solution/css/reserved.css" rel="stylesheet">
-	<script src="/geo_solution/js/reserved.js"></script>
-	<script>
+<!-- 	<script src="/geo_solution/js/reserved.js"></script> -->
+<!-- 	<script>
 	$.post("/geo_solution/resource/review/view_type.php",{},function(data,status){
   type = data['type'];
   if (type != "student"){
@@ -31,13 +31,14 @@
 	});
 	
 	
-	</script>
+	</script> -->
 	<body>
 		<div class="row">
 			<div class="col">
 				<br>
 				<h1><font color="#ff7454">สถานะการจอง</font></h1>
 				<br>
+			<div style="overflow-x:auto;">
 				<table class="table table-striped" id="all">
 				  <thead>
 				    <tr>
@@ -53,6 +54,7 @@
 				  </tbody>
 				</table>
 			</div>
+		</div>
 		</div>
 	
 						<div class="modal fade" id="ask-modal" tabindex="-1" role="dialog" aria-labelledby="ยืนยันที่จะยกเลิกหรือไม่" aria-hidden="true">
