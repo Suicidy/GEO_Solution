@@ -1,7 +1,7 @@
 <?php include('header.php');?>
 	<link href="/geo_solution/css/reserved.css" rel="stylesheet">
-<!-- 	<script src="/geo_solution/js/reserved.js"></script> -->
-<!-- 	<script>
+	<script src="/geo_solution/js/reserved.js"></script>
+	<script>
 	$.post("/geo_solution/resource/review/view_type.php",{},function(data,status){
   type = data['type'];
   if (type != "student"){
@@ -31,7 +31,7 @@
 	});
 	
 	
-	</script> -->
+	</script>
 	<body>
 		<div class="row">
 			<div class="col">
