@@ -76,17 +76,21 @@
                 <div class="col-md-2 col-xs-6 text-md-center">
                   <span>Tel 08xxxxxxxx</span>           
                 </div>
-                <div class="col-md-3 col-xs-6 text-md-center contract">
-                  <img src="/geo_solution/image/facebook.png">
-                  Prapasiri sdfdhgffg          
+                <div class="col-md-3 col-xs-12 text-md-center">
+                  <p class="text-contract">
+                  <img class="contract" src="/geo_solution/image/facebook.png">
+                  Prapasiri sdfdhgffg
+                  </p>         
                 </div>
-                <div class="col-md-2 col-xs-6 text-md-center contract">
-                  <img src="/geo_solution/image/line.png">
-                  bonus><         
+                <div class="col-md-2 col-xs-12 text-md-center">
+                  <p class="text-contract">
+                  <img class="contract" src="/geo_solution/image/line.png">
+                  bonus>< 
+                  </p>        
                 </div>           
               </div> 
               <hr class="course-line"> 
-               <div class="row">
+                 <div class="row">
                 <div class="col-md-2 col-xs-6 class-name"><span>58070501094</span></div>          
                 <div class="col-md-2 col-xs-6 text-md-center">
                   <span>นายภัทรพงศ์</span>           
@@ -94,15 +98,19 @@
                 <div class="col-md-2 col-xs-6 text-md-center">
                   <span>Tel 08xxxxxxxx</span>           
                 </div>
-                <div class="col-md-3 col-xs-6 text-md-center contract">
-                  <img src="/geo_solution/image/facebook.png">
-                  <span>Prapasiri sdfdhgffg</span>          
+                <div class="col-md-3 col-xs-12 text-md-center">
+                  <p class="text-contract">
+                  <img class="contract" src="/geo_solution/image/facebook.png">
+                  Prapasiri sdfdhgffg
+                  </p>         
                 </div>
-                <div class="col-md-2 col-xs-6 text-md-center contract">
-                  <img src="/geo_solution/image/line.png">
-                  <span>bonus><</span>          
+                <div class="col-md-2 col-xs-12 text-md-center">
+                  <p class="text-contract">
+                  <img class="contract" src="/geo_solution/image/line.png">
+                  bonus>< 
+                  </p>        
                 </div>           
-              </div>   
+              </div> 
             <hr class="course-line">                        
                
  
