@@ -47,7 +47,7 @@
                   $("#body > td").wrapAll("<tr></tr>");
                 }
                 $("#course").val(data[0]['course_id']);
-                $("#table,#send").slideDown();
+                $("#table,#send").fadeIn();
               } 
             },"json");        
           }
@@ -78,9 +78,8 @@
           </div>
           <br>
         <div style="overflow-x:auto;">
-          <form action="attendance/submit.php" method="post" id = "submit_form">
-            <div class="form-row align-items-center" id = "table" >              
-                <table class="table table-striped">
+          <form action="attendance/submit.php" method="post" id = "submit_form">             
+                <table class="table table-striped" id = "table">
                   <thead>
                     <tr>
                       <th scope="col"></th> 
@@ -93,8 +92,7 @@
                   </thead>
                   <tbody id = "body">
                   </tbody>
-                </table>
-              </div>            
+                </table>          
             <input type="hidden" name="course_id" id = "course">
             <center><button id ="send" type="submit" class="btn btn-primary save"> SAVE </button></center>
           </form>
