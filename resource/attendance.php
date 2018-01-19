@@ -35,7 +35,13 @@
                     var k = attributes[j];
                     $("<td></td>").text(data[i][k]).appendTo("#body");
                   }
-                  $('<td><input type="checkbox" name="student_id[]" value="' + data[i]['student_id'] +'"></td>').appendTo("#body");
+                  if(data[i]['attending_status']== "0"){
+                    $('<td><input type="checkbox" name="student_id[]" value="' + data[i]['student_id'] +'"></td>').appendTo("#body");
+                  }
+                  else{
+                    $('<td><input type="checkbox" name="student_id[]" value="' + data[i]['student_id'] +'" checked></td>').appendTo("#body");
+                  }
+                  
                   $("#body > td").wrapAll("<tr></tr>");
                 }
                 $("#course").val(data[0]['course_id']);
