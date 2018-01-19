@@ -39,17 +39,19 @@
       						
      				}
      			 	$command_insertcomment =  "INSERT INTO `review` (`comment_id`,`type`,`review_txt`,`show_status`) VALUES ($comment_id,'beforeClass','$comment',1);";
-     			 	//echo $command_insertcomment;
+     			 	
      				$check_comment = query($command_insertcomment);	
 
-     				if($check_comment==1)echo 'สถานะการจองสำเร็จแล้ว และพี่ TA ได้รับความคิดเห็นของคุณแล้ว';
-     				else echo 'จองแล้ว comment ไม่เข้า';
+     				if($check_comment==1){
+     					echo 'สถานะการจองสำเร็จแล้ว และพี่ TA ได้รับความคิดเห็นของคุณแล้ว';
+     				}
+     				else {
+     					echo 'จองแล้ว comment ไม่เข้า';
+     				}
 				}
 				else{
-					echo'สถานะการจองสำเร็จแล้ว';
+					echo'สถานะการจองสำเร็จแล้ว no comment';
 				} 
-
-				 //else echo 'การจองล้มเหลวกรุณาเช็คว่าคุณได้จองไปแล้วหรือยัง';
 			}
 			else{
 				 echo 'การจองล้มเหลวกรุณาเช็คว่าคุณได้จองไปแล้วหรือยัง';
