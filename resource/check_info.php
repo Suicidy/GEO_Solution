@@ -70,7 +70,7 @@
                 <div class="card">
                   <div class="card-header" id="headingOne">
                     <h5 class="mb-0">
-                      <button class="btn collapsed course-head" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                      <button class="btn course-head" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                         Block Diagram (12/01/2016  08.00-09.00 น.)
                       </button>
                       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -78,7 +78,7 @@
                     </button>
                     </h5>
                     
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
