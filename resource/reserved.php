@@ -1,7 +1,7 @@
 <?php include('header.php');?>
 	<link href="/geo_solution/css/reserved.css" rel="stylesheet">
-<!-- 	<script src="/geo_solution/js/reserved.js"></script> -->
-<!-- 	<script>
+	<script src="/geo_solution/js/reserved.js"></script>
+	<script>
 	$.post("/geo_solution/resource/review/view_type.php",{},function(data,status){
   type = data['type'];
   if (type != "student"){
@@ -31,18 +31,16 @@
 	});
 	
 	
-	</script> -->
-	<body>
+	</script>
+<!-- 	<body> -->
 		<div class="row">
 			<div class="col">
-				<br>
-				<h1><font color="#ff7454">สถานะการจอง</font></h1>
-				<br>
+				<h2>สถานะการจอง</h2>
 			<div style="overflow-x:auto;">
 				<table class="table table-striped" id="all">
 				  <thead>
 				    <tr>
-				      <th scope="col"><center>ลำดับ</center></th>
+				      <th scope="col"><center></center></th>
 				      <th scope="col"><center>วิชา</center></th>
 				      <th scope="col"><center>เรื่อง</center></th>
 				      <th scope="col"><center>ผู้สอน</center></th>
@@ -57,25 +55,25 @@
 		</div>
 		</div>
 	
-						<div class="modal fade" id="ask-modal" tabindex="-1" role="dialog" aria-labelledby="ยืนยันที่จะยกเลิกหรือไม่" aria-hidden="true">
-						  <div class="modal-dialog" role="document">
-						    <div class="modal-content">
-						      <div class="modal-header">
-						        <h5 class="modal-title" id="exampleModalLabel">สถานะการจอง</h5>
-						        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						          <span aria-hidden="true">&times;</span>
-						        </button>
-						      </div>
-						      <div class="modal-body">
-						      	<center>
-						        <p>ยืนยันการยกเลิกการจอง</p>
-						        <button id ="submit-btn-modal"  type="submit" class="btn btn-success">ยืนยัน</button>
-						        </center>
-						      </div>
-						    </div>
-						  </div>
-						</div>
-		</body>
+		<div class="modal fade" id="ask-modal" tabindex="-1" role="dialog" aria-labelledby="ยืนยันที่จะยกเลิกหรือไม่" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel">สถานะการจอง</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		      	<center>
+		        <p>ยืนยันการยกเลิกการจอง</p>
+		        <button id ="submit-btn-modal"  type="submit" class="btn btn-success">ยืนยัน</button>
+		        </center>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+<!-- 	</body> -->
 		
 
   <?php require_once 'footer.php'; ?>
