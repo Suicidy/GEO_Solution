@@ -1,68 +1,21 @@
 	$(document).ready(function(){
-		//getCourseMTH102('ทุกวัน');
+		getCourse("ทุกวัน","MTH102");
+		$("#nav-MTH_102-tab").addClass('activeEi');	
+		
 
-		getCourse("ทุกวัน");
 
+	    $("button[id^='button']").click(function(){
+	    	var subject = $(this).attr("id").substring(12,18);
+	    	//console.log(subject);
+	    	var day = $( "#Select" + subject).val();
 
-		$("#nav-MTH_102-tab").addClass('activeEi');
-		$("#buttonMTH102").click(function(){
-	    	var singleValues = $( "#exampleFormControlSelect1" ).val();
-
-	    	if (!singleValues.localeCompare("เลือกวัน")) {
-	    		singleValues = "ทุกวัน";
+	    	if (!day.localeCompare("เลือกวัน")) {
+	    		day = "ทุกวัน";
 	    	}
 
-	  		$("#headMTH102").html(singleValues);
-
-	  		getCourseMTH102(singleValues);
-	    });
-
-	    $("#buttonMTH112").click(function(){
-	    	var singleValues = $( "#exampleFormControlSelect2" ).val();
-
-	    	if (!singleValues.localeCompare("เลือกวัน")) {
-	    		singleValues = "ทุกวัน";
-	    	}
-
-	  		$("#headMTH112").html(singleValues);
+	  		$("#headCHM103").html(day);
 	  		
-	  		getCourseMTH112(singleValues);
-	    });
-
-	    $("#buttonPHY102").click(function(){
-	    	var singleValues = $( "#exampleFormControlSelect3" ).val();
-
-	    	if (!singleValues.localeCompare("เลือกวัน")) {
-	    		singleValues = "ทุกวัน";
-	    	}
-
-	  		$("#headPHY102").html(singleValues);
-	  		
-	  		getCoursePHY102(singleValues);
-	    });
-
-	    $("#buttonPHY104").click(function(){
-	    	var singleValues = $( "#exampleFormControlSelect4" ).val();
-
-	    	if (!singleValues.localeCompare("เลือกวัน")) {
-	    		singleValues = "ทุกวัน";
-	    	}
-
-	  		$("#headPHY104").html(singleValues);
-	  		
-	  		getCoursePHY104(singleValues);
-	    });
-
-	    $("#buttonCHM103").click(function(){
-	    	var singleValues = $( "#exampleFormControlSelect5" ).val();
-
-	    	if (!singleValues.localeCompare("เลือกวัน")) {
-	    		singleValues = "ทุกวัน";
-	    	}
-
-	  		$("#headCHM103").html(singleValues);
-	  		
-	  		getCourseCHM103(singleValues);
+	  		getCourse(day,subject);
 	    });	
 
 	    $("#nav-MTH_102-tab").click(function(){
@@ -71,7 +24,7 @@
 	    	$("#nav-PHY_102-tab").removeClass('activeEi');
 	    	$("#nav-PHY_104-tab").removeClass('activeEi');
 	    	$("#nav-CHM_103-tab").removeClass('activeEi');
-	    	getCourseMTH102('ทุกวัน');
+	    	getCourse('ทุกวัน',"MTH102");
 	    	//console.log($("#nav-MTH_102-tab").hasClass('activeEi'));
 	    });
 
@@ -81,7 +34,7 @@
 	    	$("#nav-PHY_102-tab").removeClass('activeEi');
 	    	$("#nav-PHY_104-tab").removeClass('activeEi');
 	    	$("#nav-CHM_103-tab").removeClass('activeEi');
-	    	getCourseMTH112('ทุกวัน');
+	    	getCourse('ทุกวัน',"MTH112");
 	    });
 
 	    $("#nav-PHY_102-tab").click(function(){
@@ -90,7 +43,7 @@
 	    	$("#nav-PHY_102-tab").addClass('activeEi');
 	    	$("#nav-PHY_104-tab").removeClass('activeEi');
 	    	$("#nav-CHM_103-tab").removeClass('activeEi');
-	    	getCoursePHY102('ทุกวัน');
+	    	getCourse('ทุกวัน',"PHY102");
 	    });
 
 	    $("#nav-PHY_104-tab").click(function(){
@@ -99,7 +52,7 @@
 	    	$("#nav-PHY_102-tab").removeClass('activeEi');
 	    	$("#nav-PHY_104-tab").addClass('activeEi');
 	    	$("#nav-CHM_103-tab").removeClass('activeEi');
-	    	getCoursePHY104('ทุกวัน');
+	    	getCourse('ทุกวัน',"PHY104");
 	    });
 
 	    $("#nav-CHM_103-tab").click(function(){
@@ -108,13 +61,14 @@
 	    	$("#nav-PHY_102-tab").removeClass('activeEi');
 	    	$("#nav-PHY_104-tab").removeClass('activeEi');
 	    	$("#nav-CHM_103-tab").addClass('activeEi');	    	
-	    	getCourseCHM103('ทุกวัน');
+	    	getCourse('ทุกวัน',"CHM103");
 	    });
 
 
- //    $("#modalStatus").on('hidden.bs.modal', function () {
-	//     //getCourseMTH102(dayValue);
-	// });
+	 //    $("#bookingModal").on('hidden.bs.modal', function () {
+		//     //getCourseMTH102(dayValue);
+		//     console.log("eiei");
+		// });
 
 	});
 
@@ -166,29 +120,31 @@
 						};
 					};
 
-
 					// Check if data is empty
 					if(array.length==0){
 						$("#nocourse"+subject).html('<div class="card text-white bg-dark mb-3" style="max-width: 18rem;"><div class="card-header">ไม่มีคอร์สเรียน</div></div><br>');
-						$("#content"+subject).empty()
+						$("#content"+subject).empty();
 					}
 					else{
 
 						$("#nocourse"+subject).empty();
 						$("#content"+subject).empty().append('<div class="card text-white mb-3 day-card"><div class="card-header">'+data[showDate]["day"]+' '+data[showDate]["date"]+'</div></div><div class="col-12" id="courselist"></div>'); 
-						$('<div class="col-12" id="courselistMTH102'+data[showDate]["day"]+'"></div>').html("");
+						$("#content"+subject).append('<div class="col-12" id="courselist'+subject+data[showDate]["day"]+'"></div>');
 						reloadJS();
 
 						var response = data[showDate];
+						console.log(response[subject].length);
 						for(var i=0; i<response[subject].length; i++){
+							//console.log(response[subject]["star"]);
+							stringForPrintHtml ='';
 							stringForPrintHtml = stringForPrintHtml.concat('<div class="row"><div class="col-1"></div><div class="card-group"><center><div class="card text-white bg-dark card-name"><img class="card-img-top" src="/geo_solution/image/', response[subject][i]["img"]);
-							stringForPrintHtml = stringForPrintHtml.concat('" alt="Card image cap"><div class="card-body"><h5 class="card-title">', response[subject][i]["title"], response[subject][i]["firstname"], response[subject][i]["lastname"], '(พี่', response[subject][i]["nickname"], ')</h5>', getStar(response[subject]["star"]));
-							stringForPrintHtml = stringForPrintHtml.concat('<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#reviewModal" onclick="showReview(',  response[subject][i]["teacher_id"] , ')">review</button></div></div></center><div class="card text-white bg-dark card-course"><div class="card-body"><h5 class="card-title">คอร์สที่ทำการสอน</h5><p class="card-text">');
-							for(var j=0; j<response.PHY102[i].course.length; j++){
-								stringForPrintHtml = stringForPrintHtml.concat('<div class="row"><div class="col-md-4 col-xs-6 class-name"><span>', response[subject][i]["title"][j]["topic"], '</span></div><div class="col-md-4 col-xs-6 text-md-center room"><span>', response[subject][i]["title"][j]["topic"], '</span></div><div class="col-md-4 col-xs-4 button-time"><center><button type="button" class="btn btn-primary time-reseved" data-toggle="modal" data-target="#bookingModal" onclick="updateSeat(', response[subject][i]["title"][j]["course_id"], ')"><span>', response[subject][i]["title"][j]["time"], '</span></button></center></div></div>');
+							stringForPrintHtml = stringForPrintHtml.concat('" alt="Card image cap"><div class="card-body"><h5 class="card-title">', response[subject][i]["title"], response[subject][i]["firstname"], '  ', response[subject][i]["lastname"], '<br>(พี่', response[subject][i]["nickname"], ')</h5>', getStar(response[subject][i]["star"]));
+							stringForPrintHtml = stringForPrintHtml.concat('<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#reviewModal" onclick="showReview(', response[subject][i]["teacher_id"], ')">review</button></div></div></center><div class="card text-white bg-dark card-course"><div class="card-body"><h5 class="card-title">คอร์สที่ทำการสอน</h5><p class="card-text">');
+							for(var j=0; j<response[subject][i]["course"].length; j++){
+								stringForPrintHtml = stringForPrintHtml.concat('<div class="row"><div class="col-md-4 col-xs-6 class-name"><span>', response[subject][i]["course"][j]["topic"], '</span></div><div class="col-md-4 col-xs-6 text-md-center room"><span>ห้อง' , response[subject][i]["course"][j]["room"], '</span></div><div class="col-md-4 col-xs-4 button-time"><center><button type="button" class="btn btn-primary time-reseved" data-toggle="modal" data-target="#bookingModal" id="booking', response[subject][i]["course"][j]["course_id"], '" onclick="updateSeat(', response[subject][i]["course"][j]["course_id"], ')"><span>', response[subject][i]["course"][j]["time"], '</span></button></center></div></div>');
 							}
-							//stringForPrintHtml = stringForPrintHtml+'<hr class="course-line"></p></div><div class="card-footer"><p>ติดต่อ</p><p><img class="contract" src="./image/facebook.png">'+response[subject][i]["facebook"]+'</p><p><img class="contract" src="./image/line.png">'+response[subject][i]["facebook"]+'</p></div></div></div></div><br>';
-							stringForPrintHtml = stringForPrintHtml+'<hr class="course-line"></p></div><div class="card-footer"><p>ติดต่อ</p><p><img class="contract" src="./image/facebook.png"></p><p><img class="contract" src="./image/line.png"></p></div></div></div></div><br>'
+							stringForPrintHtml = stringForPrintHtml+'<hr class="course-line"></p></div><div class="card-footer"><p>ติดต่อ</p><p><img class="contract" src="./image/facebook.png">'+response[subject][i]["facebook"]+'</p><p><img class="contract" src="./image/line.png">'+response[subject][i]["line"]+'</p></div></div></div></div><br>';
+							//stringForPrintHtml = stringForPrintHtml+'<hr class="course-line"></p></div><div class="card-footer"><p>ติดต่อ</p><p><img class="contract" src="./image/facebook.png"></p><p><img class="contract" src="./image/line.png"></p></div></div></div></div><br>'
 							$("#courselist"+subject+response["day"]).append(stringForPrintHtml);
 						}
 					}
@@ -207,144 +163,59 @@
 					// Check if data is empty
 					if(array.length==0){
 						$("#nocourse"+subject).html('<div class="card text-white bg-dark mb-3" style="max-width: 18rem;"><div class="card-header">ไม่มีคอร์สเรียน</div></div><br>');
-						$("#content"+subject).empty()
+						$("#content"+subject).empty();
 					}
 					else{
 						$("#nocourse"+subject).empty();
-						$("#content"+subject).empty()
+						$("#content"+subject).empty();
 
 						for (showDate = 0; showDate < data.length; showDate++) {
-							$("#content"+subject).append('<div class="card text-white mb-3 day-card"><div class="card-header">'+data[showDate]["day"]+' '+data[showDate]["date"]+'</div></div><div class="col-12" id="courselist"></div>'); 
-							$('<div class="col-12" id="courselistMTH102'+data[showDate]["day"]+'"></div>').html("");
+							if(data[showDate][subject].length!=0){
+								$("#content"+subject).append('<div class="card text-white mb-3 day-card"><div class="card-header">'+data[showDate]["day"]+' '+data[showDate]["date"]+'</div></div><div class="col-12" id="courselist"></div>'); 	
+								$("#content"+subject).append('<div class="col-12" id="courselist'+subject+data[showDate]["day"]+'"></div>');
+							}
+							console.log(data[showDate][subject].length);
 							reloadJS();
 
+							//console.log("#content"+subject);
 							var response = data[showDate];
-							for(var i=0; i<response[subject].length; i++){
+							for(var i=0; i< response[subject].length; i++){
+								console.log('i='+i);
+								console.log('subject='+subject);
+								console.log('day='+response["day"]);
+								console.log('response[subject].length='+response[subject].length);
+								stringForPrintHtml ='';
 								stringForPrintHtml = stringForPrintHtml.concat('<div class="row"><div class="col-1"></div><div class="card-group"><center><div class="card text-white bg-dark card-name"><img class="card-img-top" src="/geo_solution/image/', response[subject][i]["img"]);
-								stringForPrintHtml = stringForPrintHtml.concat('" alt="Card image cap"><div class="card-body"><h5 class="card-title">', response[subject][i]["title"], response[subject][i]["firstname"], response[subject][i]["lastname"], '(พี่', response[subject][i]["nickname"], ')</h5>', getStar(response[subject]["star"]));
+								stringForPrintHtml = stringForPrintHtml.concat('" alt="Card image cap"><div class="card-body"><h5 class="card-title">', response[subject][i]["title"], response[subject][i]["firstname"], '  ', response[subject][i]["lastname"], '<br>(พี่', response[subject][i]["nickname"], ')</h5>', getStar(response[subject][i]["star"]));
 								stringForPrintHtml = stringForPrintHtml.concat('<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#reviewModal" onclick="showReview(',  response[subject][i]["teacher_id"] , ')">review</button></div></div></center><div class="card text-white bg-dark card-course"><div class="card-body"><h5 class="card-title">คอร์สที่ทำการสอน</h5><p class="card-text">');
-								for(var j=0; j<response.PHY102[i].course.length; j++){
-									stringForPrintHtml = stringForPrintHtml.concat('<div class="row"><div class="col-md-4 col-xs-6 class-name"><span>', response[subject][i]["title"][j]["topic"], '</span></div><div class="col-md-4 col-xs-6 text-md-center room"><span>', response[subject][i]["title"][j]["topic"], '</span></div><div class="col-md-4 col-xs-4 button-time"><center><button type="button" class="btn btn-primary time-reseved" data-toggle="modal" data-target="#bookingModal" onclick="updateSeat(', response[subject][i]["title"][j]["course_id"], ')"><span>', response[subject][i]["title"][j]["time"], '</span></button></center></div></div>');
+								for(var j=0; j<response[subject][i]["course"].length; j++){
+									stringForPrintHtml = stringForPrintHtml.concat('<div class="row"><div class="col-md-4 col-xs-6 class-name"><span>', response[subject][i]["course"][j]["topic"], '</span></div><div class="col-md-4 col-xs-6 text-md-center room"><span>ห้อง', response[subject][i]["course"][j]["room"], '</span></div><div class="col-md-4 col-xs-4 button-time"><center><button type="button" class="btn btn-primary time-reseved" data-toggle="modal" data-target="#bookingModal" id="booking', response[subject][i]["course"][j]["course_id"], '" onclick="updateSeat(', response[subject][i]["course"][j]["course_id"], ')"><span>', response[subject][i]["course"][j]["time"], '</span></button></center></div></div>');
 								}
-								stringForPrintHtml = stringForPrintHtml+'<hr class="course-line"></p></div><div class="card-footer"><p>ติดต่อ</p><p><img class="contract" src="./image/facebook.png">'+response[subject][i]["facebook"]+'</p><p><img class="contract" src="./image/line.png">'+response[subject][i]["facebook"]+'</p></div></div></div></div><br>';
+								stringForPrintHtml = stringForPrintHtml+'<hr class="course-line"></p></div><div class="card-footer"><p>ติดต่อ</p><p><img class="contract" src="./image/facebook.png">'+response[subject][i]["facebook"]+'</p><p><img class="contract" src="./image/line.png">'+response[subject][i]["line"]+'</p></div></div></div></div><br>';
 								//stringForPrintHtml = stringForPrintHtml+'<hr class="course-line"></p></div><div class="card-footer"><p>ติดต่อ</p><p><img class="contract" src="./image/facebook.png"></p><p><img class="contract" src="./image/line.png"></p></div></div></div></div><br>'
 								$("#courselist"+subject+response["day"]).append(stringForPrintHtml);
 							}
 						}	
 					}
 				}
-			}
+				reloadJS();
+				$.post("/geo_solution/resource/review/view_type.php",{},function(data,status){
+				  	var type = data['type'];
+				  	if (type == "guest" ){
+				    	$("button[id^='booking']").attr('disabled', 'disabled');
+				   		console.log($("button[id^='booking']"));
+				  	}
+				  	else{	
+				    
+				  	}
+				},"json");
+			},
 			error: function(data){
-				alert('error please try again !!!');
+				$("#nocourse"+subject).empty();
+				$("#content"+subject).empty()
 			}
 		});
 	}
-
-	function getCoursePHY102(day){
-		var obj ={};
-		obj['day'] = day;
-		$.ajax({
-			url: 'resource/home/showCourse.php',
-			type: 'post',
-			data: obj,
-			dataType: 'json',
-			success: function(data){
-				var stringForPrintHtml='';
-				var response;
-				var showDate=0;
-				if(day!='ทุกวัน'){
-					for (var checkdate = 0; checkdate<data.length; checkdate++){
-						if (day==data.day) {
-							showDate = checkdate;
-						}
-					};
-
-					var response = data[showDate];
-					if(response.PHY102.length==0){
-						stringForPrintHtml = stringForPrintHtml.concat('<tr><th style="width:1%"></th><td id="', response.day, 'PHY102">', response.day, '<hr style="border: 1px"></td><td>',  response.date, '<hr style="border: 1px"></td></tr><tr><th scope="row"></th><td style="width: 25%;" class="square"><center>ไม่มีข้อมูล</center></td><td></td></tr>');
-					}
-					else{
-						stringForPrintHtml = stringForPrintHtml.concat('<tr><th style="width:1%"></th><td id="', response.day, 'PHY102">', response.day, '<hr style="border: 1px"></td><td>',  response.date, '<hr style="border: 1px"></td></tr>');
-
-						for(var i=0; i<response.PHY102.length; i++){
-							var star = response.PHY102[i].star;
-							if(response.PHY102[i].star==""){
-								star = 5.0;
-							}
-							var starString = '';
-							for (var st = 0.0; st < 5.0; st++) {
-								if (star>=(st+0.5)) {
-									if(star>=(st+1.0)){
-										starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star"></span>';
-									}
-									else{
-										starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-half-full"></span>';
-									}
-								}
-								else{
-									starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-o"></span>';
-								}
-							}
-							//console.log(starString);
-							stringForPrintHtml = stringForPrintHtml.concat('<tr><th scope="row"></th><td style="width: 25%"><div class="square"><img src="image/', response.PHY102[i].img);
-							stringForPrintHtml = stringForPrintHtml.concat('"><p class="nickname", id="nicknamePHY102TA', response.PHY102[i].teacher_id, '"> พี่ ', response.PHY102[i].nickname);
-							stringForPrintHtml = stringForPrintHtml.concat('</p><p class="nickname2">', starString, '</p></div></td><td colspan="2"><p>ชื่อ ', response.PHY102[i].title, ' ', response.PHY102[i].firstname, '    ', response.PHY102[i].lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
-							for(var j=0; j<response.PHY102[i].course.length; j++){
-								stringForPrintHtml = stringForPrintHtml.concat('<tr><td style="width: 35%">', response.PHY102[i].course[j].topic, '</td><td style="width: 15%">', response.PHY102[i].course[j].room, '</td><td style="width: 18%" class="bookingtime"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalNB', response.PHY102[i].course[j].course_id, '" onclick="updateSeat(', response.PHY102[i].course[j].course_id, ');" >', response.PHY102[i].course[j].time, '</button><div class="modal fade" id="modalNB', response.PHY102[i].course[j].course_id, '" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">ยืนยันการจอง</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" id="hidemodal">&times;</span></button></div><div class="modal-body" id="modalcontent', response.PHY102[i].course[j].course_id, '">จำนวนที่นั่งคงเหลือ ', response.PHY102[i].course[j].seatLeft, ' ที่นั่ง</div><div class="modal-footer"><button type="button" class="btn btn-success" onclick="sendBooking(', response.PHY102[i].course[j].course_id, ');" id="buttonToBook">ยืนยัน</button></div></div></div></div></td><td>จำนวนที่นั่งคงเหลือ ', response.PHY102[i].course[j].seatLeft, ' ที่นั่ง</td></tr>'  )
-							}
-
-							stringForPrintHtml = stringForPrintHtml+'<tr><td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalRWPHY102'+ response.PHY102[i].teacher_id+'" onclick="showReviewPHY102('+response.PHY102[i].teacher_id+')">review</button><div class="modal fade" id="modalRWPHY102'+response.PHY102[i].teacher_id+'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLongTitle">Review</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body" id="reviewTAP102'+response.PHY102[i].teacher_id+'"></div></div></div></div></div></td></tr>';
-							stringForPrintHtml = stringForPrintHtml.concat('</tbody></table></td></tr>');
-						}
-					}	
-				}
-				else{
-					for (var checkdate = 0; checkdate<data.length; checkdate++) {
-						var response = data[checkdate];
-
-						if(response.PHY102.length==0){
-							stringForPrintHtml = stringForPrintHtml.concat('<tr><th style="width:1%"></th><td id="', response.day, 'PHY102">', response.day, '<hr style="border: 1px"></td><td>',  response.date, '<hr style="border: 1px"></td></tr><tr><th scope="row"></th><td style="width: 25%;" class="square"><center>ไม่มีข้อมูล</center></td><td></td></tr>');
-						}
-						else{
-							stringForPrintHtml = stringForPrintHtml.concat('<tr><th style="width:1%"></th><td id="', response.day, 'PHY102">', response.day, '<hr style="border: 1px"></td><td>',  response.date, '<hr style="border: 1px"></td></tr>');
-
-							for(var i=0; i<response.PHY102.length; i++){
-								var star = response.PHY102[i].star;
-								if(response.PHY102[i].star==""){
-									star = 5.0;
-								}
-								var starString = '';
-								for (var st = 0.0; st < 5.0; st++) {
-									if (star>=(st+0.5)) {
-										if(star>=(st+1.0)){
-											starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star"></span>';
-										}
-										else{
-											starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-half-full"></span>';
-										}
-									}
-									else{
-										starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-o"></span>';
-									}
-								}
-								stringForPrintHtml = stringForPrintHtml.concat('<tr><th scope="row"></th><td style="width: 25%"><div class="square"><img src="image/', response.PHY102[i].img);
-								stringForPrintHtml = stringForPrintHtml.concat('"><p class="nickname", id="nicknamePHY102TA', response.PHY102[i].teacher_id, '"> พี่ ', response.PHY102[i].nickname);
-								stringForPrintHtml = stringForPrintHtml.concat('</p><p class="nickname">', starString, '</p></div></td><td colspan="2"><p>ชื่อ ', response.PHY102[i].title, ' ', response.PHY102[i].firstname, '    ', response.PHY102[i].lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
-								for(var j=0; j<response.PHY102[i].course.length; j++){
-									stringForPrintHtml = stringForPrintHtml.concat('<tr><td style="width: 35%">', response.PHY102[i].course[j].topic, '</td><td style="width: 15%">', response.PHY102[i].course[j].room, '</td><td style="width: 18%" class="bookingtime"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalNB', response.PHY102[i].course[j].course_id, '" onclick="updateSeat(', response.PHY102[i].course[j].course_id, ');" >', response.PHY102[i].course[j].time, '</button><div class="modal fade" id="modalNB', response.PHY102[i].course[j].course_id, '" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">ยืนยันการจอง</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" id="hidemodal">&times;</span></button></div><div class="modal-body" id="modalcontent', response.PHY102[i].course[j].course_id, '">จำนวนที่นั่งคงเหลือ ', response.PHY102[i].course[j].seatLeft, ' ที่นั่ง</div><div class="modal-footer"><button type="button" class="btn btn-success" onclick="sendBooking(', response.PHY102[i].course[j].course_id, ');" id="buttonToBook">ยืนยัน</button></div></div></div></div></td><td>จำนวนที่นั่งคงเหลือ ', response.PHY102[i].course[j].seatLeft, ' ที่นั่ง</td></tr>'  )
-								}
-
-								stringForPrintHtml = stringForPrintHtml+'<tr><td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalRWPHY102'+ response.PHY102[i].teacher_id+'" onclick="showReviewPHY102('+response.PHY102[i].teacher_id+')">review</button><div class="modal fade" id="modalRWPHY102'+response.PHY102[i].teacher_id+'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLongTitle">Review</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body" id="reviewTAP102'+response.PHY102[i].teacher_id+'"></div></div></div></div></div></td></tr>';
-								stringForPrintHtml = stringForPrintHtml.concat('</tbody></table></td></tr>');
-							}
-						}
-					}
-				}
-
-				$("#tablePHY102").html(stringForPrintHtml);	
-			}
-		});	
-	};
 
 	function updateSeat(id){
 		var obj ={};
@@ -355,27 +226,27 @@
 			data: obj,
 			dataType: 'text',
 			success: function(data){
-				$("#modalcontent"+id).html("จำนวนที่นั่งคงเหลือ "+data+" ที่นั่ง");
+				$("#bookingModalBody").html("จำนวนที่นั่งคงเหลือ "+data+" ที่นั่ง");
+				$("#bookButton").attr({
+					onclick : "sendBooking("+id+")",
+				})
+				console.log($("#bookButton").attr("onclick"));
 			}
 		});
 	};
 
 	function sendBooking(id){
+		console.log(id);
 		var obj ={};
 		obj['course_id'] = id;
-    	var dayValue = $( "#exampleFormControlSelect2" ).val();
-    	if (!dayValue.localeCompare("เลือกวัน")) {
-    		dayValue = "ทุกวัน";
-    	};
-
-    	//console.log("eiei");		
+	
 		$.ajax({
 			url: 'resource/home/book_course.php',
 			type: 'post',
 			data: obj,
 			dataType: 'text',
 			beforeSend: function(){
-				$("#modalNB"+id).modal('hide').fadeOut(100);
+				$("#bookingModal").modal('hide').fadeOut(100);
 				$('.modal-backdrop').remove();
 				$("#modalStatus").modal('show');		
 				// $('#modalStatus').show().on('shown', function() { 
@@ -387,42 +258,39 @@
 				$("#modalStatusBody").html(data);
 				//$("#modalStatus").modal('hide').fadeIn(2000);
 				if ($("#nav-MTH_102-tab").hasClass('activeEi')) {
-			    	var dayValue = $( "#exampleFormControlSelect1" ).val();
+			    	var dayValue = $( "#SelectMTH102" ).val();
 			    	if (!dayValue.localeCompare("เลือกวัน")) {
 			    		dayValue = "ทุกวัน";
 			    	};
-					getCourseMTH102(dayValue);
-					//$('.modal-backdrop').remove();
-					//console.log("eiei");
-					//$("#modalStatusBody").html(data);
+					getCourse(dayValue,"MTH102");
 				}
 				else if($("#nav-MTH_112-tab").hasClass('activeEi')) {
-			    	var dayValue = $( "#exampleFormControlSelect2" ).val();
+			    	var dayValue = $( "#SelectMTH112" ).val();
 			    	if (!dayValue.localeCompare("เลือกวัน")) {
 			    		dayValue = "ทุกวัน";
 			    	};
-					getCourseMTH112(dayValue);
+					getCourse(dayValue,"MTH112");
 				}
 				else if($("#nav-PHY_102-tab").hasClass('activeEi')) {
-			    	var dayValue = $( "#exampleFormControlSelect3" ).val();
+			    	var dayValue = $( "#SelectPHY102" ).val();
 			    	if (!dayValue.localeCompare("เลือกวัน")) {
 			    		dayValue = "ทุกวัน";
 			    	};
-					getCoursePHY102(dayValue);
+					getCourse(dayValue,"PHY102");
 				}
 				else if($("#nav-PHY_104-tab").hasClass('activeEi')) {
-			    	var dayValue = $( "#exampleFormControlSelect4" ).val();
+			    	var dayValue = $( "#SelectPHY104" ).val();
 			    	if (!dayValue.localeCompare("เลือกวัน")) {
 			    		dayValue = "ทุกวัน";
 			    	};
-					getCoursePHY104(dayValue);
+					getCourse(dayValue,"PHY104");
 				}
 				else if($("#nav-CHM_103-tab").hasClass('activeEi')) {
-					var dayValue = $( "#exampleFormControlSelect5" ).val();
+					var dayValue = $( "#SelectCHM103" ).val();
 			    	if (!dayValue.localeCompare("เลือกวัน")) {
 			    		dayValue = "ทุกวัน";
 			    	};			
-					getCourseCHM103(dayValue);
+					getCourse(dayValue,"CHM103");
 				}	
 
 				//console.log("eiei");										
@@ -436,7 +304,6 @@
 	function showReview(id){
 		var obj ={};
 		obj['teacher_id'] = id;
-
 		console.log(id);
 		$.ajax({
 			url: 'resource/home/show_review.php',
@@ -444,575 +311,21 @@
 			data: obj,
 			dataType: 'json',
 			success: function(data){
+
 				var stringHtml='';
 				if(data.length!=0){
 					for (var i = 0; i < data.length; i++) {
-						stringHtml = stringHtml+'<div class="col-12" style="word-wrap: break-word;"><p>'+data[i].review_txt+'</p></div><div class="row"><div class="col-3"><p>คะแนนพี่TA</p></div><div class="col-5"><p>'+data[i].star+' คะแนน </p></div><div class="col-4"><p>'+data[i].time_stamp+' น.</p></div></div>';
+						//console.log(data[i].star);
+						stringHtml = stringHtml+'<div class="col-12 review-text" "><p>'+data[i].review_txt+'</p></div><center><div class="review-name"><div class="col-md-3 col-xs-6">คะแนนพี่TA</div>'+getStar(data[i].star)+'<div class="col-md-5 col-xs-5 date-time"><p>'+data[i].time_stamp+' น.</p></div></div></center>';
 					}
-					$("#review"+id).empty().append(stringHtml);
+					$("#reviewModalText").empty().append(stringHtml);
 				}
 				else{
-					$("#review"+id).empty().append('ไม่มีข้อมูล');
+					$("#reviewModalText").empty().append('ไม่มีข้อมูลการรีวิว');
 				}
 			}
 		});
 	};	
-
-	function showReviewMTH102(id){
-		var obj ={};
-		obj['teacher_id'] = id;
-		console.log(id);
-		$.ajax({
-			url: 'resource/home/show_review.php',
-			type: 'post',
-			data: obj,
-			dataType: 'json',
-			success: function(data){
-				var stringHtml='';
-				if(data.length!=0){
-					for (var i = 0; i < data.length; i++) {
-						stringHtml = stringHtml+'<div class="col-12" style="word-wrap: break-word;"><p>'+data[i].review_txt+'</p></div><div class="row"><div class="col-3"><p>คะแนนพี่TA</p></div><div class="col-5"><p>'+data[i].star+' คะแนน </p></div><div class="col-4"><p>'+data[i].time_stamp+' น.</p></div></div>';
-					}
-					$("#reviewTAM102"+id).empty().append(stringHtml);
-				}
-				else{
-					$("#reviewTAM102"+id).empty().append('ไม่มีข้อมูล');
-				}
-			}
-		});
-	};	
-
-	function showReviewMTH112(id){
-		var obj ={};
-		obj['teacher_id'] = id;
-		console.log(id);
-		$.ajax({
-			url: 'resource/home/show_review.php',
-			type: 'post',
-			data: obj,
-			dataType: 'json',
-			success: function(data){
-				var stringHtml='';
-				if(data.length!=0){
-					for (var i = 0; i < data.length; i++) {
-						stringHtml = stringHtml+'<div class="col-12" style="word-wrap: break-word;"><p>'+data[i].review_txt+'</p></div><div class="row"><div class="col-3"><p>คะแนนพี่TA</p></div><div class="col-5"><p>'+data[i].star+' คะแนน </p></div><div class="col-4"><p>'+data[i].time_stamp+' น.</p></div></div>';
-					}
-					$("#reviewTAM112"+id).empty().append(stringHtml);
-				}
-				else{
-					$("#reviewTAM112"+id).empty().append('ไม่มีข้อมูล');
-				}
-			}
-		});
-	};
-
-	function showReviewPHY102(id){
-		var obj ={};
-		obj['teacher_id'] = id;
-		$.ajax({
-			url: 'resource/home/show_review.php',
-			type: 'post',
-			data: obj,
-			dataType: 'json',
-			success: function(data){
-				var stringHtml='';
-				if(data.length!=0){
-					for (var i = 0; i < data.length; i++) {
-						stringHtml = stringHtml+'<div class="col-12" style="word-wrap: break-word;"><p>'+data[i].review_txt+'</p></div><div class="row"><div class="col-3"><p>คะแนนพี่TA</p></div><div class="col-5"><p>'+data[i].star+' คะแนน </p></div><div class="col-4"><p>'+data[i].time_stamp+' น.</p></div></div>';
-					}
-					$("#reviewTAP102"+id).empty().append(stringHtml);
-				}
-				else{
-					$("#reviewTAP102"+id).empty().append('ไม่มีข้อมูล');
-				}
-			}
-		});
-	};	
-
-	function showReviewPHY104(id){
-		var obj ={};
-		obj['teacher_id'] = id;
-		$.ajax({
-			url: 'resource/home/show_review.php',
-			type: 'post',
-			data: obj,
-			dataType: 'json',
-			success: function(data){
-				var stringHtml='';
-				if(data.length!=0){
-					for (var i = 0; i < data.length; i++) {
-						stringHtml = stringHtml+'<div class="col-12" style="word-wrap: break-word;"><p>'+data[i].review_txt+'</p></div><div class="row"><div class="col-3"><p>คะแนนพี่TA</p></div><div class="col-5"><p>'+data[i].star+' คะแนน </p></div><div class="col-4"><p>'+data[i].time_stamp+' น.</p></div></div>';
-					}
-					$("#reviewTAP104"+id).empty().append(stringHtml);
-				}
-				else{
-					$("#reviewTAP104"+id).empty().append('ไม่มีข้อมูล');
-				}
-			}
-		});
-	};	
-
-	function showReviewCHM103(id){
-		var obj ={};
-		obj['teacher_id'] = id;
-		$.ajax({
-			url: 'resource/home/show_review.php',
-			type: 'post',
-			data: obj,
-			dataType: 'json',
-			success: function(data){
-				var stringHtml='';
-				if(data.length!=0){
-					for (var i = 0; i < data.length; i++) {
-						stringHtml = stringHtml+'<div class="col-12" style="word-wrap: break-word;"><p>'+data[i].review_txt+'</p></div><div class="row"><div class="col-3"><p>คะแนนพี่TA</p></div><div class="col-5"><p>'+data[i].star+' คะแนน </p></div><div class="col-4"><p>'+data[i].time_stamp+' น.</p></div></div>';
-					}
-					$("#reviewTAC103"+id).empty().append(stringHtml);
-				}
-				else{
-					$("#reviewTAC103"+id).empty().append('ไม่มีข้อมูล');
-				}
-			}
-		});
-	};	
-
-	function getCourseMTH102(day){
-		var obj ={};
-		obj['day'] = day;
-		$.ajax({
-			url: 'resource/home/showCourse.php',
-			type: 'post',
-			data: obj,
-			dataType: 'json',
-			success: function(data){
-				var stringForPrintHtml='';
-				var response;
-				var showDate=0;
-				if(day!='ทุกวัน'){
-					for (var checkdate = 0; checkdate<data.length; checkdate++){
-						if (day==data.day) {
-							showDate = checkdate;
-						}
-					};
-
-					var response = data[showDate];
-					if(response.MTH102.length==0){
-						stringForPrintHtml = stringForPrintHtml.concat('<tr><th style="width:1%"></th><td id="', response.day, 'MTH102">', response.day, '<hr style="border: 1px"></td><td>',  response.date, '<hr style="border: 1px"></td></tr><tr><th scope="row"></th><td style="width: 25%;" class="square"><center>ไม่มีข้อมูล</center></td><td></td></tr>');
-					}
-					else{
-						stringForPrintHtml = stringForPrintHtml.concat('<tr><th style="width:1%"></th><td id="', response.day, 'MTH102">', response.day, '<hr style="border: 1px"></td><td>',  response.date, '<hr style="border: 1px"></td></tr>');
-
-						for(var i=0; i<response.MTH102.length; i++){
-							var star = response.MTH102[i].star;
-							if(response.MTH102[i].star==""){
-								star = 5.0;
-							}
-							var starString = '';
-							for (var st = 0.0; st < 5.0; st++) {
-								if (star>=(st+0.5)) {
-									if(star>=(st+1.0)){
-										starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star"></span>';
-									}
-									else{
-										starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-half-full"></span>';
-									}
-								}
-								else{
-									starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-o"></span>';
-								}
-							}
-							stringForPrintHtml = stringForPrintHtml.concat('<tr><th scope="row"></th><td style="width: 25%"><div class="square"><img src="image/', response.MTH102[i].img);
-							stringForPrintHtml = stringForPrintHtml.concat('"><p class="nickname", id="nicknameMTH102TA', response.MTH102[i].teacher_id, '"> พี่ ', response.MTH102[i].nickname);
-							stringForPrintHtml = stringForPrintHtml.concat('</p><p class="nickname">', starString, '</p></div></td><td colspan="2"><p>ชื่อ ', response.MTH102[i].title, ' ', response.MTH102[i].firstname, '    ', response.MTH102[i].lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
-							for(var j=0; j<response.MTH102[i].course.length; j++){
-								stringForPrintHtml = stringForPrintHtml.concat('<tr><td style="width: 35%">', response.MTH102[i].course[j].topic, '</td><td style="width: 15%">', response.MTH102[i].course[j].room, '</td><td style="width: 18%" class="bookingtime"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalNB', response.MTH102[i].course[j].course_id, '" onclick="updateSeat(', response.MTH102[i].course[j].course_id, ')" >', response.MTH102[i].course[j].time, '</button><div class="modal fade" id="modalNB', response.MTH102[i].course[j].course_id, '" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">ยืนยันการจอง</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" id="hidemodal">&times;</span></button></div><div class="modal-body" id="modalcontent', response.MTH102[i].course[j].course_id, '">จำนวนที่นั่งคงเหลือ ', response.MTH102[i].course[j].seatLeft, ' ที่นั่ง</div><div class="modal-footer"><button type="button" class="btn btn-success" onclick="sendBooking(', response.MTH102[i].course[j].course_id, ')" id="buttonToBook">ยืนยัน</button></div></div></div></div></td><td>จำนวนที่นั่งคงเหลือ ', response.MTH102[i].course[j].seatLeft, ' ที่นั่ง</td></tr>'  )
-							}
-							stringForPrintHtml = stringForPrintHtml+'<tr><td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalRWMTH102'+ response.MTH102[i].teacher_id+'" onclick="showReviewMTH102('+response.MTH102[i].teacher_id+')">review</button><div class="modal fade" id="modalRWMTH102'+response.MTH102[i].teacher_id+'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLongTitle">Review</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body" id="reviewTAM102'+response.MTH102[i].teacher_id+'"></div></div></div></div></div></td></tr>';
-							stringForPrintHtml = stringForPrintHtml.concat('</tbody></table></td></tr>');
-						}
-					}
-				}
-				else{
-					for (var checkdate = 0; checkdate<data.length; checkdate++) {
-						var response = data[checkdate];
-
-						if(response.MTH102.length==0){
-							stringForPrintHtml = stringForPrintHtml.concat('<tr><th style="width:1%"></th><td id="', response.day, 'MTH102">', response.day, '<hr style="border: 1px"></td><td>',  response.date, '<hr style="border: 1px"></td></tr><tr><th scope="row"></th><td style="width: 25%;" class="square"><center>ไม่มีข้อมูล</center></td><td></td></tr>');
-						}
-						else{
-							stringForPrintHtml = stringForPrintHtml.concat('<tr><th style="width:1%"></th><td id="', response.day, 'MTH102">', response.day, '<hr style="border: 1px"></td><td>',  response.date, '<hr style="border: 1px"></td></tr>');
-
-							for(var i=0; i<response.MTH102.length; i++){
-								var star = response.MTH102[i].star;
-								if(response.MTH102[i].star==""){
-									star = 5.0;
-								}
-								var starString = '';
-								for (var st = 0.0; st < 5.0; st++) {
-									if (star>=(st+0.5)) {
-										if(star>=(st+1.0)){
-											starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star"></span>';
-										}
-										else{
-											starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-half-full"></span>';
-										}
-									}
-									else{
-										starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-o"></span>';
-									}
-								}
-								stringForPrintHtml = stringForPrintHtml.concat('<tr><th scope="row"></th><td style="width: 25%"><div class="square"><img src="image/', response.MTH102[i].img);
-								stringForPrintHtml = stringForPrintHtml.concat('"><p class="nickname", id="nicknameMTH102TA', response.MTH102[i].teacher_id, '"> พี่ ', response.MTH102[i].nickname);
-								stringForPrintHtml = stringForPrintHtml.concat('</p><p class="nickname">', starString, '</p></div></td><td colspan="2"><p>ชื่อ ', response.MTH102[i].title, ' ', response.MTH102[i].firstname, '    ', response.MTH102[i].lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
-								for(var j=0; j<response.MTH102[i].course.length; j++){
-									stringForPrintHtml = stringForPrintHtml.concat('<tr><td style="width: 35%">', response.MTH102[i].course[j].topic, '</td><td style="width: 15%">', response.MTH102[i].course[j].room, '</td><td style="width: 18%" class="bookingtime"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalNB', response.MTH102[i].course[j].course_id, '" onclick="updateSeat(', response.MTH102[i].course[j].course_id, ')" >', response.MTH102[i].course[j].time, '</button><div class="modal fade" id="modalNB', response.MTH102[i].course[j].course_id, '" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">ยืนยันการจอง</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" id="hidemodal">&times;</span></button></div><div class="modal-body" id="modalcontent', response.MTH102[i].course[j].course_id, '">จำนวนที่นั่งคงเหลือ ', response.MTH102[i].course[j].seatLeft, ' ที่นั่ง</div><div class="modal-footer"><button type="button" class="btn btn-success" onclick="sendBooking(', response.MTH102[i].course[j].course_id, ')" id="buttonToBook">ยืนยัน</button></div></div></div></div></td><td>จำนวนที่นั่งคงเหลือ ', response.MTH102[i].course[j].seatLeft, ' ที่นั่ง</td></tr>'  )
-								}
-
-								stringForPrintHtml = stringForPrintHtml+'<tr><td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalRWMTH102'+ response.MTH102[i].teacher_id+'" onclick="showReviewMTH102('+response.MTH102[i].teacher_id+')">review</button><div class="modal fade" id="modalRWMTH102'+response.MTH102[i].teacher_id+'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLongTitle">Review</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body" id="reviewTAM102'+response.MTH102[i].teacher_id+'"></div></div></div></div></div></td></tr>';
-								stringForPrintHtml = stringForPrintHtml.concat('</tbody></table></td></tr>');
-							}
-						}
-					}
-				}
-				$("#tableMTH102").empty().html(stringForPrintHtml);	
-			}
-		});	
-	};
-
-	function getCourseMTH112(day){
-		var obj ={};
-		obj['day'] = day;
-		$.ajax({
-			url: 'resource/home/showCourse.php',
-			type: 'post',
-			data: obj,
-			dataType: 'json',
-			success: function(data){
-				var stringForPrintHtml='';
-				var showDate=0;
-				var response;
-				if(day!='ทุกวัน'){
-					for (var checkdate = 0; checkdate<data.length; checkdate++){
-						if (day==data.day) {
-							showDate = checkdate;
-						}
-					};
-					var response = data[showDate];
-					if(response.MTH112.length==0){
-						stringForPrintHtml = stringForPrintHtml.concat('<tr><th style="width:1%"></th><td id="', response.day, 'MTH112">', response.day, '<hr style="border: 1px"></td><td>',  response.date, '<hr style="border: 1px"></td></tr><tr><th scope="row"></th><td style="width: 25%;" class="square"><center>ไม่มีข้อมูล</center></td><td></td></tr>');
-					}
-					else{
-						stringForPrintHtml = stringForPrintHtml.concat('<tr><th style="width:1%"></th><td id="', response.day, 'MTH112">', response.day, '<hr style="border: 1px"></td><td>',  response.date, '<hr style="border: 1px"></td></tr>');
-
-						for(var i=0; i<response.MTH112.length; i++){
-							var star = response.MTH112[i].star;
-							if(response.MTH112[i].star==""){
-								star = 5.0;
-							}
-							var starString = '';
-							for (var st = 0.0; st < 5.0; st++) {
-								if (star>=(st+0.5)) {
-									if(star>=(st+1.0)){
-										starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star"></span>';
-									}
-									else{
-										starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-half-full"></span>';
-									}
-								}
-								else{
-									starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-o"></span>';
-								}
-							}
-							stringForPrintHtml = stringForPrintHtml.concat('<tr><th scope="row"></th><td style="width: 25%"><div class="square"><img src="image/', response.MTH112[i].img);
-							stringForPrintHtml = stringForPrintHtml.concat('"><p class="nickname", id="nicknameMTH112TA', response.MTH112[i].teacher_id, '"> พี่ ', response.MTH112[i].nickname);
-							stringForPrintHtml = stringForPrintHtml.concat('</p><p class="nickname">', starString, '</p></div></td><td colspan="2"><p>ชื่อ ', response.MTH112[i].title, ' ', response.MTH112[i].firstname, '    ', response.MTH112[i].lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
-							for(var j=0; j<response.MTH112[i].course.length; j++){
-								stringForPrintHtml = stringForPrintHtml.concat('<tr><td style="width: 35%">', response.MTH112[i].course[j].topic, '</td><td style="width: 15%">', response.MTH112[i].course[j].room, '</td><td style="width: 18%" class="bookingtime"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalNB', response.MTH112[i].course[j].course_id, '" onclick="updateSeat(', response.MTH112[i].course[j].course_id, ')" >', response.MTH112[i].course[j].time, '</button><div class="modal fade" id="modalNB', response.MTH112[i].course[j].course_id, '" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">ยืนยันการจอง</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" id="hidemodal">&times;</span></button></div><div class="modal-body" id="modalcontent', response.MTH112[i].course[j].course_id, '">จำนวนที่นั่งคงเหลือ ', response.MTH112[i].course[j].seatLeft, ' ที่นั่ง</div><div class="modal-footer"><button type="button" class="btn btn-success" onclick="sendBooking(', response.MTH112[i].course[j].course_id, ')" id="buttonToBook">ยืนยัน</button></div></div></div></div></td><td>จำนวนที่นั่งคงเหลือ ', response.MTH112[i].course[j].seatLeft, ' ที่นั่ง</td></tr>'  )
-							}
-
-							stringForPrintHtml = stringForPrintHtml+'<tr><td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalRWMTH112'+ response.MTH112[i].teacher_id+'" onclick="showReviewMTH112('+response.MTH112[i].teacher_id+')">review</button><div class="modal fade" id="modalRWMTH112'+response.MTH112[i].teacher_id+'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLongTitle">Review</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body" id="reviewTAM112'+response.MTH112[i].teacher_id+'"></div></div></div></div></div></td></tr>';
-							stringForPrintHtml = stringForPrintHtml.concat('</tbody></table></td></tr>');
-						}
-					}
-				}
-				else{
-					for (var checkdate = 0; checkdate<data.length; checkdate++) {
-						var response = data[checkdate];
-
-						if(response.MTH112.length==0){
-							stringForPrintHtml = stringForPrintHtml.concat('<tr><th style="width:1%"></th><td id="', response.day, 'MTH112">', response.day, '<hr style="border: 1px"></td><td>',  response.date, '<hr style="border: 1px"></td></tr><tr><th scope="row"></th><td style="width: 25%;" class="square"><center>ไม่มีข้อมูล</center></td><td></td></tr>');
-						}
-						else{
-							stringForPrintHtml = stringForPrintHtml.concat('<tr><th style="width:1%"></th><td id="', response.day, 'MTH112">', response.day, '<hr style="border: 1px"></td><td>',  response.date, '<hr style="border: 1px"></td></tr>');
-
-							for(var i=0; i<response.MTH112.length; i++){
-								var star = response.MTH112[i].star;
-								if(response.MTH112[i].star==""){
-									star = 5.0;
-								}
-								var starString = '';
-								for (var st = 0.0; st < 5.0; st++) {
-									if (star>=(st+0.5)) {
-										if(star>=(st+1.0)){
-											starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star"></span>';
-										}
-										else{
-											starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-half-full"></span>';
-										}
-									}
-									else{
-										starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-o"></span>';
-									}
-								}
-								stringForPrintHtml = stringForPrintHtml.concat('<tr><th scope="row"></th><td style="width: 25%"><div class="square"><img src="image/', response.MTH112[i].img);
-								stringForPrintHtml = stringForPrintHtml.concat('"><p class="nickname", id="nicknameMTH112TA', response.MTH112[i].teacher_id, '"> พี่ ', response.MTH112[i].nickname);
-								stringForPrintHtml = stringForPrintHtml.concat('</p><p class="nickname">', starString, '</p></div></td><td colspan="2"><p>ชื่อ ', response.MTH112[i].title, ' ', response.MTH112[i].firstname, '    ', response.MTH112[i].lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
-								for(var j=0; j<response.MTH112[i].course.length; j++){
-									stringForPrintHtml = stringForPrintHtml.concat('<tr><td style="width: 35%">', response.MTH112[i].course[j].topic, '</td><td style="width: 15%">', response.MTH112[i].course[j].room, '</td><td style="width: 18%" class="bookingtime"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalNB', response.MTH112[i].course[j].course_id, '" onclick="updateSeat(', response.MTH112[i].course[j].course_id, ')" >', response.MTH112[i].course[j].time, '</button><div class="modal fade" id="modalNB', response.MTH112[i].course[j].course_id, '" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">ยืนยันการจอง</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" id="hidemodal">&times;</span></button></div><div class="modal-body" id="modalcontent', response.MTH112[i].course[j].course_id, '">จำนวนที่นั่งคงเหลือ ', response.MTH112[i].course[j].seatLeft, ' ที่นั่ง</div><div class="modal-footer"><button type="button" class="btn btn-success" onclick="sendBooking(', response.MTH112[i].course[j].course_id, ')" id="buttonToBook">ยืนยัน</button></div></div></div></div></td><td>จำนวนที่นั่งคงเหลือ ', response.MTH112[i].course[j].seatLeft, ' ที่นั่ง</td></tr>'  )
-								}
-
-								stringForPrintHtml = stringForPrintHtml+'<tr><td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalRWMTH112'+ response.MTH112[i].teacher_id+'" onclick="showReviewMTH112('+response.MTH112[i].teacher_id+')">review</button><div class="modal fade" id="modalRWMTH112'+response.MTH112[i].teacher_id+'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLongTitle">Review</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body" id="reviewTAM112'+response.MTH112[i].teacher_id+'"></div></div></div></div></div></td></tr>';
-								stringForPrintHtml = stringForPrintHtml.concat('</tbody></table></td></tr>');
-							}
-						}
-					}		
-				};
-
-				// for (var checkdate = 0; checkdate<data.length; checkdate++) {
-				// 	var response = data[checkdate];
-
-				// 	if(response.MTH112.length==0){
-				// 		stringForPrintHtml = stringForPrintHtml.concat('<tr><th style="width:1%"></th><td id="', response.day, 'MTH112">', response.day, '<hr style="border: 1px"></td><td>',  response.date, '<hr style="border: 1px"></td></tr><tr><th scope="row"></th><td style="width: 25%;" class="square"><center>ไม่มีข้อมูล</center></td><td></td></tr>');
-				// 	}
-				// 	else{
-				// 		stringForPrintHtml = stringForPrintHtml.concat('<tr><th style="width:1%"></th><td id="', response.day, 'MTH112">', response.day, '<hr style="border: 1px"></td><td>',  response.date, '<hr style="border: 1px"></td></tr>');
-
-				// 		for(var i=0; i<response.MTH112.length; i++){
-				// 			stringForPrintHtml = stringForPrintHtml.concat('<tr><th scope="row"></th><td style="width: 25%"><div class="square"><img src="image/', response.MTH112[i].img);
-				// 			stringForPrintHtml = stringForPrintHtml.concat('"><p class="nickname", id="nicknameMTH112TA', response.MTH112[i].teacher_id, '"> พี่ ', response.MTH112[i].nickname);
-				// 			stringForPrintHtml = stringForPrintHtml.concat('</p><p class="nickname">', response.MTH112[i].star, '</p></div></td><td colspan="2"><p>ชื่อ ', response.MTH112[i].title, ' ', response.MTH112[i].firstname, '    ', response.MTH112[i].lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
-				// 			for(var j=0; j<response.MTH112[i].course.length; j++){
-				// 				stringForPrintHtml = stringForPrintHtml.concat('<tr><td style="width: 35%">', response.MTH112[i].course[j].topic, '</td><td style="width: 15%">', response.MTH112[i].course[j].room, '</td><td style="width: 18%" class="bookingtime"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalNB', response.MTH112[i].course[j].course_id, '" onclick="updateSeat(', response.MTH112[i].course[j].course_id, ')" >', response.MTH112[i].course[j].time, '</button><div class="modal fade" id="modalNB', response.MTH112[i].course[j].course_id, '" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">ยืนยันการจอง</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" id="hidemodal">&times;</span></button></div><div class="modal-body" id="modalcontent', response.MTH112[i].course[j].course_id, '">จำนวนที่นั่งคงเหลือ ', response.MTH112[i].course[j].seatLeft, ' ที่นั่ง</div><div class="modal-footer"><button type="button" class="btn btn-success" onclick="sendBooking(', response.MTH112[i].course[j].course_id, ')" id="buttonToBook">ยืนยัน</button></div></div></div></div></td><td>จำนวนที่นั่งคงเหลือ ', response.MTH112[i].course[j].seatLeft, ' ที่นั่ง</td></tr>'  )
-				// 			}
-
-				// 			stringForPrintHtml = stringForPrintHtml+'<tr><td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalRWMTH112'+ response.MTH112[i].teacher_id+'" onclick="showReviewMTH112('+response.MTH112[i].teacher_id+')">review</button><div class="modal fade" id="modalRWMTH112'+response.MTH112[i].teacher_id+'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLongTitle">Review</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body" id="reviewTAM112'+response.MTH112[i].teacher_id+'"></div></div></div></div></div></td></tr>';
-				// 			stringForPrintHtml = stringForPrintHtml.concat('</tbody></table></td></tr>');
-				// 		}
-				// 	}
-				// }
-				$("#tableMTH112").empty().html(stringForPrintHtml);
-			}
-		});	
-	};
-
-	function getCoursePHY104(day){
-		var obj ={};
-		obj['day'] = day;
-		$.ajax({
-			url: 'resource/home/showCourse.php',
-			type: 'post',
-			data: obj,
-			dataType: 'json',
-			success: function(data){
-				var stringForPrintHtml='';
-				var response;
-				var showDate=0;
-				if(day!='ทุกวัน'){
-					for (var checkdate = 0; checkdate<data.length; checkdate++){
-						if (day==data.day) {
-							showDate = checkdate;
-						}
-					};
-					var response = data[showDate];
-					if(response.PHY104.length==0){
-						stringForPrintHtml = stringForPrintHtml.concat('<tr><th style="width:1%"></th><td id="', response.day, 'PHY104">', response.day, '<hr style="border: 1px"></td><td>',  response.date, '<hr style="border: 1px"></td></tr><tr><th scope="row"></th><td style="width: 25%;" class="square"><center>ไม่มีข้อมูล</center></td><td></td></tr>');
-					}
-					else{
-						stringForPrintHtml = stringForPrintHtml.concat('<tr><th style="width:1%"></th><td id="', response.day, 'PHY104">', response.day, '<hr style="border: 1px"></td><td>',  response.date, '<hr style="border: 1px"></td></tr>');
-
-						for(var i=0; i<response.PHY104.length; i++){
-							var star = response.PHY104[i].star;
-							if(response.PHY104[i].star==""){
-								star = 5.0;
-							}
-							var starString = '';
-							for (var st = 0.0; st < 5.0; st++) {
-								if (star>=(st+0.5)) {
-									if(star>=(st+1.0)){
-										starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star"></span>';
-									}
-									else{
-										starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-half-full"></span>';
-									}
-								}
-								else{
-									starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-o"></span>';
-								}
-							}
-							stringForPrintHtml = stringForPrintHtml.concat('<tr><th scope="row"></th><td style="width: 25%"><div class="square"><img src="image/', response.PHY104[i].img);
-							stringForPrintHtml = stringForPrintHtml.concat('"><p class="nickname", id="nicknamePHY104TA', response.PHY104[i].teacher_id, '"> พี่ ', response.PHY104[i].nickname);
-							stringForPrintHtml = stringForPrintHtml.concat('</p><p class="nickname">', starString, '</p></div></td><td colspan="2"><p>ชื่อ ', response.PHY104[i].title, ' ', response.PHY104[i].firstname, '    ', response.PHY104[i].lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
-							for(var j=0; j<response.PHY104[i].course.length; j++){
-								stringForPrintHtml = stringForPrintHtml.concat('<tr><td style="width: 35%">', response.PHY104[i].course[j].topic, '</td><td style="width: 15%">', response.PHY104[i].course[j].room, '</td><td style="width: 18%" class="bookingtime"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalNB', response.PHY104[i].course[j].course_id, '" onclick="updateSeat(', response.PHY104[i].course[j].course_id, ')" >', response.PHY104[i].course[j].time, '</button><div class="modal fade" id="modalNB', response.PHY104[i].course[j].course_id, '" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">ยืนยันการจอง</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" id="hidemodal">&times;</span></button></div><div class="modal-body" id="modalcontent', response.PHY104[i].course[j].course_id, '">จำนวนที่นั่งคงเหลือ ', response.PHY104[i].course[j].seatLeft, ' ที่นั่ง</div><div class="modal-footer"><button type="button" class="btn btn-success" onclick="sendBooking(', response.PHY104[i].course[j].course_id, ')" id="buttonToBook">ยืนยัน</button></div></div></div></div></td><td>จำนวนที่นั่งคงเหลือ ', response.PHY104[i].course[j].seatLeft, ' ที่นั่ง</td></tr>'  )
-							}
-
-							stringForPrintHtml = stringForPrintHtml+'<tr><td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalRWPHY104'+ response.PHY104[i].teacher_id+'" onclick="showReviewPHY104('+response.PHY104[i].teacher_id+')">review</button><div class="modal fade" id="modalRWPHY104'+response.PHY104[i].teacher_id+'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLongTitle">Review</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body" id="reviewTAP104'+response.PHY104[i].teacher_id+'"></div></div></div></div></div></td></tr>';
-							stringForPrintHtml = stringForPrintHtml.concat('</tbody></table></td></tr>');
-						}
-					}
-				}
-				else{
-					for (var checkdate = 0; checkdate<data.length; checkdate++) {
-						var response = data[checkdate];
-
-						if(response.PHY104.length==0){
-							stringForPrintHtml = stringForPrintHtml.concat('<tr><th style="width:1%"></th><td id="', response.day, 'PHY104">', response.day, '<hr style="border: 1px"></td><td>',  response.date, '<hr style="border: 1px"></td></tr><tr><th scope="row"></th><td style="width: 25%;" class="square"><center>ไม่มีข้อมูล</center></td><td></td></tr>');
-						}
-						else{
-							stringForPrintHtml = stringForPrintHtml.concat('<tr><th style="width:1%"></th><td id="', response.day, 'PHY104">', response.day, '<hr style="border: 1px"></td><td>',  response.date, '<hr style="border: 1px"></td></tr>');
-
-							for(var i=0; i<response.PHY104.length; i++){
-								var star = response.PHY104[i].star;
-								if(response.PHY104[i].star==""){
-									star = 5.0;
-								}
-								var starString = '';
-								for (var st = 0.0; st < 5.0; st++) {
-									if (star>=(st+0.5)) {
-										if(star>=(st+1.0)){
-											starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star"></span>';
-										}
-										else{
-											starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-half-full"></span>';
-										}
-									}
-									else{
-										starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-o"></span>';
-									}
-								}
-								stringForPrintHtml = stringForPrintHtml.concat('<tr><th scope="row"></th><td style="width: 25%"><div class="square"><img src="image/', response.PHY104[i].img);
-								stringForPrintHtml = stringForPrintHtml.concat('"><p class="nickname", id="nicknamePHY104TA', response.PHY104[i].teacher_id, '"> พี่ ', response.PHY104[i].nickname);
-								stringForPrintHtml = stringForPrintHtml.concat('</p><p class="nickname">', starString, '</p></div></td><td colspan="2"><p>ชื่อ ', response.PHY104[i].title, ' ', response.PHY104[i].firstname, '    ', response.PHY104[i].lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
-								for(var j=0; j<response.PHY104[i].course.length; j++){
-									stringForPrintHtml = stringForPrintHtml.concat('<tr><td style="width: 35%">', response.PHY104[i].course[j].topic, '</td><td style="width: 15%">', response.PHY104[i].course[j].room, '</td><td style="width: 18%" class="bookingtime"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalNB', response.PHY104[i].course[j].course_id, '" onclick="updateSeat(', response.PHY104[i].course[j].course_id, ')" >', response.PHY104[i].course[j].time, '</button><div class="modal fade" id="modalNB', response.PHY104[i].course[j].course_id, '" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">ยืนยันการจอง</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" id="hidemodal">&times;</span></button></div><div class="modal-body" id="modalcontent', response.PHY104[i].course[j].course_id, '">จำนวนที่นั่งคงเหลือ ', response.PHY104[i].course[j].seatLeft, ' ที่นั่ง</div><div class="modal-footer"><button type="button" class="btn btn-success" onclick="sendBooking(', response.PHY104[i].course[j].course_id, ')" id="buttonToBook">ยืนยัน</button></div></div></div></div></td><td>จำนวนที่นั่งคงเหลือ ', response.PHY104[i].course[j].seatLeft, ' ที่นั่ง</td></tr>'  )
-								}
-
-								stringForPrintHtml = stringForPrintHtml+'<tr><td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalRWPHY104'+ response.PHY104[i].teacher_id+'" onclick="showReviewPHY104('+response.PHY104[i].teacher_id+')">review</button><div class="modal fade" id="modalRWPHY104'+response.PHY104[i].teacher_id+'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLongTitle">Review</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body" id="reviewTAP104'+response.PHY104[i].teacher_id+'"></div></div></div></div></div></td></tr>';
-								stringForPrintHtml = stringForPrintHtml.concat('</tbody></table></td></tr>');
-							}
-						}
-					}
-				}
-
-				$("#tablePHY104").empty().html(stringForPrintHtml);	
-			}
-		});	
-	};
-
-
-	function getCourseCHM103(day){
-		var obj ={};
-		obj['day'] = day;
-		$.ajax({
-			url: 'resource/home/showCourse.php',
-			type: 'post',
-			data: obj,
-			dataType: 'json',
-			success: function(data){
-				var stringForPrintHtml='';
-				var response;
-				var showDate=0;
-				if(day!='ทุกวัน'){
-					for (var checkdate = 0; checkdate<data.length; checkdate++){
-						if (day==data.day) {
-							showDate = checkdate;
-						}
-					};
-					var response = data[showDate];
-
-					if(response.CHM103.length==0){
-						stringForPrintHtml = stringForPrintHtml.concat('<tr><th style="width:1%"></th><td id="', response.day, 'CHM103">', response.day, '<hr style="border: 1px"></td><td>',  response.date, '<hr style="border: 1px"></td></tr><tr><th scope="row"></th><td style="width: 25%;" class="square"><center>ไม่มีข้อมูล</center></td><td></td></tr>');
-					}
-					else{
-						stringForPrintHtml = stringForPrintHtml.concat('<tr><th style="width:1%"></th><td id="', response.day, 'CHM103">', response.day, '<hr style="border: 1px"></td><td>',  response.date, '<hr style="border: 1px"></td></tr>');
-
-						for(var i=0; i<response.CHM103.length; i++){
-							var star = response.CHM103[i].star;
-							if(response.CHM103[i].star==""){
-								star = 5.0;
-							}
-							var starString = '';
-							for (var st = 0.0; st < 5.0; st++) {
-								if (star>=(st+0.5)) {
-									if(star>=(st+1.0)){
-										starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star"></span>';
-									}
-									else{
-										starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-half-full"></span>';
-									}
-								}
-								else{
-									starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-o"></span>';
-								}
-							}
-							stringForPrintHtml = stringForPrintHtml.concat('<tr><th scope="row"></th><td style="width: 25%"><div class="square"><img src="image/', response.CHM103[i].img);
-							stringForPrintHtml = stringForPrintHtml.concat('"><p class="nickname", id="nicknameCHM103TA', response.CHM103[i].teacher_id, '"> พี่ ', response.CHM103[i].nickname);
-							stringForPrintHtml = stringForPrintHtml.concat('</p><p class="nickname">', starString, '</p></div></td><td colspan="2"><p>ชื่อ ', response.CHM103[i].title, ' ', response.CHM103[i].firstname, '    ', response.CHM103[i].lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
-							for(var j=0; j<response.CHM103[i].course.length; j++){
-								stringForPrintHtml = stringForPrintHtml.concat('<tr><td style="width: 35%">', response.CHM103[i].course[j].topic, '</td><td style="width: 15%">', response.CHM103[i].course[j].room, '</td><td style="width: 18%" class="bookingtime"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalNB', response.CHM103[i].course[j].course_id, '" onclick="updateSeat(', response.CHM103[i].course[j].course_id, ')" >', response.CHM103[i].course[j].time, '</button><div class="modal fade" id="modalNB', response.CHM103[i].course[j].course_id, '" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">ยืนยันการจอง</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" id="hidemodal">&times;</span></button></div><div class="modal-body" id="modalcontent', response.CHM103[i].course[j].course_id, '">จำนวนที่นั่งคงเหลือ ', response.CHM103[i].course[j].seatLeft, ' ที่นั่ง</div><div class="modal-footer"><button type="button" class="btn btn-success" onclick="sendBooking(', response.CHM103[i].course[j].course_id, ')" id="buttonToBook">ยืนยัน</button></div></div></div></div></td><td>จำนวนที่นั่งคงเหลือ ', response.CHM103[i].course[j].seatLeft, ' ที่นั่ง</td></tr>'  )
-							}
-
-							stringForPrintHtml = stringForPrintHtml+'<tr><td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalRWCHM103'+ response.CHM103[i].teacher_id+'" onclick="showReviewCHM103('+response.CHM103[i].teacher_id+')">review</button><div class="modal fade" id="modalRWCHM103'+response.CHM103[i].teacher_id+'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLongTitle">Review</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body" id="reviewTAC103'+response.CHM103[i].teacher_id+'"></div></div></div></div></div></td></tr>';
-							stringForPrintHtml = stringForPrintHtml.concat('</tbody></table></td></tr>');
-						}
-					}
-				}
-				else{
-					for (var checkdate = 0; checkdate<data.length; checkdate++) {
-						var response = data[checkdate];
-
-						if(response.CHM103.length==0){
-							stringForPrintHtml = stringForPrintHtml.concat('<tr><th style="width:1%"></th><td id="', response.day, 'CHM103">', response.day, '<hr style="border: 1px"></td><td>',  response.date, '<hr style="border: 1px"></td></tr><tr><th scope="row"></th><td style="width: 25%;" class="square"><center>ไม่มีข้อมูล</center></td><td></td></tr>');
-						}
-						else{
-							stringForPrintHtml = stringForPrintHtml.concat('<tr><th style="width:1%"></th><td id="', response.day, 'CHM103">', response.day, '<hr style="border: 1px"></td><td>',  response.date, '<hr style="border: 1px"></td></tr>');
-
-							for(var i=0; i<response.CHM103.length; i++){
-
-								var star = response.CHM103[i].star;
-								if(response.CHM103[i].star==""){
-									star = 5.0;
-								}
-								var starString = '';
-								for (var st = 0.0; st < 5.0; st++) {
-									if (star>=(st+0.5)) {
-										if(star>=(st+1.0)){
-											starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star"></span>';
-										}
-										else{
-											starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-half-full"></span>';
-										}
-									}
-									else{
-										starString = starString+'<span id="star'+(st+1)+'" class="fa fa-star-o"></span>';
-									}
-								}
-								stringForPrintHtml = stringForPrintHtml.concat('<tr><th scope="row"></th><td style="width: 25%"><div class="square"><img src="image/', response.CHM103[i].img);
-								stringForPrintHtml = stringForPrintHtml.concat('"><p class="nickname", id="nicknameCHM103TA', response.CHM103[i].teacher_id, '"> พี่ ', response.CHM103[i].nickname);
-								stringForPrintHtml = stringForPrintHtml.concat('</p><p class="nickname">', starString, '</p></div></td><td colspan="2"><p>ชื่อ ', response.CHM103[i].title, ' ', response.CHM103[i].firstname, '    ', response.CHM103[i].lastname, '</p><p>เรื่องที่สอน</p><table class="table borderless"><tbody>' );
-								for(var j=0; j<response.CHM103[i].course.length; j++){
-									stringForPrintHtml = stringForPrintHtml.concat('<tr><td style="width: 35%">', response.CHM103[i].course[j].topic, '</td><td style="width: 15%">', response.CHM103[i].course[j].room, '</td><td style="width: 18%" class="bookingtime"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalNB', response.CHM103[i].course[j].course_id, '" onclick="updateSeat(', response.CHM103[i].course[j].course_id, ')" >', response.CHM103[i].course[j].time, '</button><div class="modal fade" id="modalNB', response.CHM103[i].course[j].course_id, '" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">ยืนยันการจอง</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" id="hidemodal">&times;</span></button></div><div class="modal-body" id="modalcontent', response.CHM103[i].course[j].course_id, '">จำนวนที่นั่งคงเหลือ ', response.CHM103[i].course[j].seatLeft, ' ที่นั่ง</div><div class="modal-footer"><button type="button" class="btn btn-success" onclick="sendBooking(', response.CHM103[i].course[j].course_id, ')" id="buttonToBook">ยืนยัน</button></div></div></div></div></td><td>จำนวนที่นั่งคงเหลือ ', response.CHM103[i].course[j].seatLeft, ' ที่นั่ง</td></tr>'  )
-								}
-
-								stringForPrintHtml = stringForPrintHtml+'<tr><td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalRWCHM103'+ response.CHM103[i].teacher_id+'" onclick="showReviewCHM103('+response.CHM103[i].teacher_id+')">review</button><div class="modal fade" id="modalRWCHM103'+response.CHM103[i].teacher_id+'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="exampleModalLongTitle">Review</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body" id="reviewTAC103'+response.CHM103[i].teacher_id+'"></div></div></div></div></div></td></tr>';
-								stringForPrintHtml = stringForPrintHtml.concat('</tbody></table></td></tr>');
-							}
-						}
-					}					
-				}
-				$("#tableCHM103").empty().html(stringForPrintHtml);
-			}
-		});	
-	};
 
 	function reloadJS(){
 		//$("#atcd").empty();
@@ -1020,10 +333,10 @@
 			scr : "",
 			type : ""
 			}).appendTo("#atcd");
-		console.log($("#atcd").html());
+		//console.log($("#atcd").html());
 		$("#js0").attr({
 			scr : "js/indexJ.js",
 			type : "text/javascript"
 			}).appendTo("#atcd");
-		console.log($("#atcd").html());
+		//console.log($("#atcd").html());
 	}
