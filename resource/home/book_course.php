@@ -28,6 +28,7 @@
     		 $command_insertcourse =  "INSERT INTO `assign_course` (`course_id`, `student_id`, `comment_id`, `star`, `time_stamp`)VALUES ($courseid,$user, NULL, NULL,CURRENT_TIMESTAMP);";
     		 $sql = query($command_insertcourse);
     		 
+    		 if($comment!=''){
 			 if($sql==1) {
 			 	$find_commentid = "SELECT comment_id
 			 						FROM assign_course
@@ -40,13 +41,12 @@
      			 							VALUES ($comment_id,'before_class',$comment,1);";
      			 $check_comment = query($command_insertcomment);	
 
-     			 if($check_comment)echo 'สถานะการจองสำเร็จแล้ว';
-     			 else echo 'จองแล้ว comment ไม่เข้า'
-
-			 	
+     			 if($check_comment)echo 'สถานะการจองสำเร็จแล้ว และพี่ TA ได้รับความคิดเห็นของคุณแล้ว';
+     			 else echo 'จองแล้ว comment ไม่เข้า';
 			 }
 			 else echo 'การจองล้มเหลวกรุณาเช็คว่าคุณได้จองไปแล้วหรือยัง';
-			
+			}
+			echo'สถานะการจองสำเร็จแล้ว';
    	 	}
    	 	else
    		{
