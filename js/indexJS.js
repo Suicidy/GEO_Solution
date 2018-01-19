@@ -239,6 +239,8 @@
 		});
 	};
 
+
+
 	function sendBooking(id){
 		console.log(id);
 		var obj ={};
@@ -320,7 +322,7 @@
 				if(data.length!=0){
 					for (var i = 0; i < data.length; i++) {
 						//console.log(data[i].star);
-						stringHtml = stringHtml+'<div class="col-12 review-text" "><p>'+data[i].review_txt+'</p></div><center><div class="review-name"><div class="col-md-3 col-xs-6">คะแนนพี่TA</div>'+getStar(data[i].star)+'<div class="col-md-5 col-xs-5 date-time"><p>'+data[i].time_stamp+' น.</p></div></div></center>';
+						stringHtml = stringHtml+'<div class="col-12 review-text" "><p>'+data[i].review_txt+'</p></div><center><div class="review-name">คะแนนพี่TA</div>'+getStar(data[i].star)+'<div class="col-md-5 col-xs-5 date-time"><p>'+data[i].time_stamp+' น.</p></div></div></center>';
 					}
 					$("#reviewModalText").empty().append(stringHtml);
 				}
