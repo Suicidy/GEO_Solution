@@ -6,6 +6,6 @@
     // Destroy the session.
     session_destroy();
     // Redirect to login page
-    header('Location: /geo_solution/index.php');
+    header('Location: /geo_solution/home.php');
     exit;
 ?>

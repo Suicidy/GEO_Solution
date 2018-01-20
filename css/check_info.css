@@ -15,6 +15,11 @@ h2 {
 	margin-right: 0px;
 }
 
+.card-course{
+	background-color: #ff7454;
+	color: white;
+	font-size: 22px;
+}
 
 .search {
 	background-color : #ff7454; 
@@ -22,8 +27,20 @@ h2 {
 	margin-top: 30px;
 }
 
-.card {
+.card-header {
+	background-color: #363636;
+}
+
+.course-head {
+	background-color: #363636;
+	width: 900px;
+	color: white;
 	border: none;
+	text-align: left;
+}
+
+.course-body{
+	padding-bottom: 2px;
 }
 
 .text-comment {
@@ -49,3 +66,24 @@ img {
 .text-contract {
 	margin: 0px;
 }
+
+.course-line {
+	margin: 5px;
+	margin-left: 0px;
+}
+
+.request-body {
+	border: solid 1px;
+	border-color: #ff7454;
+	border-radius: 5px;
+	padding: 15px;
+	word-wrap: break-word;
+	margin-bottom: 10px;
+}
+
+.request-text {
+	margin: 0px;
+	word-wrap: break-word;
+}
+
+

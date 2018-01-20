@@ -152,6 +152,8 @@ img {
 <script>
   $(document).ready(function(){
     $("#login").click(function(){
+      $("#user_err").empty();
+      $("#pass_er").empty();
       var username = $("#username").val();
       var password = $("#password").val();
       $.post("/geo_solution/resource/login/login.php",{username : username,password : password},function(data,status){
@@ -175,6 +177,65 @@ img {
         location.reload();
 			});
     });
+
+    $("#username").on("keydown", function (e) {
+    if (e.keyCode === 13) {  //checks whether the pressed key is "Enter"
+      $("#user_err").empty();
+      $("#pass_er").empty();
+      var username = $("#username").val();
+      var password = $("#password").val();
+      $.post("/geo_solution/resource/login/login.php",{username : username,password : password},function(data,status){
+        var username_err = data['username_err'];
+        var password_err = data['password_err'];
+        var status_login = data['status_login'];
+        var login_count = data['login_count'];
+        var type = data['type'];
+        $("#user_err").text(username_err);
+        $("#pass_err").text(password_err);
+        if(login_count==0&&type!="teacher"&&type!="admin")
+        {
+           window.location.replace("/geo_solution/resource/profile.php");
+         }
+        else if(status_login==1)
+        {
+          location.reload();
+        }
+      },"json")
+      $('#login-modal').on('hidden.bs.modal', function (event) {
+        location.reload();
+			});
+    }
+    });
+    
+    $("#password").on("keydown", function (e) {
+    if (e.keyCode === 13) {  //checks whether the pressed key is "Enter"
+      $("#user_err").empty();
+      $("#pass_er").empty();
+      var username = $("#username").val();
+      var password = $("#password").val();
+      $.post("/geo_solution/resource/login/login.php",{username : username,password : password},function(data,status){
+        var username_err = data['username_err'];
+        var password_err = data['password_err'];
+        var status_login = data['status_login'];
+        var login_count = data['login_count'];
+        var type = data['type'];
+        $("#user_err").text(username_err);
+        $("#pass_err").text(password_err);
+        if(login_count==0&&type!="teacher"&&type!="admin")
+        {
+           window.location.replace("/geo_solution/resource/profile.php");
+         }
+        else if(status_login==1)
+        {
+          location.reload();
+        }
+      },"json")
+      $('#login-modal').on('hidden.bs.modal', function (event) {
+        location.reload();
+			});
+    }
+    });
+
   });
 </script>
 </head>
@@ -288,7 +349,8 @@ img {
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
-					<button id="login" type="submit" class="btn btn-warning" style="background-color: #ff7454"><font color="white">เข้าสู่ระบบ</font></button>
+          <button id="login" type="submit" class="btn btn-warning" style="background-color: #ff7454"><font color="white">เข้าสู่ระบบ</font></button>
+
 				</div>
 	      
 			</div>
