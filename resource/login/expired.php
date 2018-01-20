@@ -1,5 +1,5 @@
 
-	<?php require_once '/geo_solution/resource/header.php'; ?>
+	<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/geo_solution/resource/header.php'; ?>
 	<link href="/geo_solution/css/comfirm.css" rel="stylesheet">
 	<center>
 		<!-- <div class="card text-white bg-dark mb-3" style="max-width: 35rem;"> -->
@@ -13,4 +13,4 @@
 		</div>
 	</center>
 
-<?php require_once '/geo_solution/resource/footer.php'; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/geo_solution/resource/footer.php'; ?>
