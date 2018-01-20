@@ -6,7 +6,7 @@
   type = data['type'];
   if (type != "student"){
     $("#all").empty();
-    window.location.replace("/geo_solution/index.php");
+    window.location.replace("/geo_solution/home.php");
   }
   else{	
     show_data();
