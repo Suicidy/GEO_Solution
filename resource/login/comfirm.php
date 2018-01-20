@@ -1,4 +1,4 @@
-<?php require_once '/geo_solution/resource/header.php'; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/geo_solution/resource/header.php'; ?>
 	<link href="/geo_solution/css/comfirm.css" rel="stylesheet">
 	<center>
 		<div class="card wrapper" id="confirm-box" style="border: none; max-width: 35rem;" hidden>
