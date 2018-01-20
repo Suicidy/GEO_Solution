@@ -269,7 +269,7 @@ img {
             </li>' 
             .
             '<li class="nav-item">
-              <a class="nav-link" href="/geo_solution/resource/check_info.php">ข้อมูลห้องเรียน</a>
+              <a class="nav-link" href="/geo_solution/resource/check_info.php">รายละเอียดการสอน</a>
             </li>'
             .
             '<li class="nav-item">
