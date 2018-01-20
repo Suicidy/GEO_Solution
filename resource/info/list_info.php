@@ -6,7 +6,7 @@ $course_id = check_input($_POST["course_id"]);
 $array_result = array();
 
 
-$sql = "SELECT s.title,s.firstname,s.lastname,s.faculty,s.department,s.tel,s.facebook,s.line,s.email 
+$sql = "SELECT s.student_id,s.title,s.firstname,s.lastname,s.faculty,s.department,s.tel,s.facebook,s.line,s.email 
 		FROM student s INNER JOIN assign_course ac ON s.student_id = ac.student_id
 		WHERE ac.course_id = $course_id;";
 
