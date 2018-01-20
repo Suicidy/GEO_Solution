@@ -1,3 +1,7 @@
+.btn.focus, .btn:focus{
+	box-shadow: none !important;
+}
+
 h2 {
 	margin-top: 15px;
 }
