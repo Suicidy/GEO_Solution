@@ -2,7 +2,7 @@ $(document).ready(function(){
 
     // $.post("/geo_solution/resource/review/view_type.php",{},function(data,status){
     //     type = data['type'];
-    //     if (type != "ta"){
+    //     if (type != "teacher"){
     //       window.location.replace("/geo_solution/index.php");
     //     }
     //     // else{ 
