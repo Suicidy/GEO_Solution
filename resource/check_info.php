@@ -83,40 +83,13 @@
                           <div class="col-12 col-md-2">ห้อง 1115
                           </div> 
                           <div class="col-12 col-md-2">                          
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#requestModal" id="eiei">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#requestModal" id="course">
                             Show Request
                             </button> 
-                          </div>                           
-                                                  
-                        </div>
-                         
+                          </div>                                                                            
+                        </div>            
                       </button>
-
-                    </h5>
-                    
-                    <div class="modal fade" id="requestModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Request</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div class="modal-body">
-                            <div class="col-12 request-body">
-                              <p class="request-text">Goooooooooooooooooodอิอิอิ</p>
-                            </div>
-                             <div class="col-12 request-body">
-                              <p class="request-text">GoooooooooooooooooodอิอิอิksdjjvisojsovkGoooooooooooooooooodGoooooooooooooooooodGoooooooooooooooooodGooooooooooooooooood</p>
-                            </div>
-                            
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-
+                    </h5>          
                   </div>
 
                   <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
@@ -171,7 +144,7 @@
                   </div>
                   <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                     <div class="card-body">
-                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                      ไม่มีข้อมูล
                     </div>
                   </div>
                 </div>
@@ -196,6 +169,26 @@
 
 
 
+      </div>
+    </div>
+    <div class="modal fade" id="requestModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Request</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="col-12 request-body">
+              <p class="request-text">Goooooooooooooooooodอิอิอิ</p>
+            </div>
+             <div class="col-12 request-body">
+              <p class="request-text">GoooooooooooooooooodอิอิอิksdjjvisojsovkGoooooooooooooooooodGoooooooooooooooooodGoooooooooooooooooodGooooooooooooooooood</p>
+            </div>            
+          </div>
+        </div>
       </div>
     </div>
 
