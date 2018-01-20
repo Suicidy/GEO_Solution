@@ -242,7 +242,7 @@ img {
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-faded navbar-dark bg-dark sticky-top">
   <div class="nav container">
-    <a class="navbar-brand mx-auto" href="/geo_solution/index.php">
+    <a class="navbar-brand mx-auto" href="/geo_solution/home.php">
       <img src="/geo_solution/image/geo_logo.png" width="70" height="70">
       <font color="#ff7454" size="6">GEO Solution</font>
     </a>
@@ -252,7 +252,7 @@ img {
     <div id="navbarNavDropdown" class="navbar-collapse collapse">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="/geo_solution/index.php">หน้าหลัก</a>
+          <a class="nav-link" href="/geo_solution/home.php">หน้าหลัก</a>
         <?php
           if(isset($_SESSION['username']) && $_SESSION['userview'] == 'student') {echo
             '<li class="nav-item">
@@ -269,7 +269,7 @@ img {
             </li>' 
             .
             '<li class="nav-item">
-              <a class="nav-link" href="/geo_solution/resource/check_info.php">ข้อมูลห้องเรียน</a>
+              <a class="nav-link" href="/geo_solution/resource/check_info.php">รายละเอียดการสอน</a>
             </li>'
             .
             '<li class="nav-item">

@@ -1,10 +1,10 @@
 
-	<?php require_once '../header.php'; ?>
-	<link href="../../css/comfirm.css" rel="stylesheet">
+	<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/geo_solution/resource/header.php'; ?>
+	<link href="/geo_solution/css/comfirm.css" rel="stylesheet">
 	<center>
 		<!-- <div class="card text-white bg-dark mb-3" style="max-width: 35rem;"> -->
 		<div class="card wrapper" style="border: none; max-width: 35rem;">
-		  <center><img src="../../image/cancel.png"></center>
+		  <center><img src="/geo_solution/image/cancel.png"></center>
 		  <div class="card-body">
 		  	<h5 class="card-title">Error</h5>
 		    <p class="card-text">กรุณาทำการตรวจสอบอีกครั้ง</p>
@@ -13,4 +13,4 @@
 		</div>
 	</center>
 
-<?php require_once '../footer.php'; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/geo_solution/resource/footer.php'; ?>

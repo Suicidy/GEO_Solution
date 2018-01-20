@@ -16,7 +16,7 @@
             <header id="header" >
             <title>GEO Solution</title>
                 <h1>GEO SOLUTION</h1>
-                <h2>GEO@KMUTT</h2>
+             <h2>GEO@KMUTT</h2>
                 <br><a href="/geo_solution/home.php" class="btn btn-dark btn-lg active" role="button" aria-pressed="true">Enter Site</a>
                 
             </header>
@@ -30,7 +30,4 @@
     window.ontouchmove = function() { return false; }
     window.onorientationchange = function() { document.body.scrollTop = 0; }
 </script>
-
-
-
 

@@ -5,7 +5,7 @@
     $.post("/geo_solution/resource/review/view_type.php",{},function(data,status){
           type = data['type'];
           if (type != "teacher"){
-					  window.location.replace("/geo_solution/index.php");
+					  window.location.replace("/geo_solution/home.php");
 				  }
 			    },"json");
       $(document).ready(function(){   

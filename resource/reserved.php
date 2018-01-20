@@ -6,7 +6,7 @@
   type = data['type'];
   if (type != "student"){
     $("#all").empty();
-    window.location.replace("/geo_solution/index.php");
+    window.location.replace("/geo_solution/home.php");
   }
   else{	
     show_data();
@@ -32,7 +32,6 @@
 	
 	
 	</script>
-<!-- 	<body> -->
 		<div class="row">
 			<div class="col">
 				<h2>สถานะการจอง</h2>

@@ -45,6 +45,7 @@
         });
       });
     </script> -->
+    <script src="/geo_solution/js/check_infoJS.js"></script>
     <div class="row">
       <div class="col">
         <h2>Student Info</h2>
@@ -65,20 +66,35 @@
               </select>
             </div>
             <button id = "search" type="submit" class="btn btn-primary search"> SEARCH </button>
+            <p id="status"></p>
           </div>
+          <br>
           <div id="accordion">
+
                 <div class="card">
                   <div class="card-header" id="headingOne">
                     <h5 class="mb-0">
-                      <button class="btn course-head" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Block Diagram (12/01/2016  08.00-09.00 น.)
+                      <button class="btn course-head col-12 collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" id="course1">
+                        <div class="row ">
+                          <div class="col-12 col-md ">Block Diagram
+                          </div>
+                          <div class="col-12 col-md-4">(12/01/2016  08.00-09.00 น.)
+                          </div>
+                          <div class="col-12 col-md-2">ห้อง 1115
+                          </div> 
+                          <div class="col-12 col-md-2">                          
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#requestModal" id="eiei">
+                            Show Request
+                            </button> 
+                          </div>                           
+                                                  
+                        </div>
+                         
                       </button>
-                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                      Show Request
-                    </button>
+
                     </h5>
                     
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="requestModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
@@ -99,9 +115,11 @@
                         </div>
                       </div>
                     </div>
+
+
                   </div>
 
-                  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                     <div class="card-body course-body">                      
                         <div class="row">
                         <div class="col-md-2 col-6 class-name"><span>58070501094</span></div>          
@@ -139,12 +157,10 @@
                         </div>           
                       </div>   
                     <hr class="course-line">                        
-                       
-         
-                     
                     </div>
                   </div>
                 </div>
+
                 <div class="card">
                   <div class="card-header" id="headingTwo">
                     <h5 class="mb-0">
@@ -159,6 +175,7 @@
                     </div>
                   </div>
                 </div>
+
                 <div class="card">
                   <div class="card-header" id="headingThree">
                     <h5 class="mb-0">
@@ -173,15 +190,13 @@
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
+
+                
           </div>
 
-        
-                       
-               
- 
-          </p>                        
-        </div>
+
+
       </div>
+    </div>
+
  <?php include('footer.php'); ?>

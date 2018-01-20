@@ -1,5 +1,5 @@
 <?php
-require_once '../../config.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/geo_solution/config.php';
 session_start();
 
 $email = $user = $password = $confirm_password = "";
