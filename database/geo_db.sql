@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 20, 2018 at 10:20 AM
+-- Generation Time: Jan 20, 2018 at 10:24 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
 
@@ -141,7 +141,7 @@ CREATE TABLE `teacher` (
   `nickname` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `faculty` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `department` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'unknown-user.png',
   `tel` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `facebook` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `line` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
