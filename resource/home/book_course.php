@@ -99,8 +99,8 @@
 	//$time_overlay=0;
 	    while($rs=mysqli_fetch_array($sql,MYSQLI_ASSOC))
 	        {
-	            if(!((strtotime($rs['start_time'])>strtotime($end_time) && strtotime($rs['end_time'])>strtotime($end_time))
-	                  || (strtotime($rs['start_time'])<strtotime($start_time) && strtotime($rs['end_time'])<strtotime($start_time)))){
+	            if(!((strtotime($rs['start_time'])>=strtotime($end_time) && strtotime($rs['end_time'])>strtotime($end_time))
+	                  || (strtotime($rs['start_time'])<strtotime($start_time) && strtotime($rs['end_time'])<=strtotime($start_time)))){
 								// echo $date_book.'<br>';
 								//  echo strtotime($start_time).' '.strtotime($end_time).'<br>';
 								//  echo strtotime($rs['start_time']).' '.strtotime($rs['end_time']).'<br>';
