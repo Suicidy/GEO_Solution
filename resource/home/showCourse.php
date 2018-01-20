@@ -1,4 +1,4 @@
-    <?php   
+    <?php
        require $_SERVER['DOCUMENT_ROOT'].'/geo_solution/config.php';
 
        date_default_timezone_set("Asia/Bangkok");
@@ -6,7 +6,7 @@
 
        session_start();
 
-        
+
         $input = check_input($_POST['day']);
         $subject = check_input($_POST['subject']);
         $setday = array("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday");
@@ -14,10 +14,10 @@
       //  $tempFindCourse = arrray('','','','','','');
         $allday = "ทุกวัน";
         $print = '[';
-       
+
 
         if($input == $allday)
-        {   
+        {
             $day = date("l" , strtotime("+2 days" , strtotime(date("l"))));
            // echo $day;
             for($l=0;$l<7;$l++)
@@ -27,7 +27,7 @@
 
             if($countDay!=5 and $countDay!=6){
                  for($a = 0 ; $a < 5 ; $a++ )
-                 {  
+                 {
                       $tempDate = find_date($setdayTH[$countDay]);
                       $tempCourse[$a] = find_course($tempDate,$setdayTH[$countDay],$subject);
                       if($a==0)$print .= $tempCourse[$a];
@@ -42,7 +42,7 @@
             }
             else{
                 for($a = 0 ; $a < 5 ; $a++ )
-                 {  
+                 {
                       $tempDate = find_date($setdayTH[$a]);
                       $tempCourse[$a] = find_course($tempDate,$setdayTH[$a],$subject);
                       if($a==0)$print .= $tempCourse[$a];
@@ -50,7 +50,7 @@
             }
             $print.=']';
             echo $print;
-           
+
           }
 
         }
@@ -62,9 +62,9 @@
                  echo $print;
            }
         }
-        
 
-        
+
+
 
 
         function find_date($dayTH){
@@ -76,51 +76,46 @@
         for($l=0;$l<7;$l++){
             if($dayTH==$setdayTH[$l])$input=$setday[$l];
         }
-   
+
         for($k = 0 ; $k < 7 ; $k++){
             if($input==$setday[$k]) $i=$k;
             if($thisDay==$setday[$k]) $j=$k;
         }
-        
+
         $diffday = $i-$j;
-   
+
         $nday=7;
-       
+
         if($diffday>1) {
              $searchDate = $diffday;
             }
-        elseif($diffday==0 or $diffday==1 or $diffday==-6){ 
+        elseif($diffday==0 or $diffday==1 or $diffday==-6){
             if($diffday==-6)$diffday=1;
             $searchDate = $diffday+$nday;
         }
-        else{ 
+        else{
 
             $searchDate = $nday+$diffday;
         }
         $nowDate= date("Y-m-d");
-       
+
         $date = date("Y-m-d" , strtotime("+$searchDate days" , strtotime($nowDate)));
 
         return $date;
         }
 
 
-       
+
 
 
         function find_course($date,$dayTH,$subject){
-        
+
         if(check_show_course()==0){
-        $result = "SELECT c.subject,c.course_id,t.teacher_id,t.title,t.firstname,t.lastname,t.nickname,t.facebook,t.line,c.topic,DATE_FORMAT(c.start_time,'%H:%i') start_time,DATE_FORMAT(c.end_time,'%H:%i') end_time,date(c.start_time)cdate,c.room,t.image,avgStar.star,c.max_seat-seat.countSeat as seatLeft,c.max_seat
-        FROM course c,teacher t  left join (SELECT AVG(assign_course.star) AS star ,teacher.teacher_id as teacherid
-                                            FROM assign_course, course , teacher 
-                                            where course.teacher_id = teacher.teacher_id 
-                                                  AND assign_course.course_id=course.course_id 
-                                            GROUP BY teacher.teacher_id) avgStar on t.teacher_id = avgStar.teacherid,
-                                            (SELECT course.course_id , count(assign_course.course_id) AS countSeat
-                                            FROM assign_course RIGHT JOIN course ON assign_course.course_id = course.course_id
-                                            GROUP BY course_id) seat
-                                   
+        $result = "SELECT c.subject,c.course_id,t.teacher_id,t.title,t.firstname,t.lastname,t.nickname,t.facebook,t.line,c.topic,DATE_FORMAT(c.start_time,'%H:%i') start_time,DATE_FORMAT(c.end_time,'%H:%i') end_time,date(c.start_time)cdate,c.room,t.image,t.star,c.max_seat-seat.countSeat as seatLeft,c.max_seat
+        FROM course c,teacher t  ,(SELECT course.course_id , count(assign_course.course_id) AS countSeat
+                                  FROM assign_course RIGHT JOIN course ON assign_course.course_id = course.course_id
+                                  GROUP BY course_id) seat
+
         WHERE  c.teacher_id = t.teacher_id
         AND date(c.start_time)= '$date'
         AND seat.course_id = c.course_id
@@ -130,19 +125,14 @@
         elseif(check_show_course()==1){
             $username = $_SESSION['username'];
 
-            $result = "SELECT c.subject,c.course_id,t.teacher_id,t.title,t.firstname,t.lastname,t.nickname,t.facebook,t.line,c.topic,DATE_FORMAT(c.start_time,'%H:%i') start_time,DATE_FORMAT(c.end_time,'%H:%i') end_time,date(c.start_time)cdate,c.room,t.image,avgStar.star,c.max_seat-seat.countSeat as seatLeft,c.max_seat
-                        FROM course c,teacher t  left join (SELECT AVG(assign_course.star) AS star ,teacher.teacher_id as teacherid
-                                                            FROM assign_course, course , teacher 
-                                                            where course.teacher_id = teacher.teacher_id 
-                                                                     AND assign_course.course_id=course.course_id 
-                                                            GROUP BY teacher.teacher_id) avgStar on t.teacher_id = avgStar.teacherid,
-                                                            (SELECT course.course_id , count(assign_course.course_id) AS countSeat
-                                                            FROM assign_course RIGHT JOIN course ON assign_course.course_id = course.course_id
-                                                            GROUP BY course_id) seat
-                                   
+            $result = "SELECT c.subject,c.course_id,t.teacher_id,t.title,t.firstname,t.lastname,t.nickname,t.facebook,t.line,c.topic,DATE_FORMAT(c.start_time,'%H:%i') start_time,DATE_FORMAT(c.end_time,'%H:%i') end_time,date(c.start_time)cdate,c.room,t.image,t.star,c.max_seat-seat.countSeat as seatLeft,c.max_seat
+                        FROM course c,teacher t  ,(SELECT course.course_id , count(assign_course.course_id) AS countSeat
+                                                  FROM assign_course RIGHT JOIN course ON assign_course.course_id = course.course_id
+                                                  GROUP BY course_id) seat
+
         WHERE c.course_id NOT IN (SELECT course.course_id
                                 FROM course
-                                  WHERE course.course_id IN (SELECT ac.course_id 
+                                  WHERE course.course_id IN (SELECT ac.course_id
                                                             FROM assign_course ac
                                                             WHERE ac.student_id = '$username'))
         AND c.teacher_id = t.teacher_id
@@ -154,9 +144,9 @@
 
 
 
-        
+
         $sql=query($result);
-     
+
 
         $day = date("l" , strtotime($date));
 
@@ -178,7 +168,7 @@
         $temp = array('','','','','');
 
     while($rs=mysqli_fetch_array($sql,MYSQLI_ASSOC))
-        {   
+        {
 
             for($run=0;$run<count($listSubject);$run++)
             {
@@ -189,7 +179,7 @@
                      {
 
                     $jsonSubject[$run].='{'
-                            .'"teacher_id":"'.$rs['teacher_id'].'"'   
+                            .'"teacher_id":"'.$rs['teacher_id'].'"'
                             .',"title":"'.$rs['title'].'"'
                             .',"firstname":"'.$rs['firstname'].'"'
                             .',"lastname":"'.$rs['lastname'].'"'
@@ -223,7 +213,7 @@
 
                 }
                 elseif($temp[$run]!=$rs['teacher_id'])
-                {   
+                {
                          $jsonSubject[$run].=']}'
                         .',{"teacher_id":"'.$rs['teacher_id'].'"'
                         .',"title":"'.$rs['title'] .'"'
@@ -271,7 +261,7 @@
 
 function check_show_course(){
         if(isset( $_SESSION['username']) and isset($_SESSION['userview']))
-        { 
+        {
           if($_SESSION['userview']=='student')
           {
             return 1;
@@ -280,7 +270,7 @@ function check_show_course(){
         }
        // echo 'id:'.$_SESSION['username'].'type'.$_SESSION['userview'];
         return 0;
-          
+
       }
 
 ?>
