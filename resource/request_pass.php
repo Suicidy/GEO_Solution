@@ -1,12 +1,5 @@
-
-    
-    <?php require_once './header.php'; ?>
+<?php require_once './header.php'; ?>
     <style type="text/css">
-        body {
-            font: 18px sans-serif;
-            font-family: 'Kanit', sans-serif;
-        }
-
         .wrapper {
             width: 400px;
             padding: 20px;
@@ -14,7 +7,7 @@
     </style>
     <center>
         <div class="card wrapper" style="border: none;">
-            <h2>Request Password</h2>
+            <h1>Request Password</h1>
             <p>Please enter student ID.</p>
                 <div class="form-group" id="request-pass-form">
                     <label>Student ID:<sup>*</sup></label>
