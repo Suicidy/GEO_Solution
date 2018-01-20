@@ -144,7 +144,7 @@
 	<div class="form-group">
 	<div class="row">
 		<div class="col">
-			<h2>Review</h2>
+			<h1>Review</h1>
 				<select class="form-control col-md-2" style="float:left; margin-bottom:10px;" id="select">
 					<option value = "all">ทั้งหมด</option>
 					<option value = "not_review">ยังไม่รีวิว</option>
@@ -156,6 +156,7 @@
 				      <th scope="col"></th>
 				      <th scope="col">วิชา</th>
 				      <th scope="col">เรื่องที่สอน</th>
+				      <th scope="col">ผู้สอน</th>
 				      <th scope="col">รายละเอียด</th>
 				      <th scope="col">สถานะ</th>
 				    </tr>

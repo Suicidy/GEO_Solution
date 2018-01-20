@@ -1,6 +1,4 @@
-<?php
-  include('header.php');
-?>
+<?php include('header.php'); ?>
 <script>
     $(document).ready(function(){
       $.post("/geo_solution/resource/review/view_type.php",{},function(data,status){
@@ -9,9 +7,6 @@
     window.location.replace("/geo_solution/home.php");
   }
 },"json");
-
-
-
       $.post("/geo_solution/resource/profile/view_profile.php",{},function(data,status){
         document.getElementById("name_title").value = data['title'];
         document.getElementById("firstname").value = data['firstname'];
@@ -80,9 +75,7 @@
 </script>
 
 <!-- <form action="/geo_solution/resource/profile/save_profile.php" method="post"> -->
-<body>
-  <br>
-	<h1><font color="#ff7454">ข้อมูลส่วนตัว</font></h1>
+	<h1>ข้อมูลส่วนตัว</h1>
   <p>ช่องที่มี <font color="red">*</font> จำเป็นต้องกรอกข้อมูล</p>
   <br>
 
@@ -139,6 +132,5 @@
     <button id="cancel" type="button"onclick="goBack()"  class="btn btn-secondary" hidden="true">ยกเลิก</button>
   </center>
   <br>
-  </body>
 <!-- </form> -->
 <?php require_once 'footer.php'; ?>
