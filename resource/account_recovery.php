@@ -1,4 +1,4 @@
-<?php require_once './header.php'; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/geo_solution/resource/header.php'; ?>
 
 <style type="text/css">
     body {
