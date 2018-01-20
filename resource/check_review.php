@@ -45,9 +45,10 @@
 					        </button>
 					      </div>
 					      <div class="modal-body">
-					        <p>วิชา MTH 102</p>
+									<div id="detail"></div>
+					        <!-- <p>วิชา MTH 102</p>
 					        <p>หัวข้อ  Block Diagram</p>
-					        <p>รายละเอียด 13/01/2018 09.00-00.00 น.</p>
+					        <p>รายละเอียด 13/01/2018 09.00-00.00 น.</p> -->
 					 
 
 					 
@@ -65,30 +66,33 @@
 							<div class="tab-content" id="myTabContent">
 							  <div class="tab-pane fade show active" id="TA" role="tabpanel" aria-labelledby="TA-tab">
 							  	<br>
-							  	<div class="col-12 text-comment" id="review_TA">
+							  	<!-- <div class="col-12 text-comment" id="review_TA">
 						        	<p>Goooooooooooooooooodอิอิอิ</p>
-						        </div>
-						        <div class="col-12 text-comment" id="review_TA2">
-						        	<p>GoooooooooooooooooodอิอิอิksdjjvisojsovkGoooooooooooooooooodGoooooooooooooooooodGoooooooooooooooooodGooooooooooooooooood</p>
-						        </div>
+										</div> -->
+										<div id="ta"></div>
+						        <!-- <div class="col-12 text-comment">
+						        	<p>number1</p>
+						        </div> -->
 							  </div>
 							  <div class="tab-pane fade" id="content" role="tabpanel" aria-labelledby="content-tab">
 							  	<br>
-							  	<div class="col-12 text-comment"id="review_related">
+							  	<!-- <div class="col-12 text-comment"id="review_related">
 						        	<p>อิอิอิ</p>
 						        </div>
 						        <div class="col-12 text-comment"id="review_related2">
 						        	<p>LAlalalalalaalal</p>
-						        </div>
+										</div> -->
+										<div id="subject_review"></div>
 							  </div>
 							  <div class="tab-pane fade" id="other" role="tabpanel" aria-labelledby="other-tab">
 							  	<br>
-							  	<div class="col-12 text-comment"id="review_other">
+							  	<!-- <div class="col-12 text-comment"id="review_other">
 						        	<p>OH No~~~~~~~~~~~~</p>
-						        </div>
-						        <div class="col-12 text-comment"id="review_other2">
+										</div> -->
+										<div id="etc"></div>
+						        <!-- <div class="col-12 text-comment"id="review_other2">
 						        	<p>55555555</p>
-						        </div>
+						        </div> -->
 							  </div>
 							</div>		        									    	
 					      </div>													 

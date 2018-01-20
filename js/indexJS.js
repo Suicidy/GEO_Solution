@@ -1,9 +1,6 @@
 	$(document).ready(function() {
 	    getCourse("ทุกวัน", "MTH102");
 	    $("#nav-MTH_102-tab").addClass('activeEi');
-
-
-
 	    $("button[id^='button']").click(function() {
 	        var subject = $(this).attr("id").substring(12, 18);
 	        //console.log(subject);
@@ -63,7 +60,6 @@
 	        $("#nav-CHM_103-tab").addClass('activeEi');
 	        getCourse('ทุกวัน', "CHM103");
 	    });
-
 
 	    //    $("#bookingModal").on('hidden.bs.modal', function () {
 	    //     //getCourseMTH102(dayValue);
