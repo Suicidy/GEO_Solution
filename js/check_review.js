@@ -1,14 +1,11 @@
 $(document).ready(function(){
 
-    // $.post("/geo_solution/resource/review/view_type.php",{},function(data,status){
-    //     type = data['type'];
-    //     if (type != "teacher"){
-    //       window.location.replace("/geo_solution/index.php");
-    //     }
-    //     // else{ 
-    //     //   show_data("all"); 
-    //     // }
-    //   },"json");
+    $.post("/geo_solution/resource/review/view_type.php",{},function(data,status){
+        type = data['type'];
+        if (type != "teacher"){
+          window.location.replace("/geo_solution/home.php");
+        }
+      },"json");
 
     $("#search").click(function(){
     var id = $("#teacher_id").val();
@@ -19,7 +16,7 @@ $(document).ready(function(){
             for (var i = 0; data[i]; i++) {
                 var detail = "<div class='row'><div class='col-md-4 col-xs-6 class-name'><span>"+data[i]["topic"]+"</span></div><div class='col-md-4 col-xs-6 text-md-center room'><span>"+data[i]["start_time"]+"</span></div>";
                 var button1 = "<div class='col-md-4 col-xs-4 button-time'><center> <button type='button' class='btn btn-primary review' data-toggle='modal' data-id="+data[i]["course_id"]+" data-target='#Review'><span>review</span></button>";
-                var button2 = "&nbsp<button type='button' class='btn btn-success comment' data-toggle='modal' data-id='"+data[i]["course_id"]+"' data-target='#Comment'><span>comment</span></button></center></div></div>	<hr class='course-line'>";
+                var button2 = "&nbsp<button type='button' class='btn btn-success comment_btn' data-toggle='modal' data-id='"+data[i]["course_id"]+"' data-target='#Comment'><span>comment</span></button></center></div></div>	<hr class='course-line'>";
                 $("#body").append(detail+button1+button2);
               }
           }
@@ -47,21 +44,14 @@ $(document).ready(function(){
         },"json")
 
 
-
-
         $.post("/geo_solution/resource/check_review/all_review.php",{id : id},function(data,status){
-            //$("#ta").empty();
             var count_ta =0;
             var count_etc =0;
             var count_re =0;
             var no_review = '<div class="col-12 text-comment"><p>ไม่พบข้อมูลที่ต้องการ</p></div>';
             if (!jQuery.isEmptyObject(data)) {
                 for (var i = 0; data[i]; i++) {
-                    // var detail = "<div class='row'><div class='col-md-4 col-xs-6 class-name'><span>"+data[i]["review_txt"]+"</span></div><div class='col-md-4 col-xs-6 text-md-center room'><span>"+data[i]["start_time"]+"</span></div>";
-                    // var button1 = "<div class='col-md-4 col-xs-4 button-time'><center> <button type='button' class='btn btn-primary review' data-toggle='modal' data-id="+data[i]["review_txt"]+" data-target='#Review'><span>review</span></button>";
-                    // var button2 = "&nbsp<button type='button' class='btn btn-success comment' data-toggle='modal' data-id='"+data[i]["review_txt"]+"' data-target='#Comment'><span>comment</span></button></center></div></div>	<hr class='course-line'>";
                     var review = '<div class="col-12 text-comment"><p>'+data[i]["review_txt"]+'</p></div>';
-            
                     if(data[i]["type"]=="teacher")
                     {
                         count_ta++;
@@ -94,9 +84,33 @@ $(document).ready(function(){
             }
         },"json")
 
-        //alert(myBookId);
-    //     $(".modal-body #bookId").val( myBookId );
-    //    $('#addBookDialog').modal('show');
    });
-   
+
+   $(document).on("click", ".comment_btn", function () {
+    var id = $(this).data('id');
+    $("#save").attr({
+        onclick: "save_comment(" + id + ")",
+    })
+    $.post("/geo_solution/resource/check_review/comment.php",{id : id},function(data,status){
+        document.getElementById("text_comment").value = data['comment'];
+    },"json")
+
+   });
+ 
 });
+
+
+function save_comment(id){
+    var course_id = id;
+    var text = $("#text_comment").val();
+    $.post("/geo_solution/resource/check_review/save_comment.php",{id:id,text:text},function(data,status){
+               // location.reload();
+                alert("บันทึกข้อมูลสำเร็จ");
+                $('#Comment').modal('hide');
+             },"json").fail(function(){
+               alert("เกิดข้อผิดพลาดบางอย่าง");
+               location.reload();
+               });
+     
+}
+
