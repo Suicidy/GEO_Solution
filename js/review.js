@@ -18,27 +18,27 @@ function show_data(type) {
       var length = attributes.length;
       if (!jQuery.isEmptyObject(data)) {
         for (var i = 0; data[i]; i++) {
-          $('<div class="col"></div>')
+          $('<td scope="row"></td>')
             .html(i + 1)
             .appendTo("#body");
           for (var j = 0; j < length; j++) {
             var k = attributes[j];
-            $('<div class="col"></div>')
+            $('<td></td>')
               .html(data[i][k])
               .appendTo("#body");
           }
           if (data[i]["star"] != null) {
             $(
-              '<div class="col"><button type="button" class="btn btn-outline-Secondary active btn-block" disabled>Reviewed</button></div>'
+              '<td><button type="button" class="btn btn-secondary" disabled>Reviewed</button></td>'
             ).appendTo("#body");
           } else {
             $(
-              '<div class="col"><button type="button" class="btn btn-info btn-block" data-toggle="modal" data-target="#review-modal" data-course="' +
+              '<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#review-modal" data-course="' +
                 data[i]["course_id"] +
-                '">Review</button></div>'
+                '">Review</button></td>'
             ).appendTo("#body");
           }
-          $("#body > div").wrapAll('<div class="row"></div>');
+          $("#body > td").wrapAll('<tr></tr>');
         }
       }
     },

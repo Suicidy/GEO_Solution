@@ -32,7 +32,6 @@
 	
 	
 	</script>
-<!-- 	<body> -->
 		<div class="row">
 			<div class="col">
 				<h2>สถานะการจอง</h2>
