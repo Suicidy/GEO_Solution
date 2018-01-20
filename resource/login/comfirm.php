@@ -18,6 +18,7 @@
 				type: "GET",
 				url: "session_check.php",
 				success: function(data){
+					console.log(data);
 					if(data['email']){
 						document.getElementById("email-placeholder").innerHTML = data['email'];
 						$('#confirm-box').removeAttr("hidden");
