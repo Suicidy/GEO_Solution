@@ -7,13 +7,15 @@ $array_result = array();
 
 
 //SQL Statement
-
-$sql = "DELETE 
+$sql = "DELETE
+        FROM review
+        WHERE comment_id = (SELECT comment_id FROM assign_course WHERE course_id = '$course_id' AND student_id = '$id' );";
+$sql .= "DELETE 
         FROM assign_course
         WHERE course_id = '$course_id'
         AND student_id = '$id';";
 
-$results = query($sql);
+$results = multi_query($sql);
 
 if ($results == 0){
     query("Nothing can query");
