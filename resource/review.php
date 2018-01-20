@@ -1,7 +1,7 @@
 <?php include('header.php'); ?>
-	<!-- <script src="/geo_solution/js/review.js"></script> -->
+	<script src="/geo_solution/js/review.js"></script>
 	<link href="/geo_solution/css/review.css" rel="stylesheet">
-	<!-- <script>
+	<script>
 		$(document).ready(function(){
 			var $star_rating = $('.star-rating .fa');
 
@@ -23,8 +23,10 @@
 			var type, course_id;
 			$("#body > tr:even").css("background-color", "gray");
 			$("#select").click(function(){
+				$('#body').hide();
 				type = $("#select").val();
 				show_data(type);
+				$('#body').slideDown();
 			});
 			$('#review-modal').on('show.bs.modal', function (event) {
 				$('.star-rating .fa').each(function() {
@@ -50,6 +52,7 @@
 						$("#"+i).html(obj[i]);
 					}
 					$("#ta_image").attr("src",image);
+					$('#star-value').val(0);
 					$("#content_txt").val("");
 					$("#teacher_txt").val("");
 					$("#other_txt").val("");		
@@ -79,7 +82,7 @@
 				show_data(type);
 			});
 		});
-	</script> -->
+	</script>
 	<div class="modal fade" id="review-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
@@ -108,7 +111,7 @@
 				<div class="star-rating">
 					<p>ให้คะแนนพี่ TA 
 					 <span class="fa fa-star-o" data-rating="1"></span>
-				   	 <span class="fa fa-star-o" data-rating="2"></span>
+				  <span class="fa fa-star-o" data-rating="2"></span>
 					 <span class="fa fa-star-o" data-rating="3"></span>
 					 <span class="fa fa-star-o" data-rating="4"></span>
 					 <span class="fa fa-star-o" data-rating="5"></span>
@@ -138,10 +141,15 @@
 	    </div>
 	  </div>
 	</div>
+	<div class="form-group">
 	<div class="row">
 		<div class="col">
 			<h2>Review</h2>
-			<div style="overflow-x:auto;">
+				<select class="form-control col-md-2" style="float:left; margin-bottom:10px;" id="select">
+					<option value = "all">ทั้งหมด</option>
+					<option value = "not_review">ยังไม่รีวิว</option>
+					<option value = "reviewed">รีวิวแล้ว</option>					    
+				</select>
 				<table class="table table-striped">
 				  <thead>
 				    <tr>
@@ -152,82 +160,11 @@
 				      <th scope="col">สถานะ</th>
 				    </tr>
 				  </thead>
-				  <tbody>
-				    <tr>
-				      <th scope="row">1</th>
-				      <td>MTH102</td>
-				      <td>Block Diagram</td>
-				      <td>12/01/2016 14.00-18.00</td>
-				      <td>
-				      	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#review-modal">
-						  review
-						</button>
-				      </td>
-				    </tr>
-				    <tr>
-				      <th scope="row">2</th>
-				      <td>MTH102</td>
-				      <td>Block Diagram</td>
-				      <td>12/01/2016 14.00-18.00</td>
-				      <td>
-				      	<button type="button" class="btn btn-secondary">review</button>
-				      </td>
-				    </tr>
-				    <tr>
-				      <th scope="row">3</th>
-				      <td>MTH102</td>
-				      <td>Block Diagram</td>
-				      <td>12/01/2016 14.00-18.00</td>
-				      <td>
-				      	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#review-modal">
-						  review
-						</button>
-				      </td>
-				    </tr>
+				  <tbody id ="body">
 				  </tbody>
 				</table>
 			</div>
 		</div>
 	</div>
 
-	<!-- <div class="container" id = "all">
-		<div class="row">
-			<div class="col">
-				<br>
-				<h1><font color="#ff7454">Review</font></h1>
-				<div class="form-group">
-					<select class="form-control col-2" style="float:left;" id="select">
-					    <option value = "all">ทั้งหมด</option>
-							<option value = "not_review">ยังไม่รีวิว</option>
-					    <option value = "reviewed">รีวิวแล้ว</option>					    
-					</select>
-				</div>
-				<br>
-				<br>
-				<div class="container">
-				  <div class="row">
-				    <div class="col">
-				      <center>ลำดับ</center>
-				    </div>
-				    <div class="col">
-						<center>วิชา</center>
-				    </div>
-				    <div class="col">
-						<center>เรื่อง</center>
-				    </div>
-				    <div class="col">
-						<center>ผู้สอน</center>
-				    </div>
-				    <div class="col">
-						<center>รายละเอียด</center>
-				    </div>
-				    <div class="col">
-						<center>สถานะ </center>
-				    </div>
-				  </div>
-				  <div id="body"></div>
-				</div>
-			</div>
-		</div>
-	</div> -->
   <?php require_once 'footer.php'; ?>

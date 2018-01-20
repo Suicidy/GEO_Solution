@@ -1,5 +1,5 @@
 <?php
-	require "../../config.php";
+	require_once $_SERVER['DOCUMENT_ROOT'].'/geo_solution/config.php';
 
 	$id = $_POST['course_id'];
 	$result = "SELECT course.course_id , course.max_seat - count(assign_course.course_id) AS leftSeat , course.max_seat

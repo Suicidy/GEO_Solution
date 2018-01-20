@@ -1,8 +1,8 @@
-<?php require_once '../header.php'; ?>
+<?php require_once '/geo_solution/resource/header.php'; ?>
 	<link href="/geo_solution/css/comfirm.css" rel="stylesheet">
 	<center>
 		<div class="card wrapper" id="confirm-box" style="border: none; max-width: 35rem;" hidden>
-		  <center><img src="../../image/check-mark-button.png"></center>
+		  <center><img src="/geo_solution/image/check-mark-button.png"></center>
 		  <div class="card-body">
 		  	<h5 class="card-title">ส่งเรียบร้อย</h5>
 		    <p class="card-text">กรุณาตรวจสอบรหัสผ่านที่อีเมล์</p>

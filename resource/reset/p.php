@@ -1,4 +1,4 @@
-<?php require_once '../header.php'; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'].'/geo_solution/config.php'; ?>
 <style type="text/css">
     body {
         font: 18px sans-serif;
