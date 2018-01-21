@@ -1,4 +1,4 @@
-<?php require_once $_SERVER['DOCUMENT_ROOT'].'/geo_solution/config.php'; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/geo_solution/resource/header.php'; ?>
 <style type="text/css">
     body {
         font: 18px sans-serif;
@@ -44,13 +44,13 @@
                     console.log(data);
                     if(data['ERROR']){
                         if(data['type'] == 'link_fail'){
-                            window.location.href = '/geo_solution/index.php';                                
+                            window.location.href = '/geo_solution/index.php';
                         }else{
-                            window.location.href = '/geo_solution/resource/login/expired.php';                                
-                        }                    
+                            window.location.href = '/geo_solution/resource/login/expired.php';
+                        }
                     }else{
                         $('#reset-box').removeAttr("hidden");
-                    }                 
+                    }
                 }
             });
 
@@ -80,7 +80,7 @@
                         success: function (data){
                             console.log[data];
                             if(data['SUCCESS']){
-                                window.location.href = '/geo_solution/index.php';                                
+                                window.location.href = '/geo_solution/index.php';
                             }
                         }
                     });
