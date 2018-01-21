@@ -1,9 +1,4 @@
- <!-- <script>
- $(document).ready(function(){
 
-    });
-
- </script> -->
 <?php include('header.php'); ?>
 <script src="/geo_solution/js/check_review.js"></script>
 <link href="/geo_solution/css/check_review.css" rel="stylesheet">
@@ -45,13 +40,9 @@
 					        </button>
 					      </div>
 					      <div class="modal-body">
+									<!-- //////////// -->
 									<div id="detail"></div>
-					        <!-- <p>วิชา MTH 102</p>
-					        <p>หัวข้อ  Block Diagram</p>
-					        <p>รายละเอียด 13/01/2018 09.00-00.00 น.</p> -->
-					 
-
-					 
+									<!-- ////////////// -->
 					        <ul class="nav nav-tabs" id="myTab" role="tablist">
 							  <li class="nav-item">
 							    <a class="nav-link active" id="TA-tab" data-toggle="tab" href="#TA" role="tab" aria-controls="TA" aria-selected="true">TA</a>
@@ -66,33 +57,21 @@
 							<div class="tab-content" id="myTabContent">
 							  <div class="tab-pane fade show active" id="TA" role="tabpanel" aria-labelledby="TA-tab">
 							  	<br>
-							  	<!-- <div class="col-12 text-comment" id="review_TA">
-						        	<p>Goooooooooooooooooodอิอิอิ</p>
-										</div> -->
+										<!-- //////////// -->
 										<div id="ta"></div>
-						        <!-- <div class="col-12 text-comment">
-						        	<p>number1</p>
-						        </div> -->
+										<!-- //////////// -->
 							  </div>
 							  <div class="tab-pane fade" id="content" role="tabpanel" aria-labelledby="content-tab">
 							  	<br>
-							  	<!-- <div class="col-12 text-comment"id="review_related">
-						        	<p>อิอิอิ</p>
-						        </div>
-						        <div class="col-12 text-comment"id="review_related2">
-						        	<p>LAlalalalalaalal</p>
-										</div> -->
+							  		<!-- //////////// -->
 										<div id="subject_review"></div>
+										<!-- //////////// -->
 							  </div>
 							  <div class="tab-pane fade" id="other" role="tabpanel" aria-labelledby="other-tab">
 							  	<br>
-							  	<!-- <div class="col-12 text-comment"id="review_other">
-						        	<p>OH No~~~~~~~~~~~~</p>
-										</div> -->
+							 			<!-- //////////// -->
 										<div id="etc"></div>
-						        <!-- <div class="col-12 text-comment"id="review_other2">
-						        	<p>55555555</p>
-						        </div> -->
+						        <!-- //////////// -->
 							  </div>
 							</div>		        									    	
 					      </div>													 
@@ -109,10 +88,10 @@
 					        </button>
 					      </div>
 					      <div class="modal-body">
-					        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="สิ่งที่อยากบอกกับน้อง"></textarea>
+					        <textarea id="text_comment" class="form-control"  rows="3" placeholder="สิ่งที่อยากบอกกับน้อง"></textarea>
 					      </div>
 					      <div class="modal-footer">
-					        <button type="button" class="btn btn-primary">ยืนยัน</button>
+					        <button id="save"type="button" class="btn btn-primary">ยืนยัน</button>
 					      </div>
 					    </div>
 					  </div>
@@ -123,5 +102,8 @@
 	      </div>
     	</div>
     </div>
-   </div>
+	 </div>
+	 <div id="atcd">
+	<script type="text/javascript" scr="js/check_review.js" id="js0"></script>
+</div>
  <?php include('footer.php'); ?>

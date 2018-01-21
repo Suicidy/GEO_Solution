@@ -2,8 +2,6 @@
 require_once $_SERVER['DOCUMENT_ROOT'].'/geo_solution/config.php';
 $subject = check_input($_POST["subject"]);
 $teacher_id = check_input($_POST["id"]);
-// echo $subject;
-// echo $teacher_id;
 
 $data = array();
 
@@ -12,8 +10,8 @@ $data = array();
 $sql = "SELECT course.topic, course.start_time, course.course_id 
         FROM course 
         WHERE course.teacher_id = '$teacher_id' 
-        AND course.subject LIKE '$subject'";
-// echo ($sql);
+        AND course.subject LIKE '$subject'
+        AND now() > course.end_time";
 
 $results = query($sql);
 

@@ -1,3 +1,4 @@
 
 hashcheck.php
-.DS_Store
+*.DS_Store
+database/
