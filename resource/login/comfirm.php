@@ -17,12 +17,13 @@
 			$.ajax({
 				type: "GET",
 				url: "session_check.php",
+				datatype: 'json',
 				success: function(data){
-					if(data['email']){
+					if(data['SUCCESS'] == "success"){
 						document.getElementById("email-placeholder").innerHTML = data['email'];
 						$('#confirm-box').removeAttr("hidden");
 					}else{
-						window.location.href = '/geo_solution/resource/login/expired.php';                                
+						window.location.href = '/geo_solution/resource/login/expired.php'; 
 					}
 				}
 			});

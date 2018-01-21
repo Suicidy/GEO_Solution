@@ -34,7 +34,7 @@
 	</script>
 		<div class="row">
 			<div class="col">
-				<h2>สถานะการจอง</h2>
+				<h1>สถานะการจอง</h1>
 			<div style="overflow-x:auto;">
 				<table class="table table-striped" id="all">
 				  <thead>

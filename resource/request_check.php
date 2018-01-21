@@ -53,10 +53,9 @@
                                         $mail->AddAddress($emailreal);
                                         $mail->Subject  =  '[GEO Soultion] RESET PASSWORD';
                                         $mail->IsHTML(true);
-                                        $mail->Body    = '<H2>Password reset </H2><br>'.$fname.' '.$lname.' '.$student_id.'<br>You have requested your password:<br><b>'.$password.'</b><br> or click on the below link to reset your password:<br>'.$link.'<br><br><h4>Geo Solution </h4> <a href="http://geo.li.kmutt.ac.th/geo_solution">geo.li.kmutt.ac.th/geo_solution</a><br>';
+                                        $mail->Body    = '<H2>Password reset </H2><br>'.$fname.' '.$lname.' '.$student_id.'<br>You have requested your password:<br><b>'.$password.'</b><br> or click on the below link to reset your password:<br>'.$link.'<br><br><h4>Geo Solution </h4> <a href="http://geo.li.kmutt.ac.th/geo_solution">geo.li.kmutt.ac.th/geo_solution</a>';
                                         if($mail->Send()){
                                             $mailsend = 'Your mail has been sent successfully.';
-                                            echo '<script>console.log("'.$mailsend.' '.$emailreal.'");</script>';
                                             $_SESSION['email'] = $emailreal; 
                                             $message['SUCCESS'] = 'success';    
                                         }else{
@@ -92,7 +91,7 @@
                                         $mail->AddAddress($emailreal);
                                         $mail->Subject  =  '[GEO Soultion] RESET PASSWORD';
                                         $mail->IsHTML(true);
-                                        $mail->Body    = '<H2>Password reset </H2><br>'.$fname.' '.$lname.' '.$student_id.'<br>You have requested a password reset, please click on the below link to reset your password:<br>'.$link.'<br><br><h4>Geo Solution </h4>| <a href="http://geo.li.kmutt.ac.th/geo_solution">geo.li.kmutt.ac.th/geo_solution</a><br>';
+                                        $mail->Body    = '<H2>Password reset </H2><br>'.$fname.' '.$lname.' '.$student_id.'<br>You have requested a password reset, please click on the below link to reset your password:<br>'.$link.'<br><br><h4>Geo Solution </h4>| <a href="http://geo.li.kmutt.ac.th/geo_solution">geo.li.kmutt.ac.th/geo_solution</a>';
                                         if($mail->Send())
                                         {
                                             $mailsend = 'Your mail has been sent successfully.';
@@ -106,11 +105,12 @@
                                         $message['type'] = 'mail_err';
                                         }
                                     }
-                                }      
-                            }else{
-                                $message['ERROR'] = 'No account found with that username.';
-                                $message['type'] = 'stid_notfound';
-                            }
+                                }    
+                            }  
+                        }else{
+                        $message['ERROR'] = 'No account found with that username.';
+                        $message['type'] = 'stid_notfound';
+                        }
                     } else{
                             $message['ERROR'] = "Oops! Something went wrong. Please try again later.";
                             $message['type'] = 'err';
@@ -118,7 +118,6 @@
                 }
                 mysqli_stmt_close($stmt);
             }  
-        }
     echo json_encode($message);
     }
         
