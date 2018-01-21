@@ -108,7 +108,7 @@
 	  <div class="nav container">
 	    <a class="navbar-brand mx-auto" href="/geo_solution/home.php">
 	      <img src="/geo_solution/image/geo_logo.png" height="70">
-	      <font color="#ff7454" size="5">GEO Solution</font>
+	      <font color="#ff7454" size="4">GEO Solution</font>
 	    </a>
 	    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 	      <span class="navbar-toggler-icon"></span>
@@ -158,7 +158,7 @@
 	              '</a>
 	              <div class="dropdown-menu">
 	                <a class="dropdown-item" href="/geo_solution/resource/profile.php"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>  ข้อมูลส่วนตัว</a>
-	                <a class="dropdown-item" href="#"><i class="fa fa-wrench" aria-hidden="true"></i>  เปลี่ยนรหัสผ่าน</a>
+	                <a class="dropdown-item" href="/geo_solution/resource/reset/p.php"><i class="fa fa-wrench" aria-hidden="true"></i>  เปลี่ยนรหัสผ่าน</a>
 	                <a class="dropdown-item" href="/geo_solution/resource/login/logout.php");><i class="fa fa-sign-out" aria-hidden="true"></i>  ออกจากระบบ</a>
 	              </div>
 	            </li>';

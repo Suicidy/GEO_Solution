@@ -1,10 +1,4 @@
-    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/geo_solution/resource/header.php'; ?>
-    <style type="text/css">
-        .wrapper {
-            width: 400px;
-            padding: 20px;
-        }
-    </style>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/geo_solution/resource/header.php'; ?>
     <center>
         <div class="card wrapper" style="border: none;">
             <h1>Request Password</h1>
