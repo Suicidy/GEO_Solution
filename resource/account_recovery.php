@@ -14,7 +14,7 @@
             <p class="help-block" id="recov-error"></p>
         </div>    
         <div class="form-group">
-            <input type="submit" id="recov-btn" class="btn btn-primary" value="Submit">
+            <input type="submit" id="recov-btn" class="btn btn-primary" style="background-color: #ff7454" value="Submit">
         </div>
     </div>
     </center>  

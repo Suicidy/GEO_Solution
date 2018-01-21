@@ -20,7 +20,7 @@
             <span class="help-block" id="new-pass-error"></span>
         </div>
         <div class="form-group">
-            <input type="submit" class="btn btn-primary" id="reset-btn" value="Submit">
+            <input type="submit" class="btn btn-primary" id="reset-btn" style="background-color: #ff7454" value="Submit">
         </div>
         </form>
     </div>

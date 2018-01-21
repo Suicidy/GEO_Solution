@@ -14,7 +14,7 @@
                     <span class="help-block" id="req-error"></span>
                 </div>
                 <div class="form-group">
-                    <input type="submit" id="req-btn" class="btn btn-primary" value="Submit">
+                   <input type="submit" id="req-btn" class="btn btn-primary" style="background-color: #ff7454" value="Submit">
                 </div>
         </div>
     </center>
