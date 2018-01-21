@@ -223,4 +223,4 @@
 	<script type="text/javascript" scr="js/indexJS.js" id="js0"></script>
 </div>
 
- <?php include('resource/footer.php'); ?>
+<?php include('resource/footer.php'); ?>

@@ -1,10 +1,5 @@
-<?php require_once $_SERVER['DOCUMENT_ROOT'].'/geo_solution/config.php'; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/geo_solution/resource/header.php'; ?>
 <style type="text/css">
-    body {
-        font: 18px sans-serif;
-        font-family: 'Kanit', sans-serif;
-    }
-
     .wrapper {
         width: 350px;
         padding: 20px;
@@ -12,15 +7,15 @@
 </style>
 <center>
     <div class="card bg-light wrapper" id="reset-box" hidden>
-        <h3>Reset Password</h3>
+        <h1>เปลี่ยนรหัสผ่าน</h1>
         <form id="reset-pass">
         <div class="form-group" id="old-pass-form">
-            <label>Password:</label>
+            <label>รหัสผ่านใหม่</label>
             <input type="password" name="password" class="form-control" id="old-pass">
             <span class="help-block" id="old-pass-error"></span>
         </div>
         <div class="form-group" id="new-pass-form">
-            <label>Confirm Password:</label>
+            <label>ยืนยันรหัสผ่านใหม่อีกครั้ง</label>
             <input type="password" name="confirmpassword" class="form-control" id="new-pass" >
             <span class="help-block" id="new-pass-error"></span>
         </div>
@@ -44,13 +39,13 @@
                     console.log(data);
                     if(data['ERROR']){
                         if(data['type'] == 'link_fail'){
-                            window.location.href = '/geo_solution/index.php';                                
+                            window.location.href = '/geo_solution/index.php';
                         }else{
-                            window.location.href = '/geo_solution/resource/login/expired.php';                                
-                        }                    
+                            window.location.href = '/geo_solution/resource/login/expired.php';
+                        }
                     }else{
                         $('#reset-box').removeAttr("hidden");
-                    }                 
+                    }
                 }
             });
 
@@ -80,7 +75,7 @@
                         success: function (data){
                             console.log[data];
                             if(data['SUCCESS']){
-                                window.location.href = '/geo_solution/index.php';                                
+                                window.location.href = '/geo_solution/index.php';
                             }
                         }
                     });
@@ -89,4 +84,4 @@
             });
         });
     </script>
-<?php require_once '../footer.php'; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/geo_solution/resource/footer.php'; ?>
