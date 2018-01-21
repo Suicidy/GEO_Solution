@@ -22,7 +22,6 @@
         $(document).ready(function(){
             $('#recov-btn').click(function(){
                 var dataString = { studentid : $("#student-id").val(), type : 'recov_pass' };
-                console.log(dataString);//test only
                 if(dataString){
                     $.ajax({
                         type: "POST",
@@ -30,7 +29,6 @@
                         data: dataString,
                         datatype: 'json',
                         success: function (data){
-                            console.log(data);
                             if(data['ERROR']){
                                 if(data['type'] == "stid_notreq"){
                                     window.location.href = '/geo_solution/resource/request_pass.php';

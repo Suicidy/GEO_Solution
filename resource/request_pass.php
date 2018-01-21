@@ -22,7 +22,6 @@
         $(document).ready(function(){
             $('#req-btn').click(function(){
                 var dataString = { studentid : $("#student-id").val(), type : 'req_pass' };
-                console.log(dataString);//test only
                 if(dataString){
                     $.ajax({
                         type: "POST",
@@ -30,7 +29,6 @@
                         data: dataString,
                         datatype: 'json',
                         success: function (data){
-                            console.log(data);
                             if(data['ERROR']){
                                 $("#request-pass-form").addClass('has-error');
                                 document.getElementById("req-error").innerHTML = data['ERROR'];

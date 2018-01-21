@@ -36,7 +36,6 @@
                 data: reset,
                 datatype: 'json',
                 success: function(data){
-                    console.log(data);
                     if(data['ERROR']){
                         if(data['type'] == 'link_fail'){
                             window.location.href = '/geo_solution/home.php';
@@ -73,7 +72,6 @@
                         type: "POST",
                         url: "reset.php",
                         success: function (data){
-                            console.log[data];
                             if(data['SUCCESS']){
                                 window.location.href = '/geo_solution/home.php';
                             }
