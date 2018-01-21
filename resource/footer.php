@@ -1,9 +1,10 @@
+    <br>
   </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
   <div class="footer" style="margin-top: 20px;">
    <nav class="navbar navbar-fixed-bottom navbar-expand-sm navbar-dark bg-dark">
     <table style="width:100%">
