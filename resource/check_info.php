@@ -48,7 +48,7 @@
     <script src="/geo_solution/js/check_infoJS.js"></script>
     <div class="row">
       <div class="col">
-        <h2>Student Info</h2>
+        <h1>Student Info</h1>
           <div id="all" class="form-row align-items-center">
             <div class="col-auto my-1">
               <label class="mr-sm-2" for="inlineFormCustomSelect">Teacher Assistant ID</label>

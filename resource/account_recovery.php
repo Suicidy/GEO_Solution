@@ -1,24 +1,17 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/geo_solution/resource/header.php'; ?>
-
-<style type="text/css">
-    body {
-        font: 18px sans-serif;
-        font-family: 'Kanit', sans-serif;
-    }
-
-    .wrapper {
-        width: 400px;
-        padding: 20px;
-    }
-</style>
+    <style type="text/css">
+        .wrapper {
+            width: 400px;
+            padding: 20px;
+        }
+    </style>
     <center>
     <div class="card wrapper" style="border: none;">
-        <h2> Forgotten Password</h2>
-        <p>Please fill in your Student ID.</p>
+        <h1>ลืมรหัสผ่าน</h1>
         <div class="form-group" id="recov-pass-form">
-            <label>Student ID:<sup>*</sup></label>
+            <label>รหัสนักศึกษา</label>
             <input type="text" class="form-control" id="student-id" name="studentid">
-            <span class="help-block" id="recov-error"></span>
+            <p class="help-block" id="recov-error"></p>
         </div>    
         <div class="form-group">
             <input type="submit" id="recov-btn" class="btn btn-primary" value="Submit">
@@ -57,4 +50,3 @@
         });
     </script>
 <?php require_once './footer.php'; ?>
-

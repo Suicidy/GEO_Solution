@@ -4,7 +4,7 @@
 <link href="/geo_solution/css/check_review.css" rel="stylesheet">
 <div class="row">
 	<div class="col">
-		<h2>Check Review</h2>
+		<h1>Check Review</h1>
         <div id="all" class="form-row align-items-center">
           <div class="col-auto my-1">
             <label class="mr-sm-2" for="inlineFormCustomSelect">Teacher Assistant ID</label>
@@ -25,11 +25,9 @@
         </div>
 		<div class="card">
 	      <div class="card-body">									      	
-					<h5 class="card-title">คอร์สที่ทำการสอน</h5>
+					<h5 class="card-title">คอร์สที่สอน</h5>
 					<hr class="course-line">	
 	        <p class="card-text">
-	     	
-			
 					<div class="modal fade" id="Review" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 					  <div class="modal-dialog" role="document">
 					    <div class="modal-content">
