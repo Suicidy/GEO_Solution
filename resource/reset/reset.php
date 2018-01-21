@@ -15,7 +15,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
             $_SESSION['stid'] = $row['student_id'];  
             $message['SUCCESS'] = 'success'; 
         }else{
-            $message['ERROR'] = "Error your link may expired or something might occur please contact geo.kmutt@mail.com for more information";
+            $message['ERROR'] = "เกิดข้อผิดพลาด หรือเกินเวลาที่กำหนดแล้ว ข้อมูลเพิ่มเติมโปรดติดต่อ geo.kmutt@mail.com";
             $message['type'] = 'link_expired';
         }
     }else{
@@ -25,24 +25,24 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
 }
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty(trim($_POST['password']))){
-        $message['ERROR'] = "Please enter a password.";     
+        $message['ERROR'] = "โปรดกรอกรหัสผ่าน.";     
         $messgae['type'] = "missing_pass";
     } elseif(strlen(trim($_POST['password'])) < 6){
-        $message['ERROR'] = "Password must have at least 6-18 characters.";
+        $message['ERROR'] = "รหัสผ่านจำเป็นต้องมี 6-18 ตัวอักษร";
         $message['type'] = "shorten_pass";
     } elseif(strlen(trim($_POST['password'])) > 18){
-        $message['ERROR'] = "Password must have at least 6-18 characters.";
+        $message['ERROR'] = "รหัสผ่านจำเป็นต้องมี 6-18 ตัวอักษร";
         $message['type'] = "longer_pass";
     } else{
         $password = trim($_POST['password']);
     }
     if(empty(trim($_POST["confirmpassword"]))){
-        $message['ERROR'] = 'Please confirm password.';     
+        $message['ERROR'] = 'โปรดยืนยันรหัสผ่าน';     
         $message['type'] = "missing_cpass";
     } else{
         $confirm_password = trim($_POST['confirmpassword']);
         if($password != $confirm_password){
-            $message['ERROR'] = 'Password did not match.';
+            $message['ERROR'] = 'รหัสผ่านไม่ตรงกัน';
             $message['type'] = 'match_missing';
         }
     }
@@ -55,7 +55,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             session_unset();
             session_destroy();
         } else{
-            $message['ERROR'] = "Something went wrong. Please try again later.";
+            $message['ERROR'] = "เกิดข้อผิดพลาด โปรดลองอีกครั้งในภายหลัง";
             $message['type'] = "err";
         }
     }

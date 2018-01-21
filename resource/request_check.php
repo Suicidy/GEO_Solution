@@ -14,7 +14,7 @@
     if($_SERVER["REQUEST_METHOD"] == "POST"){
             if(empty(clean($link,$_POST["studentid"]))){
                 $error = true;
-                $message['ERROR'] = 'Please enter Student ID.';
+                $message['ERROR'] = 'โปรดกรอกรหัสนักศึกษา';
                 $message['type'] = 'stid_err';
             } else{
                 $studentid = clean($link,$_POST["studentid"]);
@@ -64,7 +64,7 @@
                                         $message['type'] = 'mail_err';
                                         }
                                     }else{
-                                        $message['ERROR'] = "This account is already request password.";
+                                        $message['ERROR'] = "ผู้ใช้ได้ขอรหัสผ่านแล้ว";
                                         $message['type'] = 'stid_already_req';
                                     }
                                 }
@@ -108,11 +108,11 @@
                                 }    
                             }  
                         }else{
-                        $message['ERROR'] = 'No account found with that username.';
+                        $message['ERROR'] = 'ไม่พบรหัสนักศึกษานี้';
                         $message['type'] = 'stid_notfound';
                         }
                     } else{
-                            $message['ERROR'] = "Oops! Something went wrong. Please try again later.";
+                            $message['ERROR'] = "เกิดข้อผิดพลาด โปรลองอีกครั้งในภายหลัง";
                             $message['type'] = 'err';
                     }
                 }

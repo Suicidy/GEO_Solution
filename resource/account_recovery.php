@@ -7,7 +7,7 @@
     </style>
     <center>
     <div class="card wrapper" style="border: none;">
-        <h1>ลืมรหัสผ่าน</h1>
+        <h1>เปลี่ยนรหัสผ่านใหม่</h1>
         <div class="form-group" id="recov-pass-form">
             <label>รหัสนักศึกษา</label>
             <input type="text" class="form-control" id="student-id" name="studentid">

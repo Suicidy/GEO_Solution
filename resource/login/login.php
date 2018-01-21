@@ -62,7 +62,7 @@
                         }
                     } else{
                         // Display an error message if username doesn't exist
-                        $data['username_err'] = 'ไม่พบบัญชีผู้ใช้นี้';
+                        $data['username_err'] = 'ไม่พบรหัสนักศึกษานี้';
                     }
                 } else{
                     echo "เข้าสู่ระบบอีกครั้งในภายหลัง";
