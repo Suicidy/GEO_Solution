@@ -1,10 +1,15 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/geo_solution/resource/header.php'; ?>
+<style type="text/css">
+    .wrapper {
+        width: 400px;
+        padding: 20px;
+    }
+</style>
     <center>
         <div class="card wrapper" style="border: none;">
             <h1>ขอรหัสผ่านครั้งแรก</h1>
-            <p>Please enter student ID.</p>
                 <div class="form-group" id="request-pass-form">
-                    <label>Student ID:<sup>*</sup></label>
+                    <label>รหัสนักศึกษา</label>
                     <input type="text" class="form-control" id="student-id" name="studentid">
                     <span class="help-block" id="req-error"></span>
                 </div>

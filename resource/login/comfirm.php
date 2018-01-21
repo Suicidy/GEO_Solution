@@ -8,7 +8,7 @@
 		    <p class="card-text">กรุณาตรวจสอบรหัสผ่านที่อีเมล์</p>
 				<p class="card-text" id="email-placeholder" >
 				</p>
-		    <a href="/geo_solution/home.php" type="button" class="btn btn-primary">Home</a>
+		    <a href="/geo_solution/home.php" type="button" class="btn btn-primary">หน้าหลัก</a>
 		   </div>
 		</div>
 	</center>
