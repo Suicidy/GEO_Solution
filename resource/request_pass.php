@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-
-    
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/geo_solution/resource/header.php'; ?>
-=======
-<?php require_once './header.php'; ?>
->>>>>>> 3d782ea9ff90186473abba589707f5924057c505
     <style type="text/css">
         .wrapper {
             width: 400px;
