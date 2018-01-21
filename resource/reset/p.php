@@ -39,7 +39,7 @@
                     console.log(data);
                     if(data['ERROR']){
                         if(data['type'] == 'link_fail'){
-                            window.location.href = '/geo_solution/index.php';
+                            window.location.href = '/geo_solution/home.php';
                         }else{
                             window.location.href = '/geo_solution/resource/login/expired.php';
                         }
@@ -75,7 +75,7 @@
                         success: function (data){
                             console.log[data];
                             if(data['SUCCESS']){
-                                window.location.href = '/geo_solution/index.php';
+                                window.location.href = '/geo_solution/home.php';
                             }
                         }
                     });

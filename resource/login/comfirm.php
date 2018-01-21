@@ -1,4 +1,4 @@
-<?php include('resource/header.php'); ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/geo_solution/resource/header.php'; ?>
 	<link href="/geo_solution/css/comfirm.css" rel="stylesheet">
 	<center>
 		<div class="card wrapper" id="confirm-box" style="border: none; max-width: 35rem;" hidden>
@@ -8,7 +8,7 @@
 		    <p class="card-text">กรุณาตรวจสอบรหัสผ่านที่อีเมล์</p>
 				<p class="card-text" id="email-placeholder" >
 				</p>
-		    <a href="/geo_solution/home.php" type="button" class="btn btn-primary">หน้าหลัก</a>
+		    <a href="/geo_solution/home.php"><button type="button" class="btn btn-primary">หน้าหลัก</button></a>
 		   </div>
 		</div>
 	</center>
@@ -30,4 +30,4 @@
 		});
 	</script>
 
- <?php include('resource/footer.php'); ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/geo_solution/resource/footer.php'; ?>
