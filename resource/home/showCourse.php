@@ -18,7 +18,7 @@
 
         if($input == $allday)
         {
-            $day = date("l" , strtotime("+2 days" , strtotime(date("l"))));
+            $day = date("l" , strtotime("+1 days" , strtotime(date("l"))));
            // echo $day;
             for($l=0;$l<7;$l++)
             {
@@ -68,40 +68,43 @@
 
 
         function find_date($dayTH){
-        $thisDay = date("l");
-        $setday = array("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday");
-        $setdayTH = array("วันจันทร์","วันอังคาร","วันพุธ","วันพฤหัสบดี","วันศุกร์","วันเสาร์","วันอาทิตย์");
+          $thisDay = date("l");
+          $setday = array("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday");
+          $setdayTH = array("วันจันทร์","วันอังคาร","วันพุธ","วันพฤหัสบดี","วันศุกร์","วันเสาร์","วันอาทิตย์");
 
 
-        for($l=0;$l<7;$l++){
-            if($dayTH==$setdayTH[$l])$input=$setday[$l];
-        }
+          for($l=0;$l<7;$l++){
+              if($dayTH==$setdayTH[$l])$input=$setday[$l];
+          }
 
-        for($k = 0 ; $k < 7 ; $k++){
-            if($input==$setday[$k]) $i=$k;
-            if($thisDay==$setday[$k]) $j=$k;
-        }
 
-        $diffday = $i-$j;
+          for($k = 0 ; $k < 7 ; $k++){
+              if($input==$setday[$k]) $i=$k;
+              if($thisDay==$setday[$k]) $j=$k;
+          }
 
-        $nday=7;
+          $diffday = $i-$j;
 
-        if($diffday>1) {
-             $searchDate = $diffday;
-            }
-        elseif($diffday==0 or $diffday==1 or $diffday==-6){
-            if($diffday==-6)$diffday=1;
-            $searchDate = $diffday+$nday;
-        }
-        else{
+          $nday=7;
 
-            $searchDate = $nday+$diffday;
-        }
-        $nowDate= date("Y-m-d");
 
-        $date = date("Y-m-d" , strtotime("+$searchDate days" , strtotime($nowDate)));
+          if($diffday==-6)$diffday=1;
+          if($diffday>0) {
+               $searchDate = $diffday;
+              }
+          elseif($diffday==0){
 
-        return $date;
+              $searchDate = $diffday+$nday;
+          }
+          else{
+
+              $searchDate = $nday+$diffday;
+          }
+          $nowDate= date("Y-m-d");
+
+          $date = date("Y-m-d" , strtotime("+$searchDate days" , strtotime($nowDate)));
+
+          return $date;
         }
 
 
