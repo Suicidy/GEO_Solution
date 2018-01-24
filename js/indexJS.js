@@ -125,7 +125,7 @@
 	                    var response = data[showDate];
 	                    for (var i = 0; i < response[subject].length; i++) {
 	                        stringForPrintHtml = '';
-	                        stringForPrintHtml = stringForPrintHtml.concat('<div class="row"><div class="col-1"></div><div class="card-group"><center><div class="card text-white bg-dark card-name"><img class="card-img-top" src="/geo_solution/image/', response[subject][i]["img"]);
+	                        stringForPrintHtml = stringForPrintHtml.concat('<div class="row"><div class="col-1"></div><div class="card-group"><center><div class="card text-white bg-dark card-name"><img class="card-img-top" src="/geo_solution/image/teacher/', response[subject][i]["img"]);
 	                        stringForPrintHtml = stringForPrintHtml.concat('" alt="Card image cap"><div class="card-body"><h5 class="card-title">', response[subject][i]["title"], response[subject][i]["firstname"], '  ', response[subject][i]["lastname"], '<br>(พี่', response[subject][i]["nickname"], ')</h5>', getStar(response[subject][i]["star"]));
 	                        stringForPrintHtml = stringForPrintHtml.concat('<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#reviewModal" onclick="showReview(', response[subject][i]["teacher_id"], ')">review</button></div></div></center><div class="card text-white bg-dark card-course"><div class="card-body"><h5 class="card-title">คอร์สที่ทำการสอน</h5><p class="card-text">');
 	                        for (var j = 0; j < response[subject][i]["course"].length; j++) {
@@ -165,7 +165,7 @@
 	                        var response = data[showDate];
 	                        for (var i = 0; i < response[subject].length; i++) {
 	                            stringForPrintHtml = '';
-	                            stringForPrintHtml = stringForPrintHtml.concat('<div class="row"><div class="col-1"></div><div class="card-group"><center><div class="card text-white bg-dark card-name"><img class="card-img-top" src="/geo_solution/image/', response[subject][i]["img"]);
+	                            stringForPrintHtml = stringForPrintHtml.concat('<div class="row"><div class="col-1"></div><div class="card-group"><center><div class="card text-white bg-dark card-name"><img class="card-img-top" src="/geo_solution/image/teacher', response[subject][i]["img"]);
 	                            stringForPrintHtml = stringForPrintHtml.concat('" alt="Card image cap"><div class="card-body"><h5 class="card-title">', response[subject][i]["title"], response[subject][i]["firstname"], '  ', response[subject][i]["lastname"], '<br>(พี่', response[subject][i]["nickname"], ')</h5>', getStar(response[subject][i]["star"]));
 	                            stringForPrintHtml = stringForPrintHtml.concat('<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#reviewModal" onclick="showReview(', response[subject][i]["teacher_id"], ')">review</button></div></div></center><div class="card text-white bg-dark card-course"><div class="card-body"><h5 class="card-title">คอร์สที่สอน</h5><p class="card-text">');
 	                            for (var j = 0; j < response[subject][i]["course"].length; j++) {
