@@ -3,3 +3,4 @@ hashcheck.php
 *.DS_Store
 database/
 image/teacher/
+*.code-workspace
