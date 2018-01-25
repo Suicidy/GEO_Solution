@@ -7,7 +7,7 @@ $array_result = array();
 
 //SQL Statement
 
-$sql = "SELECT course.subject, course.topic, teacher.nickname, course.start_time, course.course_id, 
+$sql = "SELECT course.subject, course.topic, teacher.nickname, course.room, DATE_FORMAT(course.start_time,'%H:%i') start_time, course.course_id, 
         (SELECT IF((now() < DATE_SUB(DATE(course.start_time),INTERVAL 1 DAY)),1,0)) AS button_status
         FROM course, teacher, assign_course 
         WHERE course.course_id = assign_course.course_id 
