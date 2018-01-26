@@ -70,7 +70,7 @@ function loadCourseData(id) {
                 reloadJS();
                 data.forEach(element => {
                     stringHtml = '';
-                    stringHtml = '<div class="row"><div class="col-md col-12 class-name"><span class="col-12">' + element['student_id'] + '</span></div><div class="col-md-3 col-12 class-name"><span class="col-12">'+element['title']+element['firstname']+' '+element['lastname']+'</span></div><div class="col-md col-12 class-name"><span class="col-12">เบอร์โทร '+element['tel']+'</span></div><div class="col-md col-12"><span class="col-12"><img src="/geo_solution/image/facebook.png" class="contract"><span>'+element['facebook']+'</span></span></div><div class="col-md col-12 class-name "><span class="col-12"><img src="/geo_solution/image/line.png" class="contract"><span>'+element['line']+'</span></span></div></div><hr class="course-line">';
+                    stringHtml = '<div class="row"><div class="col-md col-12 class-name"><span class="col-12">' + element['student_id'] + '</span></div><div class="col-md-3 col-12 class-name"><span class="col-12">'+element['title']+element['firstname']+' '+element['lastname']+'</span></div><div class="col-md col-12 class-name"><span class="col-12">เบอร์โทร '+element['tel']+'</span></div><div class="col-md col-12"><span class="col-12"><img src="/geo_solution/image/facebook.png" hspace = "10" class="contract"><span>'+element['facebook']+'</span></span></div><div class="col-md col-12 class-name "><span class="col-12"><img src="/geo_solution/image/line.png" hspace = "10" class="contract"><span>'+element['line']+'</span></span></div></div><hr class="course-line">';
                     $("#courseinfo"+id).append(stringHtml);
                 });
                 
