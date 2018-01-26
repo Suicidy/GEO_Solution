@@ -2,7 +2,7 @@
 
 	require $_SERVER['DOCUMENT_ROOT'].'/geo_solution/config.php';
 
-	$teacherid = $_POST['teacher_id'];
+	$teacherid = check_input($_POST['teacher_id']);
 
 	$result = "SELECT t.teacher_id,r.review_txt, ac.star, ac.time_stamp
 		FROM teacher t, course c, assign_course ac,review r
