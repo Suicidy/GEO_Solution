@@ -41,6 +41,7 @@ h2 {
 	color: white;
 	border: none;
 	text-align: left;
+	padding-top: 0px;
 }
 
 .course-body{
@@ -90,4 +91,20 @@ img {
 	word-wrap: break-word;
 }
 
+.info {
+	text-align: right;
+}
+
+.class-name {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.class-detail {
+	padding-top: 7px;
+}
+
+.show-request {
+	margin-left: 12px;
+}
 
