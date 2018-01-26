@@ -1,7 +1,7 @@
 <?php
 	require_once $_SERVER['DOCUMENT_ROOT'].'/geo_solution/config.php';
 
-	$id = $_POST['course_id'];
+	$id = check_input($_POST['course_id']);
 	$result = "SELECT course.course_id , course.max_seat - count(assign_course.course_id) AS leftSeat , course.max_seat
 	FROM assign_course RIGHT JOIN course ON assign_course.course_id = course.course_id
 	WHERE course.course_id = $id

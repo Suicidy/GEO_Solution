@@ -32,7 +32,7 @@
               } 
               else{
                 for (var i = 0; data[i];i++){
-                  $("<td></td>").html("<center>" + i + "</center>").appendTo("#body");
+                  $("<td></td>").html("<center>" + (i+1) + "</center>").appendTo("#body");
                   for (var j = 0; j < length ; j++){
                     var k = attributes[j];
                     $("<td></td>").html("<center>" + data[i][k] + "</center>").appendTo("#body");

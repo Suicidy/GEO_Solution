@@ -277,9 +277,6 @@ function check_show_course(){
       }
 
 function check_overlay($courseid,$studentid){
-  // $courseid = 5;
-  // $studentid = 58070501090;
-  //$comment = check_input($_POST['comment']);
   $sql = query("SELECT date(start_time) date ,time(start_time) start_time , time(end_time) end_time
           FROM course
           WHERE course_id = $courseid;");
