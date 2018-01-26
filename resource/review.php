@@ -40,7 +40,7 @@
 					var nickname = "พี่ " + data['nickname'];
 					var subject = "วิชา " + data['subject'];
 					var topic = "เรื่องที่สอน " + data['topic'];
-					var image = "/geo_solution/image/" + data['image'];
+					var image = "/geo_solution/image/teacher/" + data['image'];
 					var obj = {
 						name: name,
 						nickname: nickname,
