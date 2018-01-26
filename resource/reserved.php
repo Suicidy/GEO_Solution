@@ -43,7 +43,8 @@
 				      <th scope="col"><center>วิชา</center></th>
 				      <th scope="col"><center>เรื่อง</center></th>
 				      <th scope="col"><center>ผู้สอน</center></th>
-				      <th scope="col"><center>รายละเอียด</center></th>
+							<th scope="col"><center>ห้อง</center></th>
+				      <th scope="col"><center>เวลา</center></th>
 				      <th scope="col"><center>ยกเลิกการจอง</center></th>
 				    </tr>
 				  </thead>

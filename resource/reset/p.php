@@ -20,7 +20,7 @@
             <span class="help-block" id="new-pass-error"></span>
         </div>
         <div class="form-group">
-            <input type="submit" class="btn btn-primary" id="reset-btn" value="Submit">
+            <input type="submit" class="btn btn-primary" id="reset-btn" style="background-color: #ff7454" value="Submit">
         </div>
         </form>
     </div>
@@ -36,10 +36,9 @@
                 data: reset,
                 datatype: 'json',
                 success: function(data){
-                    console.log(data);
                     if(data['ERROR']){
                         if(data['type'] == 'link_fail'){
-                            window.location.href = '/geo_solution/index.php';
+                            window.location.href = '/geo_solution/home.php';
                         }else{
                             window.location.href = '/geo_solution/resource/login/expired.php';
                         }
@@ -73,9 +72,8 @@
                         type: "POST",
                         url: "reset.php",
                         success: function (data){
-                            console.log[data];
                             if(data['SUCCESS']){
-                                window.location.href = '/geo_solution/index.php';
+                                window.location.href = '/geo_solution/home.php';
                             }
                         }
                     });

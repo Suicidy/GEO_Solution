@@ -1,27 +1,20 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/geo_solution/resource/header.php'; ?>
-
-<style type="text/css">
-    body {
-        font: 18px sans-serif;
-        font-family: 'Kanit', sans-serif;
-    }
-
-    .wrapper {
-        width: 400px;
-        padding: 20px;
-    }
-</style>
+    <style type="text/css">
+        .wrapper {
+            width: 400px;
+            padding: 20px;
+        }
+    </style>
     <center>
     <div class="card wrapper" style="border: none;">
-        <h2> Forgotten Password</h2>
-        <p>Please fill in your Student ID.</p>
+        <h1>เปลี่ยนรหัสผ่านใหม่</h1>
         <div class="form-group" id="recov-pass-form">
-            <label>Student ID:<sup>*</sup></label>
+            <label>รหัสนักศึกษา</label>
             <input type="text" class="form-control" id="student-id" name="studentid">
-            <span class="help-block" id="recov-error"></span>
+            <p class="help-block" id="recov-error"></p>
         </div>    
         <div class="form-group">
-            <input type="submit" id="recov-btn" class="btn btn-primary" value="Submit">
+            <input type="submit" id="recov-btn" class="btn btn-primary" style="background-color: #ff7454" value="Submit">
         </div>
     </div>
     </center>  
@@ -29,7 +22,6 @@
         $(document).ready(function(){
             $('#recov-btn').click(function(){
                 var dataString = { studentid : $("#student-id").val(), type : 'recov_pass' };
-                console.log(dataString);//test only
                 if(dataString){
                     $.ajax({
                         type: "POST",
@@ -37,7 +29,6 @@
                         data: dataString,
                         datatype: 'json',
                         success: function (data){
-                            console.log(data);
                             if(data['ERROR']){
                                 if(data['type'] == "stid_notreq"){
                                     window.location.href = '/geo_solution/resource/request_pass.php';
@@ -57,4 +48,3 @@
         });
     </script>
 <?php require_once './footer.php'; ?>
-

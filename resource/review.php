@@ -40,7 +40,7 @@
 					var nickname = "พี่ " + data['nickname'];
 					var subject = "วิชา " + data['subject'];
 					var topic = "เรื่องที่สอน " + data['topic'];
-					var image = "/geo_solution/image/" + data['image'];
+					var image = "/geo_solution/image/teacher/" + data['image'];
 					var obj = {
 						name: name,
 						nickname: nickname,
@@ -144,7 +144,7 @@
 	<div class="form-group">
 	<div class="row">
 		<div class="col">
-			<h1>Review</h1>
+			<h1>รีวิว</h1>
 				<select class="form-control col-md-2" style="float:left; margin-bottom:10px;" id="select">
 					<option value = "all">ทั้งหมด</option>
 					<option value = "not_review">ยังไม่รีวิว</option>

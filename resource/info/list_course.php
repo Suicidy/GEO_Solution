@@ -9,7 +9,7 @@ $sql = "SELECT  course.course_id,teacher_id,subject,topic,date(start_time) as da
 		    FROM course,(SELECT course.course_id , count(assign_course.course_id) AS count_seat
                                                             FROM assign_course RIGHT JOIN course ON assign_course.course_id = course.course_id
                                                             GROUP BY course_id) seat
-		    WHERE course.course_id = seat.course_id AND teacher_id = $teacher_id AND subject ='$subject'";
+		    WHERE course.course_id = seat.course_id AND teacher_id = '$teacher_id' AND subject ='$subject'";
 
 $results = query($sql);
 $count=0;

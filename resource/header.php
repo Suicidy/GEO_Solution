@@ -158,7 +158,7 @@
 	              '</a>
 	              <div class="dropdown-menu">
 	                <a class="dropdown-item" href="/geo_solution/resource/profile.php"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>  ข้อมูลส่วนตัว</a>
-	                <a class="dropdown-item" href="/geo_solution/resource/reset/p.php"><i class="fa fa-wrench" aria-hidden="true"></i>  เปลี่ยนรหัสผ่าน</a>
+	                <a class="dropdown-item" href="/geo_solution/resource/account_recovery.php"><i class="fa fa-wrench" aria-hidden="true"></i>  เปลี่ยนรหัสผ่าน</a>
 	                <a class="dropdown-item" href="/geo_solution/resource/login/logout.php");><i class="fa fa-sign-out" aria-hidden="true"></i>  ออกจากระบบ</a>
 	              </div>
 	            </li>';
