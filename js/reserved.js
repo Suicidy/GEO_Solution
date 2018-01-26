@@ -4,7 +4,7 @@ function show_data() {
     {},
     function(data, status) {
       $("#body").empty();
-      var attributes = ["subject", "topic", "nickname", "start_time"];
+      var attributes = ["subject", "topic", "nickname", "room", "start_time"];
       var length = attributes.length;
       if (!jQuery.isEmptyObject(data)) {
         for (var i = 0; data[i]; i++) {
