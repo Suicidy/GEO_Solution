@@ -13,8 +13,7 @@ WHERE student.student_id = assign_course.student_id
 AND assign_course.course_id = course.course_id
 AND now() BETWEEN DATE_ADD(course.start_time , INTERVAL 1 HOUR) AND DATE_ADD(course.end_time, INTERVAL 1 HOUR)
 AND  '$teacher_id'  = course.teacher_id 
-AND course.subject LIKE '$subject%'
-GROUP BY student.student_id ;";
+AND course.subject LIKE '$subject%';";
 
 $results = query($sql);
 
