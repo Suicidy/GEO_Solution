@@ -113,13 +113,13 @@
 
 	                // Check if data is empty
 	                if (array.length == 0) {
-	                    $("#nocourse" + subject).html('<div class="card text-white bg-dark mb-3" style="max-width: 18rem;"><div class="card-header">ไม่มีคอร์สเรียน</div></div><br>');
+	                    $("#nocourse" + subject).html('<div class="card text-white bg-dark mb-3" style="max-width: 18rem;"><div class="card-header">ไม่มีคอร์สเรียน</div></div><br>').fadeIn(1000);
 	                    $("#content" + subject).empty();
 	                } else {
 
 	                    $("#nocourse" + subject).empty();
-	                    $("#content" + subject).empty().append('<div class="card text-white mb-3 day-card"><div class="card-header">' + data[showDate]["day"] + ' ' + data[showDate]["date"] + '</div></div><div class="col-12" id="courselist"></div>');
-	                    $("#content" + subject).append('<div class="col-12" id="courselist' + subject + data[showDate]["day"] + '"></div>');
+	                    $("#content" + subject).empty().append('<div class="card text-white mb-3 day-card"><div class="card-header">' + data[showDate]["day"] + ' ' + data[showDate]["date"] + '</div></div><div class="col-12" id="courselist"></div>').fadeIn(1000);
+	                    $("#content" + subject).append('<div class="col-12" id="courselist' + subject + data[showDate]["day"] + '"></div>').fadeIn(1000);
 	                    reloadJS();
 
 	                    var response = data[showDate];
@@ -133,7 +133,7 @@
 	                        }
 	                        stringForPrintHtml = stringForPrintHtml + '</div><div class="card-footer"><p>ติดต่อ</p><p><img class="contract" src="./image/facebook.png" hspace = "10">' + response[subject][i]["facebook"] + '</p><p><img class="contract" src="./image/line.png" hspace = "10"">' + response[subject][i]["line"] + '</p></div></div></div></div><br>';
 	                        //stringForPrintHtml = stringForPrintHtml+'<hr class="course-line"></p></div><div class="card-footer"><p>ติดต่อ</p><p><img class="contract" src="./image/facebook.png"></p><p><img class="contract" src="./image/line.png"></p></div></div></div></div><br>'
-	                        $("#courselist" + subject + response["day"]).append(stringForPrintHtml);
+	                        $("#courselist" + subject + response["day"]).append(stringForPrintHtml).fadeIn(1000);
 	                    }
 	                }
 
@@ -149,7 +149,7 @@
 
 	                // Check if data is empty
 	                if (array.length == 0) {
-	                    $("#nocourse" + subject).html('<div class="card text-white bg-dark mb-3" style="max-width: 18rem;"><div class="card-header">ไม่มีคอร์สเรียน</div></div><br>');
+	                    $("#nocourse" + subject).html('<div class="card text-white bg-dark mb-3" style="max-width: 18rem;"><div class="card-header">ไม่มีคอร์สเรียน</div></div><br>').fadeIn(1000);
 	                    $("#content" + subject).empty();
 	                } else {
 	                    $("#nocourse" + subject).empty();
@@ -157,8 +157,8 @@
 
 	                    for (showDate = 0; showDate < data.length; showDate++) {
 	                        if (data[showDate][subject].length != 0) {
-	                            $("#content" + subject).append('<div class="card text-white mb-3 day-card"><div class="card-header">' + data[showDate]["day"] + ' ' + data[showDate]["date"] + '</div></div><div class="col-12" id="courselist"></div>');
-	                            $("#content" + subject).append('<div class="col-12" id="courselist' + subject + data[showDate]["day"] + '"></div>');
+	                            $("#content" + subject).append('<div class="card text-white mb-3 day-card"><div class="card-header">' + data[showDate]["day"] + ' ' + data[showDate]["date"] + '</div></div><div class="col-12" id="courselist"></div>').fadeIn(1000);
+	                            $("#content" + subject).append('<div class="col-12" id="courselist' + subject + data[showDate]["day"] + '"></div>').fadeIn(1000);
 	                        }
 	                        reloadJS();
 
@@ -172,7 +172,7 @@
 	                                stringForPrintHtml = stringForPrintHtml.concat('<div class="row"><div class="col-md-4 col-xs-6 class-name"><span>', response[subject][i]["course"][j]["topic"], '</span></div><div class="col-md-4 col-xs-6 text-md-center room"><span>ห้อง ', response[subject][i]["course"][j]["room"], '</span></div><div class="col-md-4 col-xs-4 button-time"><center><button type="button" class="btn btn-primary time-reseved" data-toggle="modal" data-target="#bookingModal" id="booking', response[subject][i]["course"][j]["course_id"], '" onclick="updateSeat(', response[subject][i]["course"][j]["course_id"], ')"><span>', response[subject][i]["course"][j]["time"], '</span></button></center></div><p></p></div><hr class="course-line">');
 	                            }
 	                            stringForPrintHtml = stringForPrintHtml + '</div><div class="card-footer"><p>ติดต่อ</p><p><img class="contract" src="./image/facebook.png" hspace = "10">' + response[subject][i]["facebook"] + '</p><p><img class="contract" src="./image/line.png" hspace = "10">' + response[subject][i]["line"] + '</p></div></div></div></div><br>';
-	                            $("#courselist" + subject + response["day"]).append(stringForPrintHtml);
+	                            $("#courselist" + subject + response["day"]).append(stringForPrintHtml).fadeIn(1000);
 	                        }
 	                    }
 	                }
