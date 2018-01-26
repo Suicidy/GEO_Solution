@@ -87,10 +87,10 @@
           </div>
           <div class="modal-body" id="bodyModal">
             <div class="col-12 request-body">
-              <p class="request-text">Goooooooooooooooooodอิอิอิ</p>
+              <p class="request-text"></p>
             </div>
              <div class="col-12 request-body">
-              <p class="request-text">GoooooooooooooooooodอิอิอิksdjjvisojsovkGoooooooooooooooooodGoooooooooooooooooodGoooooooooooooooooodGooooooooooooooooood</p>
+              <p class="request-text"></p>
             </div>            
           </div>
         </div>

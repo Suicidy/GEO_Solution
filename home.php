@@ -117,7 +117,7 @@
 					<div class="col-12">
 						<h4 id="headPHY104">ทุกวัน</h4>
 						<hr class="head-line">
-						<center id="nocoursePHY104">vbvb</center>
+						<center id="nocoursePHY104"></center>
 
 						<div id="contentPHY104"></div>
 						
