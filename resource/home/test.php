@@ -1,8 +1,8 @@
 <?php
-$thisDay = 'Sunday';//date("l");
+$thisDay = date("l");
 $setday = array("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday");
 $setdayTH = array("วันจันทร์","วันอังคาร","วันพุธ","วันพฤหัสบดี","วันศุกร์","วันเสาร์","วันอาทิตย์");
-$dayTH ='วันเสาร์';
+$dayTH ='วันพฤหัสบดี';
 
 for($l=0;$l<7;$l++){
     if($dayTH==$setdayTH[$l])$input=$setday[$l];
@@ -18,7 +18,7 @@ $diffday = $i-$j;
 
 $nday=7;
 
-echo $diffday;
+//echo $diffday;
 if($diffday==-6)$diffday=1;
 if($diffday>0) {
      $searchDate = $diffday;
