@@ -284,7 +284,7 @@
 	            var stringHtml = '';
 	            if (data.length != 0) {
 	                for (var i = 0; i < data.length; i++) {
-	                    stringHtml = stringHtml + '<div class="col-12 review-text" "><p>' + data[i].review_txt + '</p></div><center><div class="review-name">คะแนนพี่TA</div>' + getStar(data[i].star) + '<div class="col-md-5 col-xs-5 date-time"><p>' + data[i].time_stamp + ' น.</p></div></div></center>';
+	                    stringHtml = stringHtml + '<div class="col-12 review-text" "><p>' + data[i].review_txt + '</p></div><center><div class="row"><div class="review-name">คะแนนพี่TA</div>' + getStar(data[i].star) + '<div class="col-md-5 col-xs-5 date-time"><p>' + data[i].time_stamp + ' น.</p></div></div></div></center>';
 	                }
 	                $("#reviewModalText").empty().append(stringHtml);
 	            } else {
