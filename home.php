@@ -25,7 +25,7 @@
 		
 		<div class="row">
 			<div class="col">
-				<h1>GEO Solution</h1>
+				<h1>จองเวลาเรียน</h1>
 				<nav>
 				  <div class="nav nav-tabs" id="nav-tab" role="tablist">
 				    <a class="nav-item nav-link active" id="nav-MTH_102-tab" data-toggle="tab" href="#nav-MTH_102" role="tab" aria-controls="nav-MTH_102" aria-selected="true">MTH 102</a>
